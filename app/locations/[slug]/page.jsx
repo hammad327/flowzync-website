@@ -122,13 +122,14 @@ export default function LocationPage({ params }) {
               </svg>
             </div>
             <div>
-              <h3>Where we actually are</h3>
+              <h3>How we work with {l.city} clients</h3>
               <p>
-                Flowzync is based in {site.business.city}, Pakistan. We work with {l.city} clients
-                remotely, covering UK business hours, and we say so on every page rather than
-                implying a local office. It is the honest reason our quotes compare well with a
-                {' '}{l.city} agency — and everything else, from design reviews to handover,
-                happens exactly as it would with a studio down the road.
+                Flowzync is a remote studio — we don&apos;t have a {l.city} office, and we
+                say so plainly rather than implying one. We cover
+                {l.country === 'US' ? ' US ' : ' UK '}business hours for calls, and
+                everything else — design reviews, revisions, handover — happens exactly as
+                it would with a studio down the road. It is also the honest reason our
+                quotes compare well with a {l.city} agency.
               </p>
             </div>
           </div>
@@ -190,11 +191,11 @@ export default function LocationPage({ params }) {
       <section style={{ paddingTop: 0 }}>
         <div className="wrap">
           <div className="sec-head rv">
-            <div className="eyebrow"><span className="pulse" />Elsewhere in the UK</div>
+            <div className="eyebrow"><span className="pulse" />Elsewhere</div>
             <h2>We also work <span className="grad-txt">with these cities</span></h2>
           </div>
           <div className="ind-mini">
-            {locations.filter((o) => o.slug !== l.slug).map((o) => (
+            {locations.filter((o) => o.slug !== l.slug && o.country === l.country).map((o) => (
               <Link href={`/locations/${o.slug}`} key={o.slug} className="ind-minicard rv">
                 <b>{o.city}</b>
                 <span>{o.region}</span>

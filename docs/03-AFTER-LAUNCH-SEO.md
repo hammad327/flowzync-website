@@ -79,7 +79,7 @@ directories and Google cross-check against your site.
    areas and 10+ real photos
 
 **You cannot get a UK Business Profile** without a verified UK address with staff
-present. Don't attempt it — see `05-UK-LOCATION-PAGES.md`. Your route to UK
+present. Don't attempt it — see `05-LOCATION-PAGES.md`. Your route to UK
 visibility is organic location pages, which are already built.
 
 ### 4. Verify things actually work (10 min)

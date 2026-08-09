@@ -9,7 +9,7 @@ Each numbered guide in this folder covers one job in full detail.
 | 2 | [`02-PUBLISHING-BLOG-POSTS.md`](02-PUBLISHING-BLOG-POSTS.md) | Every time you post | ~5 min per post |
 | 3 | [`03-AFTER-LAUNCH-SEO.md`](03-AFTER-LAUNCH-SEO.md) | Launch day + ongoing | ~2 hrs, then weekly |
 | 4 | [`04-BACKLINKS.md`](04-BACKLINKS.md) | From week 2 onward | 2–3 hrs/month |
-| 5 | [`05-UK-LOCATION-PAGES.md`](05-UK-LOCATION-PAGES.md) | Before launch — **read this** | ~20 min |
+| 5 | [`05-LOCATION-PAGES.md`](05-LOCATION-PAGES.md) | Before launch — **read this** | ~20 min |
 | 6 | [`../SETUP-LEADS.md`](../SETUP-LEADS.md) | Before launch | ~15 min, once |
 
 ---
@@ -58,7 +58,7 @@ The temptation is to blur it and imply a UK office. Don't. A Google Business
 Profile at an address you don't staff gets permanently suspended and takes your
 reviews with it, and in the web design niche competitors report it constantly.
 
-**Read [`05-UK-LOCATION-PAGES.md`](05-UK-LOCATION-PAGES.md) before you list your
+**Read [`05-LOCATION-PAGES.md`](05-LOCATION-PAGES.md) before you list your
 business anywhere.** It covers what works instead.
 
 ### Fill in your real details

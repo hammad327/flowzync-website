@@ -16,13 +16,16 @@ A complete, SEO-first Next.js website for **www.flowzync.com**.
 | `lib/site.js` | Domain, email, social links, business address and phone |
 | `lib/images.js` | Every image on the site — change a path, the site updates |
 
-### 👉 Your instructions: **[`INSTRUCTIONS.md`](INSTRUCTIONS.md)**
+### 👉 START HERE: **[`SETUP-GUIDE.md`](SETUP-GUIDE.md)**
 
-**One file, everything you need to do**, top to bottom — setup checklist, GitHub
-and Vercel, publishing blog posts, SEO and indexing timelines, and backlinks.
+**35 numbered steps, in order, from nothing to a live site.** Accounts, database,
+GitHub, Vercel, Hostinger DNS, testing, Google. Follow it top to bottom and don't
+skip — the order matters, because later steps need values earlier ones produce.
 
-Start there. The same content is also split into separate guides in `/docs` if
-you'd rather work through them one at a time.
+**Reference material:**
+- [`INSTRUCTIONS.md`](INSTRUCTIONS.md) — the full manual, more depth on each topic
+- [`/docs`](docs/) — the same content split into separate guides
+- [`SETUP-LEADS.md`](SETUP-LEADS.md) — lead database detail and troubleshooting
 
 | Guide | Covers |
 |---|---|

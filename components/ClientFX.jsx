@@ -16,7 +16,7 @@ export default function ClientFX() {
 
   useEffect(() => {
     const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const fine = matchMedia('(pointer: fine)').matches;
+    const fine = matchMedia('(pointer: fine)').matches && !matchMedia('(hover: none)').matches;
 
     /* ── smooth wheel scrolling (lerp) ───────────────────── */
     // CSS scroll-behavior:smooth fights the JS lerp (every scrollTo gets
@@ -59,24 +59,46 @@ export default function ClientFX() {
 
     /* ── progress bar / nav shadow / parallax ────────────── */
     const prog = document.getElementById('scroll-progress');
+
+    // Parallax is DESKTOP ONLY. On touch devices it forced a layout
+    // recalculation on every scroll event, which is what made scrolling
+    // stutter and fight the browser's momentum. Phones get a completely
+    // static hero instead, which is both smoother and kinder to battery.
+    const wantsParallax = fine && !reduce && innerWidth > 980;
+
     let plxEls = [];
-    const collectPlx = () => { plxEls = [...document.querySelectorAll('[data-plx]')]; };
+    const collectPlx = () => {
+      plxEls = wantsParallax
+        ? [...document.querySelectorAll('[data-plx]')].map((el) => {
+            el.style.willChange = 'transform';
+            // Cache the resting position once, so the scroll handler only
+            // ever does arithmetic — never a layout read.
+            const r = el.getBoundingClientRect();
+            return { el, mid: r.top + scrollY + r.height / 2, k: parseFloat(el.dataset.plx || 0.1) };
+          })
+        : [];
+    };
     collectPlx();
-    const onScroll = () => {
+
+    const navEl = document.querySelector('.nav');
+    let ticking = false;
+    const paint = () => {
+      ticking = false;
+      const y = scrollY;
       const h = maxScroll();
-      if (prog) prog.style.width = (h > 0 ? (scrollY / h) * 100 : 0) + '%';
-      document.querySelector('.nav')?.classList.toggle('scrolled', scrollY > 20);
-      if (!reduce) {
-        const mid = innerHeight / 2;
-        for (const el of plxEls) {
-          const r = el.getBoundingClientRect();
-          const off = (r.top + r.height / 2 - mid) * parseFloat(el.dataset.plx || 0.1);
-          el.style.transform = `translate3d(0, ${-off}px, 0)`;
-        }
+      if (prog) prog.style.width = (h > 0 ? (y / h) * 100 : 0) + '%';
+      navEl?.classList.toggle('scrolled', y > 20);
+      const mid = y + innerHeight / 2;
+      for (const p of plxEls) {
+        p.el.style.transform = `translate3d(0, ${-(p.mid - mid) * p.k}px, 0)`;
       }
     };
+    // rAF-throttled: at most one paint per frame no matter how many
+    // scroll events the browser fires.
+    const onScroll = () => { if (!ticking) { ticking = true; requestAnimationFrame(paint); } };
     addEventListener('scroll', onScroll, { passive: true });
-    onScroll();
+    addEventListener('resize', collectPlx, { passive: true });
+    paint();
 
     /* ── custom cursor ───────────────────────────────────── */
     const cur = document.getElementById('fx-cursor');
@@ -117,6 +139,7 @@ export default function ClientFX() {
       htmlEl.style.scrollBehavior = prevBehavior;
       removeEventListener('wheel', onWheel); removeEventListener('scroll', onNativeScroll);
       removeEventListener('scroll', onScroll);
+      removeEventListener('resize', collectPlx);
       removeEventListener('mousemove', onMove); removeEventListener('mouseover', over);
       removeEventListener('mousemove', magMove); removeEventListener('mouseout', magOut);
       removeEventListener('mousemove', tiltMove); removeEventListener('mouseout', tiltOut);

@@ -21,6 +21,7 @@ export default function AdminPage() {
   const [token, setToken] = useState(null);
   const [leads, setLeads] = useState([]);
   const [warn, setWarn] = useState(false);
+  const [fallback, setFallback] = useState(false);
   const [err, setErr] = useState('');
   const [loading, setLoading] = useState(false);
   const [q, setQ] = useState('');
@@ -45,6 +46,7 @@ export default function AdminPage() {
       }
       setLeads(data.leads || []);
       setWarn(!data.usingDatabase);
+      setFallback(Boolean(data.fallback));
       sessionStorage.setItem('fz_admin', t);
     } catch {
       setErr('Could not reach the server. Check your connection and try again.');
@@ -129,6 +131,16 @@ export default function AdminPage() {
           <span>They will disappear when the server restarts. Add SUPABASE_URL and SUPABASE_SERVICE_KEY to store them permanently — see SETUP-LEADS.md.</span>
         </div>
       )}
+      {fallback && !warn && (
+        <div className="adm-warn adm-warn-err">
+          <b>Some leads could not be written to the database.</b>
+          <span>
+            They were kept in memory and emailed to you, so nothing was lost — but they
+            will disappear when the server restarts. Open /api/keep-alive to see the exact
+            cause, fix it, then copy those leads somewhere safe.
+          </span>
+        </div>
+      )}
       {err && <div className="adm-warn adm-warn-err"><b>{err}</b></div>}
 
       <div className="adm-stats">
@@ -181,7 +193,12 @@ export default function AdminPage() {
                       </div>
                     </td>
                     <td>{l.service || '—'}</td>
-                    <td><span className={`adm-src ${l.source === 'chatbot' ? 'src-bot' : ''}`}>{l.source === 'chatbot' ? 'Zync chat' : 'Form'}</span></td>
+                    <td>
+                      <span className={`adm-src ${l.source === 'chatbot' ? 'src-bot' : ''}`}>
+                        {l.source === 'chatbot' ? 'Zync chat' : 'Form'}
+                      </span>
+                      {l._fallback && <span className="adm-src src-warn" title="Held in memory, not saved to the database">memory</span>}
+                    </td>
                     <td>
                       <select
                         className={`adm-status ${STATUS_CLASS[l.status] || ''}`}

@@ -23,8 +23,8 @@ export function GET() {
 Website: ${site.url}
 Contact: ${site.email}
 Working days: Monday to Saturday
-Based in: ${site.business.city}, ${site.business.region}, Pakistan
-Serves: clients across the United Kingdom and Pakistan (remote studio, UK business hours)
+Model: remote studio — no walk-in office
+Serves: businesses across the United States and United Kingdom
 Hours: ${site.business.hoursNote}
 
 ## What we do
@@ -35,11 +35,11 @@ ${services.map((s) => `- [${s.title}](${site.url}/services/${s.slug}): ${s.short
 
 ${industries.map((i) => `- [${i.title}](${site.url}/industries/${i.slug}): websites built around how ${i.trade.toLowerCase()} actually get found and contacted.`).join('\n')}
 
-## UK areas we cover
+## Areas we cover
 
 ${locations.map((l) => `- [Web design in ${l.city}](${site.url}/locations/${l.slug}): ${l.region}.`).join('\n')}
 
-Flowzync is based in Pakistan and works with UK clients remotely. We do not have a UK office.
+Flowzync is a remote studio working with US and UK clients. We do not have a US or UK office.
 
 ## Common questions
 

@@ -10,7 +10,7 @@
 //  If ADMIN_PASSWORD is not set, the API refuses every request —
 //  it never falls open.
 // ─────────────────────────────────────────────────────────────
-import { listLeads, updateLeadStatus, usingDatabase } from '@/lib/leads';
+import { listLeads, updateLeadStatus, usingDatabase, hasFallbackLeads } from '@/lib/leads';
 
 function authorised(req) {
   const expected = process.env.ADMIN_PASSWORD;
@@ -34,7 +34,7 @@ export async function GET(req) {
   if (!authorised(req)) return denied();
   try {
     const leads = await listLeads();
-    return Response.json({ ok: true, leads, usingDatabase });
+    return Response.json({ ok: true, leads, usingDatabase, fallback: hasFallbackLeads() });
   } catch (err) {
     console.error('Admin list failed:', err);
     return Response.json({ ok: false, error: 'Could not load leads.' }, { status: 500 });

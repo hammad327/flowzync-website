@@ -39,7 +39,7 @@ export default function Footer() {
 
           {/* UK areas */}
           <nav aria-label="Areas we cover">
-            <h5>UK areas</h5>
+            <h5>Areas</h5>
             {locations.slice(0, 5).map((l) => (
               <Link key={l.slug} href={`/locations/${l.slug}`}>{l.city}</Link>
             ))}

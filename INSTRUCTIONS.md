@@ -14,7 +14,7 @@ to bottom. Nothing here requires a developer.
 3. [Publishing blog posts](#3-publishing-a-blog-post) — your daily workflow
 4. [After launch: indexing & SEO](#4-after-you-publish--indexing-timelines-and-what-to-do) — how long until Google finds you
 5. [Backlinks](#5-backlinks--the-slow-high-impact-one) — the monthly habit
-6. [Ranking in UK towns](#6-ranking-in-uk-towns-from-pakistan) — **read before listing anywhere**
+6. [Ranking in US and UK cities](#6-ranking-in-us-and-uk-cities) — **read before listing anywhere**
 7. [Lead dashboard setup](#7-lead-capture--dashboard-setup) — required before launch
 8. [Quick reference](#8-quick-reference) — commands and links
 
@@ -31,7 +31,7 @@ Each section below covers one job in full detail.
 | 2 | [Publishing blog posts](#3-publishing-a-blog-post) | Every time you post | ~5 min per post |
 | 3 | [After launch: SEO](#4-after-you-publish--indexing-timelines-and-what-to-do) | Launch day + ongoing | ~2 hrs, then weekly |
 | 4 | [Backlinks](#5-backlinks--the-slow-high-impact-one) | From week 2 onward | 2–3 hrs/month |
-| 5 | [Ranking in UK towns](#6-ranking-in-uk-towns-from-pakistan) | Before launch — **read this** | ~20 min |
+| 5 | [`05-LOCATION-PAGES.md`](05-LOCATION-PAGES.md) | Before launch — **read this** | ~20 min |
 | 6 | [Lead dashboard setup](#7-lead-capture--dashboard-setup) | Before launch | ~15 min, once |
 
 ---
@@ -80,7 +80,7 @@ The temptation is to blur it and imply a UK office. Don't. A Google Business
 Profile at an address you don't staff gets permanently suspended and takes your
 reviews with it, and in the web design niche competitors report it constantly.
 
-**Read [Ranking in UK towns](#6-ranking-in-uk-towns-from-pakistan) before you list your
+**Read [`05-LOCATION-PAGES.md`](05-LOCATION-PAGES.md) before you list your
 business anywhere.** It covers what works instead.
 
 #### Fill in your real details
@@ -216,59 +216,275 @@ Refresh your GitHub repo page. Your files should be there.
 
 ### Step 5 — Deploy on Vercel
 
-1. Go to [vercel.com](https://vercel.com) → **Sign up** → **Continue with GitHub**.
-2. Authorise Vercel to access your repositories.
-3. **Add New** → **Project**.
-4. Find `flowzync-website` → **Import**.
-5. Vercel detects Next.js on its own. **Change nothing** in the build settings.
-6. Before clicking Deploy, expand **Environment Variables** and add each of these
-   (name on the left, value on the right, **Add** after each one):
+#### 5a. If you already have a Vercel account (email + password)
 
-| Name | Value | Why |
+You don't need a new account. You just need to link GitHub to the one you have.
+
+1. Log in at [vercel.com](https://vercel.com) with your email and password as usual.
+2. Click your **avatar** (top right) → **Account Settings**.
+3. Open the **Authentication** tab in the left menu.
+4. Find **GitHub** under login connections → click **Connect**.
+5. GitHub asks you to authorise Vercel → **Authorize**.
+6. GitHub then asks where to install the Vercel app. Choose either:
+   - **All repositories**, or
+   - **Only select repositories** → pick `flowzync-website`
+
+   Either is fine. "Only select repositories" is tidier if you'll have other
+   projects later.
+
+Your GitHub account is now linked. You can still log in with email and password —
+this only adds the connection Vercel needs to read your code.
+
+> **If Connect does nothing or errors:** you're likely already logged into a
+> *different* GitHub account in that browser. Log out of GitHub, log back in as
+> the right account, and try again.
+
+#### 5b. If you already deployed this site to Vercel before
+
+Important: your original project folder contained a `.vercel` file, which means a
+Vercel project already exists for this site — possibly with your domain already
+attached to it.
+
+**Connect that existing project to GitHub rather than creating a new one.**
+Otherwise you'll end up with two projects and have to move the domain across.
+
+1. Vercel dashboard → click your **existing Flowzync project**
+2. **Settings** → **Git** (left menu)
+3. **Connect Git Repository** → choose **GitHub** → select `flowzync-website`
+4. Set the production branch to **`main`**
+5. **Save**
+
+From now on every push to `main` deploys automatically to that same project,
+keeping your domain, your environment variables and your deployment history.
+
+Skip to **Step 6** if your domain is already connected there.
+
+#### 5c. If this is a brand new project
+
+1. Vercel dashboard → **Add New** → **Project**
+2. Find `flowzync-website` in the list → **Import**
+
+   > Repo not showing? Click **Adjust GitHub App Permissions** at the bottom of
+   > the list and grant access to it.
+
+3. Vercel detects Next.js automatically. **Change nothing** in the build settings.
+
+#### 5d. Add your environment variables
+
+Environment variables are secrets — passwords and API keys — that your site needs
+but that must never sit in your code where GitHub could see them. Vercel stores
+them separately and injects them at build time.
+
+##### Adding them, click by click
+
+1. Vercel dashboard → click your **project**
+2. **Settings** (top tabs) → **Environment Variables** (left menu)
+3. For each row in the table below:
+   - **Key** → paste the name exactly, e.g. `ADMIN_PASSWORD`
+   - **Value** → paste the value
+   - **Environments** → leave all three ticked (Production, Preview, Development)
+   - Click **Save**
+4. Repeat for each one.
+
+> **On a brand new project**, the same box appears on the import screen before
+> you click Deploy. Either place works.
+
+##### What to add
+
+| Key | Value | What it does |
 |---|---|---|
-| `ADMIN_PASSWORD` | a long password you invent | Unlocks `/admin` |
-| `SUPABASE_URL` | from Supabase | Stores leads permanently |
-| `SUPABASE_SERVICE_KEY` | from Supabase | Same |
-| `GMAIL_USER` | your Gmail address | Emails you new leads |
-| `GMAIL_APP_PASSWORD` | Google App Password | Same |
-| `CONTACT_TO` | `info@flowzync.com` | Where leads arrive |
-| `GROQ_API_KEY` | free from console.groq.com | Makes Zync conversational |
+| `ADMIN_PASSWORD` | a long password you invent | Unlocks `/admin`. Until this is set, the dashboard stays locked. |
+| `SUPABASE_URL` | from Supabase → Settings → API | Stores leads permanently |
+| `SUPABASE_SERVICE_KEY` | from Supabase → Settings → API (`service_role`) | Same |
+| `GMAIL_USER` | your Gmail address | Emails you each new lead |
+| `GMAIL_APP_PASSWORD` | Google App Password, 16 characters | Same |
+| `CONTACT_TO` | `info@flowzync.com` | Where lead emails arrive |
+| `GROQ_API_KEY` | free from [console.groq.com](https://console.groq.com) | Makes Zync fully conversational |
 
-See [section 7](#7-lead-capture--dashboard-setup) for how to get the Supabase and Gmail values. You can add
-them later too — Settings → Environment Variables → then **Redeploy**.
+[section 7](#7-lead-capture--dashboard-setup) walks through getting the Supabase and Gmail values.
 
-7. Click **Deploy** and wait ~2 minutes.
+##### ⚠️ They don't apply until you redeploy
 
-You'll get a URL like `flowzync-website.vercel.app`. Open it. That's your site,
-live on the internet.
+This catches everyone. Adding a variable does **nothing** to your live site until
+a new deployment runs.
 
----
+**Deployments** tab → find the most recent one → **⋯** (three dots) →
+**Redeploy** → confirm. Two minutes later they're live.
 
-### Step 6 — Connect your domain
+Any `git push` also triggers a fresh deployment and picks them up.
 
-1. In Vercel: your project → **Settings** → **Domains**.
-2. Type `www.flowzync.com` → **Add**.
-3. Add `flowzync.com` as well. Vercel will offer to redirect it to the `www`
-   version — **accept that**. Pick one and stick to it forever; both versions
-   answering separately splits your SEO between two addresses.
-4. Vercel shows you DNS records to create. Log in wherever you bought the domain
-   (GoDaddy, Namecheap, Hostinger…), find **DNS Management**, and add exactly
-   what Vercel shows. Usually:
+##### Notes
 
-   | Type | Name | Value |
-   |---|---|---|
-   | A | `@` | `76.76.21.21` |
-   | CNAME | `www` | `cname.vercel-dns.com` |
+- **No quotes.** Paste `mypassword123`, not `"mypassword123"` — Vercel adds no
+  formatting, so quotes become part of the value.
+- **No spaces** before or after the value. This is the most common cause of
+  "my password isn't working".
+- **The Gmail App Password** is 16 characters and may display with spaces
+  (`abcd efgh ijkl mnop`). Spaces are fine, paste it as shown.
+- **Editing later:** hover the variable → **⋯** → **Edit**. Redeploy after.
+- **Never put secrets in your code.** That's the entire point of this screen.
+  Anything prefixed `NEXT_PUBLIC_` is visible to visitors — none of the above
+  should ever carry that prefix.
 
-   **Use the values Vercel actually displays**, not these — they change.
+### Step 6 — Connect flowzync.com
 
-5. Wait. DNS usually takes 10–30 minutes, occasionally up to 48 hours. Vercel's
-   Domains page shows a green tick when it's ready.
-6. **SSL is automatic.** Vercel issues the certificate once DNS resolves. Check
-   for the padlock in the browser bar. If it hasn't appeared after an hour with
-   DNS confirmed, click **Refresh** on the domain in Vercel.
+#### First, how this actually works
 
----
+A common misunderstanding: **Vercel does not push files to your domain.** There's
+no upload, and no hosting account of yours involved.
+
+What happens instead is that you repoint the domain. A domain name is really just
+an address-book entry saying "when someone types flowzync.com, go to this
+server". You change that entry to point at Vercel, and from then on Vercel serves
+the site directly whenever anyone visits.
+
+```
+Visitor types flowzync.com
+        ↓
+DNS looks up where it points  ──►  Vercel  ──►  serves your latest deployment
+```
+
+So when you `git push`, Vercel rebuilds and swaps in the new version. The domain
+never changes — it's already pointing at Vercel, and it just gets whatever is
+current. Nothing is ever "uploaded to your domain" again.
+
+#### 6a. Add the domain in Vercel
+
+1. Vercel → your project → **Settings** → **Domains**
+2. Type `www.flowzync.com` → **Add**
+3. Add `flowzync.com` as well. Vercel offers to redirect it to the `www` version
+   — **accept**. Pick one and stick with it forever; both answering separately
+   splits your SEO across two addresses.
+4. Vercel now shows the exact DNS records you need. Leave this tab open.
+
+#### 6b. ⚠️ Before you touch DNS — do you have email on this domain?
+
+**If `info@flowzync.com` currently receives email, read this first.**
+
+Vercel may offer you two options: change your **nameservers**, or add individual
+**records**.
+
+- **Changing nameservers** hands full DNS control to Vercel — and **wipes your
+  existing MX records**, which is what routes your email. Your email stops
+  working, often without an obvious cause.
+- **Adding records** changes only where the website points and leaves email
+  untouched.
+
+**Use the records method.** It's the safer option and there's no real downside.
+
+If you're not sure whether you have email on the domain: check whether anyone
+sends or receives from an `@flowzync.com` address. If yes, records method. If
+you're still unsure, records method anyway.
+
+#### 6c. Add the DNS records at your registrar
+
+Log in wherever you bought the domain — GoDaddy, Namecheap, Hostinger, PKNIC,
+whoever. Find **DNS Management**, **DNS Zone Editor** or **Advanced DNS**.
+
+##### Use the values Vercel shows you, not examples from a guide
+
+Vercel now issues a **unique hostname per project**, so your CNAME value will
+look something like:
+
+```
+e1169130cebb685f.vercel-dns-017.com.
+```
+
+That long string is specific to your project. The older shared values
+(`cname.vercel-dns.com` and `76.76.21.21`) still work, but use whatever Vercel's
+Domains screen currently displays — it is always the correct answer.
+
+##### The two records you need
+
+| Type | Name / Host | Value |
+|---|---|---|
+| CNAME | `www` | the per-project hostname Vercel shows you |
+| A | `@` | the IP Vercel shows for the apex domain |
+
+**To see the apex record:** on the Domains screen, click **View DNS
+configuration** next to `flowzync.com` (the one without `www`). Vercel shows its
+record separately from the `www` one.
+
+Apex domains usually need an **A record**, because most registrars don't allow a
+CNAME on the bare domain. Some registrars offer **ALIAS**, **ANAME** or **CNAME
+flattening** — if yours does, you can use that with the same hostname instead.
+
+##### Filling in the fields
+
+- **Name / Host:** enter just `www`, not `www.flowzync.com`. Most registrars add
+  the domain automatically — if you type the full thing you'll end up with
+  `www.flowzync.com.flowzync.com`.
+- **`@`** means the bare domain. Some registrars want the field left blank, or
+  the word `@`, or the domain itself. Check their help text.
+- **Trailing dot:** Vercel shows the value ending in a dot. Most registrars
+  accept it; if yours rejects it, delete the final dot and save again.
+- **TTL:** leave at default, or 3600 if forced to choose.
+
+##### ⚠️ Remove conflicting records first
+
+This is the most common reason things don't work:
+
+- If a **CNAME or A record for `www`** already exists, **edit it** rather than
+  adding a second. Two records for the same name conflict and produce
+  intermittent failures that are miserable to diagnose.
+- Same for **`@`** — one A record only.
+- Parked-domain or "coming soon" records from your registrar count. Delete them.
+- **Leave MX records alone.** Those are your email.
+
+#### 6d. Wait, then check
+
+DNS changes take **10–30 minutes** typically, occasionally up to 48 hours. There
+is no way to speed this up.
+
+Vercel's **Domains** page shows a green tick when it can see the change. Refresh
+it every so often.
+
+**SSL is automatic.** Vercel issues the certificate itself once DNS resolves —
+you don't buy one or install anything. Check for the padlock in the address bar.
+If it hasn't appeared an hour after DNS is confirmed working, click **Refresh**
+next to the domain in Vercel.
+
+#### 6e. Confirm it's done
+
+- [ ] `www.flowzync.com` loads your site
+- [ ] `flowzync.com` redirects to the `www` version
+- [ ] Padlock visible in the address bar
+- [ ] Send a test email to `info@flowzync.com` and confirm it still arrives
+
+That last one takes ten seconds and is worth doing.
+
+#### If it isn't working
+
+**"Invalid Configuration" in Vercel**
+This is the normal state *before* your records exist and are visible — it is not
+an error on Vercel's side. Work through it in this order:
+
+1. Have you actually added the records at your registrar yet? Adding the domain
+   in Vercel does nothing on its own.
+2. Compare the value character by character against what Vercel shows. The
+   per-project hostname is long and easy to mistype — copy and paste it.
+3. Check the **Name** field is `www`, not `www.flowzync.com`.
+4. Delete any older conflicting record for the same name.
+5. Then wait. DNS takes 10–30 minutes typically. Check progress at
+   [dnschecker.org](https://dnschecker.org) — search `www.flowzync.com` and pick
+   CNAME from the dropdown.
+6. Once it resolves, click **Refresh** next to the domain in Vercel.
+
+Vercel rechecks periodically on its own, so it often clears without you doing
+anything further.
+
+**Site loads at the `.vercel.app` URL but not your domain**
+DNS hasn't propagated, or the records went to the wrong place. Check at
+[dnschecker.org](https://dnschecker.org) — enter `www.flowzync.com` and see
+whether it resolves to Vercel worldwide.
+
+**Old website still showing**
+Your browser cached it. Try a private window, or a different device on mobile
+data.
+
+**Email stopped working**
+You almost certainly changed nameservers. Switch them back to your registrar's
+defaults, then use the records method from 6c instead.
 
 ### Step 7 — The everyday workflow
 
@@ -308,6 +524,71 @@ version if the build succeeds. Fix the file, push again.
 **Site didn't update after pushing**
 Check the repo on github.com — is your change actually there? If not, the push
 failed. If it is, check Vercel's Deployments tab for a failed build.
+
+**"Vercel deploys, but it's not my domain / it made a second project"**
+You imported as a new project instead of connecting the existing one. Either move
+the domain across (Settings → Domains on both projects), or delete the new project
+and follow Step 5b instead.
+
+**"[someone] attempted to deploy a commit to [team] on Vercel, but they're not a
+member of the team"**
+
+Ignore the suggestion to upgrade to Pro — you almost certainly don't need to.
+
+Vercel identifies who made a deployment by the **email address on the git
+commit**, not by who pushed it. If that email doesn't match a verified email on
+your Vercel account, Vercel decides a stranger is deploying to your project and
+blocks it. On the free Hobby plan, only the account owner can deploy, so it stops
+there.
+
+The fix is to make your commit email match your Vercel account.
+
+**Step 1 — find the email Vercel knows you by**
+
+Vercel → avatar → **Account Settings** → **General**. Note the email shown. Also
+check **Authentication** and confirm GitHub shows as connected.
+
+**Step 2 — check what git is putting on your commits**
+
+```bash
+git config user.email
+```
+
+If that doesn't match Step 1, that's your problem.
+
+**Step 3 — fix it**
+
+```bash
+git config --global user.email "the-email-from-step-1"
+git commit --amend --reset-author --no-edit
+git push --force
+```
+
+`--amend --reset-author` rewrites the last commit with the corrected author.
+`--force` is safe here: it's your own repository and nobody else is working in it.
+
+That push triggers a fresh deployment, which should now succeed.
+
+**If it still fails, check these in order:**
+
+1. **Is the GitHub account connected the right one?** If you have a personal and
+   a work GitHub account, Vercel may be linked to the wrong one. Account Settings
+   → Authentication → check which username is shown.
+2. **Is your commit email verified on Vercel?** Account Settings → General →
+   add and verify the email if it isn't listed. Vercel only matches verified
+   addresses.
+3. **Does GitHub hide your email?** If you've enabled email privacy, GitHub
+   rewrites your commits to `12345678+username@users.noreply.github.com`. Add
+   that exact address to your Vercel account as a verified email, or turn off
+   "Keep my email addresses private" in GitHub → Settings → Emails.
+4. **Was this a CLI deploy?** If you previously ran `vercel` from the terminal
+   while logged into a different account, run `vercel logout` then `vercel login`
+   with the correct one. Deploying through git push avoids this entirely, and is
+   what you want day to day.
+
+You do **not** need to make the repository public, and you do **not** need Pro
+for a single-person project. Both suggestions in Vercel's error message apply to
+genuine multi-person teams.
 
 **"I've broken everything"**
 You haven't. Every version is saved in GitHub. Vercel → Deployments → find a
@@ -570,7 +851,7 @@ directories and Google cross-check against your site.
    areas and 10+ real photos
 
 **You cannot get a UK Business Profile** without a verified UK address with staff
-present. Don't attempt it — see [section 6](#6-ranking-in-uk-towns-from-pakistan). Your route to UK
+present. Don't attempt it — see `05-LOCATION-PAGES.md`. Your route to UK
 visibility is organic location pages, which are already built.
 
 #### 4. Verify things actually work (10 min)
@@ -827,45 +1108,42 @@ competitive keywords in section 4's month 6–12 window actually reachable.
 
 ---
 
-## 6. Ranking in UK towns from Pakistan
+## 6. Ranking in US and UK cities
 
-You're based in Lahore and you want to rank in UK areas. That's achievable, and
-the site is now built for it. This guide covers how it works and — importantly —
-the one mistake that would undo it.
-
----
-
-### The two claims, kept separate
-
-Your site now makes two different statements, and keeping them apart is what
-makes this both effective and safe:
-
-| Claim | Where it appears | Status |
-|---|---|---|
-| **We are located in Lahore, Pakistan** | LocalBusiness schema, footer, location pages | ✅ True |
-| **We serve clients across the UK** | `areaServed` — 172 areas | ✅ True |
-
-Your structured data now declares **172 service areas**: Pakistan and the UK as
-countries, 17 Pakistani cities and provinces, 39 UK counties and nations, and
-120+ UK towns from Croydon to Inverness.
-
-What it never does is claim a UK address. That distinction isn't pedantry — it's
-the difference between a legitimate service-area business and a Google Business
-Profile suspension that takes your reviews with it permanently.
-
-**Being upfront is also a selling point.** Every location page carries a "Where
-we actually are" panel explaining you're in Lahore, working UK hours, and that
-this is why the pricing compares well. Buyers who'd object find out immediately
-instead of on a call; buyers who don't care get a reason to trust you.
+You want to rank in US and UK cities. That's achievable, and the site is built
+for it. This guide covers how it works and — importantly — the one mistake that
+would undo it.
 
 ---
+
+### Where you are vs where you work
+
+Your site now makes one claim only: **Flowzync is a remote studio serving the US
+and UK.** That's true, and it's all your structured data says.
+
+Your `areaServed` markup declares **311 service areas** — the US and UK as
+countries, all 50 US states plus DC, 100+ US cities, 39 UK counties and 120+ UK
+towns.
+
+What the site never does is claim an office in a city you aren't in. Every
+location page carries a panel saying plainly that Flowzync is remote and has no
+office there, framed as the reason the pricing compares well. Buyers who'd object
+find out immediately; buyers who don't care get a reason to trust you.
+
+**If you ever add a real registered address**, put it in `lib/site.js` and the
+LocalBusiness schema switches on automatically. Until then the site publishes no
+address at all — which is the correct, safe default.
+
+⚠️ **Never claim a US or UK office you don't staff.** A Google Business Profile
+at an address without staff present gets permanently suspended and takes your
+reviews with it. In web design specifically, competitors report this constantly.
 
 ### Why service areas alone won't rank you
 
 Here's the part most people get wrong.
 
 **`areaServed` markup tells Google where you work. It does not make you rank in
-Leeds.** It's a supporting signal, not a ranking one. If declaring 172 areas were
+Leeds or Austin.** It's a supporting signal, not a ranking one. If declaring 172 areas were
 enough, everyone would declare all of them.
 
 What actually ranks you in a UK town is **a page written for that town**. That's
@@ -873,9 +1151,19 @@ what `/locations/` is for.
 
 #### What's already built
 
-Eight UK location pages, each with genuinely different content:
+**Fourteen location pages** — six US, eight UK — each with genuinely different
+content:
 
-| Page | Angle |
+| US page | Angle |
+|---|---|
+| `/locations/web-design-austin` | Startup pricing for non-startup businesses |
+| `/locations/web-design-dallas` | Trades, medical, lead generation across DFW |
+| `/locations/web-design-new-york` | Most competitive, honest about it |
+| `/locations/web-design-chicago` | Rebuilds and migrations, B2B |
+| `/locations/web-design-miami` | Bilingual, design-led, real estate |
+| `/locations/web-design-phoenix` | Home services, genuinely winnable market |
+
+| UK page | Angle |
 |---|---|
 | `/locations/web-design-manchester` | Crowded, expensive agency market |
 | `/locations/web-design-birmingham` | Trade and manufacturing catalogues |
@@ -1052,10 +1340,27 @@ Without a database, leads are kept in memory. On Vercel each request can hit
 a different server instance, and instances restart constantly, so **leads
 will be lost**. The dashboard shows an orange warning whenever this is the case.
 
-#### Set up Supabase (about 5 minutes, free tier is plenty)
+#### Set up Supabase (about 10 minutes, free tier is plenty)
 
-1. Create a free project at [supabase.com](https://supabase.com).
-2. Open **SQL Editor** and run this once:
+**Yes — you need to create a project.** The URL and API keys are generated per
+project, so there's nothing to copy until one exists. There's no credit card
+required and commercial use is allowed on the free plan.
+
+##### Step 1 — Create the project
+
+1. Sign up at [supabase.com](https://supabase.com) → **New project**
+2. Fill in:
+   - **Name:** `flowzync` (only you see this)
+   - **Database password:** click Generate, then **save it in your password
+     manager**. You won't need it for this site, but it's the only way to reach
+     the database directly later and Supabase won't show it again.
+   - **Region:** pick the one closest to your visitors. For UK traffic choose
+     **West EU (London)** or **Central EU (Frankfurt)**.
+3. **Create new project**, then wait ~2 minutes while it provisions.
+
+##### Step 2 — Create the leads table
+
+Open **SQL Editor** in the left menu → **New query** → paste this → **Run**:
 
 ```sql
 create table leads (
@@ -1081,17 +1386,155 @@ alter table leads enable row level security;
 create index leads_created_at_idx on leads (created_at desc);
 ```
 
-3. Go to **Settings → API** and copy:
-   - **Project URL** → `SUPABASE_URL`
-   - **service_role** key → `SUPABASE_SERVICE_KEY`
+You should see "Success. No rows returned" — that's correct, it created a table
+rather than fetching anything.
 
-4. Add both to your Vercel environment variables and redeploy.
+##### Step 3 — Copy your two values
 
-> The `service_role` key bypasses Row Level Security, so it must **only**
-> ever live in server environment variables. Never put it in client code,
-> and never prefix it with `NEXT_PUBLIC_`.
+Left menu → **Settings** (gear icon).
 
-The orange warning in the dashboard disappears once this is working.
+**A. Project URL** → open the **API** (or **Data API**) section and copy
+**Project URL**. It looks like:
+
+```
+https://abcdefghijklmnop.supabase.co
+```
+
+That's your `SUPABASE_URL`.
+
+**B. The secret key** → open the **API Keys** section.
+
+Supabase changed their key system, so what you see depends on your project:
+
+| What you see | What to copy |
+|---|---|
+| A **Secret keys** section with `sb_secret_...` | Copy that. This is the current format. |
+| Only **Legacy API keys** with `anon` and `service_role` | Click **Create new API keys** to generate a secret key, or copy the **service_role** key from the Legacy tab — both work. |
+
+Either goes into `SUPABASE_SERVICE_KEY`. New projects created today usually have
+both; the legacy `service_role` key is being deprecated at the end of 2026, so
+prefer `sb_secret_...` if it's offered.
+
+> ⚠️ **Copy the secret key, not the publishable one.**
+>
+> - **Publishable** (`sb_publishable_...`) or **anon** — safe in public code,
+>   and has no access to your leads. Wrong key here.
+> - **Secret** (`sb_secret_...`) or **service_role** — bypasses Row Level
+>   Security and can read everything. This is the one the server needs.
+>
+> Because the secret key bypasses RLS, it must **only** live in Vercel's
+> environment variables. Never in your code, never in the browser, and never
+> with a `NEXT_PUBLIC_` prefix.
+
+##### Step 4 — Add both to Vercel
+
+1. Vercel → your project → **Settings** → **Environment Variables**
+2. Add the first:
+   - **Key:** `SUPABASE_URL`
+   - **Value:** paste the Project URL
+   - Leave all three environments ticked → **Save**
+3. Add the second:
+   - **Key:** `SUPABASE_SERVICE_KEY`
+   - **Value:** paste the secret key
+   - Leave all three environments ticked → **Save**
+
+Watch for: no quotes around the values, no trailing spaces, and no trailing slash
+on the URL.
+
+##### Step 5 — Redeploy, then check
+
+Variables only apply to **new** deployments. Vercel → **Deployments** → most
+recent → **⋯** → **Redeploy**.
+
+Then open `https://www.flowzync.com/admin` and sign in. **The orange "stored in
+memory only" warning should be gone.** If it is, you're connected.
+
+Submit a test enquiry through the contact form and confirm it appears in the
+dashboard, then check it's also visible in Supabase → **Table Editor** → `leads`.
+
+##### Quickest way to test the connection
+
+Visit this URL in your browser on the live site:
+
+```
+https://www.flowzync.com/api/keep-alive
+```
+
+It tells you exactly what is wrong in plain language:
+
+| Response | Meaning |
+|---|---|
+| `{"ok":true,"database":"connected"}` | Everything works. |
+| `The leads table does not exist...` | The SQL from Step 2 was never run. Run it in the Supabase SQL Editor. |
+| `Supabase rejected the key...` | You used the publishable/anon key instead of the secret one. |
+| `Could not reach Supabase at all...` | `SUPABASE_URL` is wrong, or has a trailing slash. |
+
+This is the same endpoint the daily cron uses, so it is always up to date and
+exposes no data.
+
+##### If the form returns a 400 error
+
+The form deliberately shows visitors a friendly message, but the response
+includes a `hint` field naming the cause. Open your browser's **DevTools →
+Network** tab, submit the form, click the `leads` request and look at the
+response:
+
+| Hint | Fix |
+|---|---|
+| `table-missing` | Run the SQL from Step 2 in the Supabase SQL Editor. |
+| `bad-key` | You copied the publishable/anon key. Use the secret key. |
+| `cannot-reach-database` | Check `SUPABASE_URL` — no trailing slash, no quotes. |
+| `schema-mismatch` | The table exists but the columns differ. Drop it and re-run the Step 2 SQL exactly. |
+| `invalid-input` | The submission had no name, email or phone at all. |
+
+The full Supabase error is always in **Vercel → Logs**.
+
+##### If the warning is still showing
+
+1. Did you redeploy? Adding variables alone changes nothing.
+2. Check for typos in the variable **names** — they're case-sensitive and must be
+   exactly `SUPABASE_URL` and `SUPABASE_SERVICE_KEY`.
+3. Check you copied the **secret** key, not the publishable/anon one.
+4. Check the SQL from Step 2 actually ran — Supabase → Table Editor should show a
+   `leads` table.
+5. Look at Vercel → **Logs** and submit a test enquiry. The error message there
+   will name the actual problem.
+
+---
+
+### 2b. ⚠️ The free-tier pause — already handled, but know about it
+
+**Supabase pauses free projects after 7 days of no activity.** A paused database
+can't accept writes, so your contact form and chatbot would silently fail to save
+enquiries until someone noticed and restored it manually.
+
+For a new site that hasn't got traffic yet, this is a realistic risk rather than
+a theoretical one.
+
+**This is already solved.** The site includes a keep-alive route at
+`/api/keep-alive`, and `vercel.json` tells Vercel to call it once a day at 06:00
+UTC. That single lightweight read resets the 7-day timer, so the project never
+pauses.
+
+You don't need to configure anything — it activates on your first deploy. Two
+optional extras:
+
+- **Check it's running:** Vercel → your project → **Cron Jobs** tab. You'll see
+  the schedule and the last run.
+- **Lock the endpoint:** add a `CRON_SECRET` environment variable with any long
+  random string. Vercel sends it automatically on cron requests, and the route
+  will then reject anyone else. Optional — the endpoint exposes no data either
+  way.
+
+Worth knowing regardless:
+
+- The free tier keeps **no backups**. If the leads matter commercially, export
+  them periodically (Supabase → Table Editor → leads → Export CSV), or move to
+  the Pro plan which adds daily backups.
+- A paused project is **not** a deleted one — the data survives and you restore
+  it from the dashboard. But any enquiry that arrived while it was paused is gone.
+- Free tier allows **2 active projects** and 500 MB of database storage. Lead
+  records are tiny; you will not approach that limit.
 
 ---
 
@@ -1162,6 +1605,7 @@ Live in 60–90 seconds. That's the whole publishing process.
 | Supabase (leads database) | https://supabase.com/dashboard |
 | Groq (free AI key) | https://console.groq.com |
 | Twilio (UK phone number) | https://twilio.com |
+| Check DNS propagation | https://dnschecker.org |
 
 ### Emergency: "I broke the live site"
 
