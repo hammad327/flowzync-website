@@ -23,6 +23,10 @@ export default function HeroCanvas() {
     let mx = -9999, my = -9999, mActive = false;
     const interactive =
       matchMedia('(hover: hover) and (pointer: fine)').matches && !reduce;
+    // Phones get a single static frame instead of a continuous loop:
+    // the animation is decoration, and the main thread is better spent
+    // on the content that decides LCP.
+    const animate = interactive && innerWidth > 860;
     const COLORS = ['91,79,233', '124,108,245', '6,194,153'];
     const dpr = Math.min(devicePixelRatio || 1, 2);
 
@@ -138,13 +142,13 @@ export default function HeroCanvas() {
     // Stop painting when the hero scrolls away — saves battery and CPU.
     const io = new IntersectionObserver(([e]) => {
       visible = e.isIntersecting;
-      if (visible && !reduce && !raf) tick();
+      if (visible && animate && !raf) tick();
       if (!visible && raf) { cancelAnimationFrame(raf); raf = null; }
     }, { threshold: 0 });
-    io.observe(canvas);
+    if (animate) io.observe(canvas);
 
-    if (reduce && !interactive) draw();
-    else tick();
+    if (animate) tick();
+    else draw();          // one static frame, no loop
 
     return () => {
       removeEventListener('resize', resize);

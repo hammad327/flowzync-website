@@ -1,5 +1,17 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // Strip React's dev-only prop types and console noise from the client
+  // bundle in production.
+  compiler: {
+    removeConsole: process.env.NODE_ENV === 'production' ? { exclude: ['error', 'warn'] } : false,
+  },
+
+  // Ships smaller, more modern JavaScript to modern browsers, and lets
+  // Next tree-shake the icon and utility imports properly.
+  experimental: {
+    optimizePackageImports: ['lucide-react'],
+  },
+
   images: {
     // Local images live in /public/images and need no config.
     // This only matters if you point lib/images.js at a remote URL.

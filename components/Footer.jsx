@@ -12,7 +12,7 @@ export default function Footer() {
           {/* Brand — larger logo as the anchor of the footer */}
           <div className="ft-brand">
             <Link href="/" aria-label="Flowzync home" className="ft-logo">
-              <Logo variant="white" size={52} wordSize={28} />
+              <Logo variant="onDark" size={52} wordSize={28} />
             </Link>
             <p>{site.tagline}. Custom websites, funnels and automation — designed, built and cared for by one senior team.</p>
             <div className="ft-social">
@@ -32,7 +32,7 @@ export default function Footer() {
           {/* Industries */}
           <nav aria-label="Industries">
             <h5>Industries</h5>
-            {industries.map((i) => <Link key={i.slug} href={`/industries/${i.slug}`}>{i.trade}</Link>)}
+            {industries.slice(0, 6).map((i) => <Link key={i.slug} href={`/industries/${i.slug}`}>{i.trade}</Link>)}
             <Link href="/industries" className="ft-all">All industries →</Link>
           </nav>
 

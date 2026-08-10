@@ -1,10 +1,14 @@
-import './globals.css';
 import Nav from '@/components/Nav';
 import Footer from '@/components/Footer';
 import ClientFX from '@/components/ClientFX';
 import ChatWidget from '@/components/ChatWidget';
 import { site, serviceArea, allServiceAreas, hasLocalNAP } from '@/lib/site';
 import { images } from '@/lib/images';
+import './globals.css';
+
+// Only the weights actually used, which keeps the download small.
+const FONT_CSS =
+  'https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Manrope:wght@400;500;600;700&display=swap';
 
 export const metadata = {
   metadataBase: new URL(site.url),
@@ -125,12 +129,26 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
+        {/* Fonts load WITHOUT blocking the first paint.
+            React strips string onLoad handlers from <link>, so the tag is
+            created in a tiny inline script instead: it starts as
+            media="print" (fetched, but applied to nothing), then flips to
+            "all" once downloaded. With display=swap in the URL, text paints
+            immediately in the fallback face and upgrades when the webfont
+            lands — so this never sits on the critical path.
+            The <noscript> copy keeps fonts working without JavaScript. */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700&display=swap"
-          rel="stylesheet"
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              `(function(){var l=document.createElement('link');l.rel='stylesheet';` +
+              `l.href='${FONT_CSS}';l.media='print';` +
+              `l.onload=function(){this.onload=null;this.media='all'};` +
+              `document.head.appendChild(l)})()`,
+          }}
         />
+        <noscript><link rel="stylesheet" href={FONT_CSS} /></noscript>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }} />
       </head>
       <body>

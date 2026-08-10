@@ -107,8 +107,7 @@ export default function AboutPage() {
             <div className="story-rail" aria-hidden="true" />
             <div className="story rv rv-l"><b className="grad-txt">2021</b><h4>The beginning</h4><p>An automation engineer and a designer keep rescuing the same broken setups — beautiful websites with no follow-up, powerful CRMs nobody configured. They decide the fix is one studio that treats design, code and automation as a single craft. Flowzync is born.</p></div>
             <div className="story rv rv-r"><b className="grad-txt">2022</b><h4>Going remote-first</h4><p>The team grows to six senior specialists across three time zones. Working async forces a discipline that clients still feel today: everything documented, everything visible, no black boxes.</p></div>
-            <div className="story rv rv-l"><b className="grad-txt">2024</b><h4>100th project ships</h4><p>Our process matures into the 6-phase Blueprint we still run every project through — refined by a hundred real launches, not theory.</p></div>
-            <div className="story rv rv-r"><b className="grad-txt">Today</b><h4>240+ and counting</h4><p>Fourteen experts, thirty-two countries, and the same obsession with every pixel and every workflow we started with.</p></div>
+            <div className="story rv rv-r"><b className="grad-txt">Today</b><h4>A studio, not an agency</h4><p>Senior specialists working with clients across the world, and the same obsession with every pixel and every workflow we started with. Still no juniors on your project, still no account-manager relay.</p></div>
           </div>
         </div>
       </section>

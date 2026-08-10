@@ -11,8 +11,12 @@
 //  <LogoMark />           icon only  — favicon, chat bot, avatars
 //  <Logo />               icon + wordmark — nav, footer
 //  variant="color"        gradient mark (light backgrounds)
-//  variant="white"        solid white mark (dark backgrounds)
+//  variant="onDark"       same gradient, brightened for dark backgrounds
+//  variant="white"        solid white mark
 //  variant="mono"         inherits currentColor (print, stamps)
+//
+//  onDark exists so the footer and the nav read as the same logo. A flat
+//  white mark next to a gradient one looks like two different brands.
 // ─────────────────────────────────────────────────────────────
 'use client';
 import { useId } from 'react';
@@ -28,6 +32,12 @@ export function LogoMark({ variant = 'color', size = 38, animated = true }) {
     : variant === 'mono' ? 'currentColor'
     : `url(#zg-${uid})`;
 
+  // Same gradient, lifted for legibility against the dark footer.
+  const stops =
+    variant === 'onDark'
+      ? ['#8F86FF', '#A99BFF', '#3BE3BC']
+      : ['#5B4FE9', '#7C6CF5', '#06C299'];
+
   return (
     <svg
       viewBox="0 0 48 48"
@@ -37,12 +47,12 @@ export function LogoMark({ variant = 'color', size = 38, animated = true }) {
       aria-hidden="true"
       className={`zmark${animated ? ' zmark-anim' : ''}`}
     >
-      {variant === 'color' && (
+      {(variant === 'color' || variant === 'onDark') && (
         <defs>
           <linearGradient id={`zg-${uid}`} x1="8" y1="12" x2="40" y2="36" gradientUnits="userSpaceOnUse">
-            <stop stopColor="#5B4FE9" />
-            <stop offset=".5" stopColor="#7C6CF5" />
-            <stop offset="1" stopColor="#06C299" />
+            <stop stopColor={stops[0]} />
+            <stop offset=".5" stopColor={stops[1]} />
+            <stop offset="1" stopColor={stops[2]} />
           </linearGradient>
         </defs>
       )}
@@ -59,13 +69,13 @@ export function LogoMark({ variant = 'color', size = 38, animated = true }) {
 }
 
 export default function Logo({ variant = 'color', size = 38, wordSize = 20, showWord = true }) {
-  const white = variant === 'white';
+  const dark = variant === 'white' || variant === 'onDark';
   return (
     <span className="lg" style={{ fontSize: wordSize }}>
       <LogoMark variant={variant} size={size} />
       {showWord && (
-        <span className="lg-word" style={{ color: white ? '#fff' : 'var(--ink)' }}>
-          flow<b className={white ? 'lg-w' : 'lg-c'}>zync</b>
+        <span className="lg-word" style={{ color: dark ? '#fff' : 'var(--ink)' }}>
+          flow<b className={dark ? 'lg-w' : 'lg-c'}>zync</b>
         </span>
       )}
     </span>
