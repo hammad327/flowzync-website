@@ -104,7 +104,7 @@ export default function BlogPost({ params }) {
             <span className="post-author-av">{p.author.split(' ').map((w) => w[0]).slice(0, 2).join('')}</span>
             <div>
               <b>{p.author}</b>
-              <span>Writes about {p.category.toLowerCase()} at {site.name}. Every article here is based on work we have actually shipped for clients.</span>
+              <span>Writes for {site.name}. Every article here is based on work we have actually shipped for clients.</span>
             </div>
           </aside>
         </div>
@@ -119,7 +119,6 @@ export default function BlogPost({ params }) {
                 <Link href={`/blog/${o.slug}`} className="post-card" key={o.slug}>
                   <div className="post-thumb">
                     {o.cover && <Image src={o.cover} alt={o.title} width={600} height={380} />}
-                    <span className="post-cat">{o.category}</span>
                   </div>
                   <div className="post-body">
                     <div className="post-meta"><span>{new Date(o.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}</span><span>{o.readTime} min</span></div>

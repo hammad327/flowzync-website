@@ -59,9 +59,8 @@ const orgSchema = {
       logo: { '@type': 'ImageObject', url: `${site.url}${images.logoRaster}`, width: 512, height: 512 },
       image: `${site.url}${images.og}`,
       contactPoint: [
-        { '@type': 'ContactPoint', email: site.email, contactType: 'customer service', availableLanguage: 'English', areaServed: ['PK', 'GB'] },
-        ...(site.business.phone ? [{ '@type': 'ContactPoint', telephone: site.business.phone, contactType: 'sales', areaServed: 'PK', availableLanguage: ['English', 'Urdu'] }] : []),
-        ...(site.business.phoneUK ? [{ '@type': 'ContactPoint', telephone: site.business.phoneUK, contactType: 'sales', areaServed: 'GB', availableLanguage: 'English' }] : []),
+        { '@type': 'ContactPoint', email: site.email, contactType: 'customer service', availableLanguage: 'English', areaServed: 'Worldwide' },
+        ...(site.business.phone ? [{ '@type': 'ContactPoint', telephone: site.business.phone, contactType: 'sales', areaServed: 'Worldwide', availableLanguage: 'English' }] : []),
       ],
       sameAs: Object.values(site.social),
       knowsAbout: [
@@ -72,7 +71,10 @@ const orgSchema = {
       ],
       // Where we take on clients. areaServed is a coverage statement,
       // not a location claim — which is why it can safely be broad.
+      // We work worldwide. The named areas are listed alongside it because
+      // search engines match on specific place names, not on "global".
       areaServed: [
+        { '@type': 'Place', name: 'Worldwide' },
         ...serviceArea.countries.map((c) => ({ '@type': 'Country', name: c.name })),
         ...allServiceAreas.map((a) => ({ '@type': 'AdministrativeArea', name: a })),
       ],

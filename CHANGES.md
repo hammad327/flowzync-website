@@ -1,5 +1,30 @@
 # What changed in this update
 
+## Latest round
+
+- **Positioning is worldwide.** "US/UK" replaced everywhere; schema declares
+  worldwide reach alongside the specific named areas that carry local search.
+- **Hero visual rebuilt.** The floating claim cards are gone; the mock site now
+  assembles itself (nav → headline → CTA → cards → content). Hidden entirely
+  below 860px, along with the stat row, so the phone view leads with the
+  headline and the call to action.
+- **Industries are now 10 sectors, not 4 trades.** "Websites for plumbers" told
+  a dentist we don't serve them. Each sector page carries a "Who this covers"
+  list — 120+ specific trades — which is what actually carries long-tail
+  searches like "website for dental doctors".
+- **Spam protection** on the contact form and the chatbot: a server-signed maths
+  question, a honeypot field and a minimum fill time. No third-party account.
+- **Chatbot** confirms the submission, names where the reply is going, then
+  offers to keep answering. Small budgets are never turned away — it invites
+  details and promises options.
+- **Navigation:** Contact link removed (the CTA does that job), CTA relabelled
+  "Contact us". Areas column removed from the footer.
+- **Blog categories removed** — one list, newest first.
+- **Week-based delivery claims removed** sitewide; the process shows steps.
+- **Social links:** LinkedIn, Facebook and Instagram only.
+- **Hammad Tahir added as Founder & CEO.**
+
+
 ## 1. Branding
 - Domain is now `https://www.flowzync.com` and email `info@flowzync.com`,
   set once in `lib/site.js` and flowing into meta tags, schema, the footer,

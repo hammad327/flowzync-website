@@ -50,6 +50,14 @@ export default function IndustryPage({ params }) {
       name: i.title,
       description: i.seoDescription,
       serviceType: `Website design for ${i.trade.toLowerCase()}`,
+      ...(i.covers?.length ? { hasOfferCatalog: {
+        '@type': 'OfferCatalog',
+        name: `${i.trade} we build for`,
+        itemListElement: i.covers.map((c) => ({
+          '@type': 'Offer',
+          itemOffered: { '@type': 'Service', name: `Website design for ${c.toLowerCase()}` },
+        })),
+      } } : {}),
       provider: { '@type': 'Organization', '@id': `${site.url}/#organization`, name: site.name, url: site.url },
       audience: { '@type': 'BusinessAudience', name: i.trade },
       url: `${site.url}/industries/${i.slug}`,
@@ -81,7 +89,7 @@ export default function IndustryPage({ params }) {
           <div className="sd-hero">
             <div className="rv rv-l in">
               <div className="eyebrow"><span className="pulse" />{i.trade}</div>
-              <h1>{i.title.replace(/\sfor\s.*/, '')} for <span className="grad-txt">{i.trade.toLowerCase()}</span></h1>
+              <h1>Websites for <span className="grad-txt">{i.trade.toLowerCase()}</span></h1>
               <p className="lede" style={{ marginBottom: 32 }}>{i.intro}</p>
               <div style={{ display: 'flex', gap: 14, flexWrap: 'wrap' }}>
                 <Link href="/contact" className="btn btn-p">
@@ -98,6 +106,24 @@ export default function IndustryPage({ params }) {
           </div>
         </div>
       </div>
+
+      {/* WHO THIS COVERS — the long-tail terms live here */}
+      {i.covers?.length > 0 && (
+        <section style={{ paddingTop: 26, paddingBottom: 0 }}>
+          <div className="wrap">
+            <div className="cov rv">
+              <h3>Who this covers</h3>
+              <p>
+                We build for every business in this sector. If yours isn&apos;t named below,
+                it almost certainly still fits — ask us.
+              </p>
+              <div className="cov-tags">
+                {i.covers.map((c) => <span key={c}>{c}</span>)}
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* THE PROBLEMS THIS TRADE ACTUALLY HAS */}
       <section style={{ paddingTop: 30 }}>

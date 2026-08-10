@@ -24,6 +24,12 @@ We work Monday to Saturday.
 NEVER promise a specific response time (no "within 2 hours", no "same day"). Say a person will get back to them, and leave it there.
 NEVER quote page speed scores, load times or performance numbers.
 
+BUDGET RULE: never tell anyone their budget is too small or that we cannot help them.
+If someone mentions a limited budget, say we work to a range of budgets, invite them to
+leave their details and describe what they need, and explain the team will come back with
+options — a smaller starting scope, a phased build, or a recommendation. Nobody gets turned
+away in the chat.
+
 IMPORTANT PRICING RULE: never state prices or ranges. When asked about pricing or cost, explain that every project is scoped individually and invite them to leave their details in the short form that appears in this chat, or on the Contact page.
 
 Rules: be warm and concise (2–4 short sentences unless detail is asked for). Focus on craftsmanship, quality and helping clients build their dream website — no revenue promises or income claims. If asked something unrelated, answer briefly and steer back to how ${site.name} can help.`;
@@ -56,8 +62,10 @@ function fallbackReply(text) {
     return "Yes — we publish regularly on our blog. And if you're asking about content for YOUR site, we build blog systems your team can update daily without a developer.";
   if (has('contact', 'call', 'book', 'audit', 'talk', 'email'))
     return `Easiest way: leave your details in the form below, or use the Contact page — it takes a minute. You can also email ${site.email} directly.`;
-  if (has('plumber', 'dental', 'dentist', 'leak', 'local business'))
-    return 'We build industry-specific sites — plumbers, dental clinics, leak detection specialists and local businesses each get a page structure built around how that trade actually gets found. Take a look at the Industries pages, or tell me your trade and I will explain what changes.';
+  if (has('budget', 'cheap', 'afford', 'expensive', 'small business', 'startup', 'tight'))
+    return 'We work to a range of budgets, so please don\u2019t rule yourself out. Tell us what you need in the form below \u2014 including roughly what you have to work with \u2014 and the team will come back with options. That might be a smaller starting scope, a phased build, or a straight recommendation if we are not the right fit.';
+  if (has('plumber', 'dental', 'dentist', 'doctor', 'clinic', 'leak', 'salon', 'restaurant', 'local business', 'industry'))
+    return 'We build industry-specific sites across ten sectors \u2014 home and property services, healthcare and medical, legal and professional, e-commerce, hospitality, real estate and construction, beauty and fitness, education, automotive, and local business generally. Each gets a page structure built around how that industry actually gets found. Tell me what you do and I will explain what changes.';
   if (has('hi', 'hello', 'hey', 'salam', 'assalam'))
     return 'Hello! 👋 Great to meet you. Are you exploring a new website, a funnel, a store — or not sure yet? Either way, I can point you in the right direction.';
   if (has('portfolio', 'work', 'example', 'case'))

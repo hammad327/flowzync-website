@@ -1,10 +1,34 @@
 // POST /api/leads — public: the contact form and Zync both post here.
 import { createLead } from '@/lib/leads';
 import { notifyNewLead } from '@/lib/notify';
+import { verifyChallenge } from '@/lib/challenge';
 
 export async function POST(req) {
   try {
     const body = await req.json();
+
+    // Spam check runs before anything is stored or emailed.
+    const failed = verifyChallenge({
+      token: body.captchaToken,
+      answer: body.captchaAnswer,
+      honeypot: body.website,          // hidden field, must stay empty
+      startedAt: body.startedAt,
+    });
+    if (failed) {
+      console.warn('Blocked a submission:', failed);
+      return Response.json(
+        {
+          ok: false,
+          error:
+            failed === 'wrong-answer'
+              ? "That answer wasn't quite right — please try again."
+              : 'We could not verify that submission. Please refresh and try again.',
+          hint: `captcha-${failed}`,
+        },
+        { status: 400 }
+      );
+    }
+
     const lead = await createLead(body);
     // Email notification is best-effort: a mail failure must never
     // lose the lead, because the record is already stored.

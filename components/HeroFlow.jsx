@@ -5,9 +5,12 @@
 //  one line enters at the design stage, passes through the build,
 //  and loops back out as automation. A single light travels it.
 //
-//  Deliberately calm. No cursor-tracking, no 3D tilt, no numbers.
-//  Everything arrives in one 900ms stagger and then settles —
-//  motion is set-dressing here, not the main event.
+//  Deliberately calm. No cursor-tracking, no 3D tilt, no numbers,
+//  no floating claim cards. A site assembling itself, once, then still.
+//
+//  Hidden entirely below 860px: on a phone the headline and the call
+//  to action are what matter, and a decorative panel only pushes them
+//  down the screen.
 //
 //  Server-rendered (no 'use client'): it's pure markup + CSS, so
 //  it costs the page zero JavaScript and never delays the LCP.
@@ -36,6 +39,11 @@ export default function HeroFlow() {
           <span>www.flowzync.com</span>
         </div>
         <div className="hf-body">
+          <div className="hf-nav">
+            <span className="hf-mark" />
+            <i /><i /><i />
+            <span className="hf-pill" />
+          </div>
           <div className="hf-hero">
             <b className="w70" />
             <b className="w46 thin" />
@@ -43,6 +51,9 @@ export default function HeroFlow() {
           </div>
           <div className="hf-cards">
             <i className="c1" /><i className="c2" /><i className="c3" />
+          </div>
+          <div className="hf-rows">
+            <b className="r1" /><b className="r2" />
           </div>
         </div>
       </div>
@@ -58,26 +69,6 @@ export default function HeroFlow() {
         </div>
       </div>
 
-      {/* one quiet proof card — a fact, not a metric */}
-      <div className="hf-note hf-note1">
-        <span className="hf-tick">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none">
-            <path d="m5 13 4 4L19 7" stroke="#06C299" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
-          </svg>
-        </span>
-        <div>
-          <b>Enquiry captured</b>
-          <span>Straight into your CRM, tagged and assigned</span>
-        </div>
-      </div>
-
-      <div className="hf-note hf-note2">
-        <span className="hf-swatch" />
-        <div>
-          <b>Designed from scratch</b>
-          <span>No theme, no template, no lookalike</span>
-        </div>
-      </div>
     </div>
   );
 }

@@ -16,7 +16,7 @@ import { industries } from '@/lib/industries';
 const homeFaqs = [
   ['What does Flowzync actually do?', 'We are a full-stack digital studio: custom website design, landing pages, GoHighLevel funnels and CRM setup, WordPress and Shopify development, business automation, SEO and ongoing care. One team, one connected system — instead of five disconnected freelancers.'],
   ['How do we get started?', 'Request a free quote on the Contact page (or just ask Zync, the chat assistant, bottom-right). We\u2019ll review it, map your project, suggest the leanest path and send a clear proposal — no pressure, no obligation.'],
-  ['Where are you based, and do you work with US and UK clients?', 'We are a remote studio and the majority of our clients are in the United States and United Kingdom. We cover US and UK business hours, quote in your currency, and run every project through a shared project space so you always know exactly where things stand. There is no office to visit \u2014 which is part of why our pricing compares well to a local agency.'],
+  ['Do you work with clients internationally?', 'Yes \u2014 we are a remote studio and our clients are worldwide. We work across time zones, schedule calls in your working hours, quote in your currency, and run every project through a shared project space so you always know exactly where things stand. There is no office to visit, which is part of why our pricing compares well to a local agency.'],
   ['What makes you different from other agencies?', 'Three things: everything is custom (no recycled templates), automation is designed in from day one (not bolted on later), and every build ships SEO-ready. You also work directly with senior specialists — no account-manager relay.'],
   ['Can you improve my existing website instead of rebuilding?', 'Often, yes. We offer audits, speed optimisation, SEO fixes and design refreshes. If a rebuild genuinely is the better investment, we\u2019ll show you exactly why before you decide.'],
   ['Do you offer support after launch?', 'Always. Every project includes a support window, and our monthly care plans cover updates, security, backups and content edits — handled by the same team who built your site.'],
@@ -75,7 +75,7 @@ export default function Home() {
             <div className="hero-stats">
               <div className="hstat"><div className="n"><span data-count="240">0</span><em>+</em></div><div className="l">Projects delivered</div></div>
               <div className="hstat"><div className="n"><span data-count="98">0</span><em>%</em></div><div className="l">Clients who stay</div></div>
-              <div className="hstat"><div className="n">US<em>/UK</em></div><div className="l">Where our clients are</div></div>
+              <div className="hstat"><div className="n">Worldwide</div><div className="l">Where our clients are</div></div>
             </div>
           </div>
           <HeroFlow />
@@ -158,8 +158,8 @@ export default function Home() {
         <div className="wrap">
           <div className="sec-head rv">
             <div className="eyebrow"><span className="pulse" />Industries</div>
-            <h2>Built around <span className="grad-txt">your trade</span></h2>
-            <p>A plumber and a dental clinic need very different websites. Here is what changes.</p>
+            <h2>Built around <span className="grad-txt">your industry</span></h2>
+            <p>A dental practice and an online store need very different websites. Pick your sector to see what changes — and if yours isn&apos;t listed, we almost certainly still build for it.</p>
           </div>
           <div className="ind-mini">
             {industries.map((i) => (

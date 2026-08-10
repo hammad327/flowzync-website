@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import CTABand from '@/components/CTABand';
-import { getAllPosts, getCategories } from '@/lib/posts';
+import { getAllPosts } from '@/lib/posts';
 import BlogGrid from '@/components/BlogGrid';
 import { site } from '@/lib/site';
 import HeroCanvas from '@/components/HeroCanvas';
@@ -21,7 +21,6 @@ export const metadata = {
 
 export default function BlogPage() {
   const posts = getAllPosts();
-  const categories = getCategories();
   return (
     <>
       <div className="page-hero">
@@ -43,7 +42,7 @@ export default function BlogPage() {
               No posts yet — drop a .md file into <code>content/blog/</code> to publish your first article.
             </p>
           ) : (
-            <BlogGrid posts={posts} categories={categories} />
+            <BlogGrid posts={posts} />
           )}
         </div>
       </section>

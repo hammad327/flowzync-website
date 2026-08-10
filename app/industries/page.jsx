@@ -22,8 +22,8 @@ export default function IndustriesPage() {
           <div className="eyebrow"><span className="pulse" />Industries</div>
           <h1 style={{ marginInline: 'auto' }}>Built for <span className="grad-txt">your trade</span></h1>
           <p className="lede" style={{ marginInline: 'auto' }}>
-            A plumber and a dental clinic need very different websites. These pages set out
-            what each industry actually needs — and what we build differently for it.
+            A dental practice and an online store need very different websites. These pages
+            set out what each sector actually needs — and what we build differently for it.
           </p>
         </div>
       </div>
@@ -40,6 +40,9 @@ export default function IndustriesPage() {
                   <span className="ind-tag">{i.trade}</span>
                   <h3>{i.title}</h3>
                   <p>{i.intro.split('. ').slice(0, 2).join('. ')}.</p>
+                  {i.covers?.length > 0 && (
+                    <span className="ind-covers">{i.covers.slice(0, 4).join(' · ')} + more</span>
+                  )}
                   <span className="svc-link">
                     See what this trade needs
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14m-6-6 6 6-6 6" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/></svg>
@@ -50,7 +53,7 @@ export default function IndustriesPage() {
           </div>
           <div style={{ textAlign: 'center', marginTop: 44 }} className="rv">
             <p style={{ color: 'var(--muted)', marginBottom: 18 }}>
-              Your trade not listed? We build for it too — tell us what you do.
+              Your industry not listed? We build for it too — tell us what you do.
             </p>
             <Link href="/contact" className="btn btn-o"><span>Ask about your industry</span></Link>
           </div>

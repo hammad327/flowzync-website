@@ -13,7 +13,7 @@
 //  parse details out of free text — people mistype, and a lead
 //  with a broken email address is worse than no lead.
 // ─────────────────────────────────────────────────────────────
-import { useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { usePathname } from 'next/navigation';
 import { LogoMark } from '@/components/Logo';
 import { site } from '@/lib/site';
@@ -43,7 +43,19 @@ export default function ChatWidget() {
   const [saving, setSaving] = useState(false);
   const [formErr, setFormErr] = useState('');
   const [lead, setLead] = useState({ name: '', email: '', phone: '', service: '', budget: '', message: '' });
+  const [captcha, setCaptcha] = useState(null);
+  const [answer, setAnswer] = useState('');
   const bodyRef = useRef(null);
+  const startedAt = useRef(Date.now());
+
+  const loadCaptcha = useCallback(() => {
+    fetch('/api/challenge').then((r) => r.json()).then(setCaptcha).catch(() => setCaptcha(null));
+  }, []);
+
+  // Only fetch the spam check once the form is actually shown.
+  useEffect(() => {
+    if (showForm && !captcha) { loadCaptcha(); startedAt.current = Date.now(); }
+  }, [showForm, captcha, loadCaptcha]);
 
   // The dashboard is not a place for a sales chat bubble.
   const hidden = path?.startsWith('/admin');
@@ -92,18 +104,32 @@ export default function ChatWidget() {
           source: 'chatbot',
           sourcePage: path || '/',
           transcript: msgs.map((m) => `${m.role === 'user' ? 'Visitor' : 'Zync'}: ${m.content}`).join('\n'),
+          captchaToken: captcha?.token,
+          captchaAnswer: answer,
+          website: '',                  // honeypot, always empty here
+          startedAt: startedAt.current,
         }),
       });
       const data = await res.json();
-      if (!res.ok || !data.ok) throw new Error(data.error);
+      if (!res.ok || !data.ok) {
+        setFormErr(data.error || `That didn't save. Please try again, or email ${site.email}.`);
+        setAnswer(''); loadCaptcha();
+        return;
+      }
       setSent(true);
       setShowForm(false);
+      const first = lead.name.trim().split(' ')[0] || 'there';
       setMsgs((m) => [...m, {
         role: 'assistant',
-        content: `Thanks ${lead.name.split(' ')[0]} — that's with the team now, along with what we discussed. Anything else you'd like to know in the meantime?`,
+        content: `Thanks ${first} — that's with the team now, along with everything we discussed. A person reads every enquiry and will come back to you at ${lead.email || 'the details you gave'}.`,
+      }, {
+        role: 'assistant',
+        content: 'That\u2019s everything I need. Anything else you\u2019d like to know while you\u2019re here — pricing, process, timelines?',
+        done: true,
       }]);
     } catch {
       setFormErr(`That didn't save. Please try again, or email ${site.email}.`);
+      setAnswer(''); loadCaptcha();
     } finally {
       setSaving(false);
     }
@@ -133,10 +159,22 @@ export default function ChatWidget() {
           ))}
           {busy && <div className="typing"><i /><i /><i /></div>}
 
+          {sent && (
+            <div className="ai-done" role="status" aria-live="polite">
+              <svg viewBox="0 0 52 52" width="42" height="42" aria-hidden="true">
+                <circle className="cd-circle" cx="26" cy="26" r="23" fill="none" stroke="#06C299" strokeWidth="3" />
+                <path className="cd-check" d="M15 27l8 8 15-16" fill="none" stroke="#06C299" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+              <b>Sent to the team</b>
+              <span>We&apos;ll be in touch. Ask me anything else in the meantime.</span>
+            </div>
+          )}
+
           {showForm && !sent && (
             <form className="ai-lead" onSubmit={submitLead}>
               <b>Leave your details</b>
-              <p>The team will pick this up along with our conversation.</p>
+              <p>The team will pick this up along with our conversation. Whatever your
+                budget, tell us what you need — we&apos;ll come back with options.</p>
               <input value={lead.name} onChange={set('name')} placeholder="Your name" aria-label="Your name" />
               <input value={lead.email} onChange={set('email')} type="email" placeholder="Email" aria-label="Email" />
               <input value={lead.phone} onChange={set('phone')} placeholder="Phone (optional)" aria-label="Phone" />
@@ -150,6 +188,16 @@ export default function ChatWidget() {
                 <option>$3,000 – $8,000</option><option>$8,000+</option><option>Not sure yet</option>
               </select>
               <textarea value={lead.message} onChange={set('message')} rows={2} placeholder="Anything else we should know?" aria-label="Message" />
+
+              <div className="ai-captcha">
+                <span>{captcha ? captcha.question : 'Loading…'}</span>
+                <input
+                  value={answer} onChange={(e) => setAnswer(e.target.value)}
+                  inputMode="numeric" autoComplete="off" placeholder="?"
+                  aria-label="Answer the sum shown"
+                />
+              </div>
+
               {formErr && <span className="ai-lead-err">{formErr}</span>}
               <div className="ai-lead-row">
                 <button type="submit" disabled={saving}>{saving ? 'Sending…' : 'Send to the team'}</button>

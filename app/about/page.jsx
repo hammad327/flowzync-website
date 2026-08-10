@@ -8,11 +8,11 @@ import { site } from '@/lib/site';
 export const metadata = {
   title: 'About Us — The Team Behind Flowzync',
   description:
-    'Meet Flowzync: a remote studio of senior designers, developers and automation specialists serving businesses across the US and UK since 2021.',
+    'Meet Flowzync: a remote studio of senior designers, developers and automation specialists serving clients worldwide since 2021.',
   alternates: { canonical: '/about' },
   openGraph: {
     title: 'About Us — The Team Behind Flowzync',
-    description: 'Meet Flowzync: a remote studio of senior designers, developers and automation specialists serving businesses across the US and UK since 2021.',
+    description: 'Meet Flowzync: a remote studio of senior designers, developers and automation specialists serving clients worldwide since 2021.',
     url: '/about',
     type: 'website',
   },
@@ -26,8 +26,9 @@ const VALUES = [
 ];
 
 const TEAM = [
-  ['AR', 'Ayaan Raza', 'Founder · Automation Lead', '#5B4FE9', 'Turns manual chaos into workflows that never sleep.'],
-  ['ZM', 'Zara Malik', 'Co-founder · Design Director', '#06C299', 'Guardian of every pixel that leaves the studio.'],
+  ['HT', 'Hammad Tahir', 'Founder & CEO', '#14123B', 'Sets the standard every project is measured against, and still reads every brief that comes in.'],
+  ['AR', 'Ayaan Raza', 'Automation Lead', '#5B4FE9', 'Turns manual chaos into workflows that never sleep.'],
+  ['ZM', 'Zara Malik', 'Design Director', '#06C299', 'Guardian of every pixel that leaves the studio.'],
   ['HK', 'Hamza Khan', 'Senior WordPress Engineer', '#FF9E6D', 'Writes the code page builders wish they could.'],
   ['NS', 'Nadia Shah', 'Shopify & UX Strategist', '#7C6CF5', 'Makes stores people actually enjoy shopping in.'],
 ];
@@ -59,7 +60,7 @@ export default function AboutPage() {
               <h1>The team behind the <span className="grad-txt">systems behind the sites</span></h1>
               <p className="lede" style={{ marginBottom: 30 }}>
                 We&apos;re a remote studio of senior designers, developers and automation
-                specialists, working with businesses across the US and UK. Since 2021 we&apos;ve
+                specialists, working with clients worldwide. Since 2021 we&apos;ve
                 treated websites the way engineers treat machines:
                 every part — design, code, automation — has to work together, or none of it works.
               </p>
@@ -89,7 +90,7 @@ export default function AboutPage() {
           <div className="counters counters-xl">
             <div className="cnt rv" data-tilt><div className="cnt-ic ic-lav"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8Z" fill="#5B4FE9"/></svg></div><b><span data-count="240">0</span><em>+</em></b><span>Projects delivered</span></div>
             <div className="cnt rv rv-d1" data-tilt><div className="cnt-ic ic-mint"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 21s-7-4.6-9.5-9C.9 8.4 3 5 6.5 5c2 0 3.6 1.1 4.5 2.7C11.9 6.1 13.5 5 15.5 5 19 5 21.1 8.4 21.5 12c-2.5 4.4-9.5 9-9.5 9Z" fill="#06C299"/></svg></div><b><span data-count="98">0</span><em>%</em></b><span>Clients who stay</span></div>
-            <div className="cnt rv rv-d2" data-tilt><div className="cnt-ic ic-peach"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#FF7A3D" strokeWidth="2"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.7 3.8 9S14.5 18.4 12 21c-2.5-2.6-3.8-5.7-3.8-9S9.5 5.6 12 3Z" stroke="#FF7A3D" strokeWidth="2"/></svg></div><b>US<em>/UK</em></b><span>Where our clients are</span></div>
+            <div className="cnt rv rv-d2" data-tilt><div className="cnt-ic ic-peach"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#FF7A3D" strokeWidth="2"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.7 3.8 9S14.5 18.4 12 21c-2.5-2.6-3.8-5.7-3.8-9S9.5 5.6 12 3Z" stroke="#FF7A3D" strokeWidth="2"/></svg></div><b>Worldwide</b><span>Where our clients are</span></div>
             <div className="cnt rv rv-d3" data-tilt><div className="cnt-ic ic-lav"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#5B4FE9" strokeWidth="2"/><path d="M12 7v5l3 3" stroke="#5B4FE9" strokeWidth="2" strokeLinecap="round"/></svg></div><b><span data-count="2">0</span><em>h</em></b><span>Quote reply time</span></div>
           </div>
         </div>
@@ -168,7 +169,7 @@ export default function AboutPage() {
                 <li>Junior staff learning on your project</li>
                 <li>Automation &quot;available as an add-on later&quot;</li>
                 <li>SEO means installing a plugin</li>
-                <li>Weeks of silence between updates</li>
+                <li>Long silences between updates</li>
                 <li>Launch, invoice, disappear</li>
               </ul>
             </div>

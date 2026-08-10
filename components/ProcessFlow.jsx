@@ -15,28 +15,28 @@ const PHASES = [
     out: ['Project brief', 'Fixed quote'],
   },
   {
-    t: 'Blueprint', tag: 'Week 1', icon: 'map',
+    t: 'Blueprint', tag: 'Step 1', icon: 'map',
     d: 'Research becomes a plan: sitemap, funnel logic, content outline and the exact tech stack. You approve the blueprint before a single pixel is drawn — no surprises later.',
     out: ['Sitemap & funnel map', 'Tech stack', 'Timeline'],
   },
   {
-    t: 'Design', tag: 'Weeks 1–2', icon: 'pen',
+    t: 'Design', tag: 'Step 2', icon: 'pen',
     d: 'Real design concepts in Figma — not moodboards. We iterate together until the direction is unmistakably yours, then hand you a clickable prototype to walk through.',
     out: ['Design concepts', 'Clickable prototype'],
   },
   {
-    t: 'Build & Automate', tag: 'Weeks 2–5', icon: 'bolt',
+    t: 'Build & Automate', tag: 'Step 3', icon: 'bolt',
     d: 'Pixel-perfect development with motion, speed and SEO engineered in. Every form, calendar, CRM pipeline and follow-up automation is wired and tested as we go.',
     out: ['Staging site', 'Automations live'],
   },
   {
-    t: 'Test & Polish', tag: 'Final week', icon: 'shield',
+    t: 'Test & Polish', tag: 'Step 4', icon: 'shield',
     d: 'You click through staging on every device while we run speed, accessibility and automation QA. We obsess over details until you can\u2019t find anything to change.',
     out: ['QA report', 'Launch checklist'],
   },
   {
     t: 'Launch & Grow', tag: 'Ongoing', icon: 'rocket',
-    d: 'We go live together, monitor everything through the first weeks, and hand over training videos. Then care plans keep you fast, secure and one message away from us.',
+    d: 'We go live together, monitor everything closely afterwards, and hand over training videos. Then care plans keep you fast, secure and one message away from us.',
     out: ['Training videos', 'Care plan'],
   },
 ];

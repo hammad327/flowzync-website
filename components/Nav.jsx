@@ -73,8 +73,7 @@ export default function Nav() {
         <Link href="/portfolio" className={is('/portfolio') ? 'active' : ''} onClick={closeAll}>Portfolio</Link>
         <Link href="/blog" className={is('/blog') ? 'active' : ''} onClick={closeAll}>Blog</Link>
         <Link href="/about" className={is('/about') ? 'active' : ''} onClick={closeAll}>About</Link>
-        <Link href="/contact" className={is('/contact') ? 'active' : ''} onClick={closeAll}>Contact</Link>
-        <Link href="/contact" className="nav-cta" onClick={closeAll}>Get a free quote</Link>
+        <Link href="/contact" className={`nav-cta ${is('/contact') ? 'active' : ''}`} onClick={closeAll}>Contact us</Link>
       </div>
 
       <button

@@ -1,5 +1,6 @@
 'use client';
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import Link from 'next/link';
 import { services } from '@/lib/services';
 import HeroCanvas from '@/components/HeroCanvas';
 import { site } from '@/lib/site';
@@ -8,6 +9,18 @@ export default function ContactPage() {
   const [sent, setSent] = useState(false);
   const [busy, setBusy] = useState(false);
   const [err, setErr] = useState('');
+  const [captcha, setCaptcha] = useState(null);
+  const [answer, setAnswer] = useState('');
+  const startedAt = useRef(Date.now());
+
+  // Fetch a fresh, server-signed spam check on load.
+  const loadCaptcha = () =>
+    fetch('/api/challenge')
+      .then((r) => r.json())
+      .then(setCaptcha)
+      .catch(() => setCaptcha(null));
+
+  useEffect(() => { loadCaptcha(); startedAt.current = Date.now(); }, []);
 
   const submit = async (e) => {
     e.preventDefault();
@@ -22,11 +35,19 @@ export default function ContactPage() {
           name: f.name.value, email: f.email.value,
           service: f.service.value, timeline: f.timeline.value, message: f.msg.value,
           source: 'form', sourcePage: '/contact',
+          captchaToken: captcha?.token, captchaAnswer: answer,
+          website: f.website?.value || '',      // honeypot
+          startedAt: startedAt.current,
         }),
       });
       const data = await res.json();
-      if (data.ok) { setSent(true); f.reset(); }
-      else setErr(data.error || 'Something went wrong — please email us directly.');
+      if (data.ok) { setSent(true); f.reset(); setAnswer(''); }
+      else {
+        setErr(data.error || 'Something went wrong — please email us directly.');
+        // A used or failed challenge is spent: issue a new one so the
+        // person can retry without reloading the page.
+        setAnswer(''); loadCaptcha();
+      }
     } catch {
       setErr(`Could not send that. Please try again, or email ${site.email}.`);
     } finally {
@@ -70,56 +91,98 @@ export default function ContactPage() {
               </div>
             </div>
 
-            <form className="ct-form rv in rv-d1" onSubmit={submit} noValidate>
-              <h3>Start your project</h3>
-              <p>Fill this in and we'll come to the call already knowing your business.</p>
-              <div className="f-row">
-                <div className="f-field">
-                  <label htmlFor="name">Full name</label>
-                  <input id="name" name="name" type="text" placeholder="Jane Cooper" style={err === 'field' ? { borderColor: '#FF6B6B' } : undefined} />
+            {sent ? (
+              <div className="ct-done" role="status" aria-live="polite">
+                <div className="ct-done-ring">
+                  <svg viewBox="0 0 52 52" width="72" height="72" aria-hidden="true">
+                    <circle className="cd-circle" cx="26" cy="26" r="23" fill="none" stroke="#06C299" strokeWidth="2.5" />
+                    <path className="cd-check" d="M15 27l8 8 15-16" fill="none" stroke="#06C299" strokeWidth="3.4" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                  <span className="cd-pulse" />
                 </div>
-                <div className="f-field">
-                  <label htmlFor="email">Email</label>
-                  <input id="email" name="email" type="email" placeholder="jane@company.com" style={err === 'field' ? { borderColor: '#FF6B6B' } : undefined} />
+                <h3>Thanks — that&apos;s with us</h3>
+                <p>
+                  A person reads every enquiry, and we&apos;ll come back to you at the email
+                  you gave us with a clear next step. No autoresponder, no sales sequence.
+                </p>
+                <div className="ct-done-next">
+                  <span>While you wait</span>
+                  <div>
+                    <Link href="/portfolio" className="btn btn-o"><span>See our work</span></Link>
+                    <Link href="/blog" className="btn btn-o"><span>Read the blog</span></Link>
+                  </div>
                 </div>
+                <button
+                  type="button" className="ct-done-again"
+                  onClick={() => { setSent(false); setAnswer(''); loadCaptcha(); startedAt.current = Date.now(); }}
+                >
+                  Send another message
+                </button>
               </div>
-              <div className="f-row">
-                <div className="f-field">
-                  <label htmlFor="service">Service needed</label>
-                  <select id="service" name="service">
-                    {services.map((s) => <option key={s.slug}>{s.title}</option>)}
-                    <option>Multiple / full stack</option>
-                    <option>Not sure yet</option>
-                  </select>
+            ) : (
+              <form className="ct-form rv in rv-d1" onSubmit={submit} noValidate>
+                <h3>Start your project</h3>
+                <p>Fill this in and we'll come to the call already knowing your business.</p>
+                <div className="f-row">
+                  <div className="f-field">
+                    <label htmlFor="name">Full name</label>
+                    <input id="name" name="name" type="text" placeholder="Jane Cooper" style={err === 'field' ? { borderColor: '#FF6B6B' } : undefined} />
+                  </div>
+                  <div className="f-field">
+                    <label htmlFor="email">Email</label>
+                    <input id="email" name="email" type="email" placeholder="jane@company.com" style={err === 'field' ? { borderColor: '#FF6B6B' } : undefined} />
+                  </div>
+                </div>
+                <div className="f-row">
+                  <div className="f-field">
+                    <label htmlFor="service">Service needed</label>
+                    <select id="service" name="service">
+                      {services.map((s) => <option key={s.slug}>{s.title}</option>)}
+                      <option>Multiple / full stack</option>
+                      <option>Not sure yet</option>
+                    </select>
+                  </div>
+                  <div className="f-field">
+                    <label htmlFor="timeline">Ideal timeline</label>
+                    <select id="timeline" name="timeline">
+                      <option>As soon as possible</option>
+                      <option>Within a month</option>
+                      <option>1–3 months</option>
+                      <option>Just exploring</option>
+                    </select>
+                  </div>
                 </div>
                 <div className="f-field">
-                  <label htmlFor="timeline">Ideal timeline</label>
-                  <select id="timeline" name="timeline">
-                    <option>As soon as possible</option>
-                    <option>Within a month</option>
-                    <option>1–3 months</option>
-                    <option>Just exploring</option>
-                  </select>
+                  <label htmlFor="msg">Tell us about the project</label>
+                  <textarea id="msg" name="msg" placeholder="What are you building, and what does your dream website look like?" />
                 </div>
-              </div>
-              <div className="f-field">
-                <label htmlFor="msg">Tell us about the project</label>
-                <textarea id="msg" name="msg" placeholder="What are you building, and what does your dream website look like?" />
-              </div>
-              <button type="submit" className="btn btn-p" disabled={busy} style={{ width: '100%', justifyContent: 'center', opacity: busy ? 0.7 : 1 }}>
-                <span>{busy ? 'Sending…' : 'Send message'}</span>
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="m22 2-11 11M22 2l-7 20-4-9-9-4 20-7Z" stroke="currentColor" strokeWidth="2" strokeLinejoin="round"/></svg>
-              </button>
-              {err && err !== 'field' && (
-                <div className="form-ok" style={{ background: '#FFEBEB', color: '#B33' }}>{err}</div>
-              )}
-              {sent && (
-                <div className="form-ok">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" fill="#06C299"/><path d="m8 12.5 2.5 2.5L16 9.5" stroke="#fff" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/></svg>
-                  Quote received. We'll take a look and get back to you.
+                {/* Honeypot — hidden from people, irresistible to bots. */}
+                <input
+                  type="text" name="website" tabIndex={-1} autoComplete="off"
+                  aria-hidden="true" className="hp-field" defaultValue=""
+                />
+
+                <div className="ct-captcha">
+                  <label htmlFor="captcha">
+                    {captcha ? captcha.question : 'Loading spam check…'}
+                    <span>Quick check that you&apos;re human</span>
+                  </label>
+                  <input
+                    id="captcha" name="captcha" inputMode="numeric" autoComplete="off"
+                    value={answer} onChange={(e) => setAnswer(e.target.value)}
+                    placeholder="?" aria-label="Answer the sum shown"
+                  />
                 </div>
-              )}
-            </form>
+
+                <button type="submit" className="btn btn-p" disabled={busy} style={{ width: '100%', justifyContent: 'center', opacity: busy ? 0.7 : 1 }}>
+                  <span>{busy ? 'Sending…' : 'Send message'}</span>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="m22 2-11 11M22 2l-7 20-4-9-9-4 20-7Z" stroke="currentColor" strokeWidth="2" strokeLinejoin="round"/></svg>
+                </button>
+                {err && err !== 'field' && (
+                  <div className="form-ok" style={{ background: '#FFEBEB', color: '#B33' }}>{err}</div>
+                )}
+              </form>
+            )}
           </div>
         </div>
       </section>

@@ -5,9 +5,9 @@ import { usLocations, ukLocations } from '@/lib/locations';
 import { serviceArea, site } from '@/lib/site';
 
 export const metadata = {
-  title: { absolute: 'Web Design Across the US & UK | Areas We Cover — Flowzync' },
+  title: { absolute: 'Areas We Cover | Web Design Worldwide — Flowzync' },
   description:
-    'Flowzync builds websites for businesses across the United States and United Kingdom — New York, Austin, Dallas, Chicago, Miami, Phoenix, London, Manchester and more.',
+    'Flowzync works with clients worldwide, with dedicated pages for the cities we work in most — New York, Austin, Dallas, Chicago, Miami, Phoenix, London, Manchester and more.',
   alternates: { canonical: `${site.url}/locations` },
 };
 
@@ -19,11 +19,11 @@ export default function LocationsPage() {
         <div className="orb orb1" data-plx="0.1" /><div className="hero-grid-bg" />
         <div className="wrap" style={{ position: 'relative', zIndex: 1, textAlign: 'center' }}>
           <div className="eyebrow"><span className="pulse" />Areas we cover</div>
-          <h1 style={{ marginInline: 'auto' }}>Working across <span className="grad-txt">the US &amp; UK</span></h1>
+          <h1 style={{ marginInline: 'auto' }}>Working with clients <span className="grad-txt">worldwide</span></h1>
           <p className="lede" style={{ marginInline: 'auto' }}>
-            We build websites for businesses throughout the United States and United
-            Kingdom. Below are the areas we work in most — each with a note on what that
-            market actually looks like.
+            We&apos;re a remote studio and our clients are all over the world. Below are the
+            places we work in most often — each with a note on what that market actually
+            looks like.
           </p>
         </div>
       </div>
@@ -75,7 +75,7 @@ export default function LocationsPage() {
             <div className="eyebrow"><span className="pulse" />Full coverage</div>
             <h2>Everywhere else <span className="grad-txt">we work</span></h2>
             <p>
-              We take on clients throughout the United States and United Kingdom. If your city isn&apos;t
+              We work with clients worldwide. The cities below are simply where we work most often \u2014 if yours isn&apos;t
               listed with its own page yet, we still work there — just get in touch.
             </p>
           </div>
@@ -92,7 +92,7 @@ export default function LocationsPage() {
         <div className="wrap">
           <CTABand
             title="Not sure if we cover your area?"
-            text="We work remotely across the US and UK. Tell us where you are and what you need — we'll come back with a fixed quote."
+            text="We work remotely with clients worldwide. Tell us where you are and what you need — we'll come back with a fixed quote."
           />
         </div>
       </section>
