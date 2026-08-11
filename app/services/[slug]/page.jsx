@@ -8,6 +8,7 @@ import { getServiceDetails } from '@/lib/serviceDetails';
 import { site } from '@/lib/site';
 import { Icon, colorHex } from '@/components/Icons';
 import HeroCanvas from '@/components/HeroCanvas';
+import { clampTitle, clampDescription } from '@/lib/meta';
 
 // Pre-render every service at build time → instant loads + full SEO
 export function generateStaticParams() {
@@ -18,8 +19,8 @@ export function generateMetadata({ params }) {
   const s = getService(params.slug);
   if (!s) return {};
   return {
-    title: { absolute: s.seoTitle },
-    description: s.seoDescription,
+    title: { absolute: clampTitle(s.seoTitle) },
+    description: clampDescription(s.seoDescription),
     keywords: s.keywords,
     alternates: { canonical: `${site.url}/services/${s.slug}` },
     openGraph: { title: s.seoTitle, description: s.seoDescription, url: `${site.url}/services/${s.slug}` },
@@ -45,7 +46,7 @@ export default function ServicePage({ params }) {
       '@context': 'https://schema.org',
       '@type': 'Service',
       name: s.title,
-      description: s.seoDescription,
+      description: clampDescription(s.seoDescription),
       serviceType: s.title,
       provider: { '@type': 'Organization', '@id': `${site.url}/#organization`, name: site.name, url: site.url },
       areaServed: 'Worldwide',

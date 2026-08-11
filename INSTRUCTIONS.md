@@ -15,8 +15,9 @@ to bottom. Nothing here requires a developer.
 4. [After launch: indexing & SEO](#4-after-you-publish--indexing-timelines-and-what-to-do) — how long until Google finds you
 5. [Backlinks](#5-backlinks--the-slow-high-impact-one) — the monthly habit
 6. [Ranking in US and UK cities](#6-ranking-in-us-and-uk-cities) — **read before listing anywhere**
-7. [Lead dashboard setup](#7-lead-capture--dashboard-setup) — required before launch
-8. [Quick reference](#8-quick-reference) — commands and links
+7. [Bing, ChatGPT & AI visibility](#7-bing-chatgpt--ai-visibility) — why AI tools can't find you yet
+8. [Lead dashboard setup](#8-lead-capture--dashboard-setup) — required before launch
+9. [Quick reference](#9-quick-reference) — commands and links
 
 ---
 
@@ -32,7 +33,8 @@ Each section below covers one job in full detail.
 | 3 | [After launch: SEO](#4-after-you-publish--indexing-timelines-and-what-to-do) | Launch day + ongoing | ~2 hrs, then weekly |
 | 4 | [Backlinks](#5-backlinks--the-slow-high-impact-one) | From week 2 onward | 2–3 hrs/month |
 | 5 | [`05-LOCATION-PAGES.md`](05-LOCATION-PAGES.md) | Before launch — **read this** | ~20 min |
-| 6 | [Lead dashboard setup](#7-lead-capture--dashboard-setup) | Before launch | ~15 min, once |
+| 6 | [`06-BING-AND-AI-VISIBILITY.md`](06-BING-AND-AI-VISIBILITY.md) | After launch | ~10 min/week |
+| 7 | [Lead dashboard setup](#8-lead-capture--dashboard-setup) | Before launch | ~15 min, once |
 
 ---
 
@@ -42,8 +44,8 @@ Each section below covers one job in full detail.
 
 - [ ] Fill in your real Lahore address and phone in `lib/site.js` (see below)
 - [ ] Add a UK forwarding number to `lib/site.js` → section 6 (highest-impact single step)
-- [ ] Set `ADMIN_PASSWORD` so the lead dashboard isn't locked → [section 7](#7-lead-capture--dashboard-setup)
-- [ ] Connect Supabase so leads are actually saved → [section 7](#7-lead-capture--dashboard-setup)
+- [ ] Set `ADMIN_PASSWORD` so the lead dashboard isn't locked → [section 8](#8-lead-capture--dashboard-setup)
+- [ ] Connect Supabase so leads are actually saved → [section 8](#8-lead-capture--dashboard-setup)
 - [ ] Set `GMAIL_USER` + `GMAIL_APP_PASSWORD` so leads email you
 - [ ] Add a free AI key (`GROQ_API_KEY`) so Zync is fully conversational
 - [ ] Swap at least your best 4–6 portfolio images → `/public/images/README.md`
@@ -301,7 +303,7 @@ them separately and injects them at build time.
 | `CONTACT_TO` | `info@flowzync.com` | Where lead emails arrive |
 | `GROQ_API_KEY` | free from [console.groq.com](https://console.groq.com) | Makes Zync fully conversational |
 
-[section 7](#7-lead-capture--dashboard-setup) walks through getting the Supabase and Gmail values.
+[section 8](#8-lead-capture--dashboard-setup) walks through getting the Supabase and Gmail values.
 
 ##### ⚠️ They don't apply until you redeploy
 
@@ -606,67 +608,58 @@ run three commands. Your post is live in about 90 seconds.
 
 ### The 5-minute version
 
-**1.** Create a new file in `content/blog/` named:
+**1. Copy the template.** `content/blog/_TEMPLATE.md` is your starting point —
+it has the frontmatter filled in and a writing checklist inside. Copy it, don't
+edit it.
+
+**2. Name your copy:**
 
 ```
-YYYY-MM-DD-your-keyword-here.md
+YYYY-MM-DD-your-target-keyword.md
 ```
 
-The filename **becomes the URL**, so this:
+The date orders your posts and is **stripped from the URL**, so this:
 
 ```
-content/blog/2026-08-12-elementor-vs-custom-code.md
+content/blog/2026-08-14-woocommerce-vs-shopify-cost.md
 ```
 
 becomes:
 
 ```
-www.flowzync.com/blog/elementor-vs-custom-code
+www.flowzync.com/blog/woocommerce-vs-shopify-cost
 ```
 
-Put your target keyword in the filename. Use hyphens, lowercase, no spaces, no
-punctuation. Never rename a file after publishing — that breaks the URL and
-throws away any ranking it earned.
+Put your keyword in the filename. Lowercase, hyphens, no spaces. **Never rename
+it after publishing** — that breaks the URL and throws away any ranking it earned.
 
-**2.** Paste this template at the top, then write below it:
+**3. Fill in the frontmatter** (between the `---` lines) and write below it.
 
-```markdown
----
-title: "Elementor vs Custom Code: Which Should You Choose in 2026?"
-description: "A straight comparison of Elementor and custom-coded websites — cost, speed, flexibility and who each one actually suits."
-date: "2026-08-12"
-author: "Your Name"
-category: "Web Design"
-cover: "/images/blog/elementor-vs-custom-code.jpg"
----
+**4. Delete `draft: true`** when you're ready. While that line is present the post
+is invisible on the live site, so you can safely push work in progress.
 
-Your opening paragraph goes here. Answer the question in the title within the
-first 100 words — this is the part AI assistants and featured snippets quote.
-
-## Your first heading
-
-Write normally. Blank line between paragraphs.
-
-- Bullet points like this
-- Work fine
-
-**Bold** and *italic* work as you'd expect.
-
-## Another heading
-
-[Link to a service page](/services/elementor-design) — always link back to at
-least one service or industry page from every post.
-```
-
-**3.** Publish:
+**5. Publish:**
 
 ```bash
-git add .
-git commit -m "New post: Elementor vs custom code"
+git add -A
+git commit -m "New post: WooCommerce vs Shopify cost"
 git push
 ```
 
-Done. Check `www.flowzync.com/blog` in two minutes.
+Live in about 90 seconds.
+
+---
+
+### Drafts and files that never publish
+
+Two ways to keep something out of the live site:
+
+| Method | Use it for |
+|---|---|
+| `draft: true` in the frontmatter | A post you're still writing |
+| Filename starting with `_` | Templates and notes |
+
+Both are safe to commit and push.
 
 ---
 
@@ -680,7 +673,8 @@ Everything between the two `---` lines. Keep the quotes.
 | `description` | Yes | 140–160 characters. This is your search-result snippet — write it to earn the click, not to describe the page. |
 | `date` | Yes | `YYYY-MM-DD`. Controls ordering. |
 | `author` | Yes | A real person's name. Named authors are a trust signal for Google and for AI citation. |
-| `category` | Yes | Powers the filter buttons on `/blog`. Reuse existing ones — every new value creates a new filter. |
+| `category` | No | Not shown publicly any more. Harmless to leave in. |
+| `draft` | No | `true` keeps the post off the live site. |
 | `cover` | Recommended | 1400 × 900. Put the file in `/public/images/blog/`. |
 | `updated` | Optional | Add when you revise an old post. Shows "Updated [date]" and refreshes `dateModified` in the schema. |
 
@@ -1306,7 +1300,315 @@ signal. Register it honestly at the address in `lib/site.js`.
 
 ---
 
-## 7. Lead capture & dashboard setup
+## 7. Bing, ChatGPT & AI visibility
+
+**Why this deserves its own guide:** ChatGPT's web search and Microsoft Copilot
+both retrieve from **Bing's index**. A page that isn't in Bing is invisible to
+those tools no matter how well it ranks on Google.
+
+Most people never look at Bing because their Google traffic looks fine. That's
+exactly why there's opportunity here — and why "ChatGPT doesn't know about
+Flowzync" is a Bing problem before it's an AI problem.
+
+---
+
+### Contents
+
+1. [Why ChatGPT can't find you yet](#1-why-chatgpt-cant-find-you-yet)
+2. [Fixing the errors Bing reported](#2-fixing-the-errors-bing-reported)
+3. [IndexNow — already set up](#3-indexnow--already-set-up)
+4. [Your weekly Bing routine](#4-your-weekly-bing-routine)
+5. [The AI Performance report](#5-the-ai-performance-report)
+6. [Getting cited by AI tools](#6-getting-cited-by-ai-tools)
+7. [Checking whether it's working](#7-checking-whether-its-working)
+8. [Realistic timelines](#8-realistic-timelines)
+
+---
+
+### 1. Why ChatGPT can't find you yet
+
+When ChatGPT says it has nothing on Flowzync, that is not a mysterious AI
+problem. It's a chain, and it breaks at the first link:
+
+```
+Your page  →  Bing index  →  ChatGPT / Copilot answers
+```
+
+Your site launched days ago. Bing has **discovered** your URLs but hasn't
+finished crawling and indexing them — which is precisely what its "Discovered
+but not crawled" message means. Until pages are indexed, no AI tool can cite
+them, because there is nothing to retrieve.
+
+**There is also a second thing happening,** and it's worth being clear-eyed
+about. AI tools describe brands using what *other* sites say about them, not
+only what your own site claims. Right now nothing on the internet mentions
+Flowzync except Flowzync. That takes months of directory listings, mentions and
+links to change — see section 6 and `04-BACKLINKS.md`.
+
+**So: nothing is broken.** You are early. The work below shortens the wait.
+
+---
+
+### 2. Fixing the errors Bing reported
+
+#### ✅ Already fixed in the code
+
+Bing flagged **"Meta Description too long or too short"** on your homepage and
+`/services`, plus **"Title too long"**.
+
+It had only crawled two pages at that point. An audit of all 42 pages found the
+same problem on 38 of them, so this is now handled at the source: `lib/meta.js`
+enforces the limits on **every** page automatically at build time.
+
+| Element | Limit | How it's enforced |
+|---|---|---|
+| Title | ≤ 60 characters | Trimmed at a separator, brand suffix dropped first |
+| Description | 25–158 characters | Trimmed at a sentence boundary where possible |
+
+Descriptions that run slightly long are now shortened gracefully rather than
+becoming an error. You can write naturally without counting characters.
+
+**After you deploy**, re-run URL Inspection on those two pages and the errors
+will clear.
+
+#### If Bing reports something else
+
+| Bing says | What it means | Fix |
+|---|---|---|
+| Discovered but not crawled | Known but queued | Normal for a new site. Request indexing, use IndexNow. |
+| URL cannot appear on Bing | Blocked or failing checks | Check robots.txt, then request indexing |
+| Title too long | Over ~60 chars | Now auto-handled |
+| Meta description too long/short | Outside 25–160 | Now auto-handled |
+| Multiple H1 tags | More than one `<h1>` | Not an issue on this site — one per page |
+
+---
+
+### 3. IndexNow — already set up
+
+**This is the single biggest lever you have on AI visibility**, and it's built in.
+
+IndexNow tells Bing the moment a page changes, instead of waiting for a crawl.
+It cuts Bing indexing from **weeks to hours** — and since ChatGPT retrieves from
+Bing's index, that directly shortens the path to being citable.
+
+**What's already running:**
+
+- A verification key file at `/<key>.txt` (Bing checks this to confirm you own
+  the domain)
+- `/api/indexnow`, which submits every page in your sitemap
+- A **daily cron** in `vercel.json` that runs it automatically
+
+**You don't need to do anything.** It starts on your next deploy.
+
+**To trigger it manually** after publishing something important:
+
+```
+https://www.flowzync.com/api/indexnow?check=1
+```
+
+You should see `{"ok":true,"submitted":42}`. A `202` status is also success — it
+means Bing accepted the submission and is validating the key.
+
+**To confirm Bing is receiving it:** Bing Webmaster Tools → **IndexNow** in the
+left menu. Submissions appear within a day or two.
+
+> One submission covers Bing, Yandex, Seznam and Naver — they share the
+> IndexNow protocol.
+
+> **Note on Vercel's Hobby plan:** it allows two daily cron jobs, which is
+> exactly what's configured (keep-alive at 06:00 UTC, IndexNow at 07:00). If you
+> add a third, one will be rejected.
+
+---
+
+### 4. Your weekly Bing routine
+
+Ten minutes, once a week.
+
+#### Every week
+
+1. **URL Inspection** — check one or two important pages. Confirm "URL can be
+   indexed by Bing" with no errors.
+2. **Site Explorer** — is your indexed page count growing? That's the number
+   that matters right now.
+3. **Search Performance** — impressions appearing yet? Clicks come later.
+4. **AI Performance (BETA)** — see section 5.
+
+#### After publishing anything
+
+1. **URL Submission** → paste the new URL → submit. You get a daily quota; use
+   it on pages you actually care about.
+2. IndexNow handles the rest automatically.
+
+#### Monthly
+
+- **Site Scan** — run the on-demand crawler. It's a free technical audit and
+  catches issues before they compound.
+- **Backlinks** — Bing shows backlink data for **any** domain, including
+  competitors. Genuinely useful, and Google Search Console won't do it.
+- **Keyword Research** — Bing's is free and has no impression threshold, unlike
+  most keyword tools.
+
+---
+
+### 5. The AI Performance report
+
+Bing Webmaster Tools includes an **AI Performance** report (BETA). It shows how often Microsoft Copilot and partner AI experiences cite your site's pages when generating answers — the first dashboard from a major search engine dedicated to tracking citations in AI responses.
+
+**Why it matters to you:** ChatGPT retrieves through Bing's index, and the dashboard reports on Bing index usage by AI products. It isn't a direct ChatGPT report, but it's the closest free signal available.
+
+**What you'll see:**
+
+- **Total citations** — how often your pages were used as sources
+- **Grounding queries** — the phrases the AI generated internally when it went
+  looking for content. These are gold: they show how AI tools *rephrase* what
+  users ask, which is often not how you'd have guessed.
+- **Cited pages** — which of your pages get pulled into answers
+
+**Expect it to be empty for now.** Measurable data typically appears two to four weeks after Bing indexation expands. Check monthly rather than daily.
+
+**What it won't tell you:** anything about ChatGPT specifically, Perplexity,
+Claude or Google AI Overviews. None of those publish this data. Treat Bing's
+numbers as directional.
+
+---
+
+### 6. Getting cited by AI tools
+
+Being indexed makes you *eligible*. Being cited requires more.
+
+#### What's already built into your site
+
+- **Q&A structure** — every service, industry and location page has FAQ blocks
+  with direct answers. This is the format AI tools extract from most readily.
+- **FAQPage and Service schema** on every page, so machines can parse the
+  content unambiguously.
+- **`/llms.txt`** — a plain-text summary of your services, industries, locations
+  and common questions, written for AI crawlers. Check it at
+  `www.flowzync.com/llms.txt`.
+- **Declarative writing** — "WooCommerce charges no per-sale platform fee" is
+  quotable. "We deliver exceptional solutions" is not. Keep writing this way.
+- **Server-rendered HTML**, so crawlers that don't run JavaScript still see
+  everything.
+
+#### What you need to do
+
+**1. Get mentioned somewhere other than your own site.** This is the big one.
+
+AI models describe a brand using what the wider internet says about it. Right
+now, nothing does. Your first ten directory listings and mentions matter more
+here than another ten pages on your own site. Work through `04-BACKLINKS.md` —
+Clutch, GoodFirms, DesignRush and LinkedIn are the highest-value starting points
+because AI tools cite those directories constantly for agency queries.
+
+**2. Answer questions nobody else answers properly.**
+
+AI tools cite the page that answers the question most directly. Broad topics are
+saturated. Specific ones aren't:
+
+- ✅ "How much does WooCommerce cost compared to Shopify for 500 products?"
+- ❌ "Web design tips"
+
+Your blog post on site speed and SEO is written this way deliberately: it takes
+a position, gives specifics, and answers the title question in the first
+paragraph.
+
+**3. Publish consistently.** Freshness affects retrieval. A site that publishes
+weekly gets crawled more often than one that publishes twice a year.
+
+**4. Be specific and verifiable.** Include real numbers, named tools, actual
+process details. Vague marketing language is unciteable — there's nothing in it
+to quote.
+
+---
+
+### 7. Checking whether it's working
+
+There's no single dashboard, so use several signals.
+
+#### Is Bing indexing you?
+
+Search `site:flowzync.com` at **bing.com**. Count the results, and watch it grow
+week to week. This is your leading indicator — everything else depends on it.
+
+#### Are AI tools aware of you?
+
+Ask them directly, and be patient about the order things happen in:
+
+1. **Branded first:** "What is Flowzync?" — recognition of your own name comes
+   before anything else, usually once several pages are indexed.
+2. **Then long-tail:** "web design agency for dental practices" — this takes
+   months and depends on third-party mentions.
+
+Ask in **ChatGPT with web search enabled**, Perplexity, and Copilot. Without web
+search on, they're answering from training data that predates your site
+entirely, so a blank result tells you nothing.
+
+#### Is anyone arriving from AI tools?
+
+The only hard evidence. In Google Analytics, look for referrals from:
+
+- `chatgpt.com`
+- `perplexity.ai`
+- `copilot.microsoft.com`
+- `claude.ai`
+- `gemini.google.com`
+
+Even a handful confirms the pipeline works.
+
+#### Are AI crawlers visiting?
+
+Vercel → your project → **Logs**. Look for user agents like `GPTBot`,
+`ChatGPT-User`, `PerplexityBot`, `ClaudeBot` and `BingBot`. Their presence means
+you're being fetched, which precedes being cited.
+
+---
+
+### 8. Realistic timelines
+
+| When | What to expect |
+|---|---|
+| **Days 1–3** | IndexNow submits your pages; Bing begins crawling |
+| **Week 1–2** | Core pages indexed on Bing. `site:flowzync.com` starts returning results. |
+| **Week 2–4** | ChatGPT search can find you for **specific** queries — your brand name, or an exact page title |
+| **Month 1–3** | AI Performance data starts appearing. Branded queries answered correctly. |
+| **Month 3–6** | Citations for long-tail topical queries, **if** you have third-party mentions |
+| **Month 6–12** | Competitive unbranded queries — the same curve as normal SEO |
+
+**Two things to be honest with yourself about:**
+
+Being cited by AI tools follows the same curve as ranking, because they draw on
+the same signals. There is no shortcut that ranking doesn't also require.
+
+And the limiting factor right now is not your website — it's genuinely good.
+It's that nothing else on the internet mentions you yet. Directory listings and
+backlinks are the bottleneck, not code.
+
+---
+
+### Quick reference
+
+| Task | Where |
+|---|---|
+| Submit a URL | Bing WMT → URL Submission |
+| Check a page's status | Bing WMT → URL Inspection |
+| See indexed pages | Bing WMT → Site Explorer |
+| AI citations | Bing WMT → AI Performance |
+| Confirm IndexNow | Bing WMT → IndexNow |
+| Trigger IndexNow now | `flowzync.com/api/indexnow?check=1` |
+| Free technical audit | Bing WMT → Site Scan |
+| Competitor backlinks | Bing WMT → Backlinks |
+| Free keyword data | Bing WMT → Keyword Research |
+| Your AI summary file | `flowzync.com/llms.txt` |
+
+**Also worth turning on:** Bing Webmaster Tools links to **Microsoft Clarity**,
+a free analytics tool with session recordings and heatmaps. Genuinely useful for
+seeing where people give up on your contact form, and it costs nothing.
+
+
+---
+
+## 8. Lead capture & dashboard setup
 
 Every enquiry, whether it comes from the contact form or from a chat with
 Zync, is stored in one place and shown at **`/admin`**.
@@ -1462,15 +1764,27 @@ https://www.flowzync.com/api/keep-alive
 
 It tells you exactly what is wrong in plain language:
 
+It tests a real **write**, not just a read, and reports which key you are using:
+
 | Response | Meaning |
 |---|---|
-| `{"ok":true,"database":"connected"}` | Everything works. |
-| `The leads table does not exist...` | The SQL from Step 2 was never run. Run it in the Supabase SQL Editor. |
-| `Supabase rejected the key...` | You used the publishable/anon key instead of the secret one. |
-| `Could not reach Supabase at all...` | `SUPABASE_URL` is wrong, or has a trailing slash. |
+| `"ok":true, "canWrite":true` | Everything works. |
+| `"step":"write"` + `keyType: publishable (WRONG)` | **The most common cause.** Reads pass but inserts are blocked. Swap `SUPABASE_SERVICE_KEY` for the secret key. |
+| `The leads table does not exist...` | The SQL from Step 2 was never run. |
+| `"step":"connect"` | `SUPABASE_URL` is wrong, or has a trailing slash or quotes. |
 
-This is the same endpoint the daily cron uses, so it is always up to date and
-exposes no data.
+> ### ⚠️ Why "connected" could be a lie before
+>
+> With Row Level Security enabled and no policies, a **read** using the
+> publishable/anon key returns an empty list and HTTP 200 — which looks like
+> success while every **insert** is rejected. That is why leads were silently
+> failing while the health check reported the database as connected.
+>
+> The check now writes a probe row and deletes it, so it can no longer pass
+> while writes are broken.
+
+The `email` field in the response also tells you whether lead notifications are
+configured and where they are being sent.
 
 ##### If the form returns a 400 error
 
@@ -1568,7 +1882,7 @@ dropdown in the dashboard; it saves immediately.
 
 ---
 
-## 8. Quick reference
+## 9. Quick reference
 
 ### The three commands you'll use forever
 

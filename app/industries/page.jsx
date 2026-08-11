@@ -4,11 +4,13 @@ import HeroCanvas from '@/components/HeroCanvas';
 import CTABand from '@/components/CTABand';
 import { industries } from '@/lib/industries';
 import { site } from '@/lib/site';
+import { clampTitle, clampDescription } from '@/lib/meta';
 
 export const metadata = {
-  title: { absolute: 'Industry Website Design | Websites Built Per Trade — Flowzync' },
-  description:
-    'Website design built around one industry at a time — plumbers, dental clinics, leak detection specialists and local businesses. Each site built for how that trade actually gets found.',
+  title: { absolute: clampTitle('Industry Website Design | Websites Built Per Trade — Flowzync') },
+  description: clampDescription(
+    'Website design built around one industry at a time — plumbers, dental clinics, leak detection specialists and local businesses. Each site built for how that trade actually gets found.'
+    ),
   alternates: { canonical: `${site.url}/industries` },
 };
 

@@ -7,67 +7,58 @@ run three commands. Your post is live in about 90 seconds.
 
 ## The 5-minute version
 
-**1.** Create a new file in `content/blog/` named:
+**1. Copy the template.** `content/blog/_TEMPLATE.md` is your starting point —
+it has the frontmatter filled in and a writing checklist inside. Copy it, don't
+edit it.
+
+**2. Name your copy:**
 
 ```
-YYYY-MM-DD-your-keyword-here.md
+YYYY-MM-DD-your-target-keyword.md
 ```
 
-The filename **becomes the URL**, so this:
+The date orders your posts and is **stripped from the URL**, so this:
 
 ```
-content/blog/2026-08-12-elementor-vs-custom-code.md
+content/blog/2026-08-14-woocommerce-vs-shopify-cost.md
 ```
 
 becomes:
 
 ```
-www.flowzync.com/blog/elementor-vs-custom-code
+www.flowzync.com/blog/woocommerce-vs-shopify-cost
 ```
 
-Put your target keyword in the filename. Use hyphens, lowercase, no spaces, no
-punctuation. Never rename a file after publishing — that breaks the URL and
-throws away any ranking it earned.
+Put your keyword in the filename. Lowercase, hyphens, no spaces. **Never rename
+it after publishing** — that breaks the URL and throws away any ranking it earned.
 
-**2.** Paste this template at the top, then write below it:
+**3. Fill in the frontmatter** (between the `---` lines) and write below it.
 
-```markdown
----
-title: "Elementor vs Custom Code: Which Should You Choose in 2026?"
-description: "A straight comparison of Elementor and custom-coded websites — cost, speed, flexibility and who each one actually suits."
-date: "2026-08-12"
-author: "Your Name"
-category: "Web Design"
-cover: "/images/blog/elementor-vs-custom-code.jpg"
----
+**4. Delete `draft: true`** when you're ready. While that line is present the post
+is invisible on the live site, so you can safely push work in progress.
 
-Your opening paragraph goes here. Answer the question in the title within the
-first 100 words — this is the part AI assistants and featured snippets quote.
-
-## Your first heading
-
-Write normally. Blank line between paragraphs.
-
-- Bullet points like this
-- Work fine
-
-**Bold** and *italic* work as you'd expect.
-
-## Another heading
-
-[Link to a service page](/services/elementor-design) — always link back to at
-least one service or industry page from every post.
-```
-
-**3.** Publish:
+**5. Publish:**
 
 ```bash
-git add .
-git commit -m "New post: Elementor vs custom code"
+git add -A
+git commit -m "New post: WooCommerce vs Shopify cost"
 git push
 ```
 
-Done. Check `www.flowzync.com/blog` in two minutes.
+Live in about 90 seconds.
+
+---
+
+## Drafts and files that never publish
+
+Two ways to keep something out of the live site:
+
+| Method | Use it for |
+|---|---|
+| `draft: true` in the frontmatter | A post you're still writing |
+| Filename starting with `_` | Templates and notes |
+
+Both are safe to commit and push.
 
 ---
 
@@ -81,7 +72,8 @@ Everything between the two `---` lines. Keep the quotes.
 | `description` | Yes | 140–160 characters. This is your search-result snippet — write it to earn the click, not to describe the page. |
 | `date` | Yes | `YYYY-MM-DD`. Controls ordering. |
 | `author` | Yes | A real person's name. Named authors are a trust signal for Google and for AI citation. |
-| `category` | Yes | Powers the filter buttons on `/blog`. Reuse existing ones — every new value creates a new filter. |
+| `category` | No | Not shown publicly any more. Harmless to leave in. |
+| `draft` | No | `true` keeps the post off the live site. |
 | `cover` | Recommended | 1400 × 900. Put the file in `/public/images/blog/`. |
 | `updated` | Optional | Add when you revise an old post. Shows "Updated [date]" and refreshes `dateModified` in the schema. |
 

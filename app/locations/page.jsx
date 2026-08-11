@@ -3,11 +3,13 @@ import HeroCanvas from '@/components/HeroCanvas';
 import CTABand from '@/components/CTABand';
 import { usLocations, ukLocations } from '@/lib/locations';
 import { serviceArea, site } from '@/lib/site';
+import { clampTitle, clampDescription } from '@/lib/meta';
 
 export const metadata = {
-  title: { absolute: 'Areas We Cover | Web Design Worldwide — Flowzync' },
-  description:
-    'Flowzync works with clients worldwide, with dedicated pages for the cities we work in most — New York, Austin, Dallas, Chicago, Miami, Phoenix, London, Manchester and more.',
+  title: { absolute: clampTitle('Areas We Cover | Web Design Worldwide — Flowzync') },
+  description: clampDescription(
+    'Flowzync works with clients worldwide, with dedicated pages for the cities we work in most — New York, Austin, Dallas, Chicago, Miami, Phoenix, London, Manchester and more.'
+    ),
   alternates: { canonical: `${site.url}/locations` },
 };
 

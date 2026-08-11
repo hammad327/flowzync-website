@@ -7,6 +7,7 @@ import { locations, getLocation } from '@/lib/locations';
 import { getService } from '@/lib/services';
 import { industries } from '@/lib/industries';
 import { site } from '@/lib/site';
+import { clampTitle, clampDescription } from '@/lib/meta';
 
 export function generateStaticParams() {
   return locations.map((l) => ({ slug: l.slug }));
@@ -16,13 +17,13 @@ export function generateMetadata({ params }) {
   const l = getLocation(params.slug);
   if (!l) return {};
   return {
-    title: { absolute: l.seoTitle },
-    description: l.seoDescription,
+    title: { absolute: clampTitle(l.seoTitle) },
+    description: clampDescription(l.seoDescription),
     keywords: l.keywords,
     alternates: { canonical: `${site.url}/locations/${l.slug}` },
     openGraph: {
       title: l.seoTitle,
-      description: l.seoDescription,
+      description: clampDescription(l.seoDescription),
       url: `${site.url}/locations/${l.slug}`,
     },
   };
@@ -50,7 +51,7 @@ export default function LocationPage({ params }) {
       '@context': 'https://schema.org',
       '@type': 'Service',
       name: `Web design in ${l.city}`,
-      description: l.seoDescription,
+      description: clampDescription(l.seoDescription),
       serviceType: 'Website design and development',
       provider: { '@type': 'Organization', '@id': `${site.url}/#organization`, name: site.name, url: site.url },
       areaServed: { '@type': 'City', name: l.city, containedInPlace: { '@type': 'AdministrativeArea', name: l.region } },

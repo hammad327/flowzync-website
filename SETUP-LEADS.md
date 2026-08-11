@@ -154,15 +154,27 @@ https://www.flowzync.com/api/keep-alive
 
 It tells you exactly what is wrong in plain language:
 
+It tests a real **write**, not just a read, and reports which key you are using:
+
 | Response | Meaning |
 |---|---|
-| `{"ok":true,"database":"connected"}` | Everything works. |
-| `The leads table does not exist...` | The SQL from Step 2 was never run. Run it in the Supabase SQL Editor. |
-| `Supabase rejected the key...` | You used the publishable/anon key instead of the secret one. |
-| `Could not reach Supabase at all...` | `SUPABASE_URL` is wrong, or has a trailing slash. |
+| `"ok":true, "canWrite":true` | Everything works. |
+| `"step":"write"` + `keyType: publishable (WRONG)` | **The most common cause.** Reads pass but inserts are blocked. Swap `SUPABASE_SERVICE_KEY` for the secret key. |
+| `The leads table does not exist...` | The SQL from Step 2 was never run. |
+| `"step":"connect"` | `SUPABASE_URL` is wrong, or has a trailing slash or quotes. |
 
-This is the same endpoint the daily cron uses, so it is always up to date and
-exposes no data.
+> ### ⚠️ Why "connected" could be a lie before
+>
+> With Row Level Security enabled and no policies, a **read** using the
+> publishable/anon key returns an empty list and HTTP 200 — which looks like
+> success while every **insert** is rejected. That is why leads were silently
+> failing while the health check reported the database as connected.
+>
+> The check now writes a probe row and deletes it, so it can no longer pass
+> while writes are broken.
+
+The `email` field in the response also tells you whether lead notifications are
+configured and where they are being sent.
 
 #### If the form returns a 400 error
 

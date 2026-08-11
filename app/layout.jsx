@@ -5,6 +5,7 @@ import ChatWidget from '@/components/ChatWidget';
 import { site, serviceArea, allServiceAreas, hasLocalNAP } from '@/lib/site';
 import { images } from '@/lib/images';
 import './globals.css';
+import { clampTitle, clampDescription } from '@/lib/meta';
 
 // Only the weights actually used, which keeps the download small.
 const FONT_CSS =
@@ -13,7 +14,7 @@ const FONT_CSS =
 export const metadata = {
   metadataBase: new URL(site.url),
   title: { default: `${site.name} — ${site.tagline}`, template: `%s | ${site.name}` },
-  description: site.description,
+  description: clampDescription(site.description),
   applicationName: site.name,
   keywords: [
     'web design agency', 'custom website design', 'wordpress development',
@@ -28,7 +29,7 @@ export const metadata = {
     type: 'website',
     siteName: site.name,
     title: `${site.name} — ${site.tagline}`,
-    description: site.description,
+    description: clampDescription(site.description),
     url: site.url,
     locale: 'en_US',
     images: [{ url: '/og.png', width: 1200, height: 630, alt: `${site.name} — ${site.tagline}` }],
@@ -36,7 +37,7 @@ export const metadata = {
   twitter: {
     card: 'summary_large_image',
     title: `${site.name} — ${site.tagline}`,
-    description: site.description,
+    description: clampDescription(site.description),
     images: ['/og.png'],
   },
   robots: {
@@ -57,7 +58,7 @@ const orgSchema = {
       name: site.name,
       url: site.url,
       email: site.email,
-      description: site.description,
+      description: clampDescription(site.description),
       slogan: site.tagline,
       foundingDate: '2021',
       logo: { '@type': 'ImageObject', url: `${site.url}${images.logoRaster}`, width: 512, height: 512 },

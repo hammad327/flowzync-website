@@ -5,6 +5,7 @@ import CTABand from '@/components/CTABand';
 import { getAllPosts, getPost, getRelatedPosts } from '@/lib/posts';
 import { site } from '@/lib/site';
 import HeroCanvas from '@/components/HeroCanvas';
+import { clampTitle, clampDescription } from '@/lib/meta';
 
 export function generateStaticParams() {
   return getAllPosts().map((p) => ({ slug: p.slug }));
@@ -14,13 +15,13 @@ export function generateMetadata({ params }) {
   const p = getPost(params.slug);
   if (!p) return {};
   return {
-    title: p.title,
-    description: p.description,
+    title: clampTitle(p.title, 48),   // 48 + ' | Flowzync' = 59
+    description: clampDescription(p.description),
     alternates: { canonical: `${site.url}/blog/${p.slug}` },
     openGraph: {
       type: 'article',
-      title: p.title,
-      description: p.description,
+      title: clampTitle(p.title, 48),   // 48 + ' | Flowzync' = 59
+      description: clampDescription(p.description),
       url: `${site.url}/blog/${p.slug}`,
       images: p.cover ? [p.cover] : [],
       publishedTime: p.date,
@@ -37,7 +38,7 @@ export default function BlogPost({ params }) {
       '@context': 'https://schema.org',
       '@type': 'BlogPosting',
       headline: p.title,
-      description: p.description,
+      description: clampDescription(p.description),
       image: p.cover,
       datePublished: p.date,
       dateModified: p.updated || p.date,

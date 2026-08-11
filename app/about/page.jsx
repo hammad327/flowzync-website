@@ -4,15 +4,17 @@ import CTABand from '@/components/CTABand';
 import { LogoMark } from '@/components/Logo';
 import HeroCanvas from '@/components/HeroCanvas';
 import { site } from '@/lib/site';
+import { clampTitle, clampDescription } from '@/lib/meta';
 
 export const metadata = {
   title: 'About Us — The Team Behind Flowzync',
-  description:
-    'Meet Flowzync: a remote studio of senior designers, developers and automation specialists serving clients worldwide since 2021.',
+  description: clampDescription(
+    'Meet Flowzync: a remote studio of senior designers, developers and automation specialists serving clients worldwide since 2021.'
+    ),
   alternates: { canonical: '/about' },
   openGraph: {
     title: 'About Us — The Team Behind Flowzync',
-    description: 'Meet Flowzync: a remote studio of senior designers, developers and automation specialists serving clients worldwide since 2021.',
+    description: clampDescription('Meet Flowzync: a remote studio of senior designers, developers and automation specialists serving clients worldwide since 2021.'),
     url: '/about',
     type: 'website',
   },

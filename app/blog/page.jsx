@@ -5,15 +5,17 @@ import { getAllPosts } from '@/lib/posts';
 import BlogGrid from '@/components/BlogGrid';
 import { site } from '@/lib/site';
 import HeroCanvas from '@/components/HeroCanvas';
+import { clampTitle, clampDescription } from '@/lib/meta';
 
 export const metadata = {
   title: 'Blog — Web Design, Funnels & Automation Insights',
-  description:
-    'Practical articles from the Flowzync team on web design, GoHighLevel funnels, WordPress, Shopify, SEO and automation. New posts published regularly.',
+  description: clampDescription(
+    'Practical articles from the Flowzync team on web design, GoHighLevel funnels, WordPress, Shopify, SEO and automation. New posts published regularly.'
+    ),
   alternates: { canonical: `${site.url}/blog` },
   openGraph: {
     title: 'Blog — Web Design, Funnels & Automation Insights',
-    description: 'Practical articles from the Flowzync team on web design, GoHighLevel funnels, WordPress, Shopify, SEO and automation. New posts published regularly.',
+    description: clampDescription('Practical articles from the Flowzync team on web design, GoHighLevel funnels, WordPress, Shopify, SEO and automation. New posts published regularly.'),
     url: '/blog',
     type: 'website',
   },

@@ -12,6 +12,7 @@ import { getAllPosts } from '@/lib/posts';
 import { Icon, colorHex } from '@/components/Icons';
 import { site } from '@/lib/site';
 import { industries } from '@/lib/industries';
+import { clampTitle, clampDescription } from '@/lib/meta';
 
 const homeFaqs = [
   ['What does Flowzync actually do?', 'We are a full-stack digital studio: custom website design, landing pages, GoHighLevel funnels and CRM setup, WordPress and Shopify development, business automation, SEO and ongoing care. One team, one connected system — instead of five disconnected freelancers.'],
@@ -23,9 +24,10 @@ const homeFaqs = [
 ];
 
 export const metadata = {
-  title: 'Flowzync — Custom Websites, WordPress, Funnels & Automation Studio',
-  description:
-    'Flowzync designs and builds custom websites, WordPress and Elementor sites, WooCommerce stores, GoHighLevel funnels and business automation — with SEO built in from day one.',
+  title: { absolute: 'Flowzync — Custom Websites, Funnels & Automation' },
+  description: clampDescription(
+    'Flowzync designs and builds custom websites, WordPress and Elementor sites, WooCommerce stores, GoHighLevel funnels and business automation — with SEO built in from day one.'
+    ),
   alternates: { canonical: site.url },
 };
 

@@ -774,7 +774,8 @@ Do that for six months and you'll be ahead of most competitors in your niche.
 | Topic | File |
 |---|---|
 | Backlinks — where to get them | `docs/04-BACKLINKS.md` |
-| Ranking in UK towns | `docs/05-LOCATION-PAGES.md` |
+| Ranking in US/UK cities | `docs/05-LOCATION-PAGES.md` |
+| Bing, ChatGPT & AI visibility | `docs/06-BING-AND-AI-VISIBILITY.md` |
 | Blog writing that ranks | `docs/02-PUBLISHING-BLOG-POSTS.md` |
 | SEO timelines in detail | `docs/03-AFTER-LAUNCH-SEO.md` |
 | Lead database detail | `SETUP-LEADS.md` |

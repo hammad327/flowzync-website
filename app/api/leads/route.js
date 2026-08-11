@@ -32,7 +32,9 @@ export async function POST(req) {
     const lead = await createLead(body);
     // Email notification is best-effort: a mail failure must never
     // lose the lead, because the record is already stored.
-    notifyNewLead(lead).catch((e) => console.error('Lead email failed:', e));
+    notifyNewLead(lead)
+      .then((r) => { if (!r.sent) console.warn('Lead saved but not emailed:', r.reason); })
+      .catch((e) => console.error('Lead email failed:', e));
     return Response.json({ ok: true, id: lead.id });
   } catch (err) {
     // The database was unreachable but the lead was kept in memory and

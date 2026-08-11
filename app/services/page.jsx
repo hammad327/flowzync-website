@@ -4,15 +4,17 @@ import { services } from '@/lib/services';
 import { Icon, colorHex } from '@/components/Icons';
 import HeroCanvas from '@/components/HeroCanvas';
 import { site } from '@/lib/site';
+import { clampTitle, clampDescription } from '@/lib/meta';
 
 export const metadata = {
-  title: 'Our Services — Web Design, GHL Funnels, WordPress, Shopify & More',
-  description:
-    'Explore Flowzync services: custom website design, landing pages, GoHighLevel funnels, business automation, WordPress and Shopify development, SEO, UI/UX and maintenance.',
+  title: 'Web Design, Funnels, WordPress & Automation',
+  description: clampDescription(
+    'Explore Flowzync services: custom website design, landing pages, GoHighLevel funnels, business automation, WordPress and Shopify development, SEO, UI/UX and maintenance.'
+    ),
   alternates: { canonical: '/services' },
   openGraph: {
-    title: 'Our Services — Web Design, GHL Funnels, WordPress, Shopify & More',
-    description: 'Explore Flowzync services: custom website design, landing pages, GoHighLevel funnels, business automation, WordPress and Shopify development, SEO, UI/UX and maintenance.',
+    title: 'Web Design, Funnels, WordPress & Automation',
+    description: clampDescription('Explore Flowzync services: custom website design, landing pages, GoHighLevel funnels, business automation, WordPress and Shopify development, SEO, UI/UX and maintenance.'),
     url: '/services',
     type: 'website',
   },

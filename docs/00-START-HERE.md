@@ -10,7 +10,8 @@ Each numbered guide in this folder covers one job in full detail.
 | 3 | [`03-AFTER-LAUNCH-SEO.md`](03-AFTER-LAUNCH-SEO.md) | Launch day + ongoing | ~2 hrs, then weekly |
 | 4 | [`04-BACKLINKS.md`](04-BACKLINKS.md) | From week 2 onward | 2–3 hrs/month |
 | 5 | [`05-LOCATION-PAGES.md`](05-LOCATION-PAGES.md) | Before launch — **read this** | ~20 min |
-| 6 | [`../SETUP-LEADS.md`](../SETUP-LEADS.md) | Before launch | ~15 min, once |
+| 6 | [`06-BING-AND-AI-VISIBILITY.md`](06-BING-AND-AI-VISIBILITY.md) | After launch | ~10 min/week |
+| 7 | [`../SETUP-LEADS.md`](../SETUP-LEADS.md) | Before launch | ~15 min, once |
 
 ---
 

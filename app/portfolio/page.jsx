@@ -1,15 +1,17 @@
 import PortfolioGrid from '@/components/PortfolioGrid';
 import CTABand from '@/components/CTABand';
 import HeroCanvas from '@/components/HeroCanvas';
+import { clampTitle, clampDescription } from '@/lib/meta';
 
 export const metadata = {
-  title: 'Portfolio — Websites, Funnels & Stores We\u2019ve Built',
-  description:
-    'Browse Flowzync\u2019s portfolio: custom website designs, GoHighLevel funnels, WordPress builds and Shopify stores — each with the story and the results behind it.',
+  title: 'Portfolio — Websites, Funnels & Stores',
+  description: clampDescription(
+    'Browse Flowzync\u2019s portfolio: custom website designs, GoHighLevel funnels, WordPress builds and Shopify stores — each with the story and the results behind it.'
+    ),
   alternates: { canonical: '/portfolio' },
   openGraph: {
-    title: 'Portfolio — Websites, Funnels & Stores We\u2019ve Built',
-    description: 'Browse Flowzync\u2019s portfolio: custom website designs, GoHighLevel funnels, WordPress builds and Shopify stores — each with the story and the results behind it.',
+    title: 'Portfolio — Websites, Funnels & Stores',
+    description: clampDescription('Browse Flowzync\u2019s portfolio: custom website designs, GoHighLevel funnels, WordPress builds and Shopify stores — each with the story and the results behind it.'),
     url: '/portfolio',
     type: 'website',
   },

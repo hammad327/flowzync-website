@@ -7,6 +7,7 @@ import HeroCanvas from '@/components/HeroCanvas';
 import { industries, getIndustry } from '@/lib/industries';
 import { getService } from '@/lib/services';
 import { site } from '@/lib/site';
+import { clampTitle, clampDescription } from '@/lib/meta';
 
 export function generateStaticParams() {
   return industries.map((i) => ({ slug: i.slug }));
@@ -16,13 +17,13 @@ export function generateMetadata({ params }) {
   const i = getIndustry(params.slug);
   if (!i) return {};
   return {
-    title: { absolute: i.seoTitle },
-    description: i.seoDescription,
+    title: { absolute: clampTitle(i.seoTitle) },
+    description: clampDescription(i.seoDescription),
     keywords: i.keywords,
     alternates: { canonical: `${site.url}/industries/${i.slug}` },
     openGraph: {
       title: i.seoTitle,
-      description: i.seoDescription,
+      description: clampDescription(i.seoDescription),
       url: `${site.url}/industries/${i.slug}`,
     },
   };
@@ -48,7 +49,7 @@ export default function IndustryPage({ params }) {
       '@context': 'https://schema.org',
       '@type': 'Service',
       name: i.title,
-      description: i.seoDescription,
+      description: clampDescription(i.seoDescription),
       serviceType: `Website design for ${i.trade.toLowerCase()}`,
       ...(i.covers?.length ? { hasOfferCatalog: {
         '@type': 'OfferCatalog',
