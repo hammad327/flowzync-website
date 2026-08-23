@@ -4,8 +4,9 @@ import { notFound } from 'next/navigation';
 import CTABand from '@/components/CTABand';
 import { getAllPosts, getPost, getRelatedPosts } from '@/lib/posts';
 import { site } from '@/lib/site';
+import { images } from '@/lib/images';
 import HeroCanvas from '@/components/HeroCanvas';
-import { clampTitle, clampDescription } from '@/lib/meta';
+import { clampTitle, clampDescription, openGraph, twitterCard } from '@/lib/meta';
 
 export function generateStaticParams() {
   return getAllPosts().map((p) => ({ slug: p.slug }));
@@ -18,14 +19,24 @@ export function generateMetadata({ params }) {
     title: clampTitle(p.title, 48),   // 48 + ' | Flowzync' = 59
     description: clampDescription(p.description),
     alternates: { canonical: `${site.url}/blog/${p.slug}` },
-    openGraph: {
+    // Social cards need a raster image — LinkedIn, Slack and WhatsApp
+    // will not render an SVG preview — so an SVG cover falls back to
+    // the OG image, exactly as the Article schema below does.
+    openGraph: openGraph({
       type: 'article',
       title: clampTitle(p.title, 48),   // 48 + ' | Flowzync' = 59
-      description: clampDescription(p.description),
+      description: p.description,
       url: `${site.url}/blog/${p.slug}`,
-      images: p.cover ? [p.cover] : [],
+      image: p.cover && !p.cover.endsWith('.svg') ? p.cover : images.og,
       publishedTime: p.date,
-    },
+      modifiedTime: p.updated || p.date,
+      authors: [p.author],
+    }),
+    twitter: twitterCard({
+      title: clampTitle(p.title, 48),
+      description: p.description,
+      image: p.cover && !p.cover.endsWith('.svg') ? p.cover : images.og,
+    }),
   };
 }
 
@@ -39,12 +50,26 @@ export default function BlogPost({ params }) {
       '@type': 'BlogPosting',
       headline: p.title,
       description: clampDescription(p.description),
-      image: p.cover,
+      // Absolute URL — a relative path in schema resolves against nothing
+      // and is simply dropped. Google's Article rich results also require
+      // a raster image (jpg/png/gif), so an SVG cover falls back to the
+      // OG image rather than publishing an ineligible one.
+      image: p.cover && !p.cover.endsWith('.svg')
+        ? (p.cover.startsWith('http') ? p.cover : `${site.url}${p.cover}`)
+        : `${site.url}${images.og}`,
       datePublished: p.date,
       dateModified: p.updated || p.date,
       inLanguage: 'en',
+      wordCount: p.wordCount,
+      ...(p.tags.length ? { keywords: p.tags.join(', ') } : {}),
       mainEntityOfPage: { '@type': 'WebPage', '@id': `${site.url}/blog/${p.slug}` },
-      author: { '@type': 'Organization', name: p.author, url: site.url },
+      // A named human author, not the Organization. Author identity is a
+      // direct E-E-A-T signal and it is what AI assistants attribute to.
+      author: {
+        '@type': 'Person',
+        name: p.author,
+        worksFor: { '@id': `${site.url}/#organization` },
+      },
       publisher: {
         '@type': 'Organization',
         '@id': `${site.url}/#organization`,

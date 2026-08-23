@@ -4,7 +4,7 @@ import { services } from '@/lib/services';
 import { Icon, colorHex } from '@/components/Icons';
 import HeroCanvas from '@/components/HeroCanvas';
 import { site } from '@/lib/site';
-import { clampTitle, clampDescription } from '@/lib/meta';
+import { clampTitle, clampDescription, openGraph } from '@/lib/meta';
 
 export const metadata = {
   title: 'Web Design, Funnels, WordPress & Automation',
@@ -12,12 +12,11 @@ export const metadata = {
     'Explore Flowzync services: custom website design, landing pages, GoHighLevel funnels, business automation, WordPress and Shopify development, SEO, UI/UX and maintenance.'
     ),
   alternates: { canonical: '/services' },
-  openGraph: {
+  openGraph: openGraph({
     title: 'Web Design, Funnels, WordPress & Automation',
-    description: clampDescription('Explore Flowzync services: custom website design, landing pages, GoHighLevel funnels, business automation, WordPress and Shopify development, SEO, UI/UX and maintenance.'),
+    description: 'Explore Flowzync services: custom website design, landing pages, GoHighLevel funnels, business automation, WordPress and Shopify development, SEO, UI/UX and maintenance.',
     url: '/services',
-    type: 'website',
-  },
+  }),
 };
 
 const listSchema = {
@@ -51,6 +50,19 @@ export default function ServicesPage() {
 
       <section>
         <div className="wrap">
+          {/* The service grid had no section heading at all, so the page
+              went straight from its h1 to thirteen h3 cards. That is a
+              gap in the outline and it wastes the strongest on-page
+              keyword slot after the h1. */}
+          <div className="sec-head rv">
+            <div className="eyebrow"><span className="pulse" />What we do</div>
+            <h2>Web design, development and <span className="grad-txt">automation services</span></h2>
+            <p>
+              Thirteen services, each a full engagement rather than a task: strategy,
+              design, build, launch and support. Most clients start with one and add
+              others once the first is earning its keep.
+            </p>
+          </div>
           <div className="svc-grid">
             {services.map((s, i) => (
               <Link href={`/services/${s.slug}`} className={`svc-card rv ${i % 3 === 1 ? 'rv-d1' : i % 3 === 2 ? 'rv-d2' : ''}`} data-tilt key={s.slug}>

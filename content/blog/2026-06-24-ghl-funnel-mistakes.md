@@ -4,7 +4,7 @@ description: "The most common GHL funnel mistakes we find in audits — and the 
 date: "2026-06-24"
 author: "Ayaan Raza"
 category: "GoHighLevel"
-cover: "https://images.unsplash.com/photo-1553877522-43269d4ea984?w=1400&q=80&auto=format&fit=crop"
+cover: "/images/blog/ghl-funnel-mistakes.svg"
 ---
 
 We audit a lot of GoHighLevel accounts. The same five mistakes appear in almost every one — and each has a fix you can apply this week.

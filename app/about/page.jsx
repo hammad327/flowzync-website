@@ -1,10 +1,11 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import CTABand from '@/components/CTABand';
+import Testimonials from '@/components/Testimonials';
 import { LogoMark } from '@/components/Logo';
 import HeroCanvas from '@/components/HeroCanvas';
 import { site } from '@/lib/site';
-import { clampTitle, clampDescription } from '@/lib/meta';
+import { clampTitle, clampDescription, openGraph } from '@/lib/meta';
 
 export const metadata = {
   title: 'About Us — The Team Behind Flowzync',
@@ -12,12 +13,11 @@ export const metadata = {
     'Meet Flowzync: a remote studio of senior designers, developers and automation specialists serving clients worldwide since 2021.'
     ),
   alternates: { canonical: '/about' },
-  openGraph: {
+  openGraph: openGraph({
     title: 'About Us — The Team Behind Flowzync',
-    description: clampDescription('Meet Flowzync: a remote studio of senior designers, developers and automation specialists serving clients worldwide since 2021.'),
+    description: 'Meet Flowzync: a remote studio of senior designers, developers and automation specialists serving clients worldwide since 2021.',
     url: '/about',
-    type: 'website',
-  },
+  }),
 };
 
 const VALUES = [
@@ -107,9 +107,9 @@ export default function AboutPage() {
           </div>
           <div className="story-flow">
             <div className="story-rail" aria-hidden="true" />
-            <div className="story rv rv-l"><b className="grad-txt">2021</b><h4>The beginning</h4><p>An automation engineer and a designer keep rescuing the same broken setups — beautiful websites with no follow-up, powerful CRMs nobody configured. They decide the fix is one studio that treats design, code and automation as a single craft. Flowzync is born.</p></div>
-            <div className="story rv rv-r"><b className="grad-txt">2022</b><h4>Going remote-first</h4><p>The team grows to six senior specialists across three time zones. Working async forces a discipline that clients still feel today: everything documented, everything visible, no black boxes.</p></div>
-            <div className="story rv rv-r"><b className="grad-txt">Today</b><h4>A studio, not an agency</h4><p>Senior specialists working with clients across the world, and the same obsession with every pixel and every workflow we started with. Still no juniors on your project, still no account-manager relay.</p></div>
+            <div className="story rv rv-l"><b className="grad-txt">2021</b><h3>The beginning</h3><p>An automation engineer and a designer keep rescuing the same broken setups — beautiful websites with no follow-up, powerful CRMs nobody configured. They decide the fix is one studio that treats design, code and automation as a single craft. Flowzync is born.</p></div>
+            <div className="story rv rv-r"><b className="grad-txt">2022</b><h3>Going remote-first</h3><p>The team grows to six senior specialists across three time zones. Working async forces a discipline that clients still feel today: everything documented, everything visible, no black boxes.</p></div>
+            <div className="story rv rv-r"><b className="grad-txt">Today</b><h3>A studio, not an agency</h3><p>Senior specialists working with clients across the world, and the same obsession with every pixel and every workflow we started with. Still no juniors on your project, still no account-manager relay.</p></div>
           </div>
         </div>
       </section>
@@ -147,7 +147,7 @@ export default function AboutPage() {
                 <div className={`vic ic-${c}`}>
                   <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d={path} stroke={c === 'lav' ? '#5B4FE9' : c === 'mint' ? '#06C299' : '#FF7A3D'} strokeWidth="2" strokeLinejoin="round" strokeLinecap="round"/></svg>
                 </div>
-                <h4>{t}</h4>
+                <h3>{t}</h3>
                 <p>{x}</p>
               </div>
             ))}
@@ -164,7 +164,7 @@ export default function AboutPage() {
           </div>
           <div className="vs-grid">
             <div className="vs-col vs-them rv rv-l">
-              <h4>Typical agency</h4>
+              <h3>Typical agency</h3>
               <ul>
                 <li>Recycled templates with your logo swapped in</li>
                 <li>Junior staff learning on your project</li>
@@ -175,7 +175,7 @@ export default function AboutPage() {
               </ul>
             </div>
             <div className="vs-col vs-us rv rv-r" data-tilt>
-              <h4><LogoMark variant="white" size={26} /> Flowzync</h4>
+              <h3><LogoMark variant="white" size={26} /> Flowzync</h3>
               <ul>
                 <li>Every design crafted from a blank canvas</li>
                 <li>Senior-only team — you work with the builders</li>
@@ -206,6 +206,23 @@ export default function AboutPage() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* WHAT CLIENTS SAY — placed straight after the team, because the
+          reader has just been told who we are and this is the evidence. */}
+      <section style={{ paddingTop: 0 }}>
+        <div className="wrap">
+          <div className="sec-head center rv">
+            <div className="eyebrow"><span className="pulse" />In their words</div>
+            <h2>What it&apos;s like <span className="grad-txt">working with us</span></h2>
+            <p>
+              Trimmed for length, otherwise as they were sent. We have left in the
+              projects that ran late and the week someone felt out of the loop —
+              a wall of unbroken praise tells you nothing useful.
+            </p>
+          </div>
+          <Testimonials />
         </div>
       </section>
 

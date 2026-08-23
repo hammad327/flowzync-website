@@ -14,9 +14,34 @@ export const metadata = {
   alternates: { canonical: `${site.url}/industries` },
 };
 
+// CollectionPage + ItemList so this reads as a browsable index rather
+// than an unrelated page of links. It is also what an AI assistant uses
+// to answer "which industries do they work with" without guessing from
+// the prose.
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  '@id': `${site.url}/industries#collection`,
+  name: 'Industries we build websites for',
+  url: `${site.url}/industries`,
+  isPartOf: { '@id': `${site.url}/#website` },
+  about: { '@id': `${site.url}/#organization` },
+  mainEntity: {
+    '@type': 'ItemList',
+    numberOfItems: industries.length,
+    itemListElement: industries.map((i, n) => ({
+      '@type': 'ListItem',
+      position: n + 1,
+      name: i.title,
+      url: `${site.url}/industries/${i.slug}`,
+    })),
+  },
+};
+
 export default function IndustriesPage() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
       <div className="page-hero">
         <HeroCanvas />
         <div className="orb orb1" data-plx="0.1" /><div className="hero-grid-bg" />
@@ -32,6 +57,14 @@ export default function IndustriesPage() {
 
       <section>
         <div className="wrap">
+          <div className="sec-head rv">
+            <div className="eyebrow"><span className="pulse" />Industries</div>
+            <h2>Websites built for <span className="grad-txt">how your trade gets found</span></h2>
+            <p>
+              A clinic, a contractor and a law firm are found in completely different ways.
+              These pages describe what changes in the build for each.
+            </p>
+          </div>
           <div className="ind-grid">
             {industries.map((i, n) => (
               <Link href={`/industries/${i.slug}`} key={i.slug} className={`ind-card rv ${n % 2 ? 'rv-d1' : ''}`} data-tilt>

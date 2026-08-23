@@ -7,7 +7,7 @@ import HeroCanvas from '@/components/HeroCanvas';
 import { industries, getIndustry } from '@/lib/industries';
 import { getService } from '@/lib/services';
 import { site } from '@/lib/site';
-import { clampTitle, clampDescription } from '@/lib/meta';
+import { clampTitle, clampDescription, openGraph, twitterCard } from '@/lib/meta';
 
 export function generateStaticParams() {
   return industries.map((i) => ({ slug: i.slug }));
@@ -21,11 +21,12 @@ export function generateMetadata({ params }) {
     description: clampDescription(i.seoDescription),
     keywords: i.keywords,
     alternates: { canonical: `${site.url}/industries/${i.slug}` },
-    openGraph: {
+    openGraph: openGraph({
       title: i.seoTitle,
-      description: clampDescription(i.seoDescription),
+      description: i.seoDescription,
       url: `${site.url}/industries/${i.slug}`,
-    },
+    }),
+    twitter: twitterCard({ title: i.seoTitle, description: i.seoDescription }),
   };
 }
 
@@ -113,7 +114,7 @@ export default function IndustryPage({ params }) {
         <section style={{ paddingTop: 26, paddingBottom: 0 }}>
           <div className="wrap">
             <div className="cov rv">
-              <h3>Who this covers</h3>
+              <h2 className="ind-who-h">Who this covers</h2>
               <p>
                 We build for every business in this sector. If yours isn&apos;t named below,
                 it almost certainly still fits — ask us.
@@ -141,7 +142,7 @@ export default function IndustryPage({ params }) {
                   <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round"/></svg>
                 </div>
                 <div>
-                  <h4>{t}</h4>
+                  <h3>{t}</h3>
                   <p>{x}</p>
                 </div>
               </div>
@@ -161,7 +162,7 @@ export default function IndustryPage({ params }) {
             {i.sections.map(([t, x], n) => (
               <div className={`feat rv ${n % 3 === 1 ? 'rv-d1' : n % 3 === 2 ? 'rv-d2' : ''}`} key={t}>
                 <div className="num">{String(n + 1).padStart(2, '0')}</div>
-                <h4>{t}</h4>
+                <h3>{t}</h3>
                 <p>{x}</p>
               </div>
             ))}

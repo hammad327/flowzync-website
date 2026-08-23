@@ -4,7 +4,7 @@ description: "How to tell whether your website needs a coat of paint or a proper
 date: "2026-07-01"
 author: "Zara Malik"
 category: "Web Design"
-cover: "https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?w=1400&q=80&auto=format&fit=crop"
+cover: "/images/blog/website-redesign-signs.svg"
 ---
 
 Your website is usually the first impression anyone gets of your business — and impressions form in about **50 milliseconds**. So how do you know when it's time for more than a tweak?

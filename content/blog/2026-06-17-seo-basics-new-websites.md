@@ -4,7 +4,7 @@ description: "Forget the 200-factor checklists. Here's what genuinely moves the 
 date: "2026-06-17"
 author: "Hamza Khan"
 category: "SEO"
-cover: "https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?w=1400&q=80&auto=format&fit=crop"
+cover: "/images/blog/seo-basics-new-websites.svg"
 ---
 
 New websites don't need advanced SEO. They need the fundamentals done properly — because most sites never get even those right.
@@ -40,4 +40,4 @@ Domain authority scores, keyword density percentages, and anyone promising "#1 r
 
 > SEO for a new site isn't a trick. It's making it effortless for Google to understand who you help and how.
 
-Our [WordPress builds](/services/wordpress-development) and [custom websites](/services/custom-website-design) ship with all of the above configured — but if you have an existing site, these steps are exactly where we'd start an audit.
+Our [WordPress builds](/services/wordpress-website-design) and [custom websites](/services/custom-website-design) ship with all of the above configured — but if you have an existing site, these steps are exactly where we'd start an audit.

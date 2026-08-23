@@ -7,7 +7,7 @@ import { locations, getLocation } from '@/lib/locations';
 import { getService } from '@/lib/services';
 import { industries } from '@/lib/industries';
 import { site } from '@/lib/site';
-import { clampTitle, clampDescription } from '@/lib/meta';
+import { clampTitle, clampDescription, openGraph, twitterCard } from '@/lib/meta';
 
 export function generateStaticParams() {
   return locations.map((l) => ({ slug: l.slug }));
@@ -21,11 +21,12 @@ export function generateMetadata({ params }) {
     description: clampDescription(l.seoDescription),
     keywords: l.keywords,
     alternates: { canonical: `${site.url}/locations/${l.slug}` },
-    openGraph: {
+    openGraph: openGraph({
       title: l.seoTitle,
-      description: clampDescription(l.seoDescription),
+      description: l.seoDescription,
       url: `${site.url}/locations/${l.slug}`,
-    },
+    }),
+    twitter: twitterCard({ title: l.seoTitle, description: l.seoDescription }),
   };
 }
 
@@ -104,7 +105,7 @@ export default function LocationPage({ params }) {
             {l.context.map(([t, x], n) => (
               <div className={`feat rv ${n % 3 === 1 ? 'rv-d1' : n % 3 === 2 ? 'rv-d2' : ''}`} key={t}>
                 <div className="num">{String(n + 1).padStart(2, '0')}</div>
-                <h4>{t}</h4>
+                <h3>{t}</h3>
                 <p>{x}</p>
               </div>
             ))}
