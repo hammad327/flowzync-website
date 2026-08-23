@@ -23,8 +23,35 @@ export const metadata = {
 
 export default function BlogPage() {
   const posts = getAllPosts();
+
+  // Blog + ItemList so the index is understood as a collection rather
+  // than an unrelated page of links. It also gives AI assistants an
+  // ordered, dated map of everything we have published, which is what
+  // they use to decide whether a source is actively maintained.
+  const schema = {
+    '@context': 'https://schema.org',
+    '@type': 'Blog',
+    '@id': `${site.url}/blog#blog`,
+    name: `${site.name} Blog`,
+    url: `${site.url}/blog`,
+    description:
+      'Practical articles on web design, WordPress, WooCommerce, GoHighLevel funnels, SEO and business automation.',
+    inLanguage: 'en',
+    publisher: { '@id': `${site.url}/#organization` },
+    blogPost: posts.map((p) => ({
+      '@type': 'BlogPosting',
+      headline: p.title,
+      description: p.description,
+      url: `${site.url}/blog/${p.slug}`,
+      datePublished: p.date,
+      dateModified: p.updated || p.date,
+      author: { '@type': 'Person', name: p.author },
+    })),
+  };
+
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
       <div className="page-hero">
         <HeroCanvas />
         <div className="orb orb1" data-plx="0.1" /><div className="orb orb2" data-plx="-0.07" /><div className="hero-grid-bg" />

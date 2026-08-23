@@ -7,7 +7,11 @@ import { getAllPosts } from '@/lib/posts';
 // Google ignores <priority> and <changefreq>; lastmod must be accurate
 // rather than identical everywhere, so pages carry the date of their
 // last real update. /admin is deliberately absent — it is private.
-const PAGES_UPDATED = new Date('2026-08-08');
+// Bump this whenever the static pages genuinely change. Do NOT wire it
+// to the build date — a lastmod that moves on every deploy without the
+// content changing is the fastest way to have Google stop trusting the
+// field entirely, and then it ignores the accurate ones too.
+const PAGES_UPDATED = new Date('2026-08-23');
 
 export default function sitemap() {
   const staticPages = ['', '/services', '/industries', '/locations', '/portfolio', '/about', '/contact', '/blog'].map((p) => ({
