@@ -4,7 +4,7 @@ description: "Forget the 200-factor checklists. Here's what genuinely moves the 
 date: "2026-06-17"
 author: "Hamza Khan"
 category: "SEO"
-cover: "https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?w=1400&q=80&auto=format&fit=crop"
+cover: "/images/blog/seo-basics-new-websites.svg"
 ---
 
 New websites don't need advanced SEO. They need the fundamentals done properly — because most sites never get even those right.

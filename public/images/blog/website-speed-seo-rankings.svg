@@ -1,11 +1,24 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" width="1400" height="900">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" width="1400" height="900" role="img">
 <defs>
 <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#EDEBFF"/><stop offset="1" stop-color="#E0F9F2"/></linearGradient>
-<linearGradient id="s" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#5B4FE9"/><stop offset=".55" stop-color="#7C6CF5"/><stop offset="1" stop-color="#06C299"/></linearGradient>
-<pattern id="d" width="34" height="34" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="2" fill="#5B4FE9" opacity=".10"/></pattern>
+<linearGradient id="g1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#5B4FE9"/><stop offset="1" stop-color="#06C299"/></linearGradient>
+<pattern id="dots" width="38" height="38" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="2" fill="#14123B" opacity=".07"/></pattern>
 </defs>
-<rect width="1400" height="900" fill="url(#bg)"/><rect width="1400" height="900" fill="url(#d)"/>
-<g transform="translate(590 150) scale(4.6)"><path d="M9 31C7 20 12 13.5 18.5 13.5H34L14 34.5H29.5C36 34.5 41 28 39 17" fill="none" stroke="url(#s)" stroke-width="4.4" stroke-linecap="round" stroke-linejoin="round"/></g>
-<text x="700" y="620" text-anchor="middle" font-family="Sora, Segoe UI, sans-serif" font-weight="800" font-size="62" fill="#14123B">Site speed &amp; SEO</text>
-<text x="700" y="686" text-anchor="middle" font-family="Manrope, Segoe UI, sans-serif" font-weight="600" font-size="30" fill="#8B89A6">Replace in /public/images/blog</text>
+<rect width="1400" height="900" fill="url(#bg)"/>
+<rect width="1400" height="900" fill="url(#dots)"/>
+<circle cx="1210" cy="150" r="190" fill="#06C299" opacity=".10"/>
+<circle cx="180" cy="770" r="150" fill="#5B4FE9" opacity=".09"/>
+<g transform="translate(350 215)">
+    <rect x="60" y="330" width="86" height="120" rx="16"
+      fill="url(#g1)" opacity="0.42"/><rect x="180" y="260" width="86" height="190" rx="16"
+      fill="url(#g1)" opacity="0.565"/><rect x="300" y="185" width="86" height="265" rx="16"
+      fill="url(#g1)" opacity="0.71"/><rect x="420" y="110" width="86" height="340" rx="16"
+      fill="url(#g1)" opacity="0.855"/><rect x="540" y="35" width="86" height="415" rx="16"
+      fill="url(#g1)" opacity="1"/>
+    <path d="M92 300 L212 232 L332 176 L452 116 L572 62" fill="none" stroke="#5B4FE9"
+      stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="92" cy="300" r="13" fill="#fff" stroke="#5B4FE9" stroke-width="6"/><circle cx="212" cy="232" r="13" fill="#fff" stroke="#5B4FE9" stroke-width="6"/><circle cx="332" cy="176" r="13" fill="#fff" stroke="#5B4FE9" stroke-width="6"/><circle cx="452" cy="116" r="13" fill="#fff" stroke="#5B4FE9" stroke-width="6"/><circle cx="572" cy="62" r="13" fill="#fff" stroke="#5B4FE9" stroke-width="6"/></g>
+<g transform="translate(1252 792)" opacity=".5">
+<path d="M9 31C7 20 12 13.5 18.5 13.5H34L14 34.5H29.5C36 34.5 41 28 39 17" fill="none" stroke="#14123B" stroke-width="4.4" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
 </svg>
