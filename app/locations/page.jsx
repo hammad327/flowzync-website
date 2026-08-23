@@ -1,14 +1,14 @@
 import Link from 'next/link';
 import HeroCanvas from '@/components/HeroCanvas';
 import CTABand from '@/components/CTABand';
-import { usLocations, ukLocations } from '@/lib/locations';
-import { serviceArea, site } from '@/lib/site';
+import { locationsByCountry } from '@/lib/locations';
+import { coverageGroups, site } from '@/lib/site';
 import { clampTitle, clampDescription } from '@/lib/meta';
 
 export const metadata = {
   title: { absolute: clampTitle('Areas We Cover | Web Design Worldwide — Flowzync') },
   description: clampDescription(
-    'Flowzync works with clients worldwide, with dedicated pages for the cities we work in most — New York, Austin, Dallas, Chicago, Miami, Phoenix, London, Manchester and more.'
+    'Flowzync works with clients worldwide — the US, UK, Canada, Australia, Ireland, New Zealand and the UAE — with a dedicated page for each city we work in most.'
     ),
   alternates: { canonical: `${site.url}/locations` },
 };
@@ -32,41 +32,30 @@ export default function LocationsPage() {
 
       <section>
         <div className="wrap">
-          <div className="sec-head rv">
-            <div className="eyebrow"><span className="pulse" />United States</div>
-            <h2>Web design across <span className="grad-txt">the US</span></h2>
-          </div>
-          <div className="ind-grid">
-            {usLocations.map((l, n) => (
-              <Link href={`/locations/${l.slug}`} key={l.slug} className={`loc-card rv ${n % 2 ? 'rv-d1' : ''}`} data-tilt>
-                <span className="ind-tag">{l.region}</span>
-                <h3>{l.city}</h3>
-                <p>{l.intro.split('. ').slice(0, 2).join('. ')}.</p>
-                <span className="svc-link">
-                  Web design in {l.city}
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14m-6-6 6 6-6 6" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/></svg>
-                </span>
-              </Link>
-            ))}
-          </div>
-
-          <div className="sec-head rv" style={{ marginTop: 64 }}>
-            <div className="eyebrow"><span className="pulse" />United Kingdom</div>
-            <h2>Web design across <span className="grad-txt">the UK</span></h2>
-          </div>
-          <div className="ind-grid">
-            {ukLocations.map((l, n) => (
-              <Link href={`/locations/${l.slug}`} key={l.slug} className={`loc-card rv ${n % 2 ? 'rv-d1' : ''}`} data-tilt>
-                <span className="ind-tag">{l.region}</span>
-                <h3>{l.city}</h3>
-                <p>{l.intro.split('. ').slice(0, 2).join('. ')}.</p>
-                <span className="svc-link">
-                  Web design in {l.city}
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14m-6-6 6 6-6 6" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/></svg>
-                </span>
-              </Link>
-            ))}
-          </div>
+          {/* One block per country, generated from lib/locations.js.
+              Adding a country there is all it takes to have it appear
+              here — nothing on this page is hardcoded to US and UK. */}
+          {locationsByCountry.map((group, gi) => (
+            <div key={group.code}>
+              <div className="sec-head rv" style={gi > 0 ? { marginTop: 64 } : undefined}>
+                <div className="eyebrow"><span className="pulse" />{group.name}</div>
+                <h2>Web design across <span className="grad-txt">{group.name}</span></h2>
+              </div>
+              <div className="ind-grid">
+                {group.items.map((l, n) => (
+                  <Link href={`/locations/${l.slug}`} key={l.slug} className={`loc-card rv ${n % 2 ? 'rv-d1' : ''}`} data-tilt>
+                    <span className="ind-tag">{l.region}</span>
+                    <h3>{l.city}</h3>
+                    <p>{l.intro.split('. ').slice(0, 2).join('. ')}.</p>
+                    <span className="svc-link">
+                      Web design in {l.city}
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14m-6-6 6 6-6 6" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                    </span>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          ))}
         </div>
       </section>
 
@@ -77,15 +66,24 @@ export default function LocationsPage() {
             <div className="eyebrow"><span className="pulse" />Full coverage</div>
             <h2>Everywhere else <span className="grad-txt">we work</span></h2>
             <p>
-              We work with clients worldwide. The cities below are simply where we work most often \u2014 if yours isn&apos;t
-              listed with its own page yet, we still work there — just get in touch.
+              We take on work anywhere in the world. The places below are simply where we
+              have worked most often, so they are the ones we can say something useful about.
+              If your town isn&apos;t here, it is not a limit — get in touch and we&apos;ll quote it
+              like any other project.
             </p>
           </div>
           <div className="loc-cloud rv">
-            <h4>United States</h4>
-            <p>{serviceArea.usCities.join(' · ')}</p>
-            <h4>United Kingdom</h4>
-            <p>{serviceArea.ukTowns.join(' · ')}</p>
+            {coverageGroups.map((c) => (
+              <div key={c.country}>
+                <h4>{c.country}</h4>
+                <p>{c.places.join(' · ')}</p>
+              </div>
+            ))}
+            <p className="loc-cloud-note">
+              …and everywhere else. We work across every time zone, quote in your currency
+              and run projects in a shared space, so distance changes the schedule of a call
+              and nothing else.
+            </p>
           </div>
         </div>
       </section>

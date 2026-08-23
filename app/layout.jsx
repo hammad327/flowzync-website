@@ -24,7 +24,11 @@ export const metadata = {
   authors: [{ name: site.name, url: site.url }],
   creator: site.name,
   publisher: site.name,
-  alternates: { canonical: '/' },
+  // NOTE: no `alternates.canonical` here on purpose. Root-layout metadata
+  // is inherited by any page that does not set its own, so a canonical
+  // declared here would silently point every such page at the homepage —
+  // which is exactly what Search Console reports as "Duplicate without
+  // user-selected canonical". Each page declares its own instead.
   openGraph: {
     type: 'website',
     siteName: site.name,

@@ -2,7 +2,7 @@
 // ─────────────────────────────────────────────────────────────
 // Global motion engine:
 //  · buttery wheel-based smooth scrolling (desktop, motion-safe)
-//  · scroll progress bar + custom cursor
+//  · scroll progress bar
 //  · reveal-on-scroll (up / left / right / scale variants)
 //  · scroll parallax via [data-plx]
 //  · 3D tilt via [data-tilt] and .pf-item
@@ -100,14 +100,11 @@ export default function ClientFX() {
     addEventListener('resize', collectPlx, { passive: true });
     paint();
 
-    /* ── custom cursor ───────────────────────────────────── */
-    const cur = document.getElementById('fx-cursor');
-    const dot = document.getElementById('fx-dot');
-    let mx = innerWidth / 2, my = innerHeight / 2, cx = mx, cy = my, craf;
-    const onMove = (e) => { mx = e.clientX; my = e.clientY; if (dot) { dot.style.left = mx + 'px'; dot.style.top = my + 'px'; } };
-    const cloop = () => { cx += (mx - cx) * 0.16; cy += (my - cy) * 0.16; if (cur) { cur.style.left = cx + 'px'; cur.style.top = cy + 'px'; } craf = requestAnimationFrame(cloop); };
-    const over = (e) => { cur?.classList.toggle('grow', !!e.target.closest('a,button,input,select,textarea,[data-tilt]')); };
-    if (fine && !reduce) { addEventListener('mousemove', onMove); cloop(); addEventListener('mouseover', over); }
+    /* ── cursor ──────────────────────────────────────────────
+       The decorative ring-and-dot cursor was removed deliberately.
+       Business visitors read a hijacked cursor as a gimmick, and it
+       also lags behind the real pointer on anything but a fast
+       machine. The native arrow and hand are what people expect. */
 
     /* ── magnetic buttons ────────────────────────────────── */
     const magMove = (e) => {
@@ -140,10 +137,9 @@ export default function ClientFX() {
       removeEventListener('wheel', onWheel); removeEventListener('scroll', onNativeScroll);
       removeEventListener('scroll', onScroll);
       removeEventListener('resize', collectPlx);
-      removeEventListener('mousemove', onMove); removeEventListener('mouseover', over);
       removeEventListener('mousemove', magMove); removeEventListener('mouseout', magOut);
       removeEventListener('mousemove', tiltMove); removeEventListener('mouseout', tiltOut);
-      if (raf) cancelAnimationFrame(raf); if (craf) cancelAnimationFrame(craf);
+      if (raf) cancelAnimationFrame(raf);
     };
   }, []);
 
@@ -167,11 +163,5 @@ export default function ClientFX() {
     return () => io.disconnect();
   }, [pathname]);
 
-  return (
-    <>
-      <div className="progress" id="scroll-progress" />
-      <div className="cursor" id="fx-cursor" />
-      <div className="cursor-dot" id="fx-dot" />
-    </>
-  );
+  return <div className="progress" id="scroll-progress" />;
 }

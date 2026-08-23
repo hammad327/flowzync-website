@@ -46,12 +46,18 @@ section{padding:76px 0}
 .rv.in{opacity:1;transform:none}
 .rv-d1{transition-delay:.1s}.rv-d2{transition-delay:.2s}.rv-d3{transition-delay:.3s}
 
-/* progress + cursor */
+/* progress bar */
 .progress{position:fixed;top:0;left:0;height:3px;background:var(--grad);width:0%;z-index:1000}
-.cursor{position:fixed;top:0;left:0;width:34px;height:34px;border:1.5px solid var(--primary);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .25s,height .25s,background .25s;mix-blend-mode:multiply}
-.cursor.grow{width:60px;height:60px;background:rgba(91,79,233,.08)}
-.cursor-dot{position:fixed;top:0;left:0;width:6px;height:6px;background:var(--primary);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%)}
-@media(hover:none){.cursor,.cursor-dot{display:none}}
+
+/* CURSOR — native, on purpose.
+   The site previously drew its own ring-and-dot cursor over the top of
+   the real one. It read as a gimmick and it always trailed the pointer
+   slightly, which makes precise clicking feel wrong. Visitors get the
+   standard arrow, and the standard hand on anything clickable. */
+a,button,[role="button"],summary,label[for],.btn,[data-tilt] a{cursor:pointer}
+input[type="submit"],input[type="button"],input[type="checkbox"],input[type="radio"],select{cursor:pointer}
+input[type="text"],input[type="email"],input[type="tel"],input[type="url"],input[type="number"],input[type="search"],textarea{cursor:text}
+:disabled,[aria-disabled="true"]{cursor:not-allowed}
 
 /* nav */
 .nav{position:fixed;top:16px;left:50%;transform:translateX(-50%);width:min(1180px,94%);z-index:900;display:flex;align-items:center;justify-content:space-between;padding:11px 22px;background:rgba(255,255,255,.75);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border:1px solid rgba(232,232,244,.9);border-radius:60px;box-shadow:var(--shadow-sm);transition:box-shadow .3s}
@@ -212,13 +218,17 @@ section{padding:76px 0}
 .pf-tags{display:flex;gap:8px;border-top:1px solid var(--border);padding-top:16px;flex-wrap:wrap}
 .pf-tags span{font-size:12px;font-weight:600;color:var(--muted);background:var(--bg);border:1px solid var(--border);border-radius:20px;padding:5px 12px;line-height:1.3}
 
-/* testimonials */
-.tst-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
-.tst{background:#fff;border:1px solid var(--border);border-radius:22px;padding:30px;transition:.4s}
+/* testimonials
+   Real quotes differ in length, so the card is a column with the quote
+   flexing and the attribution pinned to the bottom — otherwise the
+   avatars sit at twelve different heights across the grid. */
+.tst-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;align-items:stretch}
+.tst{background:#fff;border:1px solid var(--border);border-radius:22px;padding:30px;transition:.4s;margin:0;display:flex;flex-direction:column}
 .tst:hover{transform:translateY(-7px);box-shadow:var(--shadow-md)}
 .stars{color:#FFB020;letter-spacing:2px;margin-bottom:14px;font-size:15px}
+.tst blockquote{margin:0;flex:1}
 .tst p{font-size:15px;color:var(--muted);margin-bottom:22px}
-.tst-who{display:flex;align-items:center;gap:13px}
+.tst-who{display:flex;align-items:center;gap:13px;margin:0}
 .avatar{width:46px;height:46px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-family:var(--font-sora,'Sora'),'Segoe UI',system-ui,-apple-system,sans-serif;color:#fff;font-size:15px;flex-shrink:0}
 .tst-who b{display:block;font-size:14.5px}
 .tst-who span{font-size:12.5px;color:var(--faint)}
@@ -426,7 +436,6 @@ section{padding:76px 0}
 }
 @media(prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
-  .cursor,.cursor-dot{display:none}
 }
 
 
@@ -890,6 +899,8 @@ body:has(.admin-shell){background:#F4F5FB}
 .loc-cloud h4+p{margin-bottom:24px}
 .loc-cloud p:last-child{margin-bottom:0}
 .loc-cloud p{color:var(--muted);font-size:14px;line-height:2}
+.loc-cloud>div:last-of-type p{margin-bottom:0}
+.loc-cloud-note{margin-top:22px;padding-top:20px;border-top:1px solid var(--border);line-height:1.7!important;color:var(--faint)!important}
 @media(max-width:640px){.loc-note{flex-direction:column;gap:12px;padding:22px}}
 .adm-src.src-warn{background:#FFF3E4;color:#A9631C;border-color:transparent;margin-left:6px}
 

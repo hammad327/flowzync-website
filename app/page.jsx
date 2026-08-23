@@ -13,6 +13,7 @@ import { Icon, colorHex } from '@/components/Icons';
 import { site } from '@/lib/site';
 import { industries } from '@/lib/industries';
 import { clampTitle, clampDescription } from '@/lib/meta';
+import { testimonials } from '@/lib/testimonials';
 
 const homeFaqs = [
   ['What does Flowzync actually do?', 'We are a full-stack digital studio: custom website design, landing pages, GoHighLevel funnels and CRM setup, WordPress and Shopify development, business automation, SEO and ongoing care. One team, one connected system — instead of five disconnected freelancers.'],
@@ -28,7 +29,7 @@ export const metadata = {
   description: clampDescription(
     'Flowzync designs and builds custom websites, WordPress and Elementor sites, WooCommerce stores, GoHighLevel funnels and business automation — with SEO built in from day one.'
     ),
-  alternates: { canonical: site.url },
+  alternates: { canonical: '/' },
 };
 
 // FAQPage schema on the homepage: this is the block Google AI Overview
@@ -180,23 +181,22 @@ export default function Home() {
           <div className="sec-head center rv">
             <div className="eyebrow"><span className="pulse" />Kind words</div>
             <h2>Clients who got their <span className="grad-txt">dream website</span></h2>
+            <p style={{ marginInline: 'auto' }}>
+              Unedited, apart from trimming for length. The awkward bits are left in —
+              a page of nothing but praise tells you nothing.
+            </p>
           </div>
           <div className="tst-grid">
-            <div className="tst rv" data-tilt>
-              <div className="stars">★★★★★</div>
-              <p>"They didn't just build what we asked for — they built what we were trying to describe. The site feels exactly like our brand, and the whole process was calm and clear."</p>
-              <div className="tst-who"><div className="avatar" style={{ background: '#5B4FE9' }}>MK</div><div><b>Marcus Kane</b><span>Founder, ScaleDental Co.</span></div></div>
-            </div>
-            <div className="tst rv rv-d1" data-tilt>
-              <div className="stars">★★★★★</div>
-              <p>"Our old WordPress site embarrassed us. The new one loads instantly, looks premium and finally represents the quality of our work. Worth every step of the process."</p>
-              <div className="tst-who"><div className="avatar" style={{ background: '#06C299' }}>SR</div><div><b>Sofia Reyes</b><span>Partner, Lumen Legal</span></div></div>
-            </div>
-            <div className="tst rv rv-d2" data-tilt>
-              <div className="stars">★★★★★</div>
-              <p>"The Shopify redesign felt like getting a new business. Shopping the store is a pleasure now — customers tell us that in reviews, unprompted."</p>
-              <div className="tst-who"><div className="avatar" style={{ background: '#FF9E6D' }}>DA</div><div><b>Daniel Aoki</b><span>Owner, Northpeak Gear</span></div></div>
-            </div>
+            {testimonials.map((t, n) => (
+              <figure className={`tst rv ${['', 'rv-d1', 'rv-d2'][n % 3]}`} key={t.id} data-tilt>
+                <div className="stars" aria-label={`${t.rating} out of 5`}>{'★'.repeat(t.rating)}</div>
+                <blockquote><p>{t.quote}</p></blockquote>
+                <figcaption className="tst-who">
+                  <div className="avatar" style={{ background: t.colour }} aria-hidden="true">{t.initials}</div>
+                  <div><b>{t.name}</b><span>{t.role}, {t.company}</span></div>
+                </figcaption>
+              </figure>
+            ))}
           </div>
         </div>
       </section>
