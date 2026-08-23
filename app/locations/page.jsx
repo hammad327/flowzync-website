@@ -1,8 +1,8 @@
 import Link from 'next/link';
 import HeroCanvas from '@/components/HeroCanvas';
 import CTABand from '@/components/CTABand';
-import { locationsByCountry } from '@/lib/locations';
-import { coverageGroups, site } from '@/lib/site';
+import { locationsByCountry, locations } from '@/lib/locations';
+import { coverageGroups, site, serviceArea } from '@/lib/site';
 import { clampTitle, clampDescription } from '@/lib/meta';
 
 export const metadata = {
@@ -13,9 +13,36 @@ export const metadata = {
   alternates: { canonical: `${site.url}/locations` },
 };
 
+// CollectionPage + ItemList for the city pages, plus an explicit
+// areaServed list. The areaServed matters more here than anywhere:
+// it is the machine-readable answer to "do they work in my country",
+// which the prose alone leaves an assistant to infer.
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  '@id': `${site.url}/locations#collection`,
+  name: 'Areas we cover',
+  url: `${site.url}/locations`,
+  isPartOf: { '@id': `${site.url}/#website` },
+  about: { '@id': `${site.url}/#organization` },
+  description:
+    'Flowzync is a remote studio working with clients worldwide. These pages describe the markets we work in most often — they are not office locations.',
+  mainEntity: {
+    '@type': 'ItemList',
+    numberOfItems: locations.length,
+    itemListElement: locations.map((l, n) => ({
+      '@type': 'ListItem',
+      position: n + 1,
+      name: `Web design in ${l.city}`,
+      url: `${site.url}/locations/${l.slug}`,
+    })),
+  },
+};
+
 export default function LocationsPage() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
       <div className="page-hero">
         <HeroCanvas />
         <div className="orb orb1" data-plx="0.1" /><div className="hero-grid-bg" />
@@ -75,7 +102,7 @@ export default function LocationsPage() {
           <div className="loc-cloud rv">
             {coverageGroups.map((c) => (
               <div key={c.country}>
-                <h4>{c.country}</h4>
+                <h3>{c.country}</h3>
                 <p>{c.places.join(' · ')}</p>
               </div>
             ))}

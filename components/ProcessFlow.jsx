@@ -110,7 +110,7 @@ export default function ProcessFlow() {
           <article className={`pfl-card ${i === active ? 'on' : ''} ${i < active ? 'done' : ''}`} key={s.t}>
             <div className="pfl-card-head">
               <span className="pfl-idx">{String(i + 1).padStart(2, '0')}</span>
-              <h4>{s.t}</h4>
+              <h3>{s.t}</h3>
               <span className="pfl-tag">{s.tag}</span>
             </div>
             <p>{s.d}</p>

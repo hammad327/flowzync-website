@@ -24,21 +24,21 @@ export default function Footer() {
 
           {/* Services */}
           <nav aria-label="Services">
-            <h5>Services</h5>
+            <h2 className="ft-h">Services</h2>
             {services.slice(0, 6).map((s) => <Link key={s.slug} href={`/services/${s.slug}`}>{s.title}</Link>)}
             <Link href="/services" className="ft-all">All services →</Link>
           </nav>
 
           {/* Industries */}
           <nav aria-label="Industries">
-            <h5>Industries</h5>
+            <h2 className="ft-h">Industries</h2>
             {industries.slice(0, 6).map((i) => <Link key={i.slug} href={`/industries/${i.slug}`}>{i.trade}</Link>)}
             <Link href="/industries" className="ft-all">All industries →</Link>
           </nav>
 
           {/* Company */}
           <nav aria-label="Company">
-            <h5>Company</h5>
+            <h2 className="ft-h">Company</h2>
             <Link href="/about">About us</Link>
             <Link href="/portfolio">Portfolio</Link>
             <Link href="/blog">Blog</Link>
@@ -47,7 +47,7 @@ export default function Footer() {
 
           {/* Contact Us */}
           <div className="ft-contact">
-            <h5>Contact us</h5>
+            <h2 className="ft-h">Contact us</h2>
             <a href={`mailto:${site.email}`} className="ft-mail">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="3" stroke="currentColor" strokeWidth="2"/><path d="m4 7 8 6 8-6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
               {site.email}

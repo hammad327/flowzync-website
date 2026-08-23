@@ -6,7 +6,7 @@ import { getAllPosts, getPost, getRelatedPosts } from '@/lib/posts';
 import { site } from '@/lib/site';
 import { images } from '@/lib/images';
 import HeroCanvas from '@/components/HeroCanvas';
-import { clampTitle, clampDescription } from '@/lib/meta';
+import { clampTitle, clampDescription, openGraph, twitterCard } from '@/lib/meta';
 
 export function generateStaticParams() {
   return getAllPosts().map((p) => ({ slug: p.slug }));
@@ -19,14 +19,24 @@ export function generateMetadata({ params }) {
     title: clampTitle(p.title, 48),   // 48 + ' | Flowzync' = 59
     description: clampDescription(p.description),
     alternates: { canonical: `${site.url}/blog/${p.slug}` },
-    openGraph: {
+    // Social cards need a raster image — LinkedIn, Slack and WhatsApp
+    // will not render an SVG preview — so an SVG cover falls back to
+    // the OG image, exactly as the Article schema below does.
+    openGraph: openGraph({
       type: 'article',
       title: clampTitle(p.title, 48),   // 48 + ' | Flowzync' = 59
-      description: clampDescription(p.description),
+      description: p.description,
       url: `${site.url}/blog/${p.slug}`,
-      images: p.cover ? [p.cover] : [],
+      image: p.cover && !p.cover.endsWith('.svg') ? p.cover : images.og,
       publishedTime: p.date,
-    },
+      modifiedTime: p.updated || p.date,
+      authors: [p.author],
+    }),
+    twitter: twitterCard({
+      title: clampTitle(p.title, 48),
+      description: p.description,
+      image: p.cover && !p.cover.endsWith('.svg') ? p.cover : images.og,
+    }),
   };
 }
 

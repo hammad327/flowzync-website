@@ -5,7 +5,7 @@ import { getAllPosts } from '@/lib/posts';
 import BlogGrid from '@/components/BlogGrid';
 import { site } from '@/lib/site';
 import HeroCanvas from '@/components/HeroCanvas';
-import { clampTitle, clampDescription } from '@/lib/meta';
+import { clampTitle, clampDescription, openGraph } from '@/lib/meta';
 
 export const metadata = {
   title: 'Blog — Web Design, Funnels & Automation Insights',
@@ -13,12 +13,11 @@ export const metadata = {
     'Practical articles from the Flowzync team on web design, GoHighLevel funnels, WordPress, Shopify, SEO and automation. New posts published regularly.'
     ),
   alternates: { canonical: `${site.url}/blog` },
-  openGraph: {
+  openGraph: openGraph({
     title: 'Blog — Web Design, Funnels & Automation Insights',
-    description: clampDescription('Practical articles from the Flowzync team on web design, GoHighLevel funnels, WordPress, Shopify, SEO and automation. New posts published regularly.'),
+    description: 'Practical articles from the Flowzync team on web design, GoHighLevel funnels, WordPress, Shopify, SEO and automation. New posts published regularly.',
     url: '/blog',
-    type: 'website',
-  },
+  }),
 };
 
 export default function BlogPage() {
@@ -66,6 +65,14 @@ export default function BlogPage() {
 
       <section style={{ paddingTop: 30 }}>
         <div className="wrap">
+          <div className="sec-head rv">
+            <div className="eyebrow"><span className="pulse" />Latest articles</div>
+            <h2>Straight answers on <span className="grad-txt">websites, funnels and search</span></h2>
+            <p>
+              One question per article, answered in the first two sentences. Where the
+              honest answer is that you do not need the thing, we say that instead.
+            </p>
+          </div>
           {posts.length === 0 ? (
             <p style={{ textAlign: 'center', color: 'var(--muted)' }}>
               No posts yet — drop a .md file into <code>content/blog/</code> to publish your first article.

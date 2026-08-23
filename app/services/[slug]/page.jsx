@@ -8,7 +8,7 @@ import { getServiceDetails } from '@/lib/serviceDetails';
 import { site } from '@/lib/site';
 import { Icon, colorHex } from '@/components/Icons';
 import HeroCanvas from '@/components/HeroCanvas';
-import { clampTitle, clampDescription } from '@/lib/meta';
+import { clampTitle, clampDescription, openGraph, twitterCard } from '@/lib/meta';
 
 // Pre-render every service at build time → instant loads + full SEO
 export function generateStaticParams() {
@@ -23,7 +23,8 @@ export function generateMetadata({ params }) {
     description: clampDescription(s.seoDescription),
     keywords: s.keywords,
     alternates: { canonical: `${site.url}/services/${s.slug}` },
-    openGraph: { title: s.seoTitle, description: s.seoDescription, url: `${site.url}/services/${s.slug}` },
+    openGraph: openGraph({ title: s.seoTitle, description: s.seoDescription, url: `${site.url}/services/${s.slug}` }),
+    twitter: twitterCard({ title: s.seoTitle, description: s.seoDescription }),
   };
 }
 
@@ -121,7 +122,7 @@ export default function ServicePage({ params }) {
                   <span className="bnf-check">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="m5 13 4 4L19 7" stroke="#fff" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/></svg>
                   </span>
-                  <h4>{t}</h4>
+                  <h3>{t}</h3>
                   <p>{x}</p>
                 </div>
               ))}
@@ -141,7 +142,7 @@ export default function ServicePage({ params }) {
             {s.features.map(([t, x], i) => (
               <div className={`feat rv ${i % 3 === 1 ? 'rv-d1' : i % 3 === 2 ? 'rv-d2' : ''}`} key={t}>
                 <div className="num">{String(i + 1).padStart(2, '0')}</div>
-                <h4>{t}</h4>
+                <h3>{t}</h3>
                 <p>{x}</p>
               </div>
             ))}
@@ -162,7 +163,7 @@ export default function ServicePage({ params }) {
                 <div className={`apr rv ${i % 4 === 1 ? 'rv-d1' : i % 4 === 2 ? 'rv-d2' : i % 4 === 3 ? 'rv-d3' : ''}`} key={t}>
                   <span className="apr-num grad-txt">{String(i + 1).padStart(2, '0')}</span>
                   <div className="apr-line" />
-                  <h4>{t}</h4>
+                  <h3>{t}</h3>
                   <p>{x}</p>
                 </div>
               ))}
@@ -184,7 +185,7 @@ export default function ServicePage({ params }) {
                 {d.whyUs.map(([t, x], i) => (
                   <div className="why-card" key={t}>
                     <span className="why-idx">{String(i + 1).padStart(2, '0')}</span>
-                    <h4>{t}</h4>
+                    <h3>{t}</h3>
                     <p>{x}</p>
                   </div>
                 ))}

@@ -2,6 +2,8 @@
 import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import { services } from '@/lib/services';
+import FAQ from '@/components/FAQ';
+import { CONTACT_FAQS } from '@/lib/contactFaqs';
 import HeroCanvas from '@/components/HeroCanvas';
 import { site } from '@/lib/site';
 
@@ -100,7 +102,7 @@ export default function ContactPage() {
                   </svg>
                   <span className="cd-pulse" />
                 </div>
-                <h3>Thanks — that&apos;s with us</h3>
+                <h2 className="ct-form-h">Thanks — that&apos;s with us</h2>
                 <p>
                   A person reads every enquiry, and we&apos;ll come back to you at the email
                   you gave us with a clear next step. No autoresponder, no sales sequence.
@@ -121,7 +123,7 @@ export default function ContactPage() {
               </div>
             ) : (
               <form className="ct-form rv in rv-d1" onSubmit={submit} noValidate>
-                <h3>Start your project</h3>
+                <h2 className="ct-form-h">Start your project</h2>
                 <p>Fill this in and we'll come to the call already knowing your business.</p>
                 <div className="f-row">
                   <div className="f-field">
@@ -184,6 +186,54 @@ export default function ContactPage() {
               </form>
             )}
           </div>
+        </div>
+      </section>
+
+      {/* The page was 146 words with no internal links — the thinnest on
+          the site, and one of the few people actually search for by
+          name ("flowzync contact"). These two sections give it
+          something to rank with and somewhere to send people. */}
+      <section style={{ paddingTop: 0 }}>
+        <div className="wrap">
+          <div className="sec-head center rv">
+            <div className="eyebrow"><span className="pulse" />Before you write</div>
+            <h2>What happens after you <span className="grad-txt">hit send</span></h2>
+          </div>
+          <div className="ct-steps rv">
+            {[
+              ['We read it properly', 'A person reads your message, not an auto-responder. If something is unclear we ask rather than guess, because a quote built on a guess helps nobody.'],
+              ['You get questions first', 'Usually a short reply with two or three questions. Anyone who sends a price back within the hour has quoted a project they have not understood yet.'],
+              ['Then a fixed, itemised quote', 'Scope written down, price fixed before any work starts. No hourly billing, and no variation the first time you change your mind about a heading.'],
+              ['No pressure either way', 'If we are not the right fit we will say so, and point you at what is. We would rather lose a project than take one we cannot do well.'],
+            ].map(([t, d], n) => (
+              <div className="ct-step" key={t}>
+                <span className="ct-step-n">{n + 1}</span>
+                <div>
+                  <h3>{t}</h3>
+                  <p>{d}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section style={{ paddingTop: 0 }}>
+        <div className="wrap">
+          <div className="sec-head center rv">
+            <div className="eyebrow"><span className="pulse" />Common questions</div>
+            <h2>Asked before <span className="grad-txt">almost every project</span></h2>
+          </div>
+          <FAQ items={CONTACT_FAQS} />
+          <p className="ct-explore rv">
+            Still deciding what you need? Browse{' '}
+            <Link href="/services">everything we do</Link>, the{' '}
+            <Link href="/industries">industries we build for</Link>, the{' '}
+            <Link href="/locations">areas we cover</Link>, or some{' '}
+            <Link href="/portfolio">recent work</Link>. The{' '}
+            <Link href="/blog">blog</Link> answers most of the pricing and
+            process questions in more depth than a form ever could.
+          </p>
         </div>
       </section>
     </>

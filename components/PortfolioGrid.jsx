@@ -31,7 +31,7 @@ export default function PortfolioGrid({ limit }) {
               <div className="pf-overlay">
                 <div>
                   <div className="cat">{p.badge}</div>
-                  <h3 style={{ color: '#fff', fontSize: 20 }}>{p.title.split('—')[0].trim()}</h3>
+                  <span className="pf-overlay-title" aria-hidden="true">{p.title.split('—')[0].trim()}</span>
                 </div>
               </div>
             </div>
