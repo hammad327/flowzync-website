@@ -40,4 +40,4 @@ Domain authority scores, keyword density percentages, and anyone promising "#1 r
 
 > SEO for a new site isn't a trick. It's making it effortless for Google to understand who you help and how.
 
-Our [WordPress builds](/services/wordpress-development) and [custom websites](/services/custom-website-design) ship with all of the above configured — but if you have an existing site, these steps are exactly where we'd start an audit.
+Our [WordPress builds](/services/wordpress-website-design) and [custom websites](/services/custom-website-design) ship with all of the above configured — but if you have an existing site, these steps are exactly where we'd start an audit.
