@@ -218,17 +218,61 @@ input[type="text"],input[type="email"],input[type="tel"],input[type="url"],input
 .pf-tags{display:flex;gap:8px;border-top:1px solid var(--border);padding-top:16px;flex-wrap:wrap}
 .pf-tags span{font-size:12px;font-weight:600;color:var(--muted);background:var(--bg);border:1px solid var(--border);border-radius:20px;padding:5px 12px;line-height:1.3}
 
-/* testimonials
-   Real quotes differ in length, so the card is a column with the quote
-   flexing and the attribution pinned to the bottom — otherwise the
-   avatars sit at twelve different heights across the grid. */
-.tst-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;align-items:stretch}
-.tst{background:#fff;border:1px solid var(--border);border-radius:22px;padding:30px;transition:.4s;margin:0;display:flex;flex-direction:column}
+/* ── TESTIMONIAL CAROUSEL ──────────────────────────────────────
+   One scrolling row rather than a grid of boxes. The track is a real
+   scroll container: native swipe and momentum on touch, scroll-snap
+   for alignment, and the arrows just call scrollBy on it. */
+.tst-carousel{position:relative;display:flex;align-items:center;gap:14px}
+
+.tst-track{
+  display:flex;gap:24px;overflow-x:auto;
+  /* `proximity`, NOT `mandatory`. With mandatory the browser must land
+     on a snap point after any re-layout, and the reveal-on-scroll
+     animation above this section counts as one — so simply scrolling
+     the page down would jump the row to the second card and light up
+     the "previous" arrow on a carousel nobody had touched. */
+  scroll-snap-type:x proximity;
+  /* Room for the cards' hover lift and shadow, which the scroll
+     container's own overflow would otherwise clip. scroll-padding
+     matches the inline padding so a snapped card sits flush. */
+  padding:10px 4px 20px;margin:-10px -4px -20px;scroll-padding-inline:4px;
+  scrollbar-width:none;-ms-overflow-style:none;scroll-behavior:smooth;
+}
+.tst-track::-webkit-scrollbar{display:none}
+.tst-track:focus-visible{outline:2px solid var(--primary);outline-offset:6px;border-radius:24px}
+
+/* Three across on desktop, accounting for the two 24px gaps. */
+.tst{
+  flex:0 0 calc((100% - 48px) / 3);scroll-snap-align:start;
+  background:#fff;border:1px solid var(--border);border-radius:22px;
+  padding:30px;transition:transform .4s,box-shadow .4s;margin:0;
+  display:flex;flex-direction:column;
+}
 .tst:hover{transform:translateY(-7px);box-shadow:var(--shadow-md)}
 .stars{color:#FFB020;letter-spacing:2px;margin-bottom:14px;font-size:15px}
 .tst blockquote{margin:0;flex:1}
 .tst p{font-size:15px;color:var(--muted);margin-bottom:22px}
 .tst-who{display:flex;align-items:center;gap:13px;margin:0}
+
+/* Arrows sit outside the track so they never cover a quote. */
+.tst-arrow{
+  flex:0 0 46px;width:46px;height:46px;border-radius:50%;
+  background:#fff;border:1px solid var(--border);color:var(--primary-deep);
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:var(--shadow-sm);transition:.28s;
+}
+.tst-arrow:hover:not(:disabled){background:var(--primary);color:#fff;border-color:var(--primary);transform:scale(1.07)}
+.tst-arrow:disabled{opacity:.32;cursor:not-allowed;box-shadow:none}
+
+@media(max-width:900px){
+  .tst{flex:0 0 calc((100% - 24px) / 2)}
+}
+@media(max-width:680px){
+  /* On a phone the arrows are redundant — you swipe. Hiding them gives
+     the card the full width, which matters more than the affordance. */
+  .tst-arrow{display:none}
+  .tst{flex:0 0 88%}
+}
 .avatar{width:46px;height:46px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-family:var(--font-sora,'Sora'),'Segoe UI',system-ui,-apple-system,sans-serif;color:#fff;font-size:15px;flex-shrink:0}
 .tst-who b{display:block;font-size:14.5px}
 .tst-who span{font-size:12.5px;color:var(--faint)}
@@ -421,7 +465,7 @@ input[type="text"],input[type="email"],input[type="tel"],input[type="url"],input
 
 /* responsive */
 @media(max-width:1024px){
-  .svc-grid,.tst-grid,.feat-grid,.vals,.blog-grid{grid-template-columns:repeat(2,1fr)}
+  .svc-grid,.feat-grid,.vals,.blog-grid{grid-template-columns:repeat(2,1fr)}
   .counters,.team-grid{grid-template-columns:repeat(2,1fr)}
 }
 @media(max-width:860px){
@@ -431,7 +475,7 @@ input[type="text"],input[type="email"],input[type="tel"],input[type="url"],input
   .ft-grid{grid-template-columns:1fr 1fr}
 }
 @media(max-width:560px){
-  .svc-grid,.tst-grid,.feat-grid,.vals,.counters,.team-grid,.blog-grid{grid-template-columns:1fr}
+  .svc-grid,.feat-grid,.vals,.counters,.team-grid,.blog-grid{grid-template-columns:1fr}
   .ct-form{padding:28px 22px}
 }
 @media(prefers-reduced-motion:reduce){

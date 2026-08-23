@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import CTABand from '@/components/CTABand';
+import Testimonials from '@/components/Testimonials';
 import { LogoMark } from '@/components/Logo';
 import HeroCanvas from '@/components/HeroCanvas';
 import { site } from '@/lib/site';
@@ -206,6 +207,23 @@ export default function AboutPage() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* WHAT CLIENTS SAY — placed straight after the team, because the
+          reader has just been told who we are and this is the evidence. */}
+      <section style={{ paddingTop: 0 }}>
+        <div className="wrap">
+          <div className="sec-head center rv">
+            <div className="eyebrow"><span className="pulse" />In their words</div>
+            <h2>What it&apos;s like <span className="grad-txt">working with us</span></h2>
+            <p>
+              Trimmed for length, otherwise as they were sent. We have left in the
+              projects that ran late and the week someone felt out of the loop —
+              a wall of unbroken praise tells you nothing useful.
+            </p>
+          </div>
+          <Testimonials />
         </div>
       </section>
 

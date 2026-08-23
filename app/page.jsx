@@ -13,7 +13,7 @@ import { Icon, colorHex } from '@/components/Icons';
 import { site } from '@/lib/site';
 import { industries } from '@/lib/industries';
 import { clampTitle, clampDescription } from '@/lib/meta';
-import { testimonials } from '@/lib/testimonials';
+import Testimonials from '@/components/Testimonials';
 
 const homeFaqs = [
   ['What does Flowzync actually do?', 'We are a full-stack digital studio: custom website design, landing pages, GoHighLevel funnels and CRM setup, WordPress and Shopify development, business automation, SEO and ongoing care. One team, one connected system — instead of five disconnected freelancers.'],
@@ -186,18 +186,7 @@ export default function Home() {
               a page of nothing but praise tells you nothing.
             </p>
           </div>
-          <div className="tst-grid">
-            {testimonials.map((t, n) => (
-              <figure className={`tst rv ${['', 'rv-d1', 'rv-d2'][n % 3]}`} key={t.id} data-tilt>
-                <div className="stars" aria-label={`${t.rating} out of 5`}>{'★'.repeat(t.rating)}</div>
-                <blockquote><p>{t.quote}</p></blockquote>
-                <figcaption className="tst-who">
-                  <div className="avatar" style={{ background: t.colour }} aria-hidden="true">{t.initials}</div>
-                  <div><b>{t.name}</b><span>{t.role}, {t.company}</span></div>
-                </figcaption>
-              </figure>
-            ))}
-          </div>
+          <Testimonials />
         </div>
       </section>
 
