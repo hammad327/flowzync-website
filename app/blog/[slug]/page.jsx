@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
+import BlogCover from '@/components/BlogCover';
 import { notFound } from 'next/navigation';
 import CTABand from '@/components/CTABand';
 import { getAllPosts, getPost, getRelatedPosts } from '@/lib/posts';
@@ -10,6 +11,18 @@ import { clampTitle, clampDescription, openGraph, twitterCard } from '@/lib/meta
 
 export function generateStaticParams() {
   return getAllPosts().map((p) => ({ slug: p.slug }));
+}
+
+// The image Google's article rich results and every social card want:
+// an absolute, raster URL. Preference order is the stock photograph,
+// then a raster cover, then the OG image — the illustrated SVG covers
+// are never eligible, because neither Google nor LinkedIn will render
+// an SVG preview.
+function articleImage(p) {
+  const abs = (u) => (u.startsWith('http') ? u : `${site.url}${u}`);
+  if (p.photo) return abs(p.photo);
+  if (p.cover && !p.cover.endsWith('.svg')) return abs(p.cover);
+  return abs(images.og);
 }
 
 export function generateMetadata({ params }) {
@@ -27,7 +40,7 @@ export function generateMetadata({ params }) {
       title: clampTitle(p.title, 48),   // 48 + ' | Flowzync' = 59
       description: p.description,
       url: `${site.url}/blog/${p.slug}`,
-      image: p.cover && !p.cover.endsWith('.svg') ? p.cover : images.og,
+      image: articleImage(p),
       publishedTime: p.date,
       modifiedTime: p.updated || p.date,
       authors: [p.author],
@@ -35,7 +48,7 @@ export function generateMetadata({ params }) {
     twitter: twitterCard({
       title: clampTitle(p.title, 48),
       description: p.description,
-      image: p.cover && !p.cover.endsWith('.svg') ? p.cover : images.og,
+      image: articleImage(p),
     }),
   };
 }
@@ -54,9 +67,7 @@ export default function BlogPost({ params }) {
       // and is simply dropped. Google's Article rich results also require
       // a raster image (jpg/png/gif), so an SVG cover falls back to the
       // OG image rather than publishing an ineligible one.
-      image: p.cover && !p.cover.endsWith('.svg')
-        ? (p.cover.startsWith('http') ? p.cover : `${site.url}${p.cover}`)
-        : `${site.url}${images.og}`,
+      image: articleImage(p),
       datePublished: p.date,
       dateModified: p.updated || p.date,
       inLanguage: 'en',
@@ -119,7 +130,15 @@ export default function BlogPost({ params }) {
         <div className="wrap article">
           {p.cover && (
             <div className="article-cover">
-              <Image src={p.cover} alt={p.title} width={1400} height={700} priority />
+              <BlogCover
+                photo={p.photo}
+                fallback={p.cover}
+                alt={p.title}
+                width={1400}
+                height={700}
+                priority
+                sizes="(max-width:900px) 100vw, 900px"
+              />
             </div>
           )}
           <div className="prose" dangerouslySetInnerHTML={{ __html: p.html }} />
@@ -144,7 +163,14 @@ export default function BlogPost({ params }) {
               {others.map((o) => (
                 <Link href={`/blog/${o.slug}`} className="post-card" key={o.slug}>
                   <div className="post-thumb">
-                    {o.cover && <Image src={o.cover} alt={o.title} width={600} height={380} />}
+                    <BlogCover
+                      photo={o.photo}
+                      fallback={o.cover}
+                      alt={o.title}
+                      width={600}
+                      height={380}
+                      sizes="(max-width:680px) 100vw, 33vw"
+                    />
                   </div>
                   <div className="post-body">
                     <div className="post-meta"><span>{new Date(o.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}</span><span>{o.readTime} min</span></div>
