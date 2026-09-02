@@ -55,7 +55,7 @@ export default function IndustriesPage() {
         </div>
       </div>
 
-      <section>
+      <section className="sec-tint">
         <div className="wrap">
           <div className="sec-head rv">
             <div className="eyebrow"><span className="pulse" />Industries</div>
@@ -95,7 +95,7 @@ export default function IndustriesPage() {
         </div>
       </section>
 
-      <section style={{ paddingTop: 0 }}>
+      <section className="sec-soft">
         <div className="wrap">
           <CTABand
             title="Want a site built for how your trade gets found?"

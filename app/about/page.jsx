@@ -87,7 +87,7 @@ export default function AboutPage() {
       </div>
 
       {/* STATS */}
-      <section>
+      <section className="sec-tint">
         <div className="wrap">
           <div className="counters counters-xl">
             <div className="cnt rv" data-tilt><div className="cnt-ic ic-lav"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8Z" fill="#5B4FE9"/></svg></div><b><span data-count="240">0</span><em>+</em></b><span>Projects delivered</span></div>
@@ -99,7 +99,7 @@ export default function AboutPage() {
       </section>
 
       {/* OUR STORY */}
-      <section style={{ paddingTop: 0 }}>
+      <section className="sec-soft">
         <div className="wrap">
           <div className="sec-head center rv">
             <div className="eyebrow"><span className="pulse" />Our story</div>
@@ -115,7 +115,7 @@ export default function AboutPage() {
       </section>
 
       {/* MISSION & VISION */}
-      <section style={{ paddingTop: 0 }}>
+      <section className="sec-tint">
         <div className="wrap mv-grid">
           <div className="mv-card mv-mission rv rv-l" data-tilt>
             <span className="mv-mark"><LogoMark variant="white" size={30} /></span>
@@ -135,7 +135,7 @@ export default function AboutPage() {
       </section>
 
       {/* VALUES */}
-      <section style={{ paddingTop: 0 }}>
+      <section className="sec-soft">
         <div className="wrap">
           <div className="sec-head center rv">
             <div className="eyebrow"><span className="pulse" />Core values</div>
@@ -156,7 +156,7 @@ export default function AboutPage() {
       </section>
 
       {/* WHY CLIENTS CHOOSE US */}
-      <section style={{ paddingTop: 0 }}>
+      <section className="sec-tint">
         <div className="wrap">
           <div className="sec-head center rv">
             <div className="eyebrow"><span className="pulse" />The difference</div>
@@ -190,7 +190,7 @@ export default function AboutPage() {
       </section>
 
       {/* TEAM */}
-      <section style={{ paddingTop: 0 }}>
+      <section className="sec-soft">
         <div className="wrap">
           <div className="sec-head center rv">
             <div className="eyebrow"><span className="pulse" />The team</div>
@@ -211,7 +211,7 @@ export default function AboutPage() {
 
       {/* WHAT CLIENTS SAY — placed straight after the team, because the
           reader has just been told who we are and this is the evidence. */}
-      <section style={{ paddingTop: 0 }}>
+      <section className="sec-tint">
         <div className="wrap">
           <div className="sec-head center rv">
             <div className="eyebrow"><span className="pulse" />In their words</div>
@@ -227,7 +227,7 @@ export default function AboutPage() {
       </section>
 
       {/* CLIENTS + TOOLS */}
-      <section style={{ paddingTop: 0 }}>
+      <section className="sec-soft">
         <div className="wrap">
           <div className="sec-head center rv">
             <div className="eyebrow"><span className="pulse" />Trusted by</div>
@@ -253,7 +253,7 @@ export default function AboutPage() {
       </section>
 
       {/* CTA */}
-      <section style={{ paddingTop: 56 }}>
+      <section className="sec-tint" style={{ paddingTop: 56 }}>
         <div className="wrap">
           <CTABand
             title="Sound like a team you'd enjoy working with?"

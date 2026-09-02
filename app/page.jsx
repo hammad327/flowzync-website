@@ -98,7 +98,7 @@ export default function Home() {
       </div>
 
       {/* SERVICES */}
-      <section>
+      <section className="sec-tint">
         <div className="wrap">
           <div className="sec-head rv">
             <div className="eyebrow"><span className="pulse" />What we do</div>
@@ -128,7 +128,7 @@ export default function Home() {
       </section>
 
       {/* HOW WE WORK */}
-      <section style={{ background: '#fff', borderTop: '1px solid var(--border)', borderBottom: '1px solid var(--border)' }}>
+      <section className="sec-soft">
         <div className="wrap">
           <div className="sec-head center rv">
             <div className="eyebrow"><span className="pulse" />How we work</div>
@@ -140,7 +140,7 @@ export default function Home() {
       </section>
 
       {/* WORK PREVIEW */}
-      <section>
+      <section className="sec-tint">
         <div className="wrap">
           <div className="sec-head rv">
             <div className="eyebrow"><span className="pulse" />Featured work</div>
@@ -157,7 +157,7 @@ export default function Home() {
       </section>
 
       {/* INDUSTRIES — internal links to the niche pages */}
-      <section style={{ paddingTop: 0 }}>
+      <section className="sec-tint" style={{ paddingTop: 0 }}>
         <div className="wrap">
           <div className="sec-head rv">
             <div className="eyebrow"><span className="pulse" />Industries</div>
@@ -176,7 +176,7 @@ export default function Home() {
       </section>
 
       {/* TESTIMONIALS */}
-      <section style={{ paddingTop: 0 }}>
+      <section className="sec-soft">
         <div className="wrap">
           <div className="sec-head center rv">
             <div className="eyebrow"><span className="pulse" />Kind words</div>
@@ -192,7 +192,7 @@ export default function Home() {
 
       {/* LATEST POSTS */}
       {posts.length > 0 && (
-        <section style={{ paddingTop: 0 }}>
+        <section className="sec-tint">
           <div className="wrap">
             <div className="sec-head rv">
               <div className="eyebrow"><span className="pulse" />From the blog</div>
@@ -219,7 +219,7 @@ export default function Home() {
       )}
 
       {/* FAQ */}
-      <section style={{ paddingTop: 0 }}>
+      <section className="sec-soft">
         <div className="wrap">
           <div className="sec-head center rv">
             <div className="eyebrow"><span className="pulse" />FAQ</div>

@@ -48,7 +48,7 @@ export default function ServicesPage() {
         </div>
       </div>
 
-      <section>
+      <section className="sec-tint">
         <div className="wrap">
           {/* The service grid had no section heading at all, so the page
               went straight from its h1 to thirteen h3 cards. That is a
@@ -79,7 +79,7 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      <section style={{ paddingTop: 0 }}>
+      <section className="sec-soft">
         <div className="wrap">
           <CTABand
             title="Not sure which service fits?"

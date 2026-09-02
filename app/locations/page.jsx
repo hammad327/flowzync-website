@@ -57,7 +57,7 @@ export default function LocationsPage() {
         </div>
       </div>
 
-      <section>
+      <section className="sec-tint">
         <div className="wrap">
           {/* One block per country, generated from lib/locations.js.
               Adding a country there is all it takes to have it appear
@@ -87,7 +87,7 @@ export default function LocationsPage() {
       </section>
 
       {/* FULL COVERAGE — honest, and useful for long-tail search */}
-      <section style={{ paddingTop: 0 }}>
+      <section className="sec-soft">
         <div className="wrap">
           <div className="sec-head rv">
             <div className="eyebrow"><span className="pulse" />Full coverage</div>
@@ -115,7 +115,7 @@ export default function LocationsPage() {
         </div>
       </section>
 
-      <section style={{ paddingTop: 0 }}>
+      <section className="sec-tint">
         <div className="wrap">
           <CTABand
             title="Not sure if we cover your area?"

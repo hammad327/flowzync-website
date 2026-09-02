@@ -19,7 +19,29 @@ button{font-family:inherit;cursor:pointer}
 ::selection{background:var(--primary);color:#fff}
 
 .wrap{width:min(1180px,92%);margin:0 auto}
-section{padding:76px 0}
+section{padding:76px 0;position:relative}
+
+/* ── SECTION BANDS ─────────────────────────────────────────────
+   The site was a single near-white wash: --bg behind white cards,
+   with a white nav floating over it. Nothing had an edge. These
+   alternate the ground so each section reads as its own block.
+
+   .sec-tint  soft lavender→mint, for content sections
+   .sec-soft  plain white, to sit between two tinted bands
+   .sec-dark  deep ink, same family as the footer and CTA band  */
+.sec-tint{background:linear-gradient(180deg,#F2F1FE 0%,#EDF6FF 55%,#EFFBF6 100%)}
+.sec-soft{background:var(--surface)}
+.sec-dark{background:var(--ink);color:#CFCEE6}
+.sec-dark h2,.sec-dark h3,.sec-dark h4{color:#fff}
+.sec-dark .sec-head p,.sec-dark p{color:#A9A7C8}
+.sec-dark .eyebrow{background:rgba(255,255,255,.08);color:#CFCEE6;border-color:rgba(255,255,255,.14)}
+
+/* A hairline between adjacent bands, so even two light ones separate. */
+.sec-tint+.sec-soft,.sec-soft+.sec-tint{border-top:1px solid var(--border)}
+
+/* Cards need a touch more contrast once they sit on a tinted ground. */
+.sec-tint .svc-card,.sec-tint .tst,.sec-tint .post-card,.sec-tint .loc-card,
+.sec-tint .ind-card,.sec-tint .faq,.sec-tint .ct-step{box-shadow:0 4px 18px rgba(20,18,59,.05)}
 .grad-txt{background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
 
 /* eyebrow / buttons / heads */
@@ -60,8 +82,8 @@ input[type="text"],input[type="email"],input[type="tel"],input[type="url"],input
 :disabled,[aria-disabled="true"]{cursor:not-allowed}
 
 /* nav */
-.nav{position:fixed;top:16px;left:50%;transform:translateX(-50%);width:min(1180px,94%);z-index:900;display:flex;align-items:center;justify-content:space-between;padding:11px 22px;background:rgba(255,255,255,.75);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border:1px solid rgba(232,232,244,.9);border-radius:60px;box-shadow:var(--shadow-sm);transition:box-shadow .3s}
-.nav.scrolled{box-shadow:var(--shadow-md)}
+.nav{position:fixed;top:16px;left:50%;transform:translateX(-50%);width:min(1180px,94%);z-index:900;display:flex;align-items:center;justify-content:space-between;padding:11px 22px;background:rgba(255,255,255,.92);backdrop-filter:blur(20px) saturate(160%);-webkit-backdrop-filter:blur(20px) saturate(160%);border:1px solid rgba(91,79,233,.14);border-radius:60px;box-shadow:0 4px 20px rgba(20,18,59,.09);transition:box-shadow .3s,background .3s,border-color .3s}
+.nav.scrolled{background:rgba(255,255,255,.97);border-color:rgba(91,79,233,.2);box-shadow:0 10px 34px rgba(20,18,59,.13)}
 .logo{font-family:var(--font-sora,'Sora'),'Segoe UI',system-ui,-apple-system,sans-serif;font-weight:800;font-size:21px;display:flex;align-items:center;gap:9px;letter-spacing:-.5px}
 .logo-mark{display:flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:11px;background:var(--grad);position:relative;overflow:hidden;flex-shrink:0}
 .logo-mark svg{width:20px;height:20px;position:relative;z-index:1}
