@@ -1,8 +1,18 @@
 /* ═══════════════ Flowzync DESIGN SYSTEM ═══════════════
    Edit brand colours once here — the whole site follows. */
 :root{
-  --bg:#F7F8FD; --surface:#FFFFFF; --ink:#14123B; --muted:#5E5D7A; --faint:#9C9BB5;
+  --bg:#F7F8FD; --surface:#FFFFFF; --ink:#14123B; --muted:#5E5D7A;
+  /* --faint carries small print: testimonial roles, form hints, footer
+     notes. At its old #9C9BB5 that was 2.7:1 on white — well under the
+     4.5:1 WCAG AA needs for text this size, and Lighthouse failed it.
+     #707082 keeps the same cool grey but passes on both --surface
+     (4.85:1) and --bg (4.57:1). */
+  --faint:#707082;
   --primary:#5B4FE9; --primary-deep:#4338CA; --accent:#06C299; --peach:#FF9E6D;
+  /* --accent is a fine fill and border colour but fails as TEXT: 2.29:1
+     on white, 2.07:1 on its own mint chip. Use --accent-text wherever
+     the mint is words rather than a shape. */
+  --accent-text:#047E63;
   --lav:#EDEBFF; --mint:#E0F9F2; --peachbg:#FFF0E6; --border:#E8E8F4;
   --grad:linear-gradient(96deg,#5B4FE9 0%,#7C6CF5 45%,#06C299 100%);
   --shadow-sm:0 2px 10px rgba(20,18,59,.06);
@@ -19,13 +29,41 @@ button{font-family:inherit;cursor:pointer}
 ::selection{background:var(--primary);color:#fff}
 
 .wrap{width:min(1180px,92%);margin:0 auto}
-section{padding:76px 0}
+section{padding:76px 0;position:relative}
+
+/* ── SECTION BANDS ─────────────────────────────────────────────
+   The site was a single near-white wash: --bg behind white cards,
+   with a white nav floating over it. Nothing had an edge. These
+   alternate the ground so each section reads as its own block.
+
+   .sec-tint  soft lavender→mint, for content sections
+   .sec-soft  plain white, to sit between two tinted bands
+   .sec-dark  deep ink, same family as the footer and CTA band  */
+.sec-tint{background:linear-gradient(180deg,#F2F1FE 0%,#EDF6FF 55%,#EFFBF6 100%)}
+.sec-soft{background:var(--surface)}
+.sec-dark{background:var(--ink);color:#CFCEE6}
+.sec-dark h2,.sec-dark h3,.sec-dark h4{color:#fff}
+.sec-dark .sec-head p,.sec-dark p{color:#A9A7C8}
+.sec-dark .eyebrow{background:rgba(255,255,255,.08);color:#CFCEE6;border-color:rgba(255,255,255,.14)}
+
+/* A hairline between adjacent bands, so even two light ones separate. */
+.sec-tint+.sec-soft,.sec-soft+.sec-tint{border-top:1px solid var(--border)}
+
+/* Cards need a touch more contrast once they sit on a tinted ground. */
+.sec-tint .svc-card,.sec-tint .tst,.sec-tint .post-card,.sec-tint .loc-card,
+.sec-tint .ind-card,.sec-tint .faq,.sec-tint .ct-step{box-shadow:0 4px 18px rgba(20,18,59,.05)}
 .grad-txt{background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
 
 /* eyebrow / buttons / heads */
 .eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;font-weight:700;letter-spacing:1.6px;text-transform:uppercase;color:var(--primary);background:var(--lav);padding:8px 18px;border-radius:30px;margin-bottom:20px}
-.eyebrow .pulse{width:7px;height:7px;border-radius:50%;background:var(--accent);animation:pulse 1.8s infinite}
-@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(6,194,153,.5)}50%{box-shadow:0 0 0 7px rgba(6,194,153,0)}}
+.eyebrow .pulse{position:relative;width:7px;height:7px;border-radius:50%;background:var(--accent);flex-shrink:0}
+.eyebrow .pulse::after{content:'';position:absolute;top:50%;left:50%;width:7px;height:7px;border-radius:50%;background:rgba(6,194,153,.5);transform:translate(-50%,-50%);animation:pulseRing 1.8s infinite;will-change:transform,opacity;pointer-events:none}
+/* The eyebrow dot's ripple. It used to animate box-shadow, which the
+   compositor cannot handle — so every eyebrow on the page (nine of
+   them on the homepage) forced a paint on every frame, forever.
+   A scaled-and-faded pseudo-element gives the identical ripple using
+   only transform and opacity, which run on the compositor. */
+@keyframes pulseRing{0%{transform:translate(-50%,-50%) scale(1);opacity:.5}70%,100%{transform:translate(-50%,-50%) scale(3);opacity:0}}
 .btn{display:inline-flex;align-items:center;gap:10px;font-weight:700;font-size:15.5px;padding:16px 32px;border-radius:40px;border:none;transition:box-shadow .35s,background .35s,color .35s,border-color .35s,transform .25s cubic-bezier(.22,1,.36,1);position:relative;overflow:hidden;will-change:transform}
 .btn-p{background:var(--ink);color:#fff}
 .btn-p::before{content:'';position:absolute;inset:0;background:var(--grad);opacity:0;transition:.35s}
@@ -60,8 +98,8 @@ input[type="text"],input[type="email"],input[type="tel"],input[type="url"],input
 :disabled,[aria-disabled="true"]{cursor:not-allowed}
 
 /* nav */
-.nav{position:fixed;top:16px;left:50%;transform:translateX(-50%);width:min(1180px,94%);z-index:900;display:flex;align-items:center;justify-content:space-between;padding:11px 22px;background:rgba(255,255,255,.75);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border:1px solid rgba(232,232,244,.9);border-radius:60px;box-shadow:var(--shadow-sm);transition:box-shadow .3s}
-.nav.scrolled{box-shadow:var(--shadow-md)}
+.nav{position:fixed;top:16px;left:50%;transform:translateX(-50%);width:min(1180px,94%);z-index:900;display:flex;align-items:center;justify-content:space-between;padding:11px 22px;background:rgba(255,255,255,.92);backdrop-filter:blur(20px) saturate(160%);-webkit-backdrop-filter:blur(20px) saturate(160%);border:1px solid rgba(91,79,233,.14);border-radius:60px;box-shadow:0 4px 20px rgba(20,18,59,.09);transition:box-shadow .3s,background .3s,border-color .3s}
+.nav.scrolled{background:rgba(255,255,255,.97);border-color:rgba(91,79,233,.2);box-shadow:0 10px 34px rgba(20,18,59,.13)}
 .logo{font-family:var(--font-sora,'Sora'),'Segoe UI',system-ui,-apple-system,sans-serif;font-weight:800;font-size:21px;display:flex;align-items:center;gap:9px;letter-spacing:-.5px}
 .logo-mark{display:flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:11px;background:var(--grad);position:relative;overflow:hidden;flex-shrink:0}
 .logo-mark svg{width:20px;height:20px;position:relative;z-index:1}
@@ -178,7 +216,7 @@ input[type="text"],input[type="email"],input[type="tel"],input[type="url"],input
 .tl-card{background:#fff;border:1px solid var(--border);border-radius:20px;padding:26px 30px;transition:.5s}
 .tl-step.on .tl-card{box-shadow:var(--shadow-md);border-color:rgba(91,79,233,.3)}
 .tl-card h3{font-size:18px;margin-bottom:8px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
-.tl-card h4 span{font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--accent);background:var(--mint);padding:4px 11px;border-radius:20px}
+.tl-card h4 span{font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--accent-text);background:var(--mint);padding:4px 11px;border-radius:20px}
 .tl-card p{font-size:14.5px;color:var(--muted)}
 @media(max-width:560px){.tl-step{padding-left:70px}.timeline::before,.tl-fill{left:21px}.tl-dot{width:38px;height:38px;left:3px;font-size:13px}}
 
@@ -450,7 +488,7 @@ input[type="text"],input[type="email"],input[type="tel"],input[type="url"],input
 .ai-head .bot-av{width:42px;height:42px;border-radius:50%;background:rgba(255,255,255,.22);display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .ai-head b{font-family:var(--font-sora,'Sora'),'Segoe UI',system-ui,-apple-system,sans-serif;font-size:16px;display:block}
 .ai-head span{font-size:12px;opacity:.85;display:flex;align-items:center;gap:6px}
-.ai-head .on{width:8px;height:8px;border-radius:50%;background:#5CFFC9;animation:pulse 1.8s infinite}
+.ai-head .on{width:8px;height:8px;border-radius:50%;background:#5CFFC9;position:relative}
 .ai-close{margin-left:auto;background:rgba(255,255,255,.18);border:none;width:32px;height:32px;border-radius:50%;color:#fff;font-size:17px;transition:.25s}
 .ai-close:hover{background:rgba(255,255,255,.32);transform:rotate(90deg)}
 .ai-body{flex:1;overflow-y:auto;padding:20px;display:flex;flex-direction:column;gap:14px;background:var(--bg)}
@@ -488,6 +526,7 @@ input[type="text"],input[type="email"],input[type="tel"],input[type="url"],input
 }
 @media(prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+  .eyebrow .pulse::after{display:none}
 }
 
 
@@ -616,14 +655,21 @@ input[type="text"],input[type="email"],input[type="tel"],input[type="url"],input
 .pfl-now{text-align:center;animation:numFlip .5s cubic-bezier(.22,1,.36,1)}
 .pfl-ic{width:56px;height:56px;border-radius:18px;background:var(--lav);color:var(--primary);display:flex;align-items:center;justify-content:center;margin:0 auto 14px}
 .pfl-now b{display:block;font-family:var(--font-sora,'Sora'),'Segoe UI',system-ui,-apple-system,sans-serif;font-size:21px;color:var(--ink)}
-.pfl-now em{font-style:normal;font-size:12px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--accent)}
+.pfl-now em{font-style:normal;font-size:12px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--accent-text)}
 .pfl-track{display:flex;gap:7px}
 .pfl-track i{width:22px;height:5px;border-radius:4px;background:var(--border);transition:.45s}
 .pfl-track i.on{background:var(--grad);width:34px}
 .pfl-steps{display:flex;flex-direction:column;gap:22px}
-.pfl-card{background:#fff;border:1px solid var(--border);border-radius:22px;padding:30px 32px;transition:.55s cubic-bezier(.22,1,.36,1);opacity:.45;transform:scale(.985)}
-.pfl-card.on{opacity:1;transform:none;border-color:rgba(91,79,233,.4);box-shadow:var(--shadow-md)}
-.pfl-card.done{opacity:.75;transform:none}
+/* Inactive steps are recessed with BACKGROUND and BORDER, never by
+   fading the text. The old `opacity:.45` blended every colour in the
+   card toward white — the body copy landed at 2.0:1 and the step title
+   at 3.0:1, which is what failed the contrast audit thirty-odd times on
+   one section. Getting the text back over 4.5:1 by raising opacity
+   would have needed 0.97, i.e. no dimming at all, so the recession
+   moved to properties that carry no text. */
+.pfl-card{background:var(--bg);border:1px solid var(--border);border-radius:22px;padding:30px 32px;transition:.55s cubic-bezier(.22,1,.36,1);transform:scale(.985)}
+.pfl-card.on{background:#fff;transform:none;border-color:rgba(91,79,233,.4);box-shadow:var(--shadow-md)}
+.pfl-card.done{background:#fff;transform:none}
 .pfl-card-head{display:flex;align-items:center;gap:14px;margin-bottom:12px;flex-wrap:wrap}
 /* Step titles are <h3> rather than <h4>: they sit under the section's
    <h2>, and jumping h2→h4 broke the outline. .pfl-card h3 below keeps
@@ -631,7 +677,7 @@ input[type="text"],input[type="email"],input[type="tel"],input[type="url"],input
 .pfl-idx{font-family:var(--font-sora,'Sora'),'Segoe UI',system-ui,-apple-system,sans-serif;font-weight:800;font-size:13px;color:var(--primary);background:var(--lav);width:36px;height:36px;border-radius:11px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .pfl-card.on .pfl-idx{background:var(--grad);color:#fff}
 .pfl-card h3{font-size:19px}
-.pfl-tag{margin-left:auto;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--accent);background:var(--mint);padding:4px 12px;border-radius:20px}
+.pfl-tag{margin-left:auto;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--accent-text);background:var(--mint);padding:4px 12px;border-radius:20px}
 .pfl-card p{font-size:14.5px;color:var(--muted);margin-bottom:18px}
 .pfl-outs{display:flex;gap:8px;flex-wrap:wrap;align-items:center;border-top:1px dashed var(--border);padding-top:16px}
 .pfl-outlabel{font-size:11.5px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--faint);margin-right:4px}
@@ -811,101 +857,6 @@ img,svg,video{max-width:100%;height:auto}
   .ft-contact a,.ft-brand p,.loc-cloud p{overflow-wrap:anywhere}
 }
 
-/* ═══════════════ ADMIN — LEAD DASHBOARD ═══════════════
-   Private tool at /admin. The public chrome is hidden so the
-   dashboard reads as an app rather than a marketing page. */
-body:has(.admin-shell) .nav,
-body:has(.admin-shell) .footer,
-body:has(.admin-shell) .ai-fab,
-body:has(.admin-shell) .ai-panel,
-body:has(.admin-shell) .progress{display:none!important}
-body:has(.admin-shell){background:#F4F5FB}
-.admin-shell{min-height:100vh}
-
-/* locked state */
-.adm-lock{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px}
-.adm-lockbox{background:#fff;border:1px solid var(--border);border-radius:22px;padding:38px 34px;width:min(400px,100%);display:flex;flex-direction:column;gap:14px;box-shadow:var(--shadow-lg)}
-.adm-lockbox h1{font-size:24px;margin-top:8px}
-.adm-lockbox p{color:var(--muted);font-size:14.5px;margin-top:-6px}
-.adm-lockbox input{border:1.5px solid var(--border);border-radius:12px;padding:14px 16px;font-family:inherit;font-size:15px;background:var(--bg)}
-.adm-lockbox input:focus{outline:none;border-color:var(--primary);background:#fff}
-.adm-lockbox .btn{justify-content:center}
-.adm-err{color:#C8324B;font-size:13.5px;font-weight:600;background:#FDEEF1;border-radius:10px;padding:11px 14px}
-
-/* dashboard shell */
-.adm{width:min(1240px,94%);margin:0 auto;padding:30px 0 70px}
-.adm-head{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;padding-bottom:22px;border-bottom:1px solid var(--border);margin-bottom:24px}
-.adm-headr{display:flex;align-items:center;gap:10px}
-.adm-headr>span{font-size:13.5px;color:var(--faint);font-weight:600;margin-right:4px}
-.adm-ghost{background:#fff;border:1.5px solid var(--border);border-radius:30px;padding:9px 18px;font-size:13.5px;font-weight:700;color:var(--ink);transition:.22s}
-.adm-ghost:hover{border-color:var(--primary);color:var(--primary)}
-.adm-ghost:disabled{opacity:.55;cursor:default}
-.adm-ghost.sm{padding:6px 14px;font-size:12.5px}
-
-.adm-warn{background:#FFF6E9;border:1px solid #F5DCB4;border-radius:14px;padding:14px 18px;margin-bottom:20px;display:flex;flex-direction:column;gap:3px}
-.adm-warn b{font-size:14px;color:#7A5410}
-.adm-warn span{font-size:13px;color:#8A6A2E;line-height:1.5}
-.adm-warn-err{background:#FDEEF1;border-color:#F3CBD4}
-.adm-warn-err b{color:#A32741}
-
-/* status counters double as filters */
-.adm-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:20px}
-.adm-stat{background:#fff;border:1.5px solid var(--border);border-radius:16px;padding:16px 18px;text-align:left;transition:.22s}
-.adm-stat:hover{border-color:var(--primary)}
-.adm-stat.on{border-color:var(--primary);background:var(--lav)}
-.adm-stat b{display:block;font-family:var(--font-sora,'Sora'),'Segoe UI',system-ui,-apple-system,sans-serif;font-size:26px;color:var(--ink);line-height:1.1}
-.adm-stat span{font-size:12.5px;color:var(--faint);font-weight:600}
-
-.adm-filters{display:flex;gap:10px;margin-bottom:18px;flex-wrap:wrap}
-.adm-search{flex:1;min-width:220px}
-.adm-filters input,.adm-filters select{border:1.5px solid var(--border);border-radius:12px;padding:11px 15px;font-family:inherit;font-size:14px;background:#fff;color:var(--ink)}
-.adm-filters input:focus,.adm-filters select:focus{outline:none;border-color:var(--primary)}
-
-.adm-empty{background:#fff;border:1px dashed var(--border);border-radius:18px;padding:56px 24px;text-align:center}
-.adm-empty p{color:var(--muted);font-size:15px}
-
-.adm-tablewrap{background:#fff;border:1px solid var(--border);border-radius:18px;overflow-x:auto}
-.adm-table{width:100%;border-collapse:collapse;font-size:14px;min-width:860px}
-.adm-table th{text-align:left;font-size:11.5px;text-transform:uppercase;letter-spacing:.9px;color:var(--faint);font-weight:700;padding:15px 16px;border-bottom:1px solid var(--border);white-space:nowrap}
-.adm-table td{padding:14px 16px;border-bottom:1px solid var(--border);vertical-align:middle}
-.adm-table tr:last-child td{border-bottom:none}
-.adm-when{color:var(--faint);font-size:13px;white-space:nowrap}
-.adm-contact{display:flex;flex-direction:column;gap:2px}
-.adm-contact a{color:var(--primary);font-size:13.5px}
-.adm-contact a:hover{text-decoration:underline}
-.adm-src{font-size:11.5px;font-weight:700;padding:4px 11px;border-radius:20px;background:var(--bg);color:var(--muted);border:1px solid var(--border);white-space:nowrap}
-.adm-src.src-bot{background:var(--lav);color:var(--primary);border-color:transparent}
-.adm-status{border-radius:20px;padding:6px 12px;font-family:inherit;font-size:12.5px;font-weight:700;border:1.5px solid var(--border);background:#fff;color:var(--ink)}
-.adm-status.st-new{background:var(--lav);border-color:transparent;color:var(--primary-deep)}
-.adm-status.st-cont{background:#FFF3E4;border-color:transparent;color:#A9631C}
-.adm-status.st-conv{background:var(--mint);border-color:transparent;color:#07836A}
-.adm-status.st-no{background:#F2F2F7;border-color:transparent;color:var(--muted)}
-
-.adm-detail td{background:#FBFBFE}
-.adm-detailgrid{display:flex;gap:26px;flex-wrap:wrap;margin-bottom:12px}
-.adm-detailgrid p{font-size:13.5px;color:var(--ink)}
-.adm-detailgrid em{display:block;font-style:normal;font-size:11.5px;text-transform:uppercase;letter-spacing:.8px;color:var(--faint);font-weight:700;margin-bottom:2px}
-.adm-detail h4{font-size:12px;text-transform:uppercase;letter-spacing:.8px;color:var(--faint);margin:14px 0 6px}
-.adm-detail pre{white-space:pre-wrap;font-family:inherit;font-size:13.5px;color:var(--muted);background:#fff;border:1px solid var(--border);border-radius:12px;padding:13px 15px;line-height:1.6}
-
-@media(max-width:760px){
-  .adm-stats{grid-template-columns:1fr 1fr}
-  .adm-head{padding-bottom:16px}
-}
-
-/* ── Zync: inline lead capture inside the conversation ── */
-.ai-lead{background:var(--bg);border:1px solid var(--border);border-radius:16px;padding:15px;display:flex;flex-direction:column;gap:8px;margin-top:4px}
-.ai-lead b{font-family:var(--font-sora,'Sora'),'Segoe UI',system-ui,-apple-system,sans-serif;font-size:14px;color:var(--ink)}
-.ai-lead p{font-size:12.5px;color:var(--muted);margin-top:-4px;line-height:1.5}
-.ai-lead input,.ai-lead select,.ai-lead textarea{border:1.5px solid var(--border);border-radius:10px;padding:10px 12px;font-family:inherit;font-size:13.5px;background:#fff;color:var(--ink);width:100%;resize:vertical}
-.ai-lead input:focus,.ai-lead select:focus,.ai-lead textarea:focus{outline:none;border-color:var(--primary)}
-.ai-lead-err{font-size:12.5px;font-weight:600;color:#C8324B;background:#FDEEF1;border-radius:8px;padding:8px 11px}
-.ai-lead-row{display:flex;gap:8px;margin-top:2px}
-.ai-lead-row button{flex:1;background:var(--ink);color:#fff;border:none;border-radius:10px;padding:11px;font-size:13.5px;font-weight:700;transition:.25s}
-.ai-lead-row button:hover{background:var(--primary)}
-.ai-lead-row button:disabled{opacity:.6;cursor:default}
-.ai-lead-row button.ghost{flex:0 0 auto;background:none;color:var(--muted);border:1.5px solid var(--border);padding:11px 14px}
-.ai-lead-row button.ghost:hover{background:#fff;color:var(--ink)}
 .ai-fab .zmark{opacity:.98}
 
 /* ── industry landing pages ── */
@@ -957,7 +908,6 @@ body:has(.admin-shell){background:#F4F5FB}
 .loc-cloud>div:last-of-type p{margin-bottom:0}
 .loc-cloud-note{margin-top:22px;padding-top:20px;border-top:1px solid var(--border);line-height:1.7!important;color:var(--faint)!important}
 @media(max-width:640px){.loc-note{flex-direction:column;gap:12px;padding:22px}}
-.adm-src.src-warn{background:#FFF3E4;color:#A9631C;border-color:transparent;margin-left:6px}
 
 /* ── industry "who this covers" ── */
 .cov{background:#fff;border:1px solid var(--border);border-radius:20px;padding:28px 30px}

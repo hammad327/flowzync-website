@@ -71,7 +71,7 @@ export default function ContactPage() {
         </div>
       </div>
 
-      <section style={{ paddingTop: 30 }}>
+      <section className="sec-tint" style={{ paddingTop: 30 }}>
         <div className="wrap">
           <div className="ct-grid">
             <div>
@@ -193,7 +193,7 @@ export default function ContactPage() {
           the site, and one of the few people actually search for by
           name ("flowzync contact"). These two sections give it
           something to rank with and somewhere to send people. */}
-      <section style={{ paddingTop: 0 }}>
+      <section className="sec-soft">
         <div className="wrap">
           <div className="sec-head center rv">
             <div className="eyebrow"><span className="pulse" />Before you write</div>
@@ -218,7 +218,7 @@ export default function ContactPage() {
         </div>
       </section>
 
-      <section style={{ paddingTop: 0 }}>
+      <section className="sec-tint">
         <div className="wrap">
           <div className="sec-head center rv">
             <div className="eyebrow"><span className="pulse" />Common questions</div>

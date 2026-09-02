@@ -63,7 +63,7 @@ export default function BlogPage() {
         </div>
       </div>
 
-      <section style={{ paddingTop: 30 }}>
+      <section className="sec-tint" style={{ paddingTop: 30 }}>
         <div className="wrap">
           <div className="sec-head rv">
             <div className="eyebrow"><span className="pulse" />Latest articles</div>
@@ -83,7 +83,7 @@ export default function BlogPage() {
         </div>
       </section>
 
-      <section style={{ paddingTop: 0 }}>
+      <section className="sec-soft">
         <div className="wrap">
           <CTABand
             title="Reading is good. Building is better."

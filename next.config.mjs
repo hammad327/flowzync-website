@@ -58,7 +58,38 @@ const nextConfig = {
     ];
   },
   async headers() {
+    // Lighthouse's Trust and Safety audits flagged all of these as
+    // missing. None of them change how the site behaves; they close
+    // off attacks the browser can prevent for us if we ask.
+    const security = [
+      // Force HTTPS for two years, including subdomains. Without this a
+      // visitor's first request over http is interceptable before the
+      // redirect happens.
+      { key: 'Strict-Transport-Security', value: 'max-age=63072000; includeSubDomains; preload' },
+
+      // Clickjacking: nobody has a reason to frame this site.
+      { key: 'X-Frame-Options', value: 'DENY' },
+
+      // Stops a browser second-guessing a declared Content-Type, which
+      // is how a text upload becomes an executable script.
+      { key: 'X-Content-Type-Options', value: 'nosniff' },
+
+      // Send the full URL to ourselves, only the origin to third
+      // parties, nothing at all when downgrading to http.
+      { key: 'Referrer-Policy', value: 'strict-origin-when-cross-origin' },
+
+      // Origin isolation. same-origin would break the OAuth-style popup
+      // flows some payment and booking providers use, so this uses the
+      // allow-popups variant, which still isolates the browsing context.
+      { key: 'Cross-Origin-Opener-Policy', value: 'same-origin-allow-popups' },
+
+      // We do not use any of these. Declaring it stops an injected
+      // script asking on our behalf.
+      { key: 'Permissions-Policy', value: 'camera=(), microphone=(), geolocation=(), payment=(), usb=(), interest-cohort=()' },
+    ];
+
     return [
+      { source: '/:path*', headers: security },
       {
         // Belt and braces: the dashboard must never be indexed, even
         // if someone links to it from outside.

@@ -62,7 +62,7 @@ export default function PortfolioPage() {
           </p>
         </div>
       </div>
-      <section style={{ paddingTop: 30 }}>
+      <section className="sec-tint" style={{ paddingTop: 30 }}>
         <div className="wrap">
           <div className="sec-head rv">
             <div className="eyebrow"><span className="pulse" />Selected work</div>
@@ -76,7 +76,7 @@ export default function PortfolioPage() {
       {/* Internal links out of the portfolio. This page had exactly one,
           which wastes the authority it collects — it is the page people
           link to and the one they land on from search. */}
-      <section style={{ paddingTop: 0 }}>
+      <section className="sec-soft">
         <div className="wrap">
           <div className="sec-head rv">
             <div className="eyebrow"><span className="pulse" />What went into these</div>
@@ -110,7 +110,7 @@ export default function PortfolioPage() {
         </div>
       </section>
 
-      <section style={{ paddingTop: 0 }}>
+      <section className="sec-tint">
         <div className="wrap">
           <CTABand
             title="Your project could be next"

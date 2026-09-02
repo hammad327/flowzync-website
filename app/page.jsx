@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
+import BlogCover from '@/components/BlogCover';
 import Typer from '@/components/Typer';
 import HeroCanvas from '@/components/HeroCanvas';
 import HeroFlow from '@/components/HeroFlow';
@@ -98,7 +99,7 @@ export default function Home() {
       </div>
 
       {/* SERVICES */}
-      <section>
+      <section className="sec-tint">
         <div className="wrap">
           <div className="sec-head rv">
             <div className="eyebrow"><span className="pulse" />What we do</div>
@@ -128,7 +129,7 @@ export default function Home() {
       </section>
 
       {/* HOW WE WORK */}
-      <section style={{ background: '#fff', borderTop: '1px solid var(--border)', borderBottom: '1px solid var(--border)' }}>
+      <section className="sec-soft">
         <div className="wrap">
           <div className="sec-head center rv">
             <div className="eyebrow"><span className="pulse" />How we work</div>
@@ -140,7 +141,7 @@ export default function Home() {
       </section>
 
       {/* WORK PREVIEW */}
-      <section>
+      <section className="sec-tint">
         <div className="wrap">
           <div className="sec-head rv">
             <div className="eyebrow"><span className="pulse" />Featured work</div>
@@ -157,7 +158,7 @@ export default function Home() {
       </section>
 
       {/* INDUSTRIES — internal links to the niche pages */}
-      <section style={{ paddingTop: 0 }}>
+      <section className="sec-tint" style={{ paddingTop: 0 }}>
         <div className="wrap">
           <div className="sec-head rv">
             <div className="eyebrow"><span className="pulse" />Industries</div>
@@ -176,7 +177,7 @@ export default function Home() {
       </section>
 
       {/* TESTIMONIALS */}
-      <section style={{ paddingTop: 0 }}>
+      <section className="sec-soft">
         <div className="wrap">
           <div className="sec-head center rv">
             <div className="eyebrow"><span className="pulse" />Kind words</div>
@@ -192,7 +193,7 @@ export default function Home() {
 
       {/* LATEST POSTS */}
       {posts.length > 0 && (
-        <section style={{ paddingTop: 0 }}>
+        <section className="sec-tint">
           <div className="wrap">
             <div className="sec-head rv">
               <div className="eyebrow"><span className="pulse" />From the blog</div>
@@ -202,7 +203,14 @@ export default function Home() {
               {posts.map((p, i) => (
                 <Link href={`/blog/${p.slug}`} className={`post-card rv ${i === 1 ? 'rv-d1' : i === 2 ? 'rv-d2' : ''}`} key={p.slug}>
                   <div className="post-thumb">
-                    {p.cover && <Image src={p.cover} alt={p.title} width={600} height={380} />}
+                    <BlogCover
+                      photo={p.photo}
+                      fallback={p.cover}
+                      alt={p.title}
+                      width={600}
+                      height={380}
+                      sizes="(max-width:680px) 100vw, 33vw"
+                    />
                     <span className="post-cat">{p.category}</span>
                   </div>
                   <div className="post-body">
@@ -219,7 +227,7 @@ export default function Home() {
       )}
 
       {/* FAQ */}
-      <section style={{ paddingTop: 0 }}>
+      <section className="sec-soft">
         <div className="wrap">
           <div className="sec-head center rv">
             <div className="eyebrow"><span className="pulse" />FAQ</div>

@@ -106,30 +106,76 @@ export default function ClientFX() {
        also lags behind the real pointer on anything but a fast
        machine. The native arrow and hand are what people expect. */
 
-    /* ── magnetic buttons ────────────────────────────────── */
-    const magMove = (e) => {
-      const b = e.target.closest('.btn');
-      if (!b) return;
-      const r = b.getBoundingClientRect();
-      b.style.transform = `translate(${(e.clientX - r.left - r.width / 2) * 0.16}px, ${(e.clientY - r.top - r.height / 2) * 0.26}px)`;
-    };
-    const magOut = (e) => { const b = e.target.closest('.btn'); if (b) b.style.transform = ''; };
+    /* ── magnetic buttons + 3D tilt cards ──────────────────
+       These were two separate mousemove listeners, each calling
+       getBoundingClientRect() and then immediately writing
+       style.transform. Read, write, read, write — on every one of the
+       hundred-odd mousemove events a second a trackpad produces. That
+       is the textbook layout thrash, and it showed up in Lighthouse as
+       ~71ms of forced reflow.
 
-    /* ── 3D tilt cards ───────────────────────────────────── */
-    const tiltMove = (e) => {
-      const c = e.target.closest('[data-tilt], .pf-item');
-      if (!c) return;
-      const r = c.getBoundingClientRect();
-      const rx = ((e.clientY - r.top) / r.height - 0.5) * -6;
-      const ry = ((e.clientX - r.left) / r.width - 0.5) * 7;
-      c.style.transform = `perspective(900px) translateY(-8px) rotateX(${rx}deg) rotateY(${ry}deg)`;
-      c.style.setProperty('--gx', ((e.clientX - r.left) / r.width) * 100 + '%');
-      c.style.setProperty('--gy', ((e.clientY - r.top) / r.height) * 100 + '%');
+       Now: one listener, rects cached per element, and every write
+       batched into a single rAF so all reads happen before any write.
+
+       Caching also fixes a real bug. getBoundingClientRect() returns
+       the TRANSFORMED box, so once a card was tilted each subsequent
+       read measured the tilted rectangle and fed it back in — the tilt
+       drifted while the pointer sat still. */
+    const rects = new WeakMap();
+    let geomGen = 0;              // bumped when layout could have moved
+    const rectOf = (el) => {
+      const hit = rects.get(el);
+      if (hit && hit.gen === geomGen) return hit.r;
+      const r = el.getBoundingClientRect();
+      rects.set(el, { r, gen: geomGen });
+      return r;
     };
-    const tiltOut = (e) => { const c = e.target.closest('[data-tilt], .pf-item'); if (c) c.style.transform = ''; };
+    const invalidateGeom = () => { geomGen += 1; };
+
+    let fxRaf = null;
+    let fxPending = null;
+
+    const applyFx = () => {
+      fxRaf = null;
+      const p = fxPending;
+      if (!p) return;
+      if (p.btn) {
+        const r = rectOf(p.btn);
+        p.btn.style.transform =
+          `translate(${(p.x - r.left - r.width / 2) * 0.16}px, ${(p.y - r.top - r.height / 2) * 0.26}px)`;
+      }
+      if (p.card) {
+        const r = rectOf(p.card);
+        const rx = ((p.y - r.top) / r.height - 0.5) * -6;
+        const ry = ((p.x - r.left) / r.width - 0.5) * 7;
+        p.card.style.transform =
+          `perspective(900px) translateY(-8px) rotateX(${rx}deg) rotateY(${ry}deg)`;
+        p.card.style.setProperty('--gx', ((p.x - r.left) / r.width) * 100 + '%');
+        p.card.style.setProperty('--gy', ((p.y - r.top) / r.height) * 100 + '%');
+      }
+    };
+
+    const fxMove = (e) => {
+      const btn = e.target.closest('.btn');
+      const card = e.target.closest('[data-tilt], .pf-item');
+      if (!btn && !card) return;
+      fxPending = { btn, card, x: e.clientX, y: e.clientY };
+      if (!fxRaf) fxRaf = requestAnimationFrame(applyFx);
+    };
+
+    const fxOut = (e) => {
+      const btn = e.target.closest('.btn');
+      const card = e.target.closest('[data-tilt], .pf-item');
+      if (btn) btn.style.transform = '';
+      if (card) card.style.transform = '';
+    };
+
     if (fine && !reduce) {
-      addEventListener('mousemove', magMove); addEventListener('mouseout', magOut);
-      addEventListener('mousemove', tiltMove); addEventListener('mouseout', tiltOut);
+      addEventListener('mousemove', fxMove, { passive: true });
+      addEventListener('mouseout', fxOut, { passive: true });
+      // A scroll or resize moves everything, so cached rects expire.
+      addEventListener('scroll', invalidateGeom, { passive: true });
+      addEventListener('resize', invalidateGeom, { passive: true });
     }
 
     return () => {
@@ -137,9 +183,10 @@ export default function ClientFX() {
       removeEventListener('wheel', onWheel); removeEventListener('scroll', onNativeScroll);
       removeEventListener('scroll', onScroll);
       removeEventListener('resize', collectPlx);
-      removeEventListener('mousemove', magMove); removeEventListener('mouseout', magOut);
-      removeEventListener('mousemove', tiltMove); removeEventListener('mouseout', tiltOut);
+      removeEventListener('mousemove', fxMove); removeEventListener('mouseout', fxOut);
+      removeEventListener('scroll', invalidateGeom); removeEventListener('resize', invalidateGeom);
       if (raf) cancelAnimationFrame(raf);
+      if (fxRaf) cancelAnimationFrame(fxRaf);
     };
   }, []);
 
