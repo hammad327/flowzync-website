@@ -1,0 +1,105 @@
+/* ═══════════════════════════════════════════════════════════
+   ADMIN — LEAD DASHBOARD
+
+   Loaded ONLY by app/admin/layout.jsx, so it never reaches a
+   visitor. It used to live in globals.css, which meant ~7 KB of
+   dashboard styling was inside the render-blocking stylesheet on
+   every public page — for a tool only you ever open.
+
+   Next.js scopes CSS imported by a layout to that route segment,
+   which is why moving it here is enough.
+   ═══════════════════════════════════════════════════════════ */
+
+body:has(.admin-shell) .nav,
+body:has(.admin-shell) .footer,
+body:has(.admin-shell) .ai-fab,
+body:has(.admin-shell) .ai-panel,
+body:has(.admin-shell) .progress{display:none!important}
+body:has(.admin-shell){background:#F4F5FB}
+.admin-shell{min-height:100vh}
+
+/* locked state */
+.adm-lock{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px}
+.adm-lockbox{background:#fff;border:1px solid var(--border);border-radius:22px;padding:38px 34px;width:min(400px,100%);display:flex;flex-direction:column;gap:14px;box-shadow:var(--shadow-lg)}
+.adm-lockbox h1{font-size:24px;margin-top:8px}
+.adm-lockbox p{color:var(--muted);font-size:14.5px;margin-top:-6px}
+.adm-lockbox input{border:1.5px solid var(--border);border-radius:12px;padding:14px 16px;font-family:inherit;font-size:15px;background:var(--bg)}
+.adm-lockbox input:focus{outline:none;border-color:var(--primary);background:#fff}
+.adm-lockbox .btn{justify-content:center}
+.adm-err{color:#C8324B;font-size:13.5px;font-weight:600;background:#FDEEF1;border-radius:10px;padding:11px 14px}
+
+/* dashboard shell */
+.adm{width:min(1240px,94%);margin:0 auto;padding:30px 0 70px}
+.adm-head{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;padding-bottom:22px;border-bottom:1px solid var(--border);margin-bottom:24px}
+.adm-headr{display:flex;align-items:center;gap:10px}
+.adm-headr>span{font-size:13.5px;color:var(--faint);font-weight:600;margin-right:4px}
+.adm-ghost{background:#fff;border:1.5px solid var(--border);border-radius:30px;padding:9px 18px;font-size:13.5px;font-weight:700;color:var(--ink);transition:.22s}
+.adm-ghost:hover{border-color:var(--primary);color:var(--primary)}
+.adm-ghost:disabled{opacity:.55;cursor:default}
+.adm-ghost.sm{padding:6px 14px;font-size:12.5px}
+
+.adm-warn{background:#FFF6E9;border:1px solid #F5DCB4;border-radius:14px;padding:14px 18px;margin-bottom:20px;display:flex;flex-direction:column;gap:3px}
+.adm-warn b{font-size:14px;color:#7A5410}
+.adm-warn span{font-size:13px;color:#8A6A2E;line-height:1.5}
+.adm-warn-err{background:#FDEEF1;border-color:#F3CBD4}
+.adm-warn-err b{color:#A32741}
+
+/* status counters double as filters */
+.adm-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:20px}
+.adm-stat{background:#fff;border:1.5px solid var(--border);border-radius:16px;padding:16px 18px;text-align:left;transition:.22s}
+.adm-stat:hover{border-color:var(--primary)}
+.adm-stat.on{border-color:var(--primary);background:var(--lav)}
+.adm-stat b{display:block;font-family:var(--font-sora,'Sora'),'Segoe UI',system-ui,-apple-system,sans-serif;font-size:26px;color:var(--ink);line-height:1.1}
+.adm-stat span{font-size:12.5px;color:var(--faint);font-weight:600}
+
+.adm-filters{display:flex;gap:10px;margin-bottom:18px;flex-wrap:wrap}
+.adm-search{flex:1;min-width:220px}
+.adm-filters input,.adm-filters select{border:1.5px solid var(--border);border-radius:12px;padding:11px 15px;font-family:inherit;font-size:14px;background:#fff;color:var(--ink)}
+.adm-filters input:focus,.adm-filters select:focus{outline:none;border-color:var(--primary)}
+
+.adm-empty{background:#fff;border:1px dashed var(--border);border-radius:18px;padding:56px 24px;text-align:center}
+.adm-empty p{color:var(--muted);font-size:15px}
+
+.adm-tablewrap{background:#fff;border:1px solid var(--border);border-radius:18px;overflow-x:auto}
+.adm-table{width:100%;border-collapse:collapse;font-size:14px;min-width:860px}
+.adm-table th{text-align:left;font-size:11.5px;text-transform:uppercase;letter-spacing:.9px;color:var(--faint);font-weight:700;padding:15px 16px;border-bottom:1px solid var(--border);white-space:nowrap}
+.adm-table td{padding:14px 16px;border-bottom:1px solid var(--border);vertical-align:middle}
+.adm-table tr:last-child td{border-bottom:none}
+.adm-when{color:var(--faint);font-size:13px;white-space:nowrap}
+.adm-contact{display:flex;flex-direction:column;gap:2px}
+.adm-contact a{color:var(--primary);font-size:13.5px}
+.adm-contact a:hover{text-decoration:underline}
+.adm-src{font-size:11.5px;font-weight:700;padding:4px 11px;border-radius:20px;background:var(--bg);color:var(--muted);border:1px solid var(--border);white-space:nowrap}
+.adm-src.src-bot{background:var(--lav);color:var(--primary);border-color:transparent}
+.adm-status{border-radius:20px;padding:6px 12px;font-family:inherit;font-size:12.5px;font-weight:700;border:1.5px solid var(--border);background:#fff;color:var(--ink)}
+.adm-status.st-new{background:var(--lav);border-color:transparent;color:var(--primary-deep)}
+.adm-status.st-cont{background:#FFF3E4;border-color:transparent;color:#A9631C}
+.adm-status.st-conv{background:var(--mint);border-color:transparent;color:#07836A}
+.adm-status.st-no{background:#F2F2F7;border-color:transparent;color:var(--muted)}
+
+.adm-detail td{background:#FBFBFE}
+.adm-detailgrid{display:flex;gap:26px;flex-wrap:wrap;margin-bottom:12px}
+.adm-detailgrid p{font-size:13.5px;color:var(--ink)}
+.adm-detailgrid em{display:block;font-style:normal;font-size:11.5px;text-transform:uppercase;letter-spacing:.8px;color:var(--faint);font-weight:700;margin-bottom:2px}
+.adm-detail h4{font-size:12px;text-transform:uppercase;letter-spacing:.8px;color:var(--faint);margin:14px 0 6px}
+.adm-detail pre{white-space:pre-wrap;font-family:inherit;font-size:13.5px;color:var(--muted);background:#fff;border:1px solid var(--border);border-radius:12px;padding:13px 15px;line-height:1.6}
+
+@media(max-width:760px){
+  .adm-stats{grid-template-columns:1fr 1fr}
+  .adm-head{padding-bottom:16px}
+}
+
+/* ── Zync: inline lead capture inside the conversation ── */
+.ai-lead{background:var(--bg);border:1px solid var(--border);border-radius:16px;padding:15px;display:flex;flex-direction:column;gap:8px;margin-top:4px}
+.ai-lead b{font-family:var(--font-sora,'Sora'),'Segoe UI',system-ui,-apple-system,sans-serif;font-size:14px;color:var(--ink)}
+.ai-lead p{font-size:12.5px;color:var(--muted);margin-top:-4px;line-height:1.5}
+.ai-lead input,.ai-lead select,.ai-lead textarea{border:1.5px solid var(--border);border-radius:10px;padding:10px 12px;font-family:inherit;font-size:13.5px;background:#fff;color:var(--ink);width:100%;resize:vertical}
+.ai-lead input:focus,.ai-lead select:focus,.ai-lead textarea:focus{outline:none;border-color:var(--primary)}
+.ai-lead-err{font-size:12.5px;font-weight:600;color:#C8324B;background:#FDEEF1;border-radius:8px;padding:8px 11px}
+.ai-lead-row{display:flex;gap:8px;margin-top:2px}
+.ai-lead-row button{flex:1;background:var(--ink);color:#fff;border:none;border-radius:10px;padding:11px;font-size:13.5px;font-weight:700;transition:.25s}
+.ai-lead-row button:hover{background:var(--primary)}
+.ai-lead-row button:disabled{opacity:.6;cursor:default}
+.ai-lead-row button.ghost{flex:0 0 auto;background:none;color:var(--muted);border:1.5px solid var(--border);padding:11px 14px}
+.ai-lead-row button.ghost:hover{background:#fff;color:var(--ink)}
+.adm-src.src-warn{background:#FFF3E4;color:#A9631C;border-color:transparent;margin-left:6px}
