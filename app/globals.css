@@ -986,3 +986,23 @@ img,svg,video{max-width:100%;height:auto}
    what they replaced so nothing moves. */
 .ct-form-h{font-size:24px;margin-bottom:6px}
 .ind-who-h{font-size:19px;margin-bottom:10px}
+
+/* ── PROJECT DETAIL PAGE ───────────────────────────────────────
+   The screenshot is a full-page capture, so it scrolls inside a
+   sticky browser frame rather than being cropped — the same idea as
+   the portfolio card, given room to breathe. */
+.proj-layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:44px;align-items:start}
+.proj-shot{position:sticky;top:96px;border:1px solid var(--border);border-radius:20px;overflow:hidden;background:#fff;box-shadow:var(--shadow-md);max-height:78vh;display:flex;flex-direction:column}
+.proj-shot img{width:100%;height:auto;display:block;overflow-y:auto}
+.proj-shot>div:not(.pf-chrome){overflow-y:auto}
+.proj-copy h2{font-size:26px;margin-bottom:16px}
+.proj-copy p{color:var(--muted);font-size:15.5px;margin-bottom:16px;line-height:1.75}
+.proj-links{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px;padding-top:24px;border-top:1px solid var(--border)}
+.proj-related{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:24px}
+.proj-related .loc-card h3{font-size:19px}
+.pf-body h3 a{transition:color .25s}
+.pf-body h3 a:hover{color:var(--primary)}
+@media(max-width:900px){
+  .proj-layout{grid-template-columns:1fr;gap:32px}
+  .proj-shot{position:static;max-height:520px}
+}

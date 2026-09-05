@@ -3,6 +3,7 @@ import { services } from '@/lib/services';
 import { industries } from '@/lib/industries';
 import { locations } from '@/lib/locations';
 import { getAllPosts } from '@/lib/posts';
+import { projects } from '@/lib/projects';
 
 // Google ignores <priority> and <changefreq>; lastmod must be accurate
 // rather than identical everywhere, so pages carry the date of their
@@ -30,9 +31,13 @@ export default function sitemap() {
     url: `${site.url}/locations/${l.slug}`,
     lastModified: PAGES_UPDATED,
   }));
+  const projectPages = projects.map((p) => ({
+    url: `${site.url}/portfolio/${p.slug}`,
+    lastModified: PAGES_UPDATED,
+  }));
   const blogPages = getAllPosts().map((p) => ({
     url: `${site.url}/blog/${p.slug}`,
     lastModified: new Date(p.date),
   }));
-  return [...staticPages, ...servicePages, ...industryPages, ...locationPages, ...blogPages];
+  return [...staticPages, ...servicePages, ...industryPages, ...locationPages, ...projectPages, ...blogPages];
 }
