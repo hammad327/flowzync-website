@@ -5,6 +5,13 @@ date: "2026-05-05"
 author: "Zara Malik"
 category: "Conversion"
 cover: "/images/blog/traffic-but-no-leads.svg"
+faqs:
+  - q: "Why does my website get traffic but no enquiries?"
+    a: "Almost always one of five things: you are attracting the wrong visitors, the page does not answer the question they arrived with, there is no obvious next step, the form asks too much, or something is quietly broken. Test your own contact form first — silent form failure is far more common than anyone expects."
+  - q: "How many fields should a contact form have?"
+    a: "The minimum needed for a useful first conversation — usually a name, one contact method and a message. Budget, timeline and company size can be asked in your reply, once the person has already decided they want to talk to you."
+  - q: "Does hiding prices increase enquiries?"
+    a: "It increases enquiries and reduces customers. No indication of cost is the most common reason a visitor leaves a service page, and the extra enquiries you do get are largely from people who were never going to afford it."
 ---
 
 If your website gets traffic but no leads, the cause is nearly always one of five things: **you are attracting the wrong people, the page does not answer the question they arrived with, there is no obvious next step, the form is asking too much, or something is quietly broken.**

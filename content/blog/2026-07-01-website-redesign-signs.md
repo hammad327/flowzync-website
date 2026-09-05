@@ -5,6 +5,13 @@ date: "2026-07-01"
 author: "Zara Malik"
 category: "Web Design"
 cover: "/images/blog/website-redesign-signs.svg"
+faqs:
+  - q: "How do I know if my website needs a redesign or just a refresh?"
+    a: "If the structure and content are sound and the problem is speed, mobile layout or a dated look, refresh it. If the site fights you every time you edit it, or it was built on something no longer supported, patching costs more over two years than replacing it."
+  - q: "How often should a business website be redesigned?"
+    a: "A well-built site should run five to seven years with content updates. Budget sites typically need replacing within two to three, which is a large part of why they end up more expensive overall."
+  - q: "Will a redesign hurt my search rankings?"
+    a: "It can, if URLs change without redirects or content is thinned out. Done properly — same URLs or 301 redirects, content preserved and improved, speed maintained — a redesign usually helps. The damage comes from carelessness, not from redesigning."
 ---
 
 Your website is usually the first impression anyone gets of your business — and impressions form in about **50 milliseconds**. So how do you know when it's time for more than a tweak?

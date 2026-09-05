@@ -1,4 +1,5 @@
 import PortfolioGrid from '@/components/PortfolioGrid';
+import { pageFaqs, faqSchema } from '@/lib/pageFaqs';
 import CTABand from '@/components/CTABand';
 import HeroCanvas from '@/components/HeroCanvas';
 import { clampTitle, clampDescription, openGraph } from '@/lib/meta';
@@ -50,6 +51,7 @@ const schema = {
 export default function PortfolioPage() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema('portfolio')) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
       <div className="page-hero">
         <HeroCanvas />
@@ -90,7 +92,6 @@ export default function PortfolioPage() {
             {[
               ['/services/custom-website-design', 'Custom website design'],
               ['/services/wordpress-website-design', 'WordPress website design'],
-              ['/services/shopify-ecommerce', 'Shopify stores'],
               ['/services/woocommerce-development', 'WooCommerce development'],
               ['/services/landing-pages', 'Landing pages'],
               ['/services/ghl-funnels', 'GoHighLevel funnels'],
@@ -105,6 +106,27 @@ export default function PortfolioPage() {
                 {label}
                 <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/></svg>
               </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Hub-page FAQs. These pages are where broad searches land and
+          what an AI assistant reads when asked a general question, so
+          they carry question-and-answer content too. Static <details>
+          keeps the answers in the HTML without a client component. */}
+      <section className="sec-soft">
+        <div className="wrap">
+          <div className="sec-head center rv">
+            <div className="eyebrow"><span className="pulse" />Common questions</div>
+            <h2>Asked <span className="grad-txt">most often</span></h2>
+          </div>
+          <div className="faq-list">
+            {pageFaqs.portfolio.map(([q, a]) => (
+              <details className="faq-static" key={q}>
+                <summary>{q}</summary>
+                <p>{a}</p>
+              </details>
             ))}
           </div>
         </div>

@@ -5,6 +5,13 @@ date: "2026-06-24"
 author: "Ayaan Raza"
 category: "GoHighLevel"
 cover: "/images/blog/ghl-funnel-mistakes.svg"
+faqs:
+  - q: "What is the most common GoHighLevel funnel mistake?"
+    a: "Building the pages and never building the follow-up. A funnel with no automated sequence behind it is a landing page with extra steps, and the follow-up is where most of the conversions actually happen."
+  - q: "How many steps should a funnel have?"
+    a: "As few as the decision genuinely requires. Every extra step loses people, so each one has to earn its place by collecting something you will actually use or answering an objection that would otherwise stop the sale."
+  - q: "Should a funnel replace my website?"
+    a: "No — they do different jobs. A funnel moves someone along one path toward one action; a website lets people browse, builds credibility and earns search traffic. Most businesses need both, and a funnel alone leaves you invisible in search."
 ---
 
 We audit a lot of GoHighLevel accounts. The same five mistakes appear in almost every one — and each has a fix you can apply this week.

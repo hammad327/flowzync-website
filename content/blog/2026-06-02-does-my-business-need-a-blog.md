@@ -5,6 +5,13 @@ date: "2026-06-02"
 author: "Zara Malik"
 category: "SEO"
 cover: "/images/blog/does-my-business-need-a-blog.svg"
+faqs:
+  - q: "Does my business really need a blog?"
+    a: "Most small businesses do not. A blog earns its place when your customers research before buying and you will realistically publish for at least a year. If either is untrue, put the effort into your service pages, Google Business Profile and reviews instead."
+  - q: "How often should a business blog publish?"
+    a: "Four to twelve genuinely good posts a year beats a weekly stream of thin ones, and it is a schedule a real business can sustain. A blog whose last post is eighteen months old is worse than no blog, because it signals abandonment to every visitor."
+  - q: "How long before a blog brings traffic?"
+    a: "Six to twelve months on a site with some existing authority, longer on a brand new domain. The first three or four posts usually do nothing at all, which is normal — and precisely when most business blogs get abandoned."
 ---
 
 **Most small businesses do not need a blog. Some absolutely do.** The difference is not the size of the business or the industry — it is whether your customers search for information before they buy, and whether you will realistically publish for at least a year.

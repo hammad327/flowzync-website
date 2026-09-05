@@ -5,6 +5,13 @@ date: "2026-04-07"
 author: "Hamza Khan"
 category: "SEO"
 cover: "/images/blog/how-many-pages-website.svg"
+faqs:
+  - q: "How many pages should a small business website have?"
+    a: "Usually between 8 and 15. Home, about, contact and a privacy policy, plus one page for each service you offer, plus a proof page. The number matters far less than the rule behind it: one page per thing you want to be found for."
+  - q: "Should each service have its own page?"
+    a: "Yes. Google ranks pages, not businesses, so six services covered shallowly on one page is not a strong answer to any of the six searches. If someone could search for it, it needs its own page."
+  - q: "Can a website have too many pages?"
+    a: "Yes — when they are near-duplicates, thin, competing with each other for the same search, or unmaintained. Fifteen location pages differing only by town name is worse than having none, because Google demotes doorway pages as a group."
 ---
 
 Most small business websites should have **between 8 and 15 pages**. Below about six you usually have nothing to rank with; above about twenty-five, without a real reason for each page, you start diluting rather than adding.

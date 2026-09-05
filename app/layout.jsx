@@ -6,6 +6,7 @@ import { site, serviceArea, allServiceAreas, hasLocalNAP } from '@/lib/site';
 import { images } from '@/lib/images';
 import './globals.css';
 import { clampTitle, clampDescription } from '@/lib/meta';
+import { hreflangFor } from '@/lib/locales';
 
 // Only the weights actually used, which keeps the download small.
 const FONT_CSS =
@@ -75,7 +76,7 @@ const orgSchema = {
       knowsAbout: [
         'Custom website design', 'WordPress development', 'Custom WordPress plugin development',
         'Custom WordPress theme design', 'GoHighLevel funnels', 'CRM setup', 'Business automation',
-        'Shopify e-commerce', 'SEO optimization', 'UI/UX design', 'Graphic design',
+        'SEO optimization', 'UI/UX design', 'Graphic design',
         'Elementor design', 'WooCommerce development',
       ],
       // Where we take on clients. areaServed is a coverage statement,

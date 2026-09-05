@@ -5,6 +5,13 @@ date: "2026-02-11"
 author: "Hamza Khan"
 category: "SEO"
 cover: "/images/blog/website-not-on-google.svg"
+faqs:
+  - q: "Why is my website not showing up on Google?"
+    a: "Search site:yourdomain.com to find out which problem you have. No results at all means Google has not indexed you — usually a robots.txt block or the WordPress 'discourage search engines' checkbox left ticked. Some pages missing means an indexing decision, most often a canonical or thin-content issue. Everything present means you are indexed but not ranking, which is a different and slower problem."
+  - q: "How long does it take Google to index a new website?"
+    a: "A few days to a few weeks once Google knows the site exists. Submit a sitemap in Search Console and request indexing on your most important pages. A brand new domain rarely ranks for anything competitive in the first few months regardless of how well it is built."
+  - q: "What does 'Discovered – currently not indexed' mean?"
+    a: "Google knows the URL exists but has not prioritised crawling it yet. It is a crawl budget decision driven mainly by domain authority, not a technical error. Inbound links and time are the levers; adding more pages to an already-backed-up queue tends to slow it rather than speed it up."
 ---
 
 If your website is not showing up on Google, the cause is almost always one of three things: **Google has not found it, Google has found it but chosen not to index it, or Google has indexed it and you are simply not ranking well enough to see yourself.** These are completely different problems with completely different fixes, so the first job is working out which one you have.

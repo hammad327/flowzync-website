@@ -5,6 +5,13 @@ date: "2026-07-14"
 author: "Hamza Khan"
 category: "SEO"
 cover: "/images/blog/ai-search-visibility.svg"
+faqs:
+  - q: "How do I get my business mentioned by ChatGPT or AI search?"
+    a: "Write specific, factual content that answers a question directly in the first two sentences, on a site the AI crawlers can read, with your business details consistent everywhere. Assistants quote sources that assert checkable things; vague marketing copy cannot be quoted because it does not say anything."
+  - q: "Which AI crawlers should I allow in robots.txt?"
+    a: "GPTBot, OAI-SearchBot and ChatGPT-User for OpenAI; ClaudeBot, Claude-User and Claude-SearchBot for Anthropic; PerplexityBot; Google-Extended for Gemini and AI Overviews; Applebot; and Bingbot for Copilot. Some hosting platforms and security plugins block these by default, so it is worth checking whether yours does."
+  - q: "Is AI SEO different from normal SEO?"
+    a: "Not much yet. The businesses being recommended by assistants are overwhelmingly the ones that wrote clearly about specific things and stayed consistent about who they are. That was good advice before any of this existed; it is now simply enforced more strictly and rewarded far more narrowly, because an assistant names two or three businesses rather than ten."
 ---
 
 To be recommended by ChatGPT, Claude, Perplexity or Google's AI results, you need **specific, factual, plainly-written content that answers a question directly, on a site those systems can read, with your business details stated consistently in enough places to be corroborated.**

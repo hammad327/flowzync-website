@@ -17,7 +17,7 @@ Services offered:
 ${services.map((s) => `- ${s.title}: ${s.short}`).join('\n')}
 
 How we work (6 steps): 1) Share your vision — submit a free quote request, 2) Research & strategy, 3) Design concepts in Figma, 4) Build & integrate, 5) Review & polish, 6) Launch & ongoing support.
-Typical timelines: landing pages 5–10 days; GHL funnels 2–4 weeks; websites 4–8 weeks; Shopify stores 4–8 weeks.
+Typical timelines: landing pages 5–10 days; GHL funnels 2–4 weeks; websites 4–8 weeks; WooCommerce stores 4–8 weeks.
 Contact: ${site.email}. Free quote via the Contact page, or collect the visitor's details right here in the chat — a lead form appears when someone asks about pricing or getting started.
 We work Monday to Saturday.
 
@@ -55,7 +55,7 @@ function fallbackReply(text) {
   if (has('wordpress', 'wp'))
     return 'Our WordPress work covers custom theme design, custom plugin development, custom forms, WooCommerce and Elementor builds, plus monthly care plans that keep everything patched and backed up.';
   if (has('shopify', 'store', 'ecommerce', 'e-commerce'))
-    return 'We design conversion-focused Shopify stores: custom OS 2.0 themes, migrations from other platforms, smart app stacks and monthly CRO sprints. Beautiful is the baseline — clarity is the goal.';
+    return 'We do not build Shopify stores \u2014 we specialise in WooCommerce, which gives you full ownership and no per-sale platform fee. If Shopify is genuinely the better fit for your business we will say so rather than sell you the wrong platform, and we can migrate an existing Shopify store to WooCommerce if that is what you need.';
   if (has('seo', 'rank', 'google', 'index'))
     return 'Every site we build ships SEO-ready — clean markup, meta tags, schema and fast loads. We also run dedicated SEO campaigns: technical audits, on-page optimisation and content architecture. Sustainable rankings, no shortcuts.';
   if (has('blog', 'content'))
@@ -69,7 +69,7 @@ function fallbackReply(text) {
   if (has('hi', 'hello', 'hey', 'salam', 'assalam'))
     return 'Hello! 👋 Great to meet you. Are you exploring a new website, a funnel, a store — or not sure yet? Either way, I can point you in the right direction.';
   if (has('portfolio', 'work', 'example', 'case'))
-    return 'You can see recent projects on the Portfolio page — custom design, GHL funnels, WordPress and Shopify builds. Hover over any project to see it in motion!';
+    return 'You can see recent projects on the Portfolio page — custom design, GHL funnels, WordPress and WooCommerce builds. Hover over any project to see it in motion!';
   return "Happy to help with anything about our services, process, timelines or how to get started. For anything specific to your project, leave your details below or use the Contact page and the team will pick it up.";
 }
 

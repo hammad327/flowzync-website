@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { pageFaqs, faqSchema } from '@/lib/pageFaqs';
 import Image from 'next/image';
 import CTABand from '@/components/CTABand';
 import { getAllPosts } from '@/lib/posts';
@@ -50,6 +51,7 @@ export default function BlogPage() {
 
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema('blog')) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
       <div className="page-hero">
         <HeroCanvas />
@@ -80,6 +82,27 @@ export default function BlogPage() {
           ) : (
             <BlogGrid posts={posts} />
           )}
+        </div>
+      </section>
+
+      {/* Hub-page FAQs. These pages are where broad searches land and
+          what an AI assistant reads when asked a general question, so
+          they carry question-and-answer content too. Static <details>
+          keeps the answers in the HTML without a client component. */}
+      <section className="sec-soft">
+        <div className="wrap">
+          <div className="sec-head center rv">
+            <div className="eyebrow"><span className="pulse" />Common questions</div>
+            <h2>Asked <span className="grad-txt">most often</span></h2>
+          </div>
+          <div className="faq-list">
+            {pageFaqs.blog.map(([q, a]) => (
+              <details className="faq-static" key={q}>
+                <summary>{q}</summary>
+                <p>{a}</p>
+              </details>
+            ))}
+          </div>
         </div>
       </section>
 

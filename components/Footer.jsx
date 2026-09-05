@@ -40,6 +40,7 @@ export default function Footer() {
           <nav aria-label="Company">
             <h2 className="ft-h">Company</h2>
             <Link href="/about">About us</Link>
+            <Link href="/about/team">Our team</Link>
             <Link href="/portfolio">Portfolio</Link>
             <Link href="/blog">Blog</Link>
             <Link href="/contact">Contact</Link>

@@ -1,6 +1,7 @@
 'use client';
 import { useState } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { projects, FILTERS } from '@/lib/projects';
 import { domainLabel } from '@/lib/site';
 
@@ -18,7 +19,7 @@ export default function PortfolioGrid({ limit }) {
       )}
       <div className="pf-grid">
         {list.map((p) => (
-          <article className="pf-item rv in" key={p.title}>
+          <article className="pf-item rv in" key={p.slug}>
             <div className="pf-thumb">
               <div className="pf-chrome"><i /><i /><i /><span>{(p.site || domainLabel)}</span></div>
               <div className="pf-scroller">
@@ -37,15 +38,19 @@ export default function PortfolioGrid({ limit }) {
             </div>
             <div className="pf-body">
               <div className="row">
-                <h3>{p.title}</h3>
+                <h3><Link href={`/portfolio/${p.slug}`}>{p.title}</Link></h3>
                 <span className={`pf-badge ${p.badgeClass}`}>{p.badge}</span>
               </div>
               <p>{p.desc}</p>
               {p.tags?.length > 0 && (
                 <div className="pf-tags">
-                  {p.tags.map((t) => <span key={t}>{t}</span>)}
+                  {p.tags.slice(0, 4).map((t) => <span key={t}>{t}</span>)}
                 </div>
               )}
+              <Link href={`/portfolio/${p.slug}`} className="svc-link" style={{ marginTop: 14 }}>
+                View project
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+              </Link>
             </div>
           </article>
         ))}
