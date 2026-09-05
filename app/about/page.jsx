@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import { pageFaqs, faqSchema } from '@/lib/pageFaqs';
 import Link from 'next/link';
 import CTABand from '@/components/CTABand';
 import Testimonials from '@/components/Testimonials';
@@ -42,6 +43,7 @@ const aboutSchema = {
 export default function AboutPage() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema('about')) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(aboutSchema) }} />
       {/* HERO */}
       <div className="page-hero" style={{ paddingBottom: 40 }}>
@@ -250,6 +252,27 @@ export default function AboutPage() {
       </section>
 
       {/* CTA */}
+      {/* Hub-page FAQs. These pages are where broad searches land and
+          what an AI assistant reads when asked a general question, so
+          they carry question-and-answer content too. Static <details>
+          keeps the answers in the HTML without a client component. */}
+      <section className="sec-soft">
+        <div className="wrap">
+          <div className="sec-head center rv">
+            <div className="eyebrow"><span className="pulse" />Common questions</div>
+            <h2>Asked <span className="grad-txt">most often</span></h2>
+          </div>
+          <div className="faq-list">
+            {pageFaqs.about.map(([q, a]) => (
+              <details className="faq-static" key={q}>
+                <summary>{q}</summary>
+                <p>{a}</p>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section className="sec-tint" style={{ paddingTop: 56 }}>
         <div className="wrap">
           <CTABand

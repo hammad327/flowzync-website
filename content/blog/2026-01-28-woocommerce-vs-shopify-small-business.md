@@ -5,6 +5,13 @@ date: "2026-01-28"
 author: "Zara Malik"
 category: "E-commerce"
 cover: "/images/blog/woocommerce-vs-shopify.svg"
+faqs:
+  - q: "Is WooCommerce cheaper than Shopify?"
+    a: "Below roughly £15,000 a month in sales Shopify usually costs less overall once you count build time and maintenance. Above that, WooCommerce almost always wins and the gap widens, because Shopify's transaction fees scale with revenue while WooCommerce's costs stay largely flat."
+  - q: "When should I choose WooCommerce over Shopify?"
+    a: "When your checkout does something unusual, you need pricing rules or product configurations Shopify resists, you want the store on the same site as a substantial content operation, or percentage fees have become a real line item. Shopify is the better call for straightforward catalogues where you would rather not think about hosting."
+  - q: "Is it worth migrating from Shopify to WooCommerce?"
+    a: "Only if the platform is actively blocking something your business needs to do. Migration costs real money and loses some search performance in the short term, so 'slightly cheaper' is not a good enough reason on its own."
 ---
 
 For a store doing under about £5,000 a month in sales, **Shopify is usually cheaper overall**. Above roughly £15,000 a month, **WooCommerce almost always wins**, and the gap widens fast. In between it depends on how much you value not thinking about hosting.

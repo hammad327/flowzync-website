@@ -5,6 +5,13 @@ date: "2026-02-25"
 author: "Zara Malik"
 category: "Web Design"
 cover: "/images/blog/website-brief.svg"
+faqs:
+  - q: "What should a website brief include?"
+    a: "Nine things: what your business does in plain English, who it is for, the single action you want a visitor to take, what is wrong with your current site, the pages you need, must-have functionality, competitor and reference links, a budget range, and a real deadline with the reason behind it."
+  - q: "Do I need to know my budget before contacting a web designer?"
+    a: "A range is enough, and withholding it mostly guarantees a mismatched proposal rather than protecting you from being overcharged. If you are unsure what is realistic, say what the site is worth to you — how many enquiries a month would justify it."
+  - q: "Who should sign off a website project?"
+    a: "One named person. Projects stall when feedback arrives from four people who contradict each other and nobody can say yes. Consolidate opinions internally, then send one list."
 ---
 
 A good website brief answers nine questions: what the business does, who it is for, what you want visitors to *do*, what you have now and why it is not working, which pages you need, what functionality is non-negotiable, who your competitors are, what your budget range is, and when you need it live. Everything else is detail.

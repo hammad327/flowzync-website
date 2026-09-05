@@ -5,6 +5,13 @@ date: "2026-06-30"
 author: "Hammad Tahir"
 category: "Web Design"
 cover: "/images/blog/cheap-website-design.svg"
+faqs:
+  - q: "What do you get for a £500 website?"
+    a: "A pre-made theme configured with your logo, colours and content, on a page structure someone else designed. Usually five to eight pages, a contact form and basic mobile responsiveness. It will be live and it will work — it is simply not a custom design."
+  - q: "Is a cheap website worth it?"
+    a: "For a brand new business proving an idea, genuinely yes: get trading, then invest once you have customers. For an established business that depends on being found, it is usually a false economy, because most budget sites get replaced within two to three years."
+  - q: "What questions should I ask before buying a cheap website?"
+    a: "Is this a theme or a custom design, and which theme? Who owns the files afterwards? What am I paying annually for plugin licences? What happens when I want to add a page? Who handles updates and backups? And can I see two sites you built more than two years ago — that last one is the most revealing."
 ---
 
 For around £500 you get **a pre-made theme, configured with your logo, colours and content, on a page structure someone else designed.** It will be live, it will look reasonably modern, and it will work.

@@ -5,6 +5,13 @@ date: "2026-07-28"
 author: "Hamza Khan"
 category: "SEO"
 cover: "/images/blog/google-business-profile.svg"
+faqs:
+  - q: "What matters most on a Google Business Profile?"
+    a: "Your primary category and your review activity. Those two decide most of your local ranking and nothing else is close. Choose the most specific category that genuinely describes your main business, and ask every satisfied customer for a review, systematically."
+  - q: "Can I put keywords in my Google Business Profile name?"
+    a: "No. The name field must be your actual business name. Adding keywords is a policy violation, competitors report it, and it can get the profile suspended — which is genuinely painful to recover from."
+  - q: "How often should I update my Google Business Profile?"
+    a: "Check it quarterly: hours including upcoming holidays, new photographs, replies to every review, accurate services, and any 'suggested edits' from the public that have quietly changed something. That last one catches people out."
 ---
 
 **Your primary category and your review count decide most of your local ranking.** Everything else on your Google Business Profile matters, but those two are not close to the rest, and most businesses get the first one wrong and neglect the second entirely.

@@ -3,6 +3,7 @@ import Image from 'next/image';
 import BlogCover from '@/components/BlogCover';
 import { notFound } from 'next/navigation';
 import CTABand from '@/components/CTABand';
+import FAQ from '@/components/FAQ';
 import { getAllPosts, getPost, getRelatedPosts } from '@/lib/posts';
 import { site } from '@/lib/site';
 import { images } from '@/lib/images';
@@ -98,6 +99,17 @@ export default function BlogPost({ params }) {
         { '@type': 'ListItem', position: 3, name: p.title, item: `${site.url}/blog/${p.slug}` },
       ],
     },
+    ...(p.faqs.length
+      ? [{
+          '@context': 'https://schema.org',
+          '@type': 'FAQPage',
+          mainEntity: p.faqs.map(([q, a]) => ({
+            '@type': 'Question',
+            name: q,
+            acceptedAnswer: { '@type': 'Answer', text: a },
+          })),
+        }]
+      : []),
   ];
 
   // Same-category posts first — a more useful link than 'most recent'.
@@ -142,6 +154,13 @@ export default function BlogPost({ params }) {
             </div>
           )}
           <div className="prose" dangerouslySetInnerHTML={{ __html: p.html }} />
+
+          {p.faqs.length > 0 && (
+            <div className="post-faqs">
+              <h2>Frequently asked</h2>
+              <FAQ items={p.faqs} />
+            </div>
+          )}
 
           {/* Author box — a named human is a trust signal for readers,
               for Google's quality guidelines and for AI citation. */}

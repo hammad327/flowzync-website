@@ -5,6 +5,13 @@ date: "2026-03-24"
 author: "Hammad Tahir"
 category: "WordPress"
 cover: "/images/blog/elementor-vs-custom-theme.svg"
+faqs:
+  - q: "Should I use Elementor or a custom WordPress theme?"
+    a: "Choose Elementor if the people updating the site are not developers — that is most of the decision. Choose a custom theme if speed, longevity or an unusual design matters more to you than day-to-day editing convenience."
+  - q: "Is Elementor bad for site speed?"
+    a: "It is heavier than a custom theme, adding CSS and JavaScript to every page and generating more markup. On good hosting with proper caching and images handled well it passes Core Web Vitals comfortably — you simply start from further back and have to actually do those things."
+  - q: "Can I move away from Elementor later?"
+    a: "Not easily. Elementor layouts do not translate to anything else, so leaving means rebuilding. That lock-in is the cost people most often underestimate when choosing it."
 ---
 
 **Choose Elementor if the people who will update the site are not developers. Choose a custom theme if performance, longevity or an unusual design is worth more to you than day-to-day editing convenience.** That is genuinely most of the decision, and it is a question about your team rather than about the technology.

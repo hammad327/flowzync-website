@@ -5,6 +5,13 @@ date: "2026-08-18"
 author: "Ayaan Raza"
 category: "Support"
 cover: "/images/blog/website-maintenance.svg"
+faqs:
+  - q: "What does website maintenance include?"
+    a: "Core, theme and plugin updates applied safely on a staging copy, off-site backups that are actually tested, security and uptime monitoring, performance checks, broken link and form testing, a small content allowance, and someone who answers when something breaks."
+  - q: "How much should website maintenance cost?"
+    a: "£40 to £150 a month for a small business site, and £150 to £500 for e-commerce or anything with real functionality. Check whether hosting is included and what the response time actually is — 'next business day' and 'within four hours' are very different products."
+  - q: "What happens if I do not maintain my website?"
+    a: "The three expensive failures are getting hacked through an out-of-date plugin, breaking on a PHP upgrade, and silent form failure where enquiries stop arriving and nobody notices for weeks. Cleaning up a hacked site costs £300 to £1,500 plus lost rankings; the prevention was one plugin update."
 ---
 
 Website maintenance covers **updates, backups, security, uptime monitoring, performance checks and a defined amount of content editing.** For a small business site that is typically £40–£150 a month; for e-commerce or anything with real functionality, £150–£500.

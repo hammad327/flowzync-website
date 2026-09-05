@@ -5,6 +5,13 @@ date: "2026-05-19"
 author: "Hammad Tahir"
 category: "Web Design"
 cover: "/images/blog/website-build-timeline.svg"
+faqs:
+  - q: "How long does it take to build a website?"
+    a: "Four to eight weeks for a small business site, eight to sixteen for a mid-sized site with real functionality, and twelve to twenty-four for e-commerce with anything unusual in it. Those assume content is ready and feedback is prompt."
+  - q: "What causes website projects to run late?"
+    a: "Content, by a wide margin — copy and photographs not being ready. After that, slow feedback and mid-project scope changes. The build itself is rarely what slips."
+  - q: "Can a website be built in a week?"
+    a: "Yes, as a template populated with content you supply on day one and no revision rounds. That is a fair trade if you know exactly what you want and need it now. If you are still working it out, speed is the most expensive thing you can buy."
 ---
 
 A small business website takes **four to eight weeks** from kick-off to launch. A mid-sized site with real functionality takes **eight to sixteen**. E-commerce with anything unusual in it takes **twelve to twenty-four**.

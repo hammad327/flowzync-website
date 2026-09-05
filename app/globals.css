@@ -1078,3 +1078,8 @@ img,svg,video{max-width:100%;height:auto}
 .faq-static summary::after{content:'';flex:0 0 10px;width:10px;height:10px;border-right:2.4px solid var(--primary);border-bottom:2.4px solid var(--primary);transform:rotate(45deg);transition:transform .3s;margin-right:4px}
 .faq-static[open] summary::after{transform:rotate(-135deg)}
 .faq-static p{padding:0 26px 24px;color:var(--muted);font-size:15px;line-height:1.75;margin:0}
+
+/* Blog post FAQs — sit between the article and the author box. */
+.post-faqs{margin-top:48px;padding-top:40px;border-top:1px solid var(--border)}
+.post-faqs h2{font-size:26px;margin-bottom:22px}
+.post-faqs .faq-list{max-width:none}

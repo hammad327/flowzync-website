@@ -5,6 +5,13 @@ date: "2026-08-10"
 author: "Hammad Tahir"
 category: "SEO"
 cover: "/images/blog/website-speed-seo-rankings.svg"
+faqs:
+  - q: "Does website speed affect SEO rankings?"
+    a: "Yes, but weakly compared with content relevance and links. A fast page about the wrong topic will never outrank a slow page about the right one. Where speed genuinely earns its keep is everything that happens after the click — slow pages get abandoned, and that behaviour undermines the rest of your SEO."
+  - q: "What is a good Core Web Vitals score?"
+    a: "Largest Contentful Paint under 2.5 seconds, Interaction to Next Paint under 200 milliseconds, and Cumulative Layout Shift under 0.1. Those are the thresholds Google treats as 'good' — worth reaching, not worth obsessing past."
+  - q: "What slows most websites down?"
+    a: "Oversized images first, by a wide margin. Then too many plugins or scripts, cheap shared hosting, and render-blocking CSS and JavaScript. Fixing images alone resolves most of the problem on a typical small business site."
 ---
 
 Yes — website speed affects SEO rankings, but not in the way most agencies sell it. Speed is a real Google ranking signal, and it has been since the Page Experience update. It is also a **weak** one compared to content relevance and backlinks. A fast page about the wrong topic will never outrank a slow page about the right one.

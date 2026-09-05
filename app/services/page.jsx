@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { pageFaqs, faqSchema } from '@/lib/pageFaqs';
 import CTABand from '@/components/CTABand';
 import { services } from '@/lib/services';
 import { Icon, colorHex } from '@/components/Icons';
@@ -34,6 +35,7 @@ const listSchema = {
 export default function ServicesPage() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema('services')) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(listSchema) }} />
       <div className="page-hero">
         <HeroCanvas />
@@ -74,6 +76,27 @@ export default function ServicesPage() {
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14m-6-6 6 6-6 6" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/></svg>
                 </span>
               </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Hub-page FAQs. These pages are where broad searches land and
+          what an AI assistant reads when asked a general question, so
+          they carry question-and-answer content too. Static <details>
+          keeps the answers in the HTML without a client component. */}
+      <section className="sec-soft">
+        <div className="wrap">
+          <div className="sec-head center rv">
+            <div className="eyebrow"><span className="pulse" />Common questions</div>
+            <h2>Asked <span className="grad-txt">most often</span></h2>
+          </div>
+          <div className="faq-list">
+            {pageFaqs.services.map(([q, a]) => (
+              <details className="faq-static" key={q}>
+                <summary>{q}</summary>
+                <p>{a}</p>
+              </details>
             ))}
           </div>
         </div>

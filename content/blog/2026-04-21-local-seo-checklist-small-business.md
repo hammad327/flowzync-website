@@ -5,6 +5,13 @@ date: "2026-04-21"
 author: "Hamza Khan"
 category: "SEO"
 cover: "/images/blog/local-seo-checklist.svg"
+faqs:
+  - q: "What is the most important thing for local SEO?"
+    a: "Completing your Google Business Profile properly — every field, correct primary category, real photographs, accurate hours. It is free, takes about an hour, and for a local business it reliably outperforms the first several months of a paid SEO retainer."
+  - q: "How many Google reviews do I need to rank locally?"
+    a: "There is no threshold number. What matters is having more recent reviews than your competitors and replying to all of them: a business with 40 reviews from this year typically outranks one with 120 from four years ago."
+  - q: "How long does local SEO take to work?"
+    a: "For a smaller town, four to eight weeks for movement in the local map pack and three to six months for a meaningful change in enquiries. Competitive cities take longer, and anyone guaranteeing a position is guessing."
 ---
 
 If you run a business that serves a place, **the highest-return hour you will ever spend on marketing is completing your Google Business Profile properly**. Not partially. Every field, real photographs, correct categories, actual hours.

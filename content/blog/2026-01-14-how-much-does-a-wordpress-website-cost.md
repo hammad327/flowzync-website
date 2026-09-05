@@ -5,6 +5,13 @@ date: "2026-01-14"
 author: "Hammad Tahir"
 category: "Web Design"
 cover: "/images/blog/wordpress-website-cost.svg"
+faqs:
+  - q: "How much does a WordPress website cost for a small business?"
+    a: "Most small business WordPress sites land between £1,500 and £6,000 for a custom design, five to fifteen pages and a proper handover. Below about £800 you are buying a theme with your logo on it. Budget a further £500 to £1,500 a year for hosting, domain, plugin licences and maintenance."
+  - q: "Why are WordPress quotes so different from each other?"
+    a: "Because they are rarely quoting the same work. One may include custom design, content, functionality and aftercare; another may be a theme configured with content you supply. When two quotes differ by a factor of four, one of them has silently dropped several items from the scope."
+  - q: "What are the ongoing costs of a WordPress site?"
+    a: "Hosting at roughly £8 to £40 a month for a small business site, a domain at £10 to £20 a year, premium plugin licences commonly £150 to £500 a year, and maintenance at £40 to £250 a month if you outsource it. A quote that mentions none of this is not cheaper, only quieter."
 ---
 
 A WordPress website costs anywhere between roughly £500 and £30,000, and that range is so wide it is almost useless. So here is the more honest version: **most small business WordPress sites land between £1,500 and £6,000**, most mid-sized business sites land between £6,000 and £15,000, and anything below about £800 is either a template with your logo on it or someone underestimating badly.
