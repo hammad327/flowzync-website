@@ -15,7 +15,7 @@ import { projects } from '@/lib/projects';
 const PAGES_UPDATED = new Date('2026-08-23');
 
 export default function sitemap() {
-  const staticPages = ['', '/services', '/industries', '/locations', '/portfolio', '/about', '/contact', '/blog'].map((p) => ({
+  const staticPages = ['', '/services', '/industries', '/locations', '/portfolio', '/about', '/about/team', '/contact', '/blog'].map((p) => ({
     url: `${site.url}${p}`,
     lastModified: PAGES_UPDATED,
   }));

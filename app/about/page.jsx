@@ -27,15 +27,7 @@ const VALUES = [
   ['Systems thinking', 'A website is never just pages — it\u2019s design, code and automation working as one machine. We build the machine.', 'm12 2 9 5-9 5-9-5 9-5ZM3 12l9 5 9-5M3 17l9 5 9-5', 'lav'],
 ];
 
-const TEAM = [
-  ['HT', 'Hammad Tahir', 'Founder & CEO', '#14123B', 'Sets the standard every project is measured against, and still reads every brief that comes in.'],
-  ['AR', 'Ayaan Raza', 'Automation Lead', '#5B4FE9', 'Turns manual chaos into workflows that never sleep.'],
-  ['ZM', 'Zara Malik', 'Design Director', '#06C299', 'Guardian of every pixel that leaves the studio.'],
-  ['HK', 'Hamza Khan', 'Senior WordPress Engineer', '#FF9E6D', 'Writes the code page builders wish they could.'],
-  ['NS', 'Nadia Shah', 'Shopify & UX Strategist', '#7C6CF5', 'Makes stores people actually enjoy shopping in.'],
-];
-
-const TOOLS = ['GoHighLevel', 'WordPress', 'Shopify', 'Figma', 'Next.js', 'Zapier', 'Make.com', 'Klaviyo', 'Stripe', 'Cloudflare', 'ACF Pro', 'Twilio'];
+const TOOLS = ['GoHighLevel', 'WordPress', 'WooCommerce', 'Figma', 'Next.js', 'Zapier', 'Make.com', 'Klaviyo', 'Stripe', 'Cloudflare', 'ACF Pro', 'Twilio'];
 
 const CLIENTS = ['ScaleDental Co.', 'Lumen Legal', 'Northpeak Gear', 'Brightline Media', 'Harvest & Co.', 'Solstice Wellness', 'Trackline', 'Atlas Property'];
 
@@ -189,22 +181,27 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* TEAM */}
+      {/* TEAM — moved to /about/team.
+          It is off this page as asked, but as a real visible page
+          rather than markup hidden from visitors and left in the HTML
+          for crawlers. That second approach is cloaking, and it is one
+          of the few Google violations that costs the whole domain
+          rather than a ranking position. A dedicated page also tends
+          to rank better for name searches than a section buried
+          halfway down /about ever did. */}
       <section className="sec-soft">
         <div className="wrap">
           <div className="sec-head center rv">
             <div className="eyebrow"><span className="pulse" />The team</div>
             <h2>Small team. <span className="grad-txt">Senior only.</span></h2>
-            <p>No juniors learning on your project, no account-manager relay. You work directly with the people doing the work.</p>
-          </div>
-          <div className="team-grid">
-            {TEAM.map(([ini, name, role, bg, bio], i) => (
-              <div className={`tm rv ${i === 1 ? 'rv-d1' : i === 2 ? 'rv-d2' : i === 3 ? 'rv-d3' : ''}`} data-tilt key={name}>
-                <div className="avatar" style={{ background: bg }}>{ini}</div>
-                <b>{name}</b><span>{role}</span>
-                <p className="tm-bio">{bio}</p>
-              </div>
-            ))}
+            <p>
+              No juniors learning on your project, no account-manager relay. You work
+              directly with the people doing the work.
+            </p>
+            <Link href="/about/team" className="btn btn-o" style={{ marginTop: 22 }}>
+              <span>Meet the team</span>
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M5 12h14m-6-6 6 6-6 6" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+            </Link>
           </div>
         </div>
       </section>
