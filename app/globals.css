@@ -1083,3 +1083,32 @@ img,svg,video{max-width:100%;height:auto}
 .post-faqs{margin-top:48px;padding-top:40px;border-top:1px solid var(--border)}
 .post-faqs h2{font-size:26px;margin-bottom:22px}
 .post-faqs .faq-list{max-width:none}
+
+/* ── LANGUAGE LANDING PAGES ────────────────────────────────────
+   One genuinely written page per language rather than a machine
+   translation of the whole site. See lib/locales.js for why. */
+.loc-sections{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:28px;max-width:1000px;margin:0 auto}
+.loc-section{background:#fff;border:1px solid var(--border);border-radius:22px;padding:30px 32px}
+.loc-section h2{font-size:21px;margin-bottom:12px}
+.loc-section p{color:var(--muted);font-size:15px;line-height:1.75}
+.locale-contact{text-align:center;margin-top:40px;padding-top:36px;border-top:1px solid var(--border)}
+.locale-contact p{color:var(--muted);font-size:16px}
+.locale-contact a{color:var(--primary);font-weight:700;text-decoration:underline;text-underline-offset:3px}
+.locale-note{margin-top:8px;font-size:14.5px;color:var(--faint)}
+.locale-switch{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:34px;padding-top:28px;border-top:1px solid var(--border)}
+.locale-switch a{font-size:14px;font-weight:600;color:var(--ink);background:#fff;border:1px solid var(--border);padding:9px 17px;border-radius:22px;transition:.25s}
+.locale-switch a:hover{border-color:var(--primary);color:var(--primary)}
+.locale-switch .locale-en{color:var(--primary);font-weight:700}
+
+/* Right-to-left. Only the direction-dependent bits need overriding —
+   the rest of the layout is symmetrical or logical-property based. */
+.rtl-page{direction:rtl;text-align:right}
+.rtl-page .page-hero .wrap{text-align:center}
+.rtl-page .faq-static summary{flex-direction:row-reverse}
+.rtl-page .faq-static summary::after{margin-right:0;margin-left:4px}
+.rtl-page .faq-static p{padding:0 26px 24px}
+.rtl-page .locale-contact,.rtl-page .locale-switch{text-align:center}
+
+.locale-services{display:flex;flex-wrap:wrap;gap:9px;justify-content:center;margin-top:34px;padding-top:28px;border-top:1px solid rgba(255,255,255,.1)}
+.locale-services>span{width:100%;text-align:center;color:#7F7DA0;font-size:12px;font-weight:800;letter-spacing:1.4px;text-transform:uppercase;margin-bottom:6px}
+.locale-services em{font-style:normal;color:#CFCEE6;font-size:14px;font-weight:600;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);padding:8px 15px;border-radius:20px}

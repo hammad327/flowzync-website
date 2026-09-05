@@ -97,6 +97,28 @@ export default function TeamPage() {
         </div>
       </section>
 
+      <section className="sec-dark">
+        <div className="wrap">
+          <div className="sec-head center rv">
+            <div className="eyebrow"><span className="pulse" />How we hire</div>
+            <h2>Why the team stays <span className="grad-txt">small</span></h2>
+            <p>
+              Growing an agency usually means hiring juniors and putting an account
+              manager between them and the client. It scales revenue and it quietly
+              lowers the quality of the work, because the person you spoke to is no
+              longer the person building your project.
+            </p>
+            <p>
+              We took the other route. Every person here is senior in their own
+              discipline and works directly with clients, which caps how much work we
+              can take at once — so we turn projects down rather than staff them
+              badly. If we are booked, we will tell you that instead of starting late
+              and hoping you do not notice.
+            </p>
+          </div>
+        </div>
+      </section>
+
       <section className="sec-soft">
         <div className="wrap">
           <div className="sec-head center rv">

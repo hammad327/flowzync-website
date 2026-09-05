@@ -6,6 +6,7 @@ import { site, serviceArea, allServiceAreas, hasLocalNAP } from '@/lib/site';
 import { images } from '@/lib/images';
 import './globals.css';
 import { clampTitle, clampDescription } from '@/lib/meta';
+import { hreflangFor } from '@/lib/locales';
 
 // Only the weights actually used, which keeps the download small.
 const FONT_CSS =

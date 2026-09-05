@@ -4,6 +4,7 @@ import { industries } from '@/lib/industries';
 import { locations } from '@/lib/locations';
 import { getAllPosts } from '@/lib/posts';
 import { projects } from '@/lib/projects';
+import { localeCodes } from '@/lib/locales';
 
 // Google ignores <priority> and <changefreq>; lastmod must be accurate
 // rather than identical everywhere, so pages carry the date of their
@@ -39,5 +40,12 @@ export default function sitemap() {
     url: `${site.url}/blog/${p.slug}`,
     lastModified: new Date(p.date),
   }));
-  return [...staticPages, ...servicePages, ...industryPages, ...locationPages, ...projectPages, ...blogPages];
+  // Language landing pages. One per language, genuinely written —
+  // see lib/locales.js for why this is not a full translation.
+  const localePages = localeCodes.map((code) => ({
+    url: `${site.url}/${code}`,
+    lastModified: PAGES_UPDATED,
+  }));
+  return [...staticPages, ...servicePages, ...industryPages, ...locationPages,
+          ...projectPages, ...blogPages, ...localePages];
 }

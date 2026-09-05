@@ -14,6 +14,7 @@ import { Icon, colorHex } from '@/components/Icons';
 import { site } from '@/lib/site';
 import { industries } from '@/lib/industries';
 import { clampTitle, clampDescription } from '@/lib/meta';
+import { hreflangFor } from '@/lib/locales';
 import Testimonials from '@/components/Testimonials';
 
 const homeFaqs = [
@@ -30,7 +31,12 @@ export const metadata = {
   description: clampDescription(
     'Flowzync designs and builds custom websites, WordPress and Elementor sites, WooCommerce stores, GoHighLevel funnels and business automation — with SEO built in from day one.'
     ),
-  alternates: { canonical: '/' },
+  alternates: {
+    canonical: '/',
+    // Every version must list every version including itself, or Google
+    // ignores the cluster. x-default is English.
+    languages: hreflangFor(site.url, '/'),
+  },
 };
 
 // FAQPage schema on the homepage: this is the block Google AI Overview
