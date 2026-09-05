@@ -90,7 +90,6 @@ export default function PortfolioPage() {
             {[
               ['/services/custom-website-design', 'Custom website design'],
               ['/services/wordpress-website-design', 'WordPress website design'],
-              ['/services/shopify-ecommerce', 'Shopify stores'],
               ['/services/woocommerce-development', 'WooCommerce development'],
               ['/services/landing-pages', 'Landing pages'],
               ['/services/ghl-funnels', 'GoHighLevel funnels'],

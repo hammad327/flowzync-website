@@ -75,7 +75,7 @@ const orgSchema = {
       knowsAbout: [
         'Custom website design', 'WordPress development', 'Custom WordPress plugin development',
         'Custom WordPress theme design', 'GoHighLevel funnels', 'CRM setup', 'Business automation',
-        'Shopify e-commerce', 'SEO optimization', 'UI/UX design', 'Graphic design',
+        'SEO optimization', 'UI/UX design', 'Graphic design',
         'Elementor design', 'WooCommerce development',
       ],
       // Where we take on clients. areaServed is a coverage statement,

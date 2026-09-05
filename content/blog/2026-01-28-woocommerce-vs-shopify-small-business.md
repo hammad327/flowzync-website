@@ -67,4 +67,4 @@ And if you are already on one and wondering whether to move — migration costs 
 
 ---
 
-*We build on both, and we will tell you which one your business actually needs rather than the one we would rather build. [Talk to us about your store](/services/woocommerce-development).*
+*We build WooCommerce stores, and we will tell you plainly when Shopify is the better call for your business — we would rather lose the project than sell you the wrong platform. [Talk to us about your store](/services/woocommerce-development).*

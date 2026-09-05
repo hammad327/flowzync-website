@@ -106,12 +106,55 @@ input[type="text"],input[type="email"],input[type="tel"],input[type="url"],input
 .logo-mark::before{content:'';position:absolute;inset:0;background:linear-gradient(120deg,transparent 30%,rgba(255,255,255,.5) 50%,transparent 70%);animation:shine 3.2s infinite}
 @keyframes shine{0%{transform:translateX(-100%)}60%,100%{transform:translateX(100%)}}
 .logo span{background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
-.nav-links{display:flex;gap:4px;align-items:center}
-.nav-links>a,.nav-drop>button{font-size:14.5px;font-weight:600;color:var(--muted);padding:9px 15px;border-radius:30px;transition:.25s;background:none;border:none;display:flex;align-items:center;gap:5px}
-.nav-links>a:hover,.nav-drop>button:hover{color:var(--ink);background:var(--lav)}
-.nav-links>a.active{color:var(--primary);background:var(--lav)}
-.nav-links a.nav-cta{background:var(--ink)!important;color:#fff!important;padding:10px 22px!important;border-radius:30px;transition:.3s}
-.nav-links a.nav-cta:hover{background:var(--primary)!important;color:#fff!important;transform:translateY(-2px);box-shadow:0 8px 24px rgba(91,79,233,.35)}
+/* ── DESKTOP NAV ───────────────────────────────────────────────
+   Was a row of identically-weighted grey links with a flat lavender
+   pill on the active one — legible but characterless, and the current
+   page was hard to pick out at a glance.
+
+   Now: the active item is marked by a gradient underline rather than a
+   filled pill, hover is a soft tint that does not fight it, and the
+   call to action is separated by a hairline so it reads as an action
+   rather than a seventh link. */
+.nav-links{display:flex;gap:2px;align-items:center}
+.nav-links>a,.nav-drop>button{
+  position:relative;font-size:14.5px;font-weight:600;color:var(--muted);
+  padding:10px 14px;border-radius:12px;background:none;border:none;
+  display:flex;align-items:center;gap:6px;letter-spacing:-.01em;
+  transition:color .22s,background .22s;
+}
+.nav-links>a::after,.nav-drop>button::after{
+  content:'';position:absolute;left:14px;right:14px;bottom:4px;height:2px;
+  border-radius:2px;background:var(--grad);
+  transform:scaleX(0);transform-origin:center;
+  transition:transform .3s cubic-bezier(.22,1,.36,1);
+}
+.nav-links>a:hover,.nav-drop>button:hover{color:var(--ink);background:rgba(91,79,233,.06)}
+.nav-links>a:hover::after,.nav-drop>button:hover::after{transform:scaleX(.55)}
+.nav-links>a.active,.nav-drop>button.active{color:var(--primary-deep);background:none;font-weight:700}
+.nav-links>a.active::after,.nav-drop>button.active::after{transform:scaleX(1)}
+.nav-links>a:focus-visible,.nav-drop>button:focus-visible{outline:2px solid var(--primary);outline-offset:2px}
+
+/* The chevron leans into the open state rather than snapping. */
+.nav-drop>button svg{transition:transform .3s cubic-bezier(.22,1,.36,1);opacity:.6}
+.nav-drop.dd-open>button svg{transform:rotate(180deg);opacity:1}
+
+/* Hairline separating navigation from action. */
+.nav-links a.nav-cta{
+  margin-left:12px;position:relative;
+  background:var(--ink)!important;color:#fff!important;
+  padding:11px 22px!important;border-radius:30px;font-weight:700;
+  box-shadow:0 4px 14px rgba(20,18,59,.18);
+  transition:transform .28s cubic-bezier(.22,1,.36,1),box-shadow .28s,background .28s;
+}
+.nav-links a.nav-cta::before{
+  content:'';position:absolute;left:-12px;top:50%;transform:translateY(-50%);
+  width:1px;height:22px;background:var(--border);
+}
+.nav-links a.nav-cta::after{display:none}
+.nav-links a.nav-cta:hover{
+  background:var(--primary)!important;transform:translateY(-2px);
+  box-shadow:0 10px 26px rgba(91,79,233,.38);
+}
 .nav-drop{position:relative}
 .nav-drop-menu{position:absolute;top:calc(100% + 8px);left:50%;transform:translateX(-50%) translateY(8px);background:#fff;border:1px solid var(--border);border-radius:20px;box-shadow:var(--shadow-lg);padding:12px;width:560px;opacity:0;pointer-events:none;transition:.3s cubic-bezier(.22,1,.36,1)}
 .nav-drop-inner{display:grid;grid-template-columns:1fr 1fr;gap:4px}
@@ -1006,3 +1049,19 @@ img,svg,video{max-width:100%;height:auto}
   .proj-layout{grid-template-columns:1fr;gap:32px}
   .proj-shot{position:static;max-height:520px}
 }
+
+/* ── HOMEPAGE DARK BAND ────────────────────────────────────────
+   A tonal break above the Blueprint, and the new home for the
+   industry links now that the industries band has gone. */
+.why-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:26px;max-width:960px;margin:0 auto}
+.why-item{display:flex;gap:16px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.09);border-radius:20px;padding:26px 28px}
+.why-dot{flex:0 0 12px;width:12px;height:12px;border-radius:50%;background:var(--grad);margin-top:7px}
+.why-item h3{color:#fff;font-size:17px;margin-bottom:7px}
+.why-item p{color:#A9A7C8;font-size:14.5px;line-height:1.65;margin:0}
+.why-links{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:10px;margin-top:40px;padding-top:32px;border-top:1px solid rgba(255,255,255,.1)}
+.why-links>span{color:#7F7DA0;font-size:12px;font-weight:800;letter-spacing:1.4px;text-transform:uppercase;margin-right:4px}
+.why-links a{color:#CFCEE6;font-size:14px;font-weight:600;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);padding:8px 15px;border-radius:20px;transition:.25s}
+.why-links a:hover{background:var(--primary);border-color:var(--primary);color:#fff}
+.why-links .why-all{background:none;border-color:transparent;color:#9C93FF}
+.why-links .why-all:hover{background:none;color:#fff}
+@media(max-width:820px){.why-grid{grid-template-columns:1fr}}

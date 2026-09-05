@@ -128,6 +128,47 @@ export default function Home() {
         </div>
       </section>
 
+      {/* WHY IT WORKS — dark band. Sits directly above the Blueprint so
+          the page has a strong tonal break before the process section,
+          and gives the industry links a home now that the industries
+          band is gone. */}
+      <section className="sec-dark">
+        <div className="wrap">
+          <div className="sec-head center rv">
+            <div className="eyebrow"><span className="pulse" />Why it works</div>
+            <h2>One team, one system, <span className="grad-txt">no handoffs</span></h2>
+            <p>
+              Most agencies split design, build and automation across three suppliers who
+              never speak. Everything here is designed together from the first sketch,
+              which is why the parts actually fit.
+            </p>
+          </div>
+          <div className="why-grid rv">
+            {[
+              ['Designed together', 'The person designing the page knows what the automation behind it has to do, so nothing gets bolted on afterwards.'],
+              ['Built to be edited', 'You get a site your own team can change without a developer. If you need us to change a price, we built it wrong.'],
+              ['SEO from the first page', 'Structure, schema and speed are part of the build, not a retrofit six months later when nothing ranks.'],
+              ['Fixed, itemised quotes', 'Scope written down and priced before work starts. No hourly billing and no variation the first time you change your mind.'],
+            ].map(([t, d]) => (
+              <div className="why-item" key={t}>
+                <span className="why-dot" aria-hidden="true" />
+                <div>
+                  <h3>{t}</h3>
+                  <p>{d}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+          <div className="why-links">
+            <span>Built for</span>
+            {industries.slice(0, 8).map((i) => (
+              <Link href={`/industries/${i.slug}`} key={i.slug}>{i.trade}</Link>
+            ))}
+            <Link href="/industries" className="why-all">All industries →</Link>
+          </div>
+        </div>
+      </section>
+
       {/* HOW WE WORK */}
       <section className="sec-soft">
         <div className="wrap">
@@ -153,25 +194,6 @@ export default function Home() {
               <span>View full portfolio</span>
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12h14m-6-6 6 6-6 6" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/></svg>
             </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* INDUSTRIES — internal links to the niche pages */}
-      <section className="sec-tint" style={{ paddingTop: 0 }}>
-        <div className="wrap">
-          <div className="sec-head rv">
-            <div className="eyebrow"><span className="pulse" />Industries</div>
-            <h2>Built around <span className="grad-txt">your industry</span></h2>
-            <p>A dental practice and an online store need very different websites. Pick your sector to see what changes — and if yours isn&apos;t listed, we almost certainly still build for it.</p>
-          </div>
-          <div className="ind-mini">
-            {industries.map((i) => (
-              <Link href={`/industries/${i.slug}`} key={i.slug} className="ind-minicard rv">
-                <b>{i.title}</b>
-                <span>{i.trade}</span>
-              </Link>
-            ))}
           </div>
         </div>
       </section>

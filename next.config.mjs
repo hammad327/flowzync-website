@@ -42,6 +42,17 @@ const nextConfig = {
         permanent: true,
       },
 
+      // Shopify store design was retired as a service. The URL was
+      // indexed, so it 301s to the closest thing we do offer rather
+      // than 404ing and losing whatever authority it had.
+      {
+        source: '/services/shopify-ecommerce',
+        destination: '/services/woocommerce-development',
+        permanent: true,
+      },
+      { source: '/services/shopify', destination: '/services/woocommerce-development', permanent: true },
+      { source: '/services/shopify-store-design', destination: '/services/woocommerce-development', permanent: true },
+
       // Common hand-typed / mistyped entry points. Cheap to support and
       // they stop otherwise-good inbound links landing on a 404.
       { source: '/blogs', destination: '/blog', permanent: true },
