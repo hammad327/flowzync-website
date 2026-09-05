@@ -194,6 +194,12 @@ const COVERS = {
   'ai-search-visibility': 'nodes',
   'google-business-profile': 'checklist',
   'website-maintenance': 'shield',
+  // Care niche cluster.
+  'care-enquiries': 'funnel',
+  'care-website-families': 'browser',
+  'carer-recruitment': 'checklist',
+  'ghl-care-agencies': 'nodes',
+
   // The three original posts, moved off remote Unsplash URLs.
   'website-speed-seo-rankings': 'bars',
   'seo-basics-new-websites': 'search',
