@@ -101,4 +101,4 @@ A good studio will come back with questions rather than a price. That is a posit
 
 ---
 
-*Send us your brief and we will come back with questions first and a fixed, itemised quote second. [Start here](/contact).*
+*Send us your brief and we will come back with questions first and an itemised quote second. [Start here](/contact).*

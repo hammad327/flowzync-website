@@ -6,13 +6,13 @@ import { clampTitle, clampDescription, openGraph } from '@/lib/meta';
 export const metadata = {
   title: 'Contact Us — Get a Free Quote',
   description: clampDescription(
-    'Tell us about your project — website, funnel, WordPress build or automation. Flowzync replies with a clear, fixed quote.'
+    'Tell us about your project — website, funnel, WordPress build or automation. Flowzync replies with a clear, itemised quote.'
     ),
   alternates: { canonical: '/contact' },
   openGraph: openGraph({
     title: 'Contact Flowzync — Get a Free Quote',
     description:
-      'Tell us about your project — website, funnel, WordPress build or automation. We reply with a clear, fixed quote.',
+      'Tell us about your project — website, funnel, WordPress build or automation. We reply with a clear, itemised quote.',
     url: '/contact',
   }),
 };

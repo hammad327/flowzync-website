@@ -2,9 +2,9 @@
 title: "Your Headline Here — Keyword Near The Front"
 description: "140-160 characters. This is your search-result snippet, so write it to earn the click rather than to describe the page."
 date: "2026-08-10"
-author: "Hammad Tahir"
 category: "SEO"
-cover: "/images/blog/your-image.jpg"
+cover: "/images/blog/your-image.svg"
+photo: "https://images.unsplash.com/photo-XXXXXXXXXXXXX-YYYYYYYYYYYY?w=1400&q=80&auto=format&fit=crop"
 draft: true
 ---
 
@@ -24,6 +24,20 @@ draft: true
      publishing — that breaks the URL and throws away any ranking.
 
   3. FILL IN the frontmatter above (between the --- lines).
+
+     IMAGES — every post gets a photograph, not an icon.
+       · `photo` is the one that shows. Find a free image on
+         unsplash.com, right-click the full-size version, Copy image
+         address, and paste it with ?w=1400&q=80&auto=format&fit=crop
+         on the end so it arrives already sized.
+       · `cover` is the safety net — a local file that is used if the
+         photo URL ever dies. Leave the generated SVG there.
+       · Leave `photo` out entirely and the post falls back to
+         lib/blogPhotos.js, then to `cover`. It will never show a
+         broken image.
+
+     There is deliberately no `author` field. Posts are published
+     under the studio rather than a personal byline.
 
   4. DELETE the `draft: true` line when you're ready to publish.
      While it's there the post is invisible on the live site, so

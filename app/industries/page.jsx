@@ -1,11 +1,11 @@
 import Link from 'next/link';
 import { pageFaqs, faqSchema } from '@/lib/pageFaqs';
-import Image from 'next/image';
 import HeroCanvas from '@/components/HeroCanvas';
 import CTABand from '@/components/CTABand';
 import { industries } from '@/lib/industries';
 import { site } from '@/lib/site';
 import { clampTitle, clampDescription } from '@/lib/meta';
+import Photo from '@/components/Photo';
 
 export const metadata = {
   title: { absolute: clampTitle('Industry Website Design | Websites Built Per Trade — Flowzync') },
@@ -71,7 +71,7 @@ export default function IndustriesPage() {
             {industries.map((i, n) => (
               <Link href={`/industries/${i.slug}`} key={i.slug} className={`ind-card rv ${n % 2 ? 'rv-d1' : ''}`} data-tilt>
                 <div className="ind-thumb">
-                  <Image src={i.img} alt={i.title} width={1200} height={800} />
+                  <Photo photo={i.photo} fallback={i.img} alt={i.title} width={1200} height={800} sizes="(max-width:900px) 100vw, 380px" />
                 </div>
                 <div className="ind-body">
                   <span className="ind-tag">{i.trade}</span>
@@ -122,7 +122,7 @@ export default function IndustriesPage() {
         <div className="wrap">
           <CTABand
             title="Want a site built for how your trade gets found?"
-            text="Tell us the industry and the area you serve — we'll map the pages you need and send a fixed quote."
+            text="Tell us the industry and the area you serve — we'll map the pages you need and send an itemised quote."
           />
         </div>
       </section>

@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import { pageFaqs, faqSchema } from '@/lib/pageFaqs';
 import Link from 'next/link';
 import CTABand from '@/components/CTABand';
@@ -7,6 +6,7 @@ import { LogoMark } from '@/components/Logo';
 import HeroCanvas from '@/components/HeroCanvas';
 import { site } from '@/lib/site';
 import { clampTitle, clampDescription, openGraph } from '@/lib/meta';
+import Photo from '@/components/Photo';
 
 export const metadata = {
   title: 'About Us — The Team Behind Flowzync',
@@ -69,12 +69,18 @@ export default function AboutPage() {
               </div>
             </div>
             <div className="ab-media rv rv-s in" data-tilt>
-              <Image
-                src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1100&q=80&auto=format&fit=crop"
+              <Photo
+                photo="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1100&q=80&auto=format&fit=crop"
+                fallback="/images/services/ui-ux-design.svg"
                 alt="The Flowzync team collaborating on a project" width={1100} height={825}
               />
               <div className="ab-float abf1" data-plx="0.08"><b className="grad-txt">5+ yrs</b><span>Craft &amp; counting</span></div>
-              <div className="ab-float abf2" data-plx="-0.06"><b className="grad-txt">14 experts</b><span>Senior-only team</span></div>
+              {/* Deliberately not a headcount. It used to read "14 experts",
+                  which contradicted lib/team.js (five people), the team
+                  page ("five senior specialists") and this page's own
+                  claim to be a small studio. Overstating the team is the
+                  kind of thing a prospect checks. */}
+              <div className="ab-float abf2" data-plx="-0.06"><b className="grad-txt">Senior only</b><span>No juniors on your project</span></div>
             </div>
           </div>
         </div>
@@ -183,30 +189,19 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* TEAM — moved to /about/team.
-          It is off this page as asked, but as a real visible page
-          rather than markup hidden from visitors and left in the HTML
-          for crawlers. That second approach is cloaking, and it is one
-          of the few Google violations that costs the whole domain
-          rather than a ranking position. A dedicated page also tends
-          to rank better for name searches than a section buried
-          halfway down /about ever did. */}
-      <section className="sec-soft">
-        <div className="wrap">
-          <div className="sec-head center rv">
-            <div className="eyebrow"><span className="pulse" />The team</div>
-            <h2>Small team. <span className="grad-txt">Senior only.</span></h2>
-            <p>
-              No juniors learning on your project, no account-manager relay. You work
-              directly with the people doing the work.
-            </p>
-            <Link href="/about/team" className="btn btn-o" style={{ marginTop: 22 }}>
-              <span>Meet the team</span>
-              <svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M5 12h14m-6-6 6 6-6 6" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/></svg>
-            </Link>
-          </div>
-        </div>
-      </section>
+      {/* TEAM — deliberately not shown or linked anywhere on the site.
+          The page still exists at /about/team and stays in the sitemap,
+          but nothing navigates to it.
+
+          To be clear about what this is and is not: an unlinked page is
+          NOT cloaking. Cloaking is showing crawlers something visitors
+          cannot see, and anyone who opens /about/team sees exactly what
+          Googlebot sees. It is simply not in the navigation.
+
+          The cost is real but it is an SEO one, not a policy one: a page
+          with no internal links receives no link equity from the rest of
+          the site and will rank worse than it would linked. That is the
+          trade the owner chose knowingly. */}
 
       {/* WHAT CLIENTS SAY — placed straight after the team, because the
           reader has just been told who we are and this is the evidence. */}

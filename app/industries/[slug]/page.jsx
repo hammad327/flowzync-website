@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import FAQ from '@/components/FAQ';
 import CTABand from '@/components/CTABand';
@@ -8,6 +7,7 @@ import { industries, getIndustry } from '@/lib/industries';
 import { getService } from '@/lib/services';
 import { site } from '@/lib/site';
 import { clampTitle, clampDescription, openGraph, twitterCard } from '@/lib/meta';
+import Photo from '@/components/Photo';
 
 export function generateStaticParams() {
   return industries.map((i) => ({ slug: i.slug }));
@@ -95,14 +95,14 @@ export default function IndustryPage({ params }) {
               <p className="lede" style={{ marginBottom: 32 }}>{i.intro}</p>
               <div style={{ display: 'flex', gap: 14, flexWrap: 'wrap' }}>
                 <Link href="/contact" className="btn btn-p">
-                  <span>Get a fixed quote</span>
+                  <span>Get a quote</span>
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12h14m-6-6 6 6-6 6" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/></svg>
                 </Link>
                 <Link href="/portfolio" className="btn btn-o"><span>See our work</span></Link>
               </div>
             </div>
             <div className="sd-media rv rv-s in" data-tilt>
-              <Image src={i.img} alt={i.title} width={1200} height={800} priority />
+              <Photo photo={i.photo} fallback={i.img} alt={`${i.trade} — websites built by Flowzync`} width={1200} height={800} priority sizes="(max-width:900px) 100vw, 560px" />
               <div className="sd-media-chip"><b>{i.trade}</b></div>
             </div>
           </div>
@@ -227,7 +227,7 @@ export default function IndustryPage({ params }) {
         <div className="wrap">
           <CTABand
             title={`Ready for a website built for ${i.trade.toLowerCase()}?`}
-            text="Tell us the areas you serve and the services you offer — we'll map the pages you need and send a fixed quote."
+            text="Tell us the areas you serve and the services you offer — we'll map the pages you need and send an itemised quote."
           />
         </div>
       </section>

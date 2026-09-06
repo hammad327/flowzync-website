@@ -11,8 +11,8 @@ import { useEffect, useRef, useState } from 'react';
 const PHASES = [
   {
     t: 'Discover', tag: 'Day 0–2', icon: 'compass',
-    d: 'A free strategy call (or the short project form). We map your business, audience, goals and what "success" actually looks like — then send a fixed quote.',
-    out: ['Project brief', 'Fixed quote'],
+    d: 'A free strategy call (or the short project form). We map your business, audience, goals and what "success" actually looks like — then send an itemised quote against a written scope.',
+    out: ['Project brief', 'Itemised quote'],
   },
   {
     t: 'Blueprint', tag: 'Step 1', icon: 'map',

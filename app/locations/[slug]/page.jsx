@@ -86,7 +86,7 @@ export default function LocationPage({ params }) {
           <p className="lede" style={{ marginBottom: 30, maxWidth: 760 }}>{l.intro}</p>
           <div style={{ display: 'flex', gap: 14, flexWrap: 'wrap' }}>
             <Link href="/contact" className="btn btn-p">
-              <span>Get a fixed quote</span>
+              <span>Get a quote</span>
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12h14m-6-6 6 6-6 6" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/></svg>
             </Link>
             <Link href="/portfolio" className="btn btn-o"><span>See our work</span></Link>
@@ -211,7 +211,7 @@ export default function LocationPage({ params }) {
         <div className="wrap">
           <CTABand
             title={`Need a website for your ${l.city} business?`}
-            text="Tell us what you do and who you serve — we'll map the pages you need and send a fixed, itemised quote."
+            text="Tell us what you do and who you serve — we'll map the pages you need and send an itemised quote."
           />
         </div>
       </section>

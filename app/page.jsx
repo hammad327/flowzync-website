@@ -154,7 +154,7 @@ export default function Home() {
               ['Designed together', 'The person designing the page knows what the automation behind it has to do, so nothing gets bolted on afterwards.'],
               ['Built to be edited', 'You get a site your own team can change without a developer. If you need us to change a price, we built it wrong.'],
               ['SEO from the first page', 'Structure, schema and speed are part of the build, not a retrofit six months later when nothing ranks.'],
-              ['Fixed, itemised quotes', 'Scope written down and priced before work starts. No hourly billing and no variation the first time you change your mind.'],
+              ['Scope-based, itemised quotes', 'Scope written down and priced before work starts. No hourly billing and no variation the first time you change your mind.'],
             ].map(([t, d]) => (
               <div className="why-item" key={t}>
                 <span className="why-dot" aria-hidden="true" />

@@ -45,7 +45,7 @@ export default function BlogPage() {
       url: `${site.url}/blog/${p.slug}`,
       datePublished: p.date,
       dateModified: p.updated || p.date,
-      author: { '@type': 'Person', name: p.author },
+      author: { '@id': `${site.url}/#organization` },
     })),
   };
 

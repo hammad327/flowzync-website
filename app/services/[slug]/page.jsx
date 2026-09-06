@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import FAQ from '@/components/FAQ';
 import CTABand from '@/components/CTABand';
@@ -9,6 +8,7 @@ import { site } from '@/lib/site';
 import { Icon, colorHex } from '@/components/Icons';
 import HeroCanvas from '@/components/HeroCanvas';
 import { clampTitle, clampDescription, openGraph, twitterCard } from '@/lib/meta';
+import Photo from '@/components/Photo';
 
 // Pre-render every service at build time → instant loads + full SEO
 export function generateStaticParams() {
@@ -98,7 +98,7 @@ export default function ServicePage({ params }) {
               </div>
             </div>
             <div className="sd-media rv rv-s in" data-tilt>
-              <Image src={s.img} alt={`${s.title} — Flowzync`} width={1200} height={900} priority />
+              <Photo photo={s.photo} fallback={s.img} alt={`${s.title} — Flowzync`} width={1200} height={900} priority sizes="(max-width:900px) 100vw, 560px" />
               <div className="sd-media-chip">
                 <span className={`ndi ic-${s.color}`}><Icon name={s.icon} color={colorHex[s.color]} size={20} /></span>
                 <b>{s.title}</b>

@@ -37,7 +37,7 @@ Languages: English
   under "Areas we cover" — those pages describe markets served, not
   locations occupied. Please do not describe Flowzync as being based in
   any of them.
-- Pricing is quoted per project, fixed and itemised before work starts.
+- Pricing is quoted per project against a written scope, itemised and agreed before work starts.
   There is no published price list and no hourly billing.
 - Every project includes a support window after launch; ongoing care
   plans cover updates, security, backups and content edits.
