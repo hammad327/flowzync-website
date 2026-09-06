@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import { pageFaqs, faqSchema } from '@/lib/pageFaqs';
 import Link from 'next/link';
 import CTABand from '@/components/CTABand';
@@ -7,6 +6,7 @@ import { LogoMark } from '@/components/Logo';
 import HeroCanvas from '@/components/HeroCanvas';
 import { site } from '@/lib/site';
 import { clampTitle, clampDescription, openGraph } from '@/lib/meta';
+import Photo from '@/components/Photo';
 
 export const metadata = {
   title: 'About Us — The Team Behind Flowzync',
@@ -69,12 +69,18 @@ export default function AboutPage() {
               </div>
             </div>
             <div className="ab-media rv rv-s in" data-tilt>
-              <Image
-                src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1100&q=80&auto=format&fit=crop"
+              <Photo
+                photo="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1100&q=80&auto=format&fit=crop"
+                fallback="/images/services/ui-ux-design.svg"
                 alt="The Flowzync team collaborating on a project" width={1100} height={825}
               />
               <div className="ab-float abf1" data-plx="0.08"><b className="grad-txt">5+ yrs</b><span>Craft &amp; counting</span></div>
-              <div className="ab-float abf2" data-plx="-0.06"><b className="grad-txt">14 experts</b><span>Senior-only team</span></div>
+              {/* Deliberately not a headcount. It used to read "14 experts",
+                  which contradicted lib/team.js (five people), the team
+                  page ("five senior specialists") and this page's own
+                  claim to be a small studio. Overstating the team is the
+                  kind of thing a prospect checks. */}
+              <div className="ab-float abf2" data-plx="-0.06"><b className="grad-txt">Senior only</b><span>No juniors on your project</span></div>
             </div>
           </div>
         </div>
