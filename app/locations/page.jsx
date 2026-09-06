@@ -142,7 +142,7 @@ export default function LocationsPage() {
         <div className="wrap">
           <CTABand
             title="Not sure if we cover your area?"
-            text="We work remotely with clients worldwide. Tell us where you are and what you need — we'll come back with a fixed quote."
+            text="We work remotely with clients worldwide. Tell us where you are and what you need — we'll come back with an itemised quote."
           />
         </div>
       </section>

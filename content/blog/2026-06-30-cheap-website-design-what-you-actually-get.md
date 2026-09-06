@@ -91,4 +91,4 @@ If you have £500 and an established business that depends on being found: save 
 
 ---
 
-*We quote fixed and itemised, and we will tell you if your budget is better spent elsewhere. [Ask us](/contact).*
+*We quote against a written scope, itemised, and we will tell you if your budget is better spent elsewhere. [Ask us](/contact).*

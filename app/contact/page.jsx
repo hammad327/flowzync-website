@@ -203,7 +203,7 @@ export default function ContactPage() {
             {[
               ['We read it properly', 'A person reads your message, not an auto-responder. If something is unclear we ask rather than guess, because a quote built on a guess helps nobody.'],
               ['You get questions first', 'Usually a short reply with two or three questions. Anyone who sends a price back within the hour has quoted a project they have not understood yet.'],
-              ['Then a fixed, itemised quote', 'Scope written down, price fixed before any work starts. No hourly billing, and no variation the first time you change your mind about a heading.'],
+              ['Then an itemised quote', 'Scope written down and priced before any work starts. No hourly billing, and no variation the first time you change your mind about a heading.'],
               ['No pressure either way', 'If we are not the right fit we will say so, and point you at what is. We would rather lose a project than take one we cannot do well.'],
             ].map(([t, d], n) => (
               <div className="ct-step" key={t}>

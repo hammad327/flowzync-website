@@ -44,7 +44,6 @@ export function generateMetadata({ params }) {
       image: articleImage(p),
       publishedTime: p.date,
       modifiedTime: p.updated || p.date,
-      authors: [p.author],
     }),
     twitter: twitterCard({
       title: clampTitle(p.title, 48),
@@ -75,13 +74,11 @@ export default function BlogPost({ params }) {
       wordCount: p.wordCount,
       ...(p.tags.length ? { keywords: p.tags.join(', ') } : {}),
       mainEntityOfPage: { '@type': 'WebPage', '@id': `${site.url}/blog/${p.slug}` },
-      // A named human author, not the Organization. Author identity is a
-      // direct E-E-A-T signal and it is what AI assistants attribute to.
-      author: {
-        '@type': 'Person',
-        name: p.author,
-        worksFor: { '@id': `${site.url}/#organization` },
-      },
+      // The Organization, not a named person. Posts are published under
+      // the company rather than a byline, and structured data has to
+      // describe what is actually visible on the page — Person markup
+      // for an author who appears nowhere would be markup about nothing.
+      author: { '@id': `${site.url}/#organization` },
       publisher: {
         '@type': 'Organization',
         '@id': `${site.url}/#organization`,
@@ -128,7 +125,6 @@ export default function BlogPost({ params }) {
           <div className="eyebrow"><span className="pulse" />{p.category}</div>
           <h1 style={{ fontSize: 'clamp(30px,4.4vw,48px)' }}>{p.title}</h1>
           <div className="post-meta" style={{ marginTop: 16 }}>
-            <span>{p.author}</span>
             <span>{new Date(p.date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</span>
             <span>{p.readTime} min read</span>
             {p.updated && p.updated !== p.date && (
@@ -162,15 +158,6 @@ export default function BlogPost({ params }) {
             </div>
           )}
 
-          {/* Author box — a named human is a trust signal for readers,
-              for Google's quality guidelines and for AI citation. */}
-          <aside className="post-author">
-            <span className="post-author-av">{p.author.split(' ').map((w) => w[0]).slice(0, 2).join('')}</span>
-            <div>
-              <b>{p.author}</b>
-              <span>Writes for {site.name}. Every article here is based on work we have actually shipped for clients.</span>
-            </div>
-          </aside>
         </div>
       </section>
 

@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation';
 import FAQ from '@/components/FAQ';
 import CTABand from '@/components/CTABand';
 import HeroCanvas from '@/components/HeroCanvas';
+import ProjectBanner from '@/components/ProjectBanner';
 import { projects, getProject } from '@/lib/projects';
 import { getService } from '@/lib/services';
 import { getIndustry } from '@/lib/industries';
@@ -108,13 +109,35 @@ export default function ProjectPage({ params }) {
         </div>
       </div>
 
+      {/* The full-page screenshot is up to 4000px tall, so opening the
+          page on it meant opening on a sliver of a squashed image. The
+          sector photograph gives the page something to lead with at a
+          sane shape, and the screenshot keeps its own scrollable frame
+          below. */}
+      <ProjectBanner
+        photo={p.photo}
+        alt={`${industry?.trade || p.badge} — the sector this project was built for`}
+        label={p.badge}
+      />
+
       <section className="sec-tint">
         <div className="wrap">
           <div className="proj-layout">
-            <div className="proj-shot">
+            <figure className="proj-shot">
               <div className="pf-chrome"><i /><i /><i /><span>{p.site}</span></div>
-              <Image src={p.img} alt={`${p.title} — full page design`} width={800} height={2000} priority />
-            </div>
+              <div className="proj-shot-scroll">
+                <Image
+                  src={p.img}
+                  alt={`${p.title} — full page design`}
+                  width={p.shot.w}
+                  height={p.shot.h}
+                  sizes="(max-width:900px) 100vw, 460px"
+                />
+              </div>
+              <figcaption className="proj-shot-cap">
+                The delivered design, full length — scroll inside the frame
+              </figcaption>
+            </figure>
             <div className="proj-copy">
               <h2>About this project</h2>
               {p.long.map((para) => <p key={para.slice(0, 40)}>{para}</p>)}
@@ -176,7 +199,7 @@ export default function ProjectPage({ params }) {
         <div className="wrap">
           <CTABand
             title="Want something like this for your business?"
-            text="Tell us what you need and we'll come back with a fixed, itemised quote — no obligation."
+            text="Tell us what you need and we'll come back with an itemised quote — no obligation."
           />
         </div>
       </section>

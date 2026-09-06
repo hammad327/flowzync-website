@@ -74,4 +74,4 @@ And if someone quotes you £600 for all of it, the honest answer is that they ar
 
 ---
 
-*If you want a fixed, itemised quote with the scope written down, [tell us what you need](/contact). We would rather explain why a number is what it is than send you a single figure and hope.*
+*If you want an itemised quote with the scope written down, [tell us what you need](/contact). We would rather explain why a number is what it is than send you a single figure and hope.*
