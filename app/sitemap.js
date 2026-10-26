@@ -18,7 +18,7 @@ const PAGES_UPDATED = new Date('2026-08-23');
 export default function sitemap() {
   const staticPages = ['', '/services', '/industries', '/locations', '/portfolio', '/about', '/about/team', '/contact', '/blog'].map((p) => ({
     url: `${site.url}${p}`,
-    lastModified: PAGES_UPDATED,
+    lastModified: p === '' ? new Date('2026-10-26') : PAGES_UPDATED,
   }));
   const servicePages = services.map((s) => ({
     url: `${site.url}/services/${s.slug}`,

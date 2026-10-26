@@ -162,8 +162,8 @@ export default function ChatWidget() {
           {sent && (
             <div className="ai-done" role="status" aria-live="polite">
               <svg viewBox="0 0 52 52" width="42" height="42" aria-hidden="true">
-                <circle className="cd-circle" cx="26" cy="26" r="23" fill="none" stroke="#06C299" strokeWidth="3" />
-                <path className="cd-check" d="M15 27l8 8 15-16" fill="none" stroke="#06C299" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" />
+                <circle className="cd-circle" cx="26" cy="26" r="23" fill="none" stroke="#299D85" strokeWidth="3" />
+                <path className="cd-check" d="M15 27l8 8 15-16" fill="none" stroke="#299D85" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
               <b>Sent to the team</b>
               <span>We&apos;ll be in touch. Ask me anything else in the meantime.</span>

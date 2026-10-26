@@ -90,10 +90,10 @@ export default function AboutPage() {
       <section className="sec-tint">
         <div className="wrap">
           <div className="counters counters-xl">
-            <div className="cnt rv" data-tilt><div className="cnt-ic ic-lav"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8Z" fill="#5B4FE9"/></svg></div><b><span data-count="240">0</span><em>+</em></b><span>Projects delivered</span></div>
-            <div className="cnt rv rv-d1" data-tilt><div className="cnt-ic ic-mint"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 21s-7-4.6-9.5-9C.9 8.4 3 5 6.5 5c2 0 3.6 1.1 4.5 2.7C11.9 6.1 13.5 5 15.5 5 19 5 21.1 8.4 21.5 12c-2.5 4.4-9.5 9-9.5 9Z" fill="#06C299"/></svg></div><b><span data-count="98">0</span><em>%</em></b><span>Clients who stay</span></div>
+            <div className="cnt rv" data-tilt><div className="cnt-ic ic-lav"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8Z" fill="#087F78"/></svg></div><b><span data-count="240">240</span><em>+</em></b><span>Projects delivered</span></div>
+            <div className="cnt rv rv-d1" data-tilt><div className="cnt-ic ic-mint"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 21s-7-4.6-9.5-9C.9 8.4 3 5 6.5 5c2 0 3.6 1.1 4.5 2.7C11.9 6.1 13.5 5 15.5 5 19 5 21.1 8.4 21.5 12c-2.5 4.4-9.5 9-9.5 9Z" fill="#299D85"/></svg></div><b><span data-count="98">98</span><em>%</em></b><span>Clients who stay</span></div>
             <div className="cnt rv rv-d2" data-tilt><div className="cnt-ic ic-peach"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#FF7A3D" strokeWidth="2"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.7 3.8 9S14.5 18.4 12 21c-2.5-2.6-3.8-5.7-3.8-9S9.5 5.6 12 3Z" stroke="#FF7A3D" strokeWidth="2"/></svg></div><b>Worldwide</b><span>Where our clients are</span></div>
-            <div className="cnt rv rv-d3" data-tilt><div className="cnt-ic ic-lav"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#5B4FE9" strokeWidth="2"/><path d="M12 7v5l3 3" stroke="#5B4FE9" strokeWidth="2" strokeLinecap="round"/></svg></div><b><span data-count="2">0</span><em>h</em></b><span>Quote reply time</span></div>
+            <div className="cnt rv rv-d3" data-tilt><div className="cnt-ic ic-lav"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#087F78" strokeWidth="2"/><path d="M12 7v5l3 3" stroke="#087F78" strokeWidth="2" strokeLinecap="round"/></svg></div><b><span data-count="2">2</span><em>h</em></b><span>Quote reply time</span></div>
           </div>
         </div>
       </section>
@@ -125,7 +125,7 @@ export default function AboutPage() {
           </div>
           <div className="mv-card mv-vision rv rv-r" data-tilt>
             <span className="mv-mark mv-mark2">
-              <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="3.2" stroke="#5B4FE9" strokeWidth="2"/><path d="M2 12s3.5-6.5 10-6.5S22 12 22 12s-3.5 6.5-10 6.5S2 12 2 12Z" stroke="#5B4FE9" strokeWidth="2"/></svg>
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="3.2" stroke="#087F78" strokeWidth="2"/><path d="M2 12s3.5-6.5 10-6.5S22 12 22 12s-3.5 6.5-10 6.5S2 12 2 12Z" stroke="#087F78" strokeWidth="2"/></svg>
             </span>
             <em>Our vision</em>
             <h3>A web where small teams run like big ones.</h3>
@@ -145,7 +145,7 @@ export default function AboutPage() {
             {VALUES.map(([t, x, path, c], i) => (
               <div className={`val rv ${i === 1 ? 'rv-d1' : i === 2 ? 'rv-d2' : i === 3 ? 'rv-d3' : ''}`} data-tilt key={t}>
                 <div className={`vic ic-${c}`}>
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d={path} stroke={c === 'lav' ? '#5B4FE9' : c === 'mint' ? '#06C299' : '#FF7A3D'} strokeWidth="2" strokeLinejoin="round" strokeLinecap="round"/></svg>
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d={path} stroke={c === 'lav' ? '#087F78' : c === 'mint' ? '#299D85' : '#FF7A3D'} strokeWidth="2" strokeLinejoin="round" strokeLinecap="round"/></svg>
                 </div>
                 <h3>{t}</h3>
                 <p>{x}</p>

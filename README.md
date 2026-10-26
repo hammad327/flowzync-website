@@ -279,3 +279,20 @@ Two more packs worth installing globally in Claude Code:
 
 Example prompts once installed: *"use the copywriting skill to rewrite the
 landing-pages service intro"*, *"run a seo-audit on my services pages"*.
+
+## Sync Tile identity and homepage
+
+The shared logo geometry and brand colours live in `lib/brand.js`.
+`components/Logo.jsx` renders the same icon in the navigation, footer, chat and
+other page sections. `public/brand/sync-tile.svg`, `app/icon.svg`,
+`app/apple-icon.png`, `public/logo.png` and `public/og.png` are matching exports.
+The primary navigation uses the icon alone, with an accessible brand label.
+
+Palette: deep teal `#087F78`, graphite green `#102F2D`, warm ivory `#F7F8F2`,
+soft sage `#DDE9DF` and a restrained lime accent `#D8E9A5`.
+
+The homepage is a server component. Its heading, service links, FAQ answers and
+metadata are present in the initial HTML. Native `<details>` elements keep the
+FAQs usable without JavaScript. Run `npm run build` followed by
+`node scripts/check-homepage.mjs` to check the production HTML, canonical,
+indexability, social cards, FAQ consistency, internal routes and logo geometry.

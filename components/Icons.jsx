@@ -1,5 +1,5 @@
 // Central icon set — add new icons here and reference by name in lib/services.js
-export const Icon = ({ name, color = '#5B4FE9', size = 26 }) => {
+export const Icon = ({ name, color = '#087F78', size = 26 }) => {
   const p = { width: size, height: size, viewBox: '0 0 24 24', fill: 'none' };
   const s = { stroke: color, strokeWidth: 2, strokeLinecap: 'round', strokeLinejoin: 'round' };
   switch (name) {
@@ -18,4 +18,4 @@ export const Icon = ({ name, color = '#5B4FE9', size = 26 }) => {
     default: return null;
   }
 };
-export const colorHex = { lav: '#5B4FE9', mint: '#06C299', peach: '#FF7A3D' };
+export const colorHex = { lav: '#087F78', mint: '#299D85', peach: '#FF7A3D' };

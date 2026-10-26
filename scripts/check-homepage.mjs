@@ -1,0 +1,32 @@
+import assert from 'node:assert/strict';
+import { readFileSync, existsSync } from 'node:fs';
+const html = readFileSync('.next/server/app/index.html', 'utf8');
+const decode = s => s.replace(/<[^>]*>/g, ' ').replace(/&amp;/g, '&').replace(/<!--.*?-->/g, '').replace(/\s+/g, ' ').trim();
+const headings = [...html.matchAll(/<h1\b[^>]*>([\s\S]*?)<\/h1>/g)];
+assert.equal(headings.length, 1, 'Home must have one complete H1');
+assert.match(decode(headings[0][1]), /Website design\. Smarter automation\. Built to connect\./);
+assert.match(html, /<link rel="canonical" href="https:\/\/flowzync\.com\/?"/);
+const description = html.match(/<meta name="description" content="([^"]+)"/)[1];
+assert.ok(description.length < 160 && description.endsWith('.'), 'Complete, concise description');
+assert.ok(!description.includes('…'), 'Do not truncate the authored home description');
+assert.ok(!/<meta name="robots" content="[^"]*noindex/.test(html), 'Production homepage must be indexable');
+assert.match(html, /property="og:image" content="https:\/\/flowzync\.com\/og.png"/);
+assert.match(html, /name="twitter:card" content="summary_large_image"/);
+assert.match(html, /rel="alternate" hrefLang="x-default"/);
+const schemas = [...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)].map(m => JSON.parse(m[1]));
+const entities = schemas.flatMap(s => s['@graph'] || [s]);
+const faq = entities.find(s => s['@type'] === 'FAQPage');
+assert.equal(faq.mainEntity.length, 6);
+for (const item of faq.mainEntity) {
+ assert.ok(html.includes(item.name), 'Schema questions must match visible content');
+ assert.ok(html.includes(item.acceptedAnswer.text.replaceAll('&', '&amp;')), 'Schema answers must match visible content');
+}
+assert.equal((html.match(/<details\b/g)||[]).length, 6, 'FAQs should work without JavaScript');
+const paths = [...new Set([...html.matchAll(/href="(\/[^"#?]*)"/g)].map(m => m[1]))].filter(p => !p.startsWith('/_next/') && !/\.[a-z]+$/.test(p));
+for (const path of paths) assert.ok(existsSync('.next/server/app/' + (path === '/' ? 'index' : path.slice(1)) + '.html'), `Crawlable internal route missing: ${path}`);
+assert.ok(!html.includes('data-count='), 'No JS-dependent home counters');
+assert.ok(!html.includes('<canvas'), 'No continuous canvas animation in hero');
+const brand = readFileSync('lib/brand.js', 'utf8').match(/SYNC_TILE_PATH = '([^']+)'/)[1];
+assert.ok(readFileSync('app/icon.svg', 'utf8').includes(brand), 'Favicon and website must share logo geometry');
+assert.ok(readFileSync('public/brand/sync-tile.svg','utf8').includes(brand));
+console.log(`Homepage checks passed: metadata, canonical, social cards, 6 visible/schema FAQs, ${paths.length} internal routes and consistent logo geometry.`);

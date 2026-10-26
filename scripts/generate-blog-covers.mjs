@@ -27,10 +27,10 @@ import path from 'path';
 const OUT = path.join(process.cwd(), 'public', 'images', 'blog');
 
 // Brand palette, matching app/globals.css.
-const INK = '#14123B';
-const PURPLE = '#5B4FE9';
+const INK = '#102F2D';
+const PURPLE = '#087F78';
 const VIOLET = '#7C6CF5';
-const MINT = '#06C299';
+const MINT = '#299D85';
 const PEACH = '#FF9E6D';
 
 // Background pairs, rotated so adjacent cards in the grid never match.
@@ -239,7 +239,7 @@ const build = (motif, i) => {
 <circle cx="180" cy="770" r="150" fill="${grad[0]}" opacity=".09"/>
 <g transform="translate(350 215)">${MOTIFS[motif](accent, grad[0])}</g>
 <g transform="translate(1252 792)" opacity=".5">
-<path d="M9 31C7 20 12 13.5 18.5 13.5H34L14 34.5H29.5C36 34.5 41 28 39 17" fill="none" stroke="${INK}" stroke-width="4.4" stroke-linecap="round" stroke-linejoin="round"/>
+<g transform="scale(.48)"><path d="M8 46V23C8 14.7 14.7 8 23 8H34C47.8 8 58 19.5 58 34V39.8C58 41.5 56.7 42.2 55.5 40.8C50 34.8 42.8 32 34 32H25C18.1 32 13.1 38.8 10.5 44.5C9.6 46.5 8 47.8 8 46Z" transform="rotate(0 50 50)" fill="#087F78"/><path d="M8 46V23C8 14.7 14.7 8 23 8H34C47.8 8 58 19.5 58 34V39.8C58 41.5 56.7 42.2 55.5 40.8C50 34.8 42.8 32 34 32H25C18.1 32 13.1 38.8 10.5 44.5C9.6 46.5 8 47.8 8 46Z" transform="rotate(90 50 50)" fill="#087F78"/><path d="M8 46V23C8 14.7 14.7 8 23 8H34C47.8 8 58 19.5 58 34V39.8C58 41.5 56.7 42.2 55.5 40.8C50 34.8 42.8 32 34 32H25C18.1 32 13.1 38.8 10.5 44.5C9.6 46.5 8 47.8 8 46Z" transform="rotate(180 50 50)" fill="#087F78"/><path d="M8 46V23C8 14.7 14.7 8 23 8H34C47.8 8 58 19.5 58 34V39.8C58 41.5 56.7 42.2 55.5 40.8C50 34.8 42.8 32 34 32H25C18.1 32 13.1 38.8 10.5 44.5C9.6 46.5 8 47.8 8 46Z" transform="rotate(270 50 50)" fill="#087F78"/></g>
 </g>
 </svg>
 `;

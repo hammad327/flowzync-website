@@ -10,7 +10,7 @@ export default function FAQ({ items }) {
           <button onClick={() => setOpen(open === i ? -1 : i)} aria-expanded={open === i}>
             {q}
             <span className="chev">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="m6 9 6 6 6-6" stroke="#5B4FE9" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round"/></svg>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="m6 9 6 6 6-6" stroke="#087F78" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round"/></svg>
             </span>
           </button>
           <div className="faq-a" style={{ maxHeight: open === i ? 300 : 0 }}>

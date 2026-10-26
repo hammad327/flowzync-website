@@ -2,7 +2,7 @@ import Nav from '@/components/Nav';
 import Footer from '@/components/Footer';
 import ClientFX from '@/components/ClientFX';
 import ChatWidget from '@/components/ChatWidget';
-import { site, serviceArea, allServiceAreas, hasLocalNAP } from '@/lib/site';
+import { site, serviceArea, hasLocalNAP } from '@/lib/site';
 import { images } from '@/lib/images';
 import './globals.css';
 import { clampTitle, clampDescription } from '@/lib/meta';
@@ -10,7 +10,7 @@ import { hreflangFor } from '@/lib/locales';
 
 // Only the weights actually used, which keeps the download small.
 const FONT_CSS =
-  'https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Manrope:wght@400;500;600;700&display=swap';
+  'https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap';
 
 export const metadata = {
   metadataBase: new URL(site.url),
@@ -51,6 +51,7 @@ export const metadata = {
     googleBot: { index: true, follow: true, 'max-image-preview': 'large', 'max-snippet': -1, 'max-video-preview': -1 },
   },
   formatDetection: { telephone: false },
+  other: { 'theme-color': '#087F78' },
 };
 
 // Organization + WebSite schema, server-rendered per Google's JS-SEO guidance
@@ -79,14 +80,10 @@ const orgSchema = {
         'SEO optimization', 'UI/UX design', 'Graphic design',
         'Elementor design', 'WooCommerce development',
       ],
-      // Where we take on clients. areaServed is a coverage statement,
-      // not a location claim — which is why it can safely be broad.
-      // We work worldwide. The named areas are listed alongside it because
-      // search engines match on specific place names, not on "global".
+      // Coverage is a factual statement, not a list of ranking keywords.
       areaServed: [
         { '@type': 'Place', name: 'Worldwide' },
         ...serviceArea.countries.map((c) => ({ '@type': 'Country', name: c.name })),
-        ...allServiceAreas.map((a) => ({ '@type': 'AdministrativeArea', name: a })),
       ],
     },
     // LocalBusiness is only published once a REAL street and phone
@@ -158,9 +155,10 @@ export default function RootLayout({ children }) {
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }} />
       </head>
       <body>
+        <a href="#main-content" className="skip-to-content">Skip to content</a>
         <ClientFX />
         <Nav />
-        <main>{children}</main>
+        <main id="main-content">{children}</main>
         <Footer />
         <ChatWidget />
       </body>

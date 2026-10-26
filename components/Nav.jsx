@@ -16,7 +16,7 @@ export default function Nav() {
   // hover, so the button must do the work — and mouseenter firing from
   // a tap is exactly why the mobile menu felt stuck open.
   const hoverable = () =>
-    typeof window !== 'undefined' && window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+    typeof window !== 'undefined' && window.innerWidth > 980 && window.matchMedia('(hover: hover) and (pointer: fine)').matches;
 
   const ddEnter = () => { if (!hoverable()) return; clearTimeout(ddT.current); setDd(true); };
   const ddLeave = () => { if (!hoverable()) return; clearTimeout(ddT.current); ddT.current = setTimeout(() => setDd(false), 320); };
@@ -28,17 +28,22 @@ export default function Nav() {
   // start a new page from a closed, collapsed state.
   useEffect(() => { closeAll(); }, [path]);
   useEffect(() => {
+    const escape = (event) => { if (event.key === 'Escape') { closeAll(); } };
+    document.addEventListener('keydown', escape);
+    return () => document.removeEventListener('keydown', escape);
+  }, []);
+  useEffect(() => {
     document.body.classList.toggle('menu-open', open);
     return () => document.body.classList.remove('menu-open');
   }, [open]);
 
   return (
-    <nav className="nav">
+    <nav className="nav" aria-label="Main navigation">
       <Link href="/" onClick={closeAll} aria-label="Flowzync home" className="nav-logo">
-        <Logo variant="color" size={36} wordSize={20} />
+        <Logo variant="color" size={44} wordSize={20} />
       </Link>
 
-      <div className={`nav-links ${open ? 'open' : ''}`}>
+      <div id="primary-navigation" className={`nav-links ${open ? 'open' : ''}`}>
         <Link href="/" className={is('/') ? 'active' : ''} onClick={closeAll}>Home</Link>
         <div
           className={`nav-drop ${dd ? 'dd-open' : ''}`}
@@ -48,7 +53,7 @@ export default function Nav() {
           <button
             type="button"
             className={is('/services') ? 'active' : ''}
-            onClick={() => setDd(!dd)}
+            onClick={() => setDd(hoverable() ? true : !dd)}
             aria-expanded={dd}
           >
             Services
@@ -73,7 +78,7 @@ export default function Nav() {
         <Link href="/portfolio" className={is('/portfolio') ? 'active' : ''} onClick={closeAll}>Portfolio</Link>
         <Link href="/blog" className={is('/blog') ? 'active' : ''} onClick={closeAll}>Blog</Link>
         <Link href="/about" className={is('/about') ? 'active' : ''} onClick={closeAll}>About</Link>
-        <Link href="/contact" className={`nav-cta ${is('/contact') ? 'active' : ''}`} onClick={closeAll}>Contact us</Link>
+        <Link href="/contact" className={`nav-cta ${is('/contact') ? 'active' : ''}`} onClick={closeAll}>Start a project ↗</Link>
       </div>
 
       <button
@@ -81,6 +86,7 @@ export default function Nav() {
         onClick={() => setOpen(!open)}
         aria-label={open ? 'Close menu' : 'Open menu'}
         aria-expanded={open}
+        aria-controls="primary-navigation"
       >
         <span /><span /><span />
       </button>

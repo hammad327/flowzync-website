@@ -87,7 +87,7 @@ export default function ProcessFlow() {
             <circle cx="60" cy="60" r="52" stroke="url(#pflg)" strokeWidth="6" fill="none" strokeLinecap="round"
               strokeDasharray={2 * Math.PI * 52} strokeDashoffset={2 * Math.PI * 52 * (1 - pct)}
               transform="rotate(-90 60 60)" style={{ transition: 'stroke-dashoffset .7s cubic-bezier(.22,1,.36,1)' }} />
-            <defs><linearGradient id="pflg" x1="0" y1="0" x2="1" y2="1"><stop stopColor="#5B4FE9" /><stop offset="1" stopColor="#06C299" /></linearGradient></defs>
+            <defs><linearGradient id="pflg" x1="0" y1="0" x2="1" y2="1"><stop stopColor="#087F78" /><stop offset="1" stopColor="#299D85" /></linearGradient></defs>
           </svg>
           <div className="pfl-dial-in">
             <b key={active} className="pfl-num">{String(active + 1).padStart(2, '0')}</b>

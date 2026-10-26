@@ -15,7 +15,7 @@
 //  Server-rendered (no 'use client'): it's pure markup + CSS, so
 //  it costs the page zero JavaScript and never delays the LCP.
 // ─────────────────────────────────────────────────────────────
-import { ZYNC_PATH } from '@/components/Logo';
+import { LogoMark } from '@/components/Logo';
 
 export default function HeroFlow() {
   return (
@@ -24,12 +24,12 @@ export default function HeroFlow() {
       <svg className="hf-loop" viewBox="0 0 48 48" fill="none">
         <defs>
           <linearGradient id="hf-g" x1="8" y1="12" x2="40" y2="36" gradientUnits="userSpaceOnUse">
-            <stop stopColor="#5B4FE9" stopOpacity=".55" />
-            <stop offset=".5" stopColor="#7C6CF5" stopOpacity=".4" />
-            <stop offset="1" stopColor="#06C299" stopOpacity=".5" />
+            <stop stopColor="#087F78" stopOpacity=".55" />
+            <stop offset=".5" stopColor="#3D9B89" stopOpacity=".4" />
+            <stop offset="1" stopColor="#299D85" stopOpacity=".5" />
           </linearGradient>
         </defs>
-        <path d={ZYNC_PATH} stroke="url(#hf-g)" strokeWidth="0.24" strokeLinecap="round" strokeLinejoin="round" />
+        <g transform="translate(18 12) scale(.18)"><LogoMark variant="color" size={100} /></g>
       </svg>
 
       {/* the site being built */}

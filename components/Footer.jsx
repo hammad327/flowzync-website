@@ -12,7 +12,7 @@ export default function Footer() {
           {/* Brand — larger logo as the anchor of the footer */}
           <div className="ft-brand">
             <Link href="/" aria-label="Flowzync home" className="ft-logo">
-              <Logo variant="onDark" size={52} wordSize={28} />
+              <Logo variant="onDark" size={64} wordSize={28} />
             </Link>
             <p>{site.tagline}. Custom websites, funnels and automation — designed, built and cared for by one senior team.</p>
             <div className="ft-social">
@@ -63,7 +63,7 @@ export default function Footer() {
 
         <div className="ft-bottom">
           <span>© {new Date().getFullYear()} {site.business.legalName}. All rights reserved.</span>
-          <span>Built with obsession · {domainLabel}</span>
+          <span>Thoughtfully connected · {domainLabel}</span>
         </div>
       </div>
     </footer>

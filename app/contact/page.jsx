@@ -76,11 +76,11 @@ export default function ContactPage() {
           <div className="ct-grid">
             <div>
               <div className="ct-info-card rv in">
-                <div className="ct-ic ic-lav"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="3" stroke="#5B4FE9" strokeWidth="2"/><path d="m4 7 8 6 8-6" stroke="#5B4FE9" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg></div>
+                <div className="ct-ic ic-lav"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="3" stroke="#087F78" strokeWidth="2"/><path d="m4 7 8 6 8-6" stroke="#087F78" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg></div>
                 <div><b>Email us</b><span>{site.email}</span></div>
               </div>
               <div className="ct-info-card rv in rv-d1">
-                <div className="ct-ic ic-mint"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="4" y="5" width="16" height="15" rx="3" stroke="#06C299" strokeWidth="2"/><path d="M8 3v4m8-4v4M4 11h16" stroke="#06C299" strokeWidth="2" strokeLinecap="round"/></svg></div>
+                <div className="ct-ic ic-mint"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="4" y="5" width="16" height="15" rx="3" stroke="#299D85" strokeWidth="2"/><path d="M8 3v4m8-4v4M4 11h16" stroke="#299D85" strokeWidth="2" strokeLinecap="round"/></svg></div>
                 <div><b>Free quote review</b><span>Tell us about the project — a person reads every one</span></div>
               </div>
               <div className="ct-info-card rv in rv-d2">
@@ -88,7 +88,7 @@ export default function ContactPage() {
                 <div><b>Remote studio</b><span>{site.business.servingLabel}</span></div>
               </div>
               <div className="ct-info-card rv in rv-d3">
-                <div className="ct-ic ic-lav"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#5B4FE9" strokeWidth="2"/><path d="M12 7v5l3 3" stroke="#5B4FE9" strokeWidth="2" strokeLinecap="round"/></svg></div>
+                <div className="ct-ic ic-lav"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#087F78" strokeWidth="2"/><path d="M12 7v5l3 3" stroke="#087F78" strokeWidth="2" strokeLinecap="round"/></svg></div>
                 <div><b>Working days</b><span>Monday to Saturday</span></div>
               </div>
             </div>
@@ -97,8 +97,8 @@ export default function ContactPage() {
               <div className="ct-done" role="status" aria-live="polite">
                 <div className="ct-done-ring">
                   <svg viewBox="0 0 52 52" width="72" height="72" aria-hidden="true">
-                    <circle className="cd-circle" cx="26" cy="26" r="23" fill="none" stroke="#06C299" strokeWidth="2.5" />
-                    <path className="cd-check" d="M15 27l8 8 15-16" fill="none" stroke="#06C299" strokeWidth="3.4" strokeLinecap="round" strokeLinejoin="round" />
+                    <circle className="cd-circle" cx="26" cy="26" r="23" fill="none" stroke="#299D85" strokeWidth="2.5" />
+                    <path className="cd-check" d="M15 27l8 8 15-16" fill="none" stroke="#299D85" strokeWidth="3.4" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
                   <span className="cd-pulse" />
                 </div>
