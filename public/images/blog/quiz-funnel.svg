@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" width="1400" height="900" role="img">
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#EDEBFF"/><stop offset="1" stop-color="#E0F9F2"/></linearGradient>
+<linearGradient id="g1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#5B4FE9"/><stop offset="1" stop-color="#06C299"/></linearGradient>
+<pattern id="dots" width="38" height="38" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="2" fill="#14123B" opacity=".07"/></pattern>
+</defs>
+<rect width="1400" height="900" fill="url(#bg)"/>
+<rect width="1400" height="900" fill="url(#dots)"/>
+<circle cx="1210" cy="150" r="190" fill="#06C299" opacity=".10"/>
+<circle cx="180" cy="770" r="150" fill="#5B4FE9" opacity=".09"/>
+<g transform="translate(350 215)">
+    <path d="M70 60 H630 L556 146 H144 Z"
+        fill="url(#g1)" opacity="0.4"/><path d="M166 170 H534 L460 256 H240 Z"
+        fill="url(#g1)" opacity="0.64"/><path d="M262 280 H438 L364 366 H336 Z"
+        fill="url(#g1)" opacity="0.88"/>
+    <circle cx="350" cy="416" r="42" fill="#5B4FE9"/>
+    <path d="M334 416l11 12 22-26" fill="none" stroke="#fff" stroke-width="8"
+      stroke-linecap="round" stroke-linejoin="round"/></g>
+<g transform="translate(1252 792)" opacity=".5">
+<path d="M9 31C7 20 12 13.5 18.5 13.5H34L14 34.5H29.5C36 34.5 41 28 39 17" fill="none" stroke="#14123B" stroke-width="4.4" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+</svg>
