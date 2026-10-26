@@ -9,6 +9,9 @@ import { Icon, colorHex } from '@/components/Icons';
 import HeroCanvas from '@/components/HeroCanvas';
 import { clampTitle, clampDescription, openGraph, twitterCard } from '@/lib/meta';
 import Photo from '@/components/Photo';
+import { projects } from '@/lib/projects';
+import { getAllPosts } from '@/lib/posts';
+import { postsForService } from '@/lib/related';
 
 // Pre-render every service at build time → instant loads + full SEO
 export function generateStaticParams() {
@@ -32,6 +35,13 @@ export default function ServicePage({ params }) {
   const s = getService(params.slug);
   if (!s) notFound();
   const d = getServiceDetails(params.slug) || {};
+
+  // Projects and articles that genuinely belong to this service.
+  // Service pages hold most of this site's internal authority and
+  // previously linked to neither, which is why portfolio and blog
+  // URLs sat in "Discovered – currently not indexed". See lib/related.js.
+  const work = projects.filter((x) => x.service === s.slug).slice(0, 6);
+  const reading = postsForService(s.slug, getAllPosts(), 4);
 
   const schema = [
     {
@@ -247,10 +257,52 @@ export default function ServicePage({ params }) {
         <div className="wrap">
           <CTABand
             title={`Ready to start your ${s.title.toLowerCase()} project?`}
-            text="Request a free quote — we'll scope your project and come back with a clear, fixed proposal."
+            text="Request a free quote — we'll scope your project in writing and come back with a clear, itemised proposal against it."
           />
         </div>
       </section>
+
+      {work.length > 0 && (
+        <section style={{ paddingTop: 0 }}>
+          <div className="wrap">
+            <div className="sec-head rv"><h2 style={{ fontSize: 26 }}>Recent {s.title.toLowerCase()} work</h2></div>
+            <div className="proj-related">
+              {work.map((x) => (
+                <Link href={`/portfolio/${x.slug}`} className="loc-card" key={x.slug}>
+                  <span className="ind-tag">{x.badge}</span>
+                  <h3>{x.title.split('\u2014')[0].trim()}</h3>
+                  <p>{x.desc}</p>
+                  <span className="svc-link">
+                    View project
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                  </span>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {reading.length > 0 && (
+        <section style={{ paddingTop: 0 }}>
+          <div className="wrap">
+            <div className="sec-head rv"><h2 style={{ fontSize: 26 }}>Worth reading first</h2></div>
+            <div className="proj-related">
+              {reading.map((x) => (
+                <Link href={`/blog/${x.slug}`} className="loc-card" key={x.slug}>
+                  <span className="ind-tag">{x.category}</span>
+                  <h3>{x.title}</h3>
+                  <p>{x.description}</p>
+                  <span className="svc-link">
+                    Read article
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                  </span>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* RELATED SERVICES */}
       <section style={{ paddingTop: 0 }}>

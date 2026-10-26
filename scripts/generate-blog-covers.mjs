@@ -205,6 +205,22 @@ const COVERS = {
   'seo-basics-new-websites': 'search',
   'ghl-funnel-mistakes': 'funnel',
   'website-redesign-signs': 'versus',
+
+  // ── September–October run ───────────────────────────────────
+  // Checked against the grid: posts render newest-first in rows of
+  // three, and no row below repeats a motif.
+  'care-cqc-requirements': 'checklist',
+  'care-publish-prices': 'versus',
+  'missed-call-text-back': 'funnel',
+  'gbp-not-in-maps': 'search',
+  'contact-form-not-sending': 'shield',
+  'care-found-on-google': 'nodes',
+  'website-migration': 'sitemap',
+  'quiz-funnel': 'funnel',
+  'wordpress-vs-ghl': 'versus',
+  'schema-markup-explained': 'nodes',
+  'how-many-leads': 'bars',
+  'care-crm-choosing': 'browser',
 };
 
 const build = (motif, i) => {

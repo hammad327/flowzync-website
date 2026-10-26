@@ -8,6 +8,9 @@ import { getService } from '@/lib/services';
 import { site } from '@/lib/site';
 import { clampTitle, clampDescription, openGraph, twitterCard } from '@/lib/meta';
 import Photo from '@/components/Photo';
+import { projects } from '@/lib/projects';
+import { getAllPosts } from '@/lib/posts';
+import { postsForIndustry } from '@/lib/related';
 
 export function generateStaticParams() {
   return industries.map((i) => ({ slug: i.slug }));
@@ -35,6 +38,12 @@ export default function IndustryPage({ params }) {
   if (!i) notFound();
 
   const related = (i.related || []).map(getService).filter(Boolean);
+
+  // Work and reading for this sector. Industry pages are well linked;
+  // the project and blog pages they point at were not, which is what
+  // put those URLs in "Discovered – currently not indexed".
+  const work = projects.filter((x) => x.industry === i.slug).slice(0, 6);
+  const reading = postsForIndustry(i.slug, getAllPosts(), 4);
 
   const schema = [
     {
@@ -222,6 +231,48 @@ export default function IndustryPage({ params }) {
           </div>
         </div>
       </section>
+
+      {work.length > 0 && (
+        <section style={{ paddingTop: 0 }}>
+          <div className="wrap">
+            <div className="sec-head rv"><h2 style={{ fontSize: 26 }}>Work we have done in this sector</h2></div>
+            <div className="proj-related">
+              {work.map((x) => (
+                <Link href={`/portfolio/${x.slug}`} className="loc-card" key={x.slug}>
+                  <span className="ind-tag">{x.badge}</span>
+                  <h3>{x.title.split('\u2014')[0].trim()}</h3>
+                  <p>{x.desc}</p>
+                  <span className="svc-link">
+                    View project
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                  </span>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {reading.length > 0 && (
+        <section style={{ paddingTop: 0 }}>
+          <div className="wrap">
+            <div className="sec-head rv"><h2 style={{ fontSize: 26 }}>Reading for {i.trade.toLowerCase()}</h2></div>
+            <div className="proj-related">
+              {reading.map((x) => (
+                <Link href={`/blog/${x.slug}`} className="loc-card" key={x.slug}>
+                  <span className="ind-tag">{x.category}</span>
+                  <h3>{x.title}</h3>
+                  <p>{x.description}</p>
+                  <span className="svc-link">
+                    Read article
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                  </span>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       <section style={{ paddingTop: 0 }}>
         <div className="wrap">

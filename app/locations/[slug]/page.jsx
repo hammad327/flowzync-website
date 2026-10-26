@@ -36,6 +36,19 @@ export default function LocationPage({ params }) {
 
   const related = (l.related || []).map(getService).filter(Boolean);
 
+  // At least eight onward city links, same country first. The top-up
+  // walks the list starting from this city's own position rather than
+  // from the beginning, so the extra links are spread across every
+  // location instead of all pointing at the same first few.
+  const sameCountry = locations.filter((o) => o.slug !== l.slug && o.country === l.country);
+  const start = locations.findIndex((o) => o.slug === l.slug);
+  const rotated = locations.slice(start + 1).concat(locations.slice(0, start));
+  const nearby = [...sameCountry];
+  for (const o of rotated) {
+    if (nearby.length >= 8) break;
+    if (!nearby.some((x) => x.slug === o.slug)) nearby.push(o);
+  }
+
   const schema = [
     {
       '@context': 'https://schema.org',
@@ -197,7 +210,11 @@ export default function LocationPage({ params }) {
             <h2>We also work <span className="grad-txt">with these cities</span></h2>
           </div>
           <div className="ind-mini">
-            {locations.filter((o) => o.slug !== l.slug && o.country === l.country).map((o) => (
+            {/* Same country first, then topped up from elsewhere. Cities
+                that are the only one in their country — Dubai, Cape Town,
+                Christchurch — otherwise ended up with a single internal
+                link and sat in "Discovered – currently not indexed". */}
+            {nearby.map((o) => (
               <Link href={`/locations/${o.slug}`} key={o.slug} className="ind-minicard rv">
                 <b>{o.city}</b>
                 <span>{o.region}</span>
