@@ -65,7 +65,7 @@ def public_file(url):
 def request(url):
  try:
   req=urllib.request.Request(url,headers={'User-Agent':'FlowzyncSiteAudit/1.0'})
-  with urllib.request.urlopen(req,timeout=35) as res:
+  with urllib.request.urlopen(req,timeout=20) as res:
    b=res.read();return {'status':res.status,'final':res.url,'headers':dict(res.headers),'html':b.decode('utf-8','replace')}
  except Exception as e:return {'status':getattr(e,'code',0),'error':str(e)}
 def run(live=False):
@@ -158,10 +158,13 @@ def run(live=False):
   if url not in llms:flag('/llms.txt','error','Published article missing: '+url)
  results={}
  if live:
-  with concurrent.futures.ThreadPoolExecutor(max_workers=5) as pool:
+  with concurrent.futures.ThreadPoolExecutor(max_workers=8) as pool:
    futs={pool.submit(request,HOST+route):route for route in pages}
    for fut in concurrent.futures.as_completed(futs):
-    route=futs[fut];res=fut.result();results[route]={k:v for k,v in res.items() if k!='html'}
+    route=futs[fut];res=fut.result();results[route]={k:v for k,v in res.items() if k not in ('html','headers')}
+    if len(results)%25==0:
+     print(f'Live pages checked: {len(results)}/{len(pages)}',flush=True)
+     (ROOT/'.next/seo-live-progress.json').write_text(json.dumps(results))
     if res['status']!=200:flag(route,'error','Live HTTP '+str(res['status']));continue
     lp=Page(res['html'])
     if lp.title!=pages[route].title:flag(route,'error','Live page differs from audited release')
@@ -169,8 +172,12 @@ def run(live=False):
     if 'noindex' in {k.lower():v for k,v in res.get('headers',{}).items()}.get('x-robots-tag',''):flag(route,'error','Live public noindex header')
     if [s for s in lp.scripts if s.get('src')=='https://analytics.ahrefs.com/analytics.js']==[]:flag(route,'error','Live Ahrefs snippet absent')
   extras=['/blog/2026-06-17-seo-basics-new-websites','/blog/2026-06-24-ghl-funnel-mistakes','/robots.txt','/sitemap.xml','/feed.xml','/llms.txt','/a-page-that-does-not-exist-20261027','/blog/a-post-that-does-not-exist-20261027','/api/challenge']
-  for route in extras:
-   res=request(HOST+route);results[route]={k:v for k,v in res.items() if k!='html'}
+  with concurrent.futures.ThreadPoolExecutor(max_workers=8) as pool:
+   more={pool.submit(request,HOST+route):route for route in extras}
+   for fut in concurrent.futures.as_completed(more):
+    route=more[fut];res=fut.result();results[route]={k:v for k,v in res.items() if k not in ('html','headers')}
+    if route in ['/robots.txt','/sitemap.xml','/feed.xml','/llms.txt','/api/challenge'] and res['status']!=200:flag(route,'error','Discovery/resource HTTP '+str(res['status']))
+    if route=='/api/challenge' and 'noindex' not in {k.lower():v for k,v in res.get('headers',{}).items()}.get('x-robots-tag',''):flag(route,'error','API noindex header missing')
   for route,dest in [('/blog/2026-06-17-seo-basics-new-websites','/blog/seo-basics-new-websites'),('/blog/2026-06-24-ghl-funnel-mistakes','/blog/ghl-funnel-mistakes')]:
    if results[route].get('final')!=HOST+dest:flag(route,'error','Legacy redirect failed')
   for route in extras[6:8]:

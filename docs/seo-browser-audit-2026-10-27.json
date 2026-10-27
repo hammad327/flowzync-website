@@ -1211,59 +1211,911 @@
   ],
   "mobile": [
     {
-      "route": "privacy",
-      "h1": "Privacy Policy",
+      "route": "/about/team/",
+      "h1s": 1,
       "scrollWidth": 305,
       "width": 305
     },
     {
-      "route": "cookies",
-      "h1": "Cookies & Analytics",
+      "route": "/about/",
+      "h1s": 1,
       "scrollWidth": 305,
       "width": 305
     },
     {
-      "route": "editorial-policy",
-      "h1": "Editorial Policy",
+      "route": "/ar/",
+      "h1s": 1,
       "scrollWidth": 305,
       "width": 305
     },
     {
-      "route": "blog-woocommerce-vs-shopify-small-business",
-      "h1": "WooCommerce vs Shopify: Which Is Cheaper for a Small Store?",
+      "route": "/blog/bing-ai-performance-topics-portfolio-small-business/",
+      "h1s": 1,
       "scrollWidth": 305,
       "width": 305
     },
     {
-      "route": "about-team",
-      "h1": "The disciplines behind your project.",
+      "route": "/blog/care-agency-crm-what-to-look-for/",
+      "h1s": 1,
       "scrollWidth": 305,
       "width": 305
     },
     {
-      "route": "locations-web-design-austin",
-      "h1": "Web design in Austin",
+      "route": "/blog/care-agency-website-cqc-requirements/",
+      "h1s": 1,
       "scrollWidth": 305,
       "width": 305
     },
     {
-      "route": "services-seo-optimization",
-      "h1": "SEO Optimization",
+      "route": "/blog/care-agency-website-what-families-look-for/",
+      "h1s": 1,
       "scrollWidth": 305,
       "width": 305
     },
     {
-      "route": "industries-care-homes-and-home-care",
-      "h1": "Websites for care & childcare",
+      "route": "/blog/carer-recruitment-website-fill-shifts/",
+      "h1s": 1,
       "scrollWidth": 305,
       "width": 305
     },
     {
-      "route": "portfolio-nf-living",
-      "h1": "NF Living — Contractor Network Platform",
+      "route": "/blog/cheap-website-design-what-you-actually-get/",
+      "h1s": 1,
+      "scrollWidth": 305,
+      "width": 305
+    },
+    {
+      "route": "/blog/does-my-business-need-a-blog/",
+      "h1s": 1,
+      "scrollWidth": 305,
+      "width": 305
+    },
+    {
+      "route": "/blog/does-website-speed-affect-seo-rankings/",
+      "h1s": 1,
+      "scrollWidth": 305,
+      "width": 305
+    },
+    {
+      "route": "/blog/elementor-vs-custom-wordpress-theme/",
+      "h1s": 1,
+      "scrollWidth": 305,
+      "width": 305
+    },
+    {
+      "route": "/blog/ghl-funnel-mistakes/",
+      "h1s": 1,
+      "scrollWidth": 305,
+      "width": 305
+    },
+    {
+      "route": "/blog/gohighlevel-for-care-agencies/",
+      "h1s": 1,
+      "scrollWidth": 305,
+      "width": 305
+    },
+    {
+      "route": "/blog/gohighlevel-vs-hubspot-small-business/",
+      "h1s": 1,
+      "scrollWidth": 305,
+      "width": 305
+    },
+    {
+      "route": "/blog/google-business-profile-not-showing-in-maps/",
+      "h1s": 1,
+      "scrollWidth": 305,
+      "width": 305
+    },
+    {
+      "route": "/blog/google-business-profile-optimization-checklist/",
+      "h1s": 1,
+      "scrollWidth": 305,
+      "width": 305
+    },
+    {
+      "route": "/blog/how-care-agencies-get-found-on-google/",
+      "h1s": 1,
+      "scrollWidth": 305,
+      "width": 305
+    },
+    {
+      "route": "/blog/how-long-does-it-take-to-build-a-website/",
+      "h1s": 1,
+      "scrollWidth": 305,
+      "width": 305
+    },
+    {
+      "route": "/blog/how-many-leads-should-a-website-generate/",
+      "h1s": 1,
+      "scrollWidth": 305,
+      "width": 305
+    },
+    {
+      "route": "/blog/how-many-pages-should-a-small-business-website-have/",
+      "h1s": 1,
+      "scrollWidth": 305,
+      "width": 305
+    },
+    {
+      "route": "/blog/how-much-does-a-wordpress-website-cost/",
+      "h1s": 1,
+      "scrollWidth": 305,
+      "width": 305
+    },
+    {
+      "route": "/blog/how-to-get-your-business-mentioned-by-ai-chatgpt/",
+      "h1s": 1,
+      "scrollWidth": 305,
+      "width": 305
+    },
+    {
+      "route": "/blog/how-to-write-a-website-brief/",
+      "h1s": 1,
+      "scrollWidth": 305,
+      "width": 305
+    },
+    {
+      "route": "/blog/local-seo-checklist-small-business/",
+      "h1s": 1,
+      "scrollWidth": 305,
+      "width": 305
+    },
+    {
+      "route": "/blog/missed-call-text-back-for-small-business/",
+      "h1s": 1,
+      "scrollWidth": 305,
+      "width": 305
+    },
+    {
+      "route": "/blog/move-website-without-losing-google-rankings/",
+      "h1s": 1,
+      "scrollWidth": 305,
+      "width": 305
+    },
+    {
+      "route": "/blog/schema-markup-explained-for-small-business/",
+      "h1s": 1,
+      "scrollWidth": 305,
+      "width": 305
+    },
+    {
+      "route": "/blog/seo-basics-new-websites/",
+      "h1s": 1,
+      "scrollWidth": 305,
+      "width": 305
+    },
+    {
+      "route": "/blog/should-home-care-agencies-publish-prices/",
+      "h1s": 1,
+      "scrollWidth": 305,
+      "width": 305
+    },
+    {
+      "route": "/blog/website-contact-form-not-sending-emails/",
+      "h1s": 1,
+      "scrollWidth": 305,
+      "width": 305
+    },
+    {
+      "route": "/blog/website-maintenance-what-it-includes/",
+      "h1s": 1,
+      "scrollWidth": 305,
+      "width": 305
+    },
+    {
+      "route": "/blog/website-redesign-signs/",
+      "h1s": 1,
+      "scrollWidth": 305,
+      "width": 305
+    },
+    {
+      "route": "/blog/website-traffic-but-no-leads/",
+      "h1s": 1,
+      "scrollWidth": 305,
+      "width": 305
+    },
+    {
+      "route": "/blog/what-is-a-quiz-funnel/",
+      "h1s": 1,
+      "scrollWidth": 305,
+      "width": 305
+    },
+    {
+      "route": "/blog/why-care-agencies-lose-enquiries/",
+      "h1s": 1,
+      "scrollWidth": 305,
+      "width": 305
+    },
+    {
+      "route": "/blog/why-is-my-website-not-showing-up-on-google/",
+      "h1s": 1,
+      "scrollWidth": 305,
+      "width": 305
+    },
+    {
+      "route": "/blog/woocommerce-vs-shopify-small-business/",
+      "h1s": 1,
+      "scrollWidth": 305,
+      "width": 305
+    },
+    {
+      "route": "/blog/wordpress-vs-gohighlevel-for-your-website/",
+      "h1s": 1,
+      "scrollWidth": 305,
+      "width": 305
+    },
+    {
+      "route": "/blog/",
+      "h1s": 1,
+      "scrollWidth": 305,
+      "width": 305
+    },
+    {
+      "route": "/contact/",
+      "h1s": 1,
+      "scrollWidth": 305,
+      "width": 305
+    },
+    {
+      "route": "/cookies/",
+      "h1s": 1,
+      "scrollWidth": 305,
+      "width": 305
+    },
+    {
+      "route": "/de/",
+      "h1s": 1,
+      "scrollWidth": 305,
+      "width": 305
+    },
+    {
+      "route": "/editorial-policy/",
+      "h1s": 1,
+      "scrollWidth": 305,
+      "width": 305
+    },
+    {
+      "route": "/es/",
+      "h1s": 1,
+      "scrollWidth": 305,
+      "width": 305
+    },
+    {
+      "route": "/fr/",
+      "h1s": 1,
+      "scrollWidth": 305,
+      "width": 305
+    },
+    {
+      "route": "/",
+      "h1s": 1,
+      "scrollWidth": 305,
+      "width": 305
+    },
+    {
+      "route": "/industries/accountants-and-bookkeepers/",
+      "h1s": 1,
+      "scrollWidth": 305,
+      "width": 305
+    },
+    {
+      "route": "/industries/automotive-and-transport/",
+      "h1s": 1,
+      "scrollWidth": 305,
+      "width": 305
+    },
+    {
+      "route": "/industries/beauty-wellness-and-fitness/",
+      "h1s": 1,
+      "scrollWidth": 305,
+      "width": 305
+    },
+    {
+      "route": "/industries/care-homes-and-home-care/",
+      "h1s": 1,
+      "scrollWidth": 305,
+      "width": 305
+    },
+    {
+      "route": "/industries/charities-and-nonprofits/",
+      "h1s": 1,
+      "scrollWidth": 305,
+      "width": 305
+    },
+    {
+      "route": "/industries/dental-practices/",
+      "h1s": 1,
+      "scrollWidth": 305,
+      "width": 305
+    },
+    {
+      "route": "/industries/ecommerce-and-retail/",
+      "h1s": 1,
+      "scrollWidth": 305,
+      "width": 305
+    },
+    {
+      "route": "/industries/education-and-training/",
+      "h1s": 1,
+      "scrollWidth": 305,
+      "width": 305
+    },
+    {
+      "route": "/industries/financial-services-and-mortgage-brokers/",
+      "h1s": 1,
+      "scrollWidth": 305,
+      "width": 305
+    },
+    {
+      "route": "/industries/healthcare-and-medical-practices/",
+      "h1s": 1,
+      "scrollWidth": 305,
+      "width": 305
+    },
+    {
+      "route": "/industries/home-and-property-services/",
+      "h1s": 1,
+      "scrollWidth": 305,
+      "width": 305
+    },
+    {
+      "route": "/industries/hospitality-and-food/",
+      "h1s": 1,
+      "scrollWidth": 305,
+      "width": 305
+    },
+    {
+      "route": "/industries/legal-and-professional-services/",
+      "h1s": 1,
+      "scrollWidth": 305,
+      "width": 305
+    },
+    {
+      "route": "/industries/local-and-small-business/",
+      "h1s": 1,
+      "scrollWidth": 305,
+      "width": 305
+    },
+    {
+      "route": "/industries/manufacturing-and-industrial/",
+      "h1s": 1,
+      "scrollWidth": 305,
+      "width": 305
+    },
+    {
+      "route": "/industries/real-estate-and-construction/",
+      "h1s": 1,
+      "scrollWidth": 305,
+      "width": 305
+    },
+    {
+      "route": "/industries/recruitment-and-staffing/",
+      "h1s": 1,
+      "scrollWidth": 305,
+      "width": 305
+    },
+    {
+      "route": "/industries/saas-and-technology/",
+      "h1s": 1,
+      "scrollWidth": 305,
+      "width": 305
+    },
+    {
+      "route": "/industries/veterinary-practices/",
+      "h1s": 1,
+      "scrollWidth": 305,
+      "width": 305
+    },
+    {
+      "route": "/industries/",
+      "h1s": 1,
+      "scrollWidth": 305,
+      "width": 305
+    },
+    {
+      "route": "/locations/web-design-adelaide/",
+      "h1s": 1,
+      "scrollWidth": 305,
+      "width": 305
+    },
+    {
+      "route": "/locations/web-design-austin/",
+      "h1s": 1,
+      "scrollWidth": 305,
+      "width": 305
+    },
+    {
+      "route": "/locations/web-design-birmingham/",
+      "h1s": 1,
+      "scrollWidth": 305,
+      "width": 305
+    },
+    {
+      "route": "/locations/web-design-boise/",
+      "h1s": 1,
+      "scrollWidth": 305,
+      "width": 305
+    },
+    {
+      "route": "/locations/web-design-bristol/",
+      "h1s": 1,
+      "scrollWidth": 305,
+      "width": 305
+    },
+    {
+      "route": "/locations/web-design-calgary/",
+      "h1s": 1,
+      "scrollWidth": 305,
+      "width": 305
+    },
+    {
+      "route": "/locations/web-design-cape-town/",
+      "h1s": 1,
+      "scrollWidth": 305,
+      "width": 305
+    },
+    {
+      "route": "/locations/web-design-chattanooga/",
+      "h1s": 1,
+      "scrollWidth": 305,
+      "width": 305
+    },
+    {
+      "route": "/locations/web-design-chicago/",
+      "h1s": 1,
+      "scrollWidth": 305,
+      "width": 305
+    },
+    {
+      "route": "/locations/web-design-christchurch/",
+      "h1s": 1,
+      "scrollWidth": 305,
+      "width": 305
+    },
+    {
+      "route": "/locations/web-design-cork/",
+      "h1s": 1,
+      "scrollWidth": 305,
+      "width": 305
+    },
+    {
+      "route": "/locations/web-design-dallas/",
+      "h1s": 1,
+      "scrollWidth": 305,
+      "width": 305
+    },
+    {
+      "route": "/locations/web-design-des-moines/",
+      "h1s": 1,
+      "scrollWidth": 305,
+      "width": 305
+    },
+    {
+      "route": "/locations/web-design-dubai/",
+      "h1s": 1,
+      "scrollWidth": 305,
+      "width": 305
+    },
+    {
+      "route": "/locations/web-design-fort-collins/",
+      "h1s": 1,
+      "scrollWidth": 305,
+      "width": 305
+    },
+    {
+      "route": "/locations/web-design-galway/",
+      "h1s": 1,
+      "scrollWidth": 305,
+      "width": 305
+    },
+    {
+      "route": "/locations/web-design-glasgow/",
+      "h1s": 1,
+      "scrollWidth": 305,
+      "width": 305
+    },
+    {
+      "route": "/locations/web-design-gold-coast/",
+      "h1s": 1,
+      "scrollWidth": 305,
+      "width": 305
+    },
+    {
+      "route": "/locations/web-design-halifax-ns/",
+      "h1s": 1,
+      "scrollWidth": 305,
+      "width": 305
+    },
+    {
+      "route": "/locations/web-design-huddersfield/",
+      "h1s": 1,
+      "scrollWidth": 305,
+      "width": 305
+    },
+    {
+      "route": "/locations/web-design-ipswich/",
+      "h1s": 1,
+      "scrollWidth": 305,
+      "width": 305
+    },
+    {
+      "route": "/locations/web-design-leeds/",
+      "h1s": 1,
+      "scrollWidth": 305,
+      "width": 305
+    },
+    {
+      "route": "/locations/web-design-london/",
+      "h1s": 1,
+      "scrollWidth": 305,
+      "width": 305
+    },
+    {
+      "route": "/locations/web-design-manchester/",
+      "h1s": 1,
+      "scrollWidth": 305,
+      "width": 305
+    },
+    {
+      "route": "/locations/web-design-miami/",
+      "h1s": 1,
+      "scrollWidth": 305,
+      "width": 305
+    },
+    {
+      "route": "/locations/web-design-milton-keynes/",
+      "h1s": 1,
+      "scrollWidth": 305,
+      "width": 305
+    },
+    {
+      "route": "/locations/web-design-new-york/",
+      "h1s": 1,
+      "scrollWidth": 305,
+      "width": 305
+    },
+    {
+      "route": "/locations/web-design-newcastle-nsw/",
+      "h1s": 1,
+      "scrollWidth": 305,
+      "width": 305
+    },
+    {
+      "route": "/locations/web-design-norwich/",
+      "h1s": 1,
+      "scrollWidth": 305,
+      "width": 305
+    },
+    {
+      "route": "/locations/web-design-ottawa/",
+      "h1s": 1,
+      "scrollWidth": 305,
+      "width": 305
+    },
+    {
+      "route": "/locations/web-design-phoenix/",
+      "h1s": 1,
+      "scrollWidth": 305,
+      "width": 305
+    },
+    {
+      "route": "/locations/web-design-reading/",
+      "h1s": 1,
+      "scrollWidth": 305,
+      "width": 305
+    },
+    {
+      "route": "/locations/web-design-sarasota/",
+      "h1s": 1,
+      "scrollWidth": 305,
+      "width": 305
+    },
+    {
+      "route": "/locations/web-design-spokane/",
+      "h1s": 1,
+      "scrollWidth": 305,
+      "width": 305
+    },
+    {
+      "route": "/locations/web-design-stockport/",
+      "h1s": 1,
+      "scrollWidth": 305,
+      "width": 305
+    },
+    {
+      "route": "/locations/web-design-swindon/",
+      "h1s": 1,
+      "scrollWidth": 305,
+      "width": 305
+    },
+    {
+      "route": "/locations/web-design-wakefield/",
+      "h1s": 1,
+      "scrollWidth": 305,
+      "width": 305
+    },
+    {
+      "route": "/locations/",
+      "h1s": 1,
+      "scrollWidth": 305,
+      "width": 305
+    },
+    {
+      "route": "/portfolio/5-star-quality-hvac/",
+      "h1s": 1,
+      "scrollWidth": 305,
+      "width": 305
+    },
+    {
+      "route": "/portfolio/ad-consultancy-group/",
+      "h1s": 1,
+      "scrollWidth": 305,
+      "width": 305
+    },
+    {
+      "route": "/portfolio/beauty-and-spa-centre/",
+      "h1s": 1,
+      "scrollWidth": 305,
+      "width": 305
+    },
+    {
+      "route": "/portfolio/bludo-lead-follow-up-automation/",
+      "h1s": 1,
+      "scrollWidth": 305,
+      "width": 305
+    },
+    {
+      "route": "/portfolio/business-breakpoint-quiz-funnel/",
+      "h1s": 1,
+      "scrollWidth": 305,
+      "width": 305
+    },
+    {
+      "route": "/portfolio/business-coach-funnel/",
+      "h1s": 1,
+      "scrollWidth": 305,
+      "width": 305
+    },
+    {
+      "route": "/portfolio/cleaning-services-website/",
+      "h1s": 1,
+      "scrollWidth": 305,
+      "width": 305
+    },
+    {
+      "route": "/portfolio/conference-2025-event-page/",
+      "h1s": 1,
+      "scrollWidth": 305,
+      "width": 305
+    },
+    {
+      "route": "/portfolio/construction-company-website/",
+      "h1s": 1,
+      "scrollWidth": 305,
+      "width": 305
+    },
+    {
+      "route": "/portfolio/crown-build-constructions/",
+      "h1s": 1,
+      "scrollWidth": 305,
+      "width": 305
+    },
+    {
+      "route": "/portfolio/das-care-services/",
+      "h1s": 1,
+      "scrollWidth": 305,
+      "width": 305
+    },
+    {
+      "route": "/portfolio/dental-clinic-landing-page/",
+      "h1s": 1,
+      "scrollWidth": 305,
+      "width": 305
+    },
+    {
+      "route": "/portfolio/digital-marketing-agency-website/",
+      "h1s": 1,
+      "scrollWidth": 305,
+      "width": 305
+    },
+    {
+      "route": "/portfolio/digital-marketing-email-template-design/",
+      "h1s": 1,
+      "scrollWidth": 305,
+      "width": 305
+    },
+    {
+      "route": "/portfolio/elevate-assist-automation/",
+      "h1s": 1,
+      "scrollWidth": 305,
+      "width": 305
+    },
+    {
+      "route": "/portfolio/gym-email-template-design/",
+      "h1s": 1,
+      "scrollWidth": 305,
+      "width": 305
+    },
+    {
+      "route": "/portfolio/heaven-sent-sleep-baby-care-funnel/",
+      "h1s": 1,
+      "scrollWidth": 305,
+      "width": 305
+    },
+    {
+      "route": "/portfolio/imb-exterior-cleaning/",
+      "h1s": 1,
+      "scrollWidth": 305,
+      "width": 305
+    },
+    {
+      "route": "/portfolio/jre-services/",
+      "h1s": 1,
+      "scrollWidth": 305,
+      "width": 305
+    },
+    {
+      "route": "/portfolio/live-freedom-webinar-funnel/",
+      "h1s": 1,
+      "scrollWidth": 305,
+      "width": 305
+    },
+    {
+      "route": "/portfolio/marketing-failing-to-deliver-funnel/",
+      "h1s": 1,
+      "scrollWidth": 305,
+      "width": 305
+    },
+    {
+      "route": "/portfolio/medical-spa-website/",
+      "h1s": 1,
+      "scrollWidth": 305,
+      "width": 305
+    },
+    {
+      "route": "/portfolio/medway-drain-services/",
+      "h1s": 1,
+      "scrollWidth": 305,
+      "width": 305
+    },
+    {
+      "route": "/portfolio/myers-insurance-advisors/",
+      "h1s": 1,
+      "scrollWidth": 305,
+      "width": 305
+    },
+    {
+      "route": "/portfolio/nf-living/",
+      "h1s": 1,
+      "scrollWidth": 305,
+      "width": 305
+    },
+    {
+      "route": "/portfolio/roddye-communications/",
+      "h1s": 1,
+      "scrollWidth": 305,
+      "width": 305
+    },
+    {
+      "route": "/portfolio/roller-shutters-online/",
+      "h1s": 1,
+      "scrollWidth": 305,
+      "width": 305
+    },
+    {
+      "route": "/portfolio/sc-exterior-cleaning/",
+      "h1s": 1,
+      "scrollWidth": 305,
+      "width": 305
+    },
+    {
+      "route": "/portfolio/the-right-size-for-any-situation/",
+      "h1s": 1,
+      "scrollWidth": 305,
+      "width": 305
+    },
+    {
+      "route": "/portfolio/travel-agency-website/",
+      "h1s": 1,
+      "scrollWidth": 305,
+      "width": 305
+    },
+    {
+      "route": "/portfolio/",
+      "h1s": 1,
+      "scrollWidth": 305,
+      "width": 305
+    },
+    {
+      "route": "/privacy/",
+      "h1s": 1,
+      "scrollWidth": 305,
+      "width": 305
+    },
+    {
+      "route": "/services/automations/",
+      "h1s": 1,
+      "scrollWidth": 305,
+      "width": 305
+    },
+    {
+      "route": "/services/custom-website-design/",
+      "h1s": 1,
+      "scrollWidth": 305,
+      "width": 305
+    },
+    {
+      "route": "/services/elementor-design/",
+      "h1s": 1,
+      "scrollWidth": 305,
+      "width": 305
+    },
+    {
+      "route": "/services/ghl-crm-setup/",
+      "h1s": 1,
+      "scrollWidth": 305,
+      "width": 305
+    },
+    {
+      "route": "/services/ghl-funnels-for-care-agencies/",
+      "h1s": 1,
+      "scrollWidth": 305,
+      "width": 305
+    },
+    {
+      "route": "/services/ghl-funnels/",
+      "h1s": 1,
+      "scrollWidth": 305,
+      "width": 305
+    },
+    {
+      "route": "/services/graphic-design/",
+      "h1s": 1,
+      "scrollWidth": 305,
+      "width": 305
+    },
+    {
+      "route": "/services/landing-pages/",
+      "h1s": 1,
+      "scrollWidth": 305,
+      "width": 305
+    },
+    {
+      "route": "/services/maintenance-support/",
+      "h1s": 1,
+      "scrollWidth": 305,
+      "width": 305
+    },
+    {
+      "route": "/services/seo-optimization/",
+      "h1s": 1,
+      "scrollWidth": 305,
+      "width": 305
+    },
+    {
+      "route": "/services/ui-ux-design/",
+      "h1s": 1,
+      "scrollWidth": 305,
+      "width": 305
+    },
+    {
+      "route": "/services/woocommerce-development/",
+      "h1s": 1,
+      "scrollWidth": 305,
+      "width": 305
+    },
+    {
+      "route": "/services/wordpress-website-design/",
+      "h1s": 1,
+      "scrollWidth": 305,
+      "width": 305
+    },
+    {
+      "route": "/services/",
+      "h1s": 1,
       "scrollWidth": 305,
       "width": 305
     }
   ],
-  "scope": "Production HTML snapshot with local assets; desktop geometry/H1 checks on all 151 pages and 320px samples across templates."
+  "scope": "Production HTML snapshot with local assets; desktop and 320px iframe geometry/H1 checks on all 151 public pages. Render checks do not certify all accessibility or performance criteria."
 }

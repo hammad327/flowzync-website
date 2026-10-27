@@ -9,12 +9,21 @@
 - Tamam 36 blogs mein publisher/byline, editorial/correction links aur article contents navigation. 35 purane articles mein relevant first-party sources aur scope notes add hue; 27 October ke article mein sources pehle se maujood the.
 - Shopify/WooCommerce cost crossover, AI crawler controls, CQC rating display, FAQ rich results, word-count rules, local ranking claims aur migration promises mein targeted corrections.
 - 37 location introductions ko practical project guidance mein rewrite kiya; unverified competitor pricing/ranking promises remove kiye. Har location par remote Lahore delivery aur no-local-office disclosure.
-- Privacy Policy `/privacy`, Cookies & Analytics `/cookies`, Editorial Policy `/editorial-policy`, footer links aur contact/chat data-use notices publish karne ke liye tayyar kiye.
+- Privacy Policy `/privacy`, Cookies & Analytics `/cookies`, Editorial Policy `/editorial-policy`, footer links aur contact/chat data-use notices publish kiye.
 - Unsupported 240+, 98% aur 2-hour claims ki jagah process information. Traceable sources ke baghair testimonials publication se remove; team page par unverified individual identities ki jagah project disciplines. Invented-sounding historic headcount timeline ki jagah actual working process. Original records source control mein recoverable hain.
 - Complete authored metadata ko arbitrary character-count par cut karna band kiya; missing hub social cards correct kiye. API routes ko `X-Robots-Tag: noindex, nofollow` diya.
 - All blog URLs RSS aur llms.txt mein shamil. Sitemap dates substantive updates ke mutabiq hain; build time ke saath automatically change nahi hotin.
 
 **Evidence:** `seo-page-audit-2026-10-27.csv` mein har page ki alag row hai. `seo-audit-results-2026-10-27.json` mein errors aur live verification state hai. `live_checked: false` ka matlab sirf build audit hai; `true` production checks ko indicate karta hai. Yeh report Google ke selected canonical/indexing decision ka substitute nahi.
+
+## Final live verification
+
+- Application release: `0314443abb87f6ef496e00f8e5aee5a1be878ad2`; Vercel deployment successful.
+- All **151/151 public URLs returned HTTP 200** and matched the audited build’s titles and canonicals. **36/36 blogs included.** Final automated findings: **0 errors, 0 warnings** within the checks described in the report.
+- Both legacy dated blog URLs reached their intended clean destinations. Robots, sitemap, RSS, llms.txt and the challenge endpoint returned HTTP 200. Unknown top-level and blog URLs returned genuine HTTP 404. API noindex header verified.
+- Browser snapshot checks: **151 desktop + 151 narrow mobile renders**, no H1-count or horizontal-overflow failures. This is not a complete accessibility certification.
+- IndexNow accepted **151 URLs** on 27 October 2026; acceptance does not guarantee indexing.
+- The full live audit is recorded in `seo-audit-results-2026-10-27.json`; each public page is listed in `seo-page-audit-2026-10-27.csv`.
 
 ## 1. AdSense account — sab se pehle
 
@@ -83,11 +92,11 @@
 
 ## Performance aur browser evidence
 
-Initial pre-release live homepage mobile PageSpeed lab run (27 October 2026, 11:38 AM Pakistan time): Performance 99, Accessibility 97, Best Practices 100, SEO 100; LCP 2.3s, TBT 0ms, CLS 0.019. Report: https://pagespeed.web.dev/analysis/https-flowzync-com/7byj7zxdpb?form_factor=mobile . Is initial run ke contrast findings ke mutabiq small homepage labels darken kiye gaye. These are one-page lab measurements, not every-page scores or real-user Core Web Vitals. Field report showed No Data. A post-release result, if obtained, is recorded separately below.
+Initial pre-release live homepage mobile PageSpeed lab run (27 October 2026, 11:38 AM Pakistan time): Performance 99, Accessibility 97, Best Practices 100, SEO 100; LCP 2.3s, TBT 0ms, CLS 0.019. Report: https://pagespeed.web.dev/analysis/https-flowzync-com/7byj7zxdpb?form_factor=mobile . Is initial run ke contrast findings ke mutabiq small homepage labels darken kiye gaye. These are one-page lab measurements, not every-page scores or real-user Core Web Vitals. Field report showed No Data. Post-release run (11:56 AM Pakistan time): Performance **93**, Accessibility **100**, Best Practices **100**, SEO **100**, Agentic Browsing 3/3; LCP 2.6s, TBT 0ms, CLS 0.019. Report: https://pagespeed.web.dev/analysis/https-flowzync-com/m3d2czhfqd?form_factor=mobile . Contrast issue resolved in this run. Performance varies with network/measurement conditions; the post-release result is reported as observed, not replaced by the higher initial score. LCP is slightly above the 2.5s good threshold in this single lab run; field Core Web Vitals remains unverified because no real-user dataset was available.
 
 ## Verification ki limits
 
-Har generated public URL automated checks se guzra. Browser snapshot QA mein tamam 151 public pages desktop par load/H1/overflow checks se guzre. 320px viewport par 9 template samples aur new article anchors check hue; har viewport/browser/device combination ka exhaustive certification nahi. External search rankings, Google-selected canonical, backlinks, account approval, asset ownership aur legal compliance ko local test pass se certify nahi kiya ja sakta. Content was reviewed for specific technical/editorial risks; sources do not independently substantiate every first-person business anecdote. Owner evidence is still needed for those statements.
+Har generated public URL automated checks se guzra. Browser snapshot QA mein tamam 151 public pages desktop par load/H1/overflow checks se guzre. 320px viewport par bhi tamam 151 pages ke geometry/H1 checks aur new article anchors check hue; har viewport/browser/device combination ka exhaustive certification nahi. External search rankings, Google-selected canonical, backlinks, account approval, asset ownership aur legal compliance ko local test pass se certify nahi kiya ja sakta. Content was reviewed for specific technical/editorial risks; sources do not independently substantiate every first-person business anecdote. Owner evidence is still needed for those statements.
 
 ## Official references used
 
