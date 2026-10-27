@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
+import HomeHero from '@/components/HomeHero';
 import { LogoMark } from '@/components/Logo';
 import { Icon } from '@/components/Icons';
 import { services } from '@/lib/services';
@@ -45,33 +46,18 @@ function Button({ children, href = '/contact', secondary = false }) { return <Li
 
 export default function Home() {
   const posts = getAllPosts().slice(0, 3);
-  const featured = ['heaven-sent-sleep-baby-care-funnel','business-coach-funnel'].map(slug => projects.find(p => p.slug === slug)).filter(Boolean);
-  const heroProject = projects.find(p => p.slug === 'das-care-services') || featured[0];
+  const featured = ['heaven-sent-sleep-baby-care-funnel','nf-living','roller-shutters-online'].map(slug => projects.find(p => p.slug === slug)).filter(Boolean);
   const schema = { '@context':'https://schema.org', '@graph': [
     { '@type':'WebPage', '@id':`${site.url}/#webpage`, url:site.url, name:title, description, isPartOf:{'@id':`${site.url}/#website`}, about:{'@id':`${site.url}/#organization`}, inLanguage:'en' },
     { '@type':'FAQPage', mainEntity:faqs.map(([q,a])=>({'@type':'Question',name:q,acceptedAnswer:{'@type':'Answer',text:a}})) },
   ] };
   return <div className="premium-home">
     <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(schema).replace(/</g,'\\u003c')}} />
-    <section className="hp-hero" aria-labelledby="home-heading"><div className="hp-wrap">
-      <div className="hp-hero-grid"><div className="hp-hero-copy"><Label>Independent digital studio · Worldwide</Label>
-        <h1 id="home-heading"><span>Website design.</span>{' '}<span>Smarter automation.</span>{' '}<em>Built to connect.</em></h1>
-        <p>Make a better first impression. Build a smoother customer journey. We bring your website, funnels and business systems together.</p>
-        <div className="hp-hero-actions"><Button>Start your project</Button><Link href="#selected-work" className="hp-text-link">Explore our work <span aria-hidden="true">↓</span></Link></div>
-        <div className="hp-hero-note"><span aria-hidden="true">✓</span> Clear scope <i /> Thoughtful design <i /> Connected systems</div>
-      </div>
-      <div className="hp-hero-stage"><div className="hp-stage-label"><span>DESIGN WITH PURPOSE</span><span>01 — FLOWZYNC</span></div>
-        <div className="hp-orbit" aria-hidden="true" />
-        <Link className="hp-hero-window" href={`/portfolio/${heroProject.slug}`} aria-label={`Explore ${heroProject.title}`}><div className="hp-window-bar"><span><i /><i /><i /></span><small>SELECTED PROJECT / FLOWZYNC</small><Arrow diagonal /></div><div className="hp-window-shot"><Image src={heroProject.img} alt={heroProject.title} width={heroProject.shot.w} height={heroProject.shot.h} priority sizes="(max-width:700px) 85vw, (max-width:1100px) 42vw, 500px" /></div></Link>
-        <div className="hp-sync-stamp" aria-hidden="true"><LogoMark variant="white" size={43} /></div>
-        <div className="hp-workflow-chip"><span className="hp-chip-check" aria-hidden="true">✓</span><div><b>A better journey, connected.</b><small>Website <span>→</span> Enquiry <span>→</span> Follow-up</small></div></div>
-        <div className="hp-stage-caption"><span>Beautiful on the outside.</span><span>Connected underneath. ↗</span></div>
-      </div></div>
-      <div className="hp-platform-strip"><p>The right tools.<br /><strong>Working together.</strong></p><ul aria-label="Platforms we work with"><li>WordPress</li><li>GoHighLevel</li><li>WooCommerce</li><li>Figma</li><li>Zapier<span>_</span></li><li>Make.</li></ul></div>
-    </div></section>
+    <HomeHero />
+    <div className="hp-wrap"><div className="hp-platform-strip"><p>The right tools.<br /><strong>Working together.</strong></p><ul aria-label="Platforms we work with"><li>WordPress</li><li>GoHighLevel</li><li>WooCommerce</li><li>Figma</li><li>Zapier<span>_</span></li><li>Make.</li></ul></div></div>
 
     <section className="hp-work" id="selected-work" aria-labelledby="work-heading"><div className="hp-wrap"><div className="hp-section-head"><div><Label>Selected work</Label><h2 id="work-heading">Different businesses.<br /><em>The same care.</em></h2></div><div className="hp-head-aside"><p>Design shaped around the people<br />on the other side of the screen.</p><Link href="/portfolio" className="hp-text-link">View all projects <Arrow diagonal /></Link></div></div>
-      <div className="hp-project-grid">{featured.map((project,i)=><article className={`hp-project hp-project-${i}`} key={project.slug}><Link className="hp-project-art" href={`/portfolio/${project.slug}`} aria-label={`View ${project.title}`}><div className="hp-project-browser"><div className="hp-project-chrome"><span /><small>FLOWZYNC / SELECTED WORK</small><span>↗</span></div><Image src={project.img} alt={project.title} width={project.shot.w} height={project.shot.h} sizes="(max-width:700px) 85vw, 44vw" /></div><span className="hp-open" aria-hidden="true"><Arrow diagonal /></span></Link><div className="hp-project-meta"><div><h3><Link href={`/portfolio/${project.slug}`}>{project.title.split(' — ')[0]}</Link></h3><p>{i===0?'Calm, reassuring design for parents.':'A focused path to a booked conversation.'}</p></div><span>{project.badge}</span></div></article>)}</div>
+      <div className="hp-project-grid">{featured.map((project,i)=><article className={`hp-project hp-project-${i}`} key={project.slug}><Link className="hp-project-art" href={`/portfolio/${project.slug}`} aria-label={`View ${project.title}`}><div className="hp-project-browser"><div className="hp-project-chrome"><span /><small>FLOWZYNC / SELECTED WORK</small><span>↗</span></div><Image src={project.img} alt={project.title} width={project.shot.w} height={project.shot.h} sizes="(max-width:700px) 85vw, 44vw" /></div><span className="hp-open" aria-hidden="true"><Arrow diagonal /></span></Link><div className="hp-project-meta"><div><h3><Link href={`/portfolio/${project.slug}`}>{project.title.split(' — ')[0]}</Link></h3><p>{i===0?'A reassuring GoHighLevel funnel for parents.':i===1?'A WordPress platform for a contractor network.':'A WooCommerce store with product configuration.'}</p></div><span>{project.badge}</span></div></article>)}</div>
     </div></section>
 
     <section className="hp-services" id="home-services" aria-labelledby="services-heading"><div className="hp-wrap"><div className="hp-section-head"><div><Label>What we do</Label><h2 id="services-heading">Everything your website needs.<br /><em>One connected team.</em></h2></div><p className="hp-head-copy">Custom website design, GoHighLevel funnels and business automation, planned as one experience.</p></div>

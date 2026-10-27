@@ -132,6 +132,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
+        <script src="https://analytics.ahrefs.com/analytics.js" data-key="B3pAHykQTgCT7Tvk/Ux78g" async />
         {/* Fonts load WITHOUT blocking the first paint.
             React strips string onLoad handlers from <link>, so the tag is
             created in a tiny inline script instead: it starts as

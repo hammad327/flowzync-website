@@ -46,6 +46,7 @@ export default function ChatWidget() {
   const [captcha, setCaptcha] = useState(null);
   const [answer, setAnswer] = useState('');
   const bodyRef = useRef(null);
+  const fabRef = useRef(null);
   const startedAt = useRef(Date.now());
 
   const loadCaptcha = useCallback(() => {
@@ -56,6 +57,13 @@ export default function ChatWidget() {
   useEffect(() => {
     if (showForm && !captcha) { loadCaptcha(); startedAt.current = Date.now(); }
   }, [showForm, captcha, loadCaptcha]);
+
+  useEffect(() => {
+    if (!open) return;
+    const escape = event => { if (event.key === 'Escape') { setOpen(false); fabRef.current?.focus(); } };
+    document.addEventListener('keydown', escape);
+    return () => document.removeEventListener('keydown', escape);
+  }, [open]);
 
   // The dashboard is not a place for a sales chat bubble.
   const hidden = path?.startsWith('/admin');
@@ -141,12 +149,12 @@ export default function ChatWidget() {
 
   return (
     <>
-      <button className="ai-fab" onClick={() => setOpen(!open)} aria-label={open ? 'Close chat' : 'Chat with Zync'} aria-expanded={open}>
+      <button ref={fabRef} className="ai-fab" onClick={() => setOpen(!open)} aria-label={open ? 'Close chat' : 'Chat with Zync'} aria-expanded={open}>
         <LogoMark variant="white" size={30} animated={false} />
         <span className="dot" />
       </button>
 
-      <div className={`ai-panel ${open ? 'open' : ''}`} role="dialog" aria-label="Chat with Zync">
+      <div className={`ai-panel ${open ? 'open' : ''}`} role="dialog" aria-label="Chat with Zync" aria-hidden={!open} inert={!open ? '' : undefined}>
         <div className="ai-head">
           <div className="bot-av"><LogoMark variant="white" size={24} animated={false} /></div>
           <div><b>Zync</b><span><i className="on" /> Flowzync assistant</span></div>

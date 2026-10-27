@@ -2,7 +2,6 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import FAQ from '@/components/FAQ';
 import CTABand from '@/components/CTABand';
-import HeroCanvas from '@/components/HeroCanvas';
 import { industries, getIndustry } from '@/lib/industries';
 import { getService } from '@/lib/services';
 import { site } from '@/lib/site';
@@ -90,7 +89,6 @@ export default function IndustryPage({ params }) {
 
       {/* HERO */}
       <div className="page-hero" style={{ paddingBottom: 50 }}>
-        <HeroCanvas />
         <div className="orb orb1" data-plx="0.1" /><div className="orb orb2" data-plx="-0.07" /><div className="hero-grid-bg" />
         <div className="wrap" style={{ position: 'relative', zIndex: 1 }}>
           <nav className="breadcrumb" aria-label="Breadcrumb">

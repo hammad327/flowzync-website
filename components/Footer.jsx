@@ -3,6 +3,7 @@ import Logo from '@/components/Logo';
 import { site, domainLabel } from '@/lib/site';
 import { services } from '@/lib/services';
 import { industries } from '@/lib/industries';
+import { locales } from '@/lib/locales';
 
 export default function Footer() {
   return (
@@ -12,9 +13,9 @@ export default function Footer() {
           {/* Brand — larger logo as the anchor of the footer */}
           <div className="ft-brand">
             <Link href="/" aria-label="Flowzync home" className="ft-logo">
-              <Logo variant="onDark" size={64} wordSize={28} />
+              <Logo variant="onDark" size={52} wordSize={28} showWord />
             </Link>
-            <p>{site.tagline}. Custom websites, funnels and automation — designed, built and cared for by one senior team.</p>
+            <p>{site.tagline} Custom websites, funnels and automation — designed, built and cared for by one senior team.</p>
             <div className="ft-social">
               <a href={site.social.facebook} aria-label="Facebook" target="_blank" rel="noopener noreferrer"><svg width="17" height="17" viewBox="0 0 24 24" fill="#fff"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.3c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.4v7A10 10 0 0 0 22 12Z"/></svg></a>
               <a href={site.social.linkedin} aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><svg width="17" height="17" viewBox="0 0 24 24" fill="#fff"><path d="M4.98 3.5C4.98 4.9 3.9 6 2.5 6S0 4.9 0 3.5 1.1 1 2.5 1s2.48 1.1 2.48 2.5ZM.2 8h4.6v14H.2V8Zm7.6 0h4.4v1.9h.1c.6-1.1 2.1-2.3 4.3-2.3 4.6 0 5.4 3 5.4 6.9V22h-4.6v-6.6c0-1.6 0-3.6-2.2-3.6s-2.6 1.7-2.6 3.5V22H7.8V8Z"/></svg></a>
@@ -40,6 +41,8 @@ export default function Footer() {
           <nav aria-label="Company">
             <h2 className="ft-h">Company</h2>
             <Link href="/about">About us</Link>
+            <Link href="/about/team">Our team</Link>
+            <Link href="/locations">Areas we serve</Link>
             <Link href="/portfolio">Portfolio</Link>
             <Link href="/blog">Blog</Link>
             <Link href="/contact">Contact</Link>
@@ -61,6 +64,7 @@ export default function Footer() {
           </div>
         </div>
 
+        <nav className="footer-languages" aria-label="Website languages"><span>Explore in your language</span><Link href="/" lang="en">English</Link>{locales.map(locale=><Link key={locale.code} href={`/${locale.code}`} lang={locale.hreflang}>{locale.name}</Link>)}</nav>
         <div className="ft-bottom">
           <span>© {new Date().getFullYear()} {site.business.legalName}. All rights reserved.</span>
           <span>Thoughtfully connected · {domainLabel}</span>

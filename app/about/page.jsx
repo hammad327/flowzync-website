@@ -3,7 +3,6 @@ import Link from 'next/link';
 import CTABand from '@/components/CTABand';
 import Testimonials from '@/components/Testimonials';
 import { LogoMark } from '@/components/Logo';
-import HeroCanvas from '@/components/HeroCanvas';
 import { site } from '@/lib/site';
 import { clampTitle, clampDescription, openGraph } from '@/lib/meta';
 import Photo from '@/components/Photo';
@@ -47,7 +46,6 @@ export default function AboutPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(aboutSchema) }} />
       {/* HERO */}
       <div className="page-hero" style={{ paddingBottom: 40 }}>
-        <HeroCanvas />
         <div className="orb orb1" data-plx="0.1" /><div className="orb orb2" data-plx="-0.07" /><div className="hero-grid-bg" />
         <div className="wrap" style={{ position: 'relative', zIndex: 1 }}>
           <div className="ab-grid">
@@ -92,7 +90,7 @@ export default function AboutPage() {
           <div className="counters counters-xl">
             <div className="cnt rv" data-tilt><div className="cnt-ic ic-lav"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8Z" fill="#087F78"/></svg></div><b><span data-count="240">240</span><em>+</em></b><span>Projects delivered</span></div>
             <div className="cnt rv rv-d1" data-tilt><div className="cnt-ic ic-mint"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 21s-7-4.6-9.5-9C.9 8.4 3 5 6.5 5c2 0 3.6 1.1 4.5 2.7C11.9 6.1 13.5 5 15.5 5 19 5 21.1 8.4 21.5 12c-2.5 4.4-9.5 9-9.5 9Z" fill="#299D85"/></svg></div><b><span data-count="98">98</span><em>%</em></b><span>Clients who stay</span></div>
-            <div className="cnt rv rv-d2" data-tilt><div className="cnt-ic ic-peach"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#FF7A3D" strokeWidth="2"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.7 3.8 9S14.5 18.4 12 21c-2.5-2.6-3.8-5.7-3.8-9S9.5 5.6 12 3Z" stroke="#FF7A3D" strokeWidth="2"/></svg></div><b>Worldwide</b><span>Where our clients are</span></div>
+            <div className="cnt cnt-worldwide rv rv-d2" data-tilt><div className="cnt-ic ic-peach"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#FF7A3D" strokeWidth="2"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.7 3.8 9S14.5 18.4 12 21c-2.5-2.6-3.8-5.7-3.8-9S9.5 5.6 12 3Z" stroke="#FF7A3D" strokeWidth="2"/></svg></div><b>Worldwide</b><span>Where our clients are</span></div>
             <div className="cnt rv rv-d3" data-tilt><div className="cnt-ic ic-lav"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#087F78" strokeWidth="2"/><path d="M12 7v5l3 3" stroke="#087F78" strokeWidth="2" strokeLinecap="round"/></svg></div><b><span data-count="2">2</span><em>h</em></b><span>Quote reply time</span></div>
           </div>
         </div>
@@ -189,19 +187,9 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* TEAM — deliberately not shown or linked anywhere on the site.
-          The page still exists at /about/team and stays in the sitemap,
-          but nothing navigates to it.
-
-          To be clear about what this is and is not: an unlinked page is
-          NOT cloaking. Cloaking is showing crawlers something visitors
-          cannot see, and anyone who opens /about/team sees exactly what
-          Googlebot sees. It is simply not in the navigation.
-
-          The cost is real but it is an SEO one, not a policy one: a page
-          with no internal links receives no link equity from the rest of
-          the site and will rank worse than it would linked. That is the
-          trade the owner chose knowingly. */}
+      <section className="sec-soft" style={{ paddingBlock: 38 }}>
+        <div className="wrap section-resource-links"><span>Get to know the people behind your project.</span><Link href="/about/team">Meet the Flowzync team →</Link></div>
+      </section>
 
       {/* WHAT CLIENTS SAY — placed straight after the team, because the
           reader has just been told who we are and this is the evidence. */}

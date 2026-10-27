@@ -296,3 +296,16 @@ metadata are present in the initial HTML. Native `<details>` elements keep the
 FAQs usable without JavaScript. Run `npm run build` followed by
 `node scripts/check-homepage.mjs` to check the production HTML, canonical,
 indexability, social cards, FAQ consistency, internal routes and logo geometry.
+
+### October 27 refinements
+
+`components/HomeHero.jsx` owns the image-free, three-slide service hero. The
+first slide renders in the initial HTML; rotation pauses on hover/focus or manual
+interaction and respects reduced motion. `components/Nav.jsx` groups services
+by the buyer’s task. Search titles can be authored with an optional `seoTitle`
+frontmatter field without changing the article filename or URL.
+
+Run `node scripts/check-site-seo.mjs` after a production build for the full-site
+canonical, internal-link, metadata, URL-preservation and Ahrefs-install checks.
+See `docs/SEO-REVIEW-2026-10-27.md` for observed Search Console URL checks and the
+remaining account-access requirements for backlink comparison.

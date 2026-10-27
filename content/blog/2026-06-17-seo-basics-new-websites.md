@@ -1,4 +1,5 @@
 ---
+seoTitle: "SEO for New Websites: A Practical Guide | Flowzync"
 title: "SEO for New Websites: What Actually Matters in the First 90 Days"
 description: "Forget the 200-factor checklists. Here's what genuinely moves the needle for a brand-new website's search visibility."
 date: "2026-06-17"

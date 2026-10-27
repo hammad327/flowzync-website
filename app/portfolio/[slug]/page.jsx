@@ -3,7 +3,6 @@ import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import FAQ from '@/components/FAQ';
 import CTABand from '@/components/CTABand';
-import HeroCanvas from '@/components/HeroCanvas';
 import ProjectBanner from '@/components/ProjectBanner';
 import { projects, getProject } from '@/lib/projects';
 import { getService } from '@/lib/services';
@@ -90,7 +89,6 @@ export default function ProjectPage({ params }) {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
 
       <div className="page-hero" style={{ paddingBottom: 10 }}>
-        <HeroCanvas />
         <div className="orb orb1" /><div className="hero-grid-bg" />
         <div className="wrap" style={{ position: 'relative', zIndex: 1 }}>
           <nav className="breadcrumb" aria-label="Breadcrumb">
@@ -124,7 +122,7 @@ export default function ProjectPage({ params }) {
         <div className="wrap">
           <div className="proj-layout">
             <figure className="proj-shot">
-              <div className="pf-chrome"><i /><i /><i /><span>{p.site}</span></div>
+              <div className="pf-chrome"><i /><i /><i /><span>{p.site?.includes('.example') ? 'Project preview' : p.site}</span></div>
               <div className="proj-shot-scroll">
                 <Image
                   src={p.img}

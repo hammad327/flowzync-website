@@ -1,4 +1,5 @@
 ---
+seoTitle: "5 GoHighLevel Funnel Mistakes to Fix | Flowzync"
 title: "5 GoHighLevel Funnel Mistakes That Quietly Lose Leads"
 description: "The most common GHL funnel mistakes we find in audits — and the simple fixes that stop leads slipping through."
 date: "2026-06-24"

@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import { pageFaqs, faqSchema } from '@/lib/pageFaqs';
-import HeroCanvas from '@/components/HeroCanvas';
 import CTABand from '@/components/CTABand';
 import { locationsByCountry, locations } from '@/lib/locations';
 import { coverageGroups, site, serviceArea } from '@/lib/site';
@@ -46,7 +45,6 @@ export default function LocationsPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema('locations')) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
       <div className="page-hero">
-        <HeroCanvas />
         <div className="orb orb1" data-plx="0.1" /><div className="hero-grid-bg" />
         <div className="wrap" style={{ position: 'relative', zIndex: 1, textAlign: 'center' }}>
           <div className="eyebrow"><span className="pulse" />Areas we cover</div>

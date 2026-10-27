@@ -5,7 +5,6 @@ import CTABand from '@/components/CTABand';
 import { getAllPosts } from '@/lib/posts';
 import BlogGrid from '@/components/BlogGrid';
 import { site } from '@/lib/site';
-import HeroCanvas from '@/components/HeroCanvas';
 import { clampTitle, clampDescription, openGraph } from '@/lib/meta';
 
 export const metadata = {
@@ -54,7 +53,6 @@ export default function BlogPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema('blog')) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
       <div className="page-hero">
-        <HeroCanvas />
         <div className="orb orb1" data-plx="0.1" /><div className="orb orb2" data-plx="-0.07" /><div className="hero-grid-bg" />
         <div className="wrap" style={{ position: 'relative', zIndex: 1, textAlign: 'center' }}>
           <div className="eyebrow"><span className="pulse" />Blog</div>

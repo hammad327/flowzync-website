@@ -7,7 +7,6 @@ import FAQ from '@/components/FAQ';
 import { getAllPosts, getPost, getRelatedPosts } from '@/lib/posts';
 import { site } from '@/lib/site';
 import { images } from '@/lib/images';
-import HeroCanvas from '@/components/HeroCanvas';
 import { clampTitle, clampDescription, openGraph, twitterCard } from '@/lib/meta';
 
 export function generateStaticParams() {
@@ -30,7 +29,7 @@ export function generateMetadata({ params }) {
   const p = getPost(params.slug);
   if (!p) return {};
   return {
-    title: clampTitle(p.title, 48),   // 48 + ' | Flowzync' = 59
+    title: { absolute: clampTitle(p.seoTitle) },
     description: clampDescription(p.description),
     alternates: { canonical: `${site.url}/blog/${p.slug}` },
     // Social cards need a raster image — LinkedIn, Slack and WhatsApp
@@ -38,7 +37,7 @@ export function generateMetadata({ params }) {
     // the OG image, exactly as the Article schema below does.
     openGraph: openGraph({
       type: 'article',
-      title: clampTitle(p.title, 48),   // 48 + ' | Flowzync' = 59
+      title: clampTitle(p.seoTitle),
       description: p.description,
       url: `${site.url}/blog/${p.slug}`,
       image: articleImage(p),
@@ -46,7 +45,7 @@ export function generateMetadata({ params }) {
       modifiedTime: p.updated || p.date,
     }),
     twitter: twitterCard({
-      title: clampTitle(p.title, 48),
+      title: clampTitle(p.seoTitle),
       description: p.description,
       image: articleImage(p),
     }),
@@ -116,7 +115,6 @@ export default function BlogPost({ params }) {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
       <div className="page-hero" style={{ paddingBottom: 10 }}>
-        <HeroCanvas />
         <div className="orb orb1" /><div className="hero-grid-bg" />
         <div className="wrap article" style={{ position: 'relative', zIndex: 1 }}>
           <nav className="breadcrumb" aria-label="Breadcrumb">

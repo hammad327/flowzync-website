@@ -2,7 +2,6 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import FAQ from '@/components/FAQ';
 import CTABand from '@/components/CTABand';
-import HeroCanvas from '@/components/HeroCanvas';
 import { locations, getLocation } from '@/lib/locations';
 import { getService } from '@/lib/services';
 import { industries } from '@/lib/industries';
@@ -87,7 +86,6 @@ export default function LocationPage({ params }) {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
 
       <div className="page-hero" style={{ paddingBottom: 40 }}>
-        <HeroCanvas />
         <div className="orb orb1" data-plx="0.1" /><div className="orb orb2" data-plx="-0.07" /><div className="hero-grid-bg" />
         <div className="wrap" style={{ position: 'relative', zIndex: 1 }}>
           <nav className="breadcrumb" aria-label="Breadcrumb">

@@ -1,4 +1,5 @@
 ---
+seoTitle: "GoHighLevel for Care Agencies: A Practical Guide | Flowzync"
 title: "GoHighLevel for Care Agencies: What It Actually Does"
 description: "A plain explanation of what GoHighLevel handles for a home care provider, what it does not replace, and whether it is worth the subscription."
 date: "2026-09-04"

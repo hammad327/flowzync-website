@@ -1,5 +1,5 @@
 import Link from 'next/link';
-export default function CTABand({ title, text, cta = 'Book my free audit' }) {
+export default function CTABand({ title, text, cta = 'Tell us about your project' }) {
   return (
     <div className="cta-band rv">
       <h2>{title}</h2>

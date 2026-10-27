@@ -1,4 +1,5 @@
 ---
+seoTitle: "What Families Need From a Care Agency Website | Flowzync"
 title: "What Families Actually Look For on a Care Agency Website"
 description: "The person reading your website is not the person who needs care. It's their adult daughter, at midnight, comparing three providers — and she is looking for four specific things."
 date: "2026-08-30"

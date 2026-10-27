@@ -18,11 +18,11 @@ const PAGES_UPDATED = new Date('2026-08-23');
 export default function sitemap() {
   const staticPages = ['', '/services', '/industries', '/locations', '/portfolio', '/about', '/about/team', '/contact', '/blog'].map((p) => ({
     url: `${site.url}${p}`,
-    lastModified: p === '' ? new Date('2026-10-26') : PAGES_UPDATED,
+    lastModified: ['', '/about', '/blog', '/portfolio'].includes(p) ? new Date('2026-10-27') : PAGES_UPDATED,
   }));
   const servicePages = services.map((s) => ({
     url: `${site.url}/services/${s.slug}`,
-    lastModified: PAGES_UPDATED,
+    lastModified: ['graphic-design', 'wordpress-website-design'].includes(s.slug) ? new Date('2026-10-27') : PAGES_UPDATED,
   }));
   const industryPages = industries.map((i) => ({
     url: `${site.url}/industries/${i.slug}`,
@@ -38,7 +38,7 @@ export default function sitemap() {
   }));
   const blogPages = getAllPosts().map((p) => ({
     url: `${site.url}/blog/${p.slug}`,
-    lastModified: new Date(p.date),
+    lastModified: new Date(p.updated || p.date),
   }));
   // Language landing pages. One per language, genuinely written —
   // see lib/locales.js for why this is not a full translation.

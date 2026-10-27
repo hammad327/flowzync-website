@@ -6,7 +6,6 @@ import { services, getService } from '@/lib/services';
 import { getServiceDetails } from '@/lib/serviceDetails';
 import { site } from '@/lib/site';
 import { Icon, colorHex } from '@/components/Icons';
-import HeroCanvas from '@/components/HeroCanvas';
 import { clampTitle, clampDescription, openGraph, twitterCard } from '@/lib/meta';
 import Photo from '@/components/Photo';
 import { projects } from '@/lib/projects';
@@ -88,7 +87,6 @@ export default function ServicePage({ params }) {
 
       {/* HERO */}
       <div className="page-hero" style={{ paddingBottom: 50 }}>
-        <HeroCanvas />
         <div className="orb orb1" data-plx="0.1" /><div className="orb orb2" data-plx="-0.07" /><div className="hero-grid-bg" />
         <div className="wrap" style={{ position: 'relative', zIndex: 1 }}>
           <nav className="breadcrumb" aria-label="Breadcrumb">

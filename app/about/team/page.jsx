@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import CTABand from '@/components/CTABand';
-import HeroCanvas from '@/components/HeroCanvas';
 import { team, teamSchema } from '@/lib/team';
 import { site } from '@/lib/site';
 import { clampTitle, clampDescription, openGraph, twitterCard } from '@/lib/meta';
@@ -63,7 +62,6 @@ export default function TeamPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
 
       <div className="page-hero">
-        <HeroCanvas />
         <div className="orb orb1" data-plx="0.1" /><div className="hero-grid-bg" />
         <div className="wrap" style={{ position: 'relative', zIndex: 1, textAlign: 'center' }}>
           <nav className="breadcrumb" aria-label="Breadcrumb" style={{ justifyContent: 'center' }}>

@@ -72,7 +72,7 @@ export default function PortfolioGrid({ limit }) {
           // once laid out; this is what applies before hydration.
           <article className="pf-item rv in" key={p.slug} style={{ '--pf-dur': `${p.scrollDur}s` }}>
             <div className="pf-thumb">
-              <div className="pf-chrome"><i /><i /><i /><span>{(p.site || domainLabel)}</span></div>
+              <div className="pf-chrome"><i /><i /><i /><span>{p.site?.includes('.example') ? 'Project preview' : (p.site || domainLabel)}</span></div>
               <div className="pf-scroller">
                 <Image src={p.img} alt={p.title} width={p.shot.w} height={p.shot.h} sizes="(max-width:700px) 100vw, 400px" />
               </div>

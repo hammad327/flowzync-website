@@ -4,7 +4,6 @@ import Link from 'next/link';
 import { services } from '@/lib/services';
 import FAQ from '@/components/FAQ';
 import { CONTACT_FAQS } from '@/lib/contactFaqs';
-import HeroCanvas from '@/components/HeroCanvas';
 import { site } from '@/lib/site';
 
 export default function ContactPage() {
@@ -60,7 +59,6 @@ export default function ContactPage() {
   return (
     <>
       <div className="page-hero">
-        <HeroCanvas />
         <div className="orb orb1" data-plx="0.1" /><div className="orb orb2" data-plx="-0.07" /><div className="hero-grid-bg" />
         <div className="wrap" style={{ position: 'relative', zIndex: 1, textAlign: 'center' }}>
           <div className="eyebrow"><span className="pulse" />Contact</div>
