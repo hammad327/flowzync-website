@@ -3,7 +3,7 @@ import { pageFaqs, faqSchema } from '@/lib/pageFaqs';
 import CTABand from '@/components/CTABand';
 import { industries } from '@/lib/industries';
 import { site } from '@/lib/site';
-import { clampTitle, clampDescription } from '@/lib/meta';
+import { clampTitle, clampDescription, openGraph, twitterCard } from '@/lib/meta';
 import Photo from '@/components/Photo';
 
 export const metadata = {
@@ -11,6 +11,8 @@ export const metadata = {
   description: clampDescription(
     'Website design built around one industry at a time — plumbers, dental clinics, leak detection specialists and local businesses. Each site built for how that trade actually gets found.'
     ),
+  openGraph: openGraph({"title": "Industry Website Design | Flowzync", "description": "Explore website design for care, healthcare, trades, retail and professional services, with page structures built around each customer journey.", "url": "/industries"}),
+  twitter: twitterCard({"title": "Industry Website Design | Flowzync", "description": "Explore website design for care, healthcare, trades, retail and professional services, with page structures built around each customer journey.", "url": "/industries"}),
   alternates: { canonical: `${site.url}/industries` },
 };
 

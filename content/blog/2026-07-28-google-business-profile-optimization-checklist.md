@@ -1,6 +1,7 @@
 ---
 title: "Google Business Profile Optimisation: The Complete Checklist"
 description: "The free hour that outperforms most paid local SEO. Every field that matters, the two that decide your ranking, and what gets profiles suspended."
+updated: "2026-10-27"
 date: "2026-07-28"
 author: "Hamza Khan"
 category: "SEO"
@@ -14,7 +15,7 @@ faqs:
     a: "Check it quarterly: hours including upcoming holidays, new photographs, replies to every review, accurate services, and any 'suggested edits' from the public that have quietly changed something. That last one catches people out."
 ---
 
-**Your primary category and your review count decide most of your local ranking.** Everything else on your Google Business Profile matters, but those two are not close to the rest, and most businesses get the first one wrong and neglect the second entirely.
+**Google describes local ranking through relevance, distance and prominence.** Accurate categories, complete information and genuine reviews are useful parts of that picture, but review count alone does not determine the result.
 
 Completing this profile properly is free, takes about an hour, and for a local business it reliably outperforms the first several months of a paid SEO retainer. Here is everything, in order of what it is actually worth.
 
@@ -24,7 +25,7 @@ Completing this profile properly is free, takes about an hour, and for a local b
 
 Get this right rather than nearly right. Changing it later resets some of the trust you have built.
 
-**2. Reviews — count, recency and replies.** More reviews rank better. Recent reviews rank better than old ones, so a business with 40 reviews from this year beats one with 120 from four years ago. And replying to reviews is itself a signal.
+**2. Reviews — count, recency and replies.** Reviews can help customers and contribute to prominence, but there is no universal count or age threshold that guarantees a ranking. Reply to be helpful, not because a reply is a proven standalone ranking boost.
 
 Ask every satisfied customer, within a day or two of finishing, with a direct link that opens the review form in one tap. Systematically, forever. This is the single most neglected lever in local search and it is entirely free.
 
@@ -60,7 +61,7 @@ Never buy reviews. Beyond Google's rules, it is a consumer-protection offence in
 
 ## Things that quietly cost you
 
-**Inconsistent details.** Your name, address and phone must be byte-identical across your website, Google, Bing Places, Apple Business Connect, Facebook and every directory. "Street" versus "St" genuinely matters, because machines are doing the matching.
+**Inconsistent details.** Keep your real name, contact details and location accurate across your website and legitimate profiles. Correct outdated numbers, wrong addresses and duplicate listings; ordinary address abbreviations do not by themselves prove a ranking issue.
 
 **A missing or wrong website link.** Point it at the most relevant page, not always the homepage. A single-location service business should usually link to the service page that matches the primary category.
 
@@ -83,3 +84,9 @@ None of this requires an agency. It requires an hour now and ten minutes a month
 ---
 
 *If you would rather it was done properly once and then handed over, [we do that as part of local SEO work](/services/seo-optimization).*
+
+## Sources and scope
+
+The recommendations in this guide are Flowzync’s practical opinion. The linked documentation supports the relevant platform or technical requirements; it does not establish a promised commercial result.
+
+- [Google Business Profile: local ranking](https://support.google.com/business/answer/7091).

@@ -2,6 +2,7 @@
 seoTitle: "What Families Need From a Care Agency Website | Flowzync"
 title: "What Families Actually Look For on a Care Agency Website"
 description: "The person reading your website is not the person who needs care. It's their adult daughter, at midnight, comparing three providers — and she is looking for four specific things."
+updated: "2026-10-27"
 date: "2026-08-30"
 author: "Zara Malik"
 category: "Care"
@@ -67,3 +68,10 @@ Answer those four things clearly and you will out-convert providers with far bet
 ---
 
 *We build websites and enquiry systems for home care and care providers — [see what changes for this sector](/industries/care-homes-and-home-care).*
+
+## Sources and scope
+
+The recommendations in this guide are Flowzync’s practical opinion. The linked documentation supports the relevant platform or technical requirements; it does not establish a promised commercial result. Care-related website and software guidance is not a substitute for current regulatory, clinical or data-protection advice for your organisation.
+
+- [W3C: Web Content Accessibility Guidelines 2.2](https://www.w3.org/TR/WCAG22/).
+- [Care Quality Commission: rating display requirements](https://www.cqc.org.uk/cqc-ratings-and-promotional-graphics/how-providers-must-display-ratings).

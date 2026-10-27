@@ -101,6 +101,7 @@ const nextConfig = {
 
     return [
       { source: '/:path*', headers: security },
+      { source: '/api/:path*', headers: [{ key: 'X-Robots-Tag', value: 'noindex, nofollow' }] },
       {
         // Belt and braces: the dashboard must never be indexed, even
         // if someone links to it from outside.

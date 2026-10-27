@@ -162,6 +162,7 @@ export default function ChatWidget() {
         </div>
 
         <div className="ai-body" ref={bodyRef}>
+          <p className="privacy-notice">AI assistant: responses may be inaccurate. Messages may be processed by an AI provider. Avoid sensitive details. <a href="/privacy">Privacy &amp; data use</a></p>
           {msgs.map((m, i) => (
             <div key={i} className={`msg ${m.role === 'user' ? 'user' : 'bot'}`}>{m.content}</div>
           ))}

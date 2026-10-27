@@ -1,6 +1,7 @@
 ---
 title: "Elementor vs a Custom WordPress Theme: Which Should You Choose?"
 description: "Elementor wins on editability, custom themes win on speed and longevity. Here's how to tell which trade-off is right for your business."
+updated: "2026-10-27"
 date: "2026-03-24"
 author: "Hammad Tahir"
 category: "WordPress"
@@ -83,3 +84,10 @@ If the answer is "our marketing coordinator, and probably quite a lot", Elemento
 ---
 
 *We build both, and we will tell you which one fits your team rather than which one we prefer. [Elementor design](/services/elementor-design) · [WordPress website design](/services/wordpress-website-design).*
+
+## Sources and scope
+
+The recommendations in this guide are Flowzync’s practical opinion. The linked documentation supports the relevant platform or technical requirements; it does not establish a promised commercial result.
+
+- [WordPress: security and maintenance guidance](https://developer.wordpress.org/advanced-administration/security/).
+- [Google web.dev: Core Web Vitals](https://web.dev/articles/vitals).

@@ -1,6 +1,7 @@
 ---
 title: "7 Signs Your Website Needs a Redesign (Not Just a Refresh)"
 description: "How to tell whether your website needs a coat of paint or a proper rebuild — and how to decide without wasting budget."
+updated: "2026-10-27"
 date: "2026-07-01"
 author: "Zara Malik"
 category: "Web Design"
@@ -51,3 +52,10 @@ A **refresh** (new imagery, updated copy, small layout fixes) makes sense when t
 > The most expensive website is the one that quietly turns visitors away every day while looking "fine enough" to ignore.
 
 If you're not sure which side you're on, an outside audit is worth its weight. We offer one free — no strings — because the diagnosis should never cost money. And if speed is your main worry, our [SEO optimization service](/services/seo-optimization) covers Core Web Vitals too.
+
+## Sources and scope
+
+The recommendations in this guide are Flowzync’s practical opinion. The linked documentation supports the relevant platform or technical requirements; it does not establish a promised commercial result.
+
+- [Google web.dev: Core Web Vitals](https://web.dev/articles/vitals).
+- [W3C: Web Content Accessibility Guidelines 2.2](https://www.w3.org/TR/WCAG22/).

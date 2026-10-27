@@ -3,13 +3,15 @@ import { pageFaqs, faqSchema } from '@/lib/pageFaqs';
 import CTABand from '@/components/CTABand';
 import { locationsByCountry, locations } from '@/lib/locations';
 import { coverageGroups, site, serviceArea } from '@/lib/site';
-import { clampTitle, clampDescription } from '@/lib/meta';
+import { clampTitle, clampDescription, openGraph, twitterCard } from '@/lib/meta';
 
 export const metadata = {
   title: { absolute: clampTitle('Areas We Cover | Web Design Worldwide — Flowzync') },
   description: clampDescription(
     'Flowzync works with clients worldwide — the US, UK, Canada, Australia, Ireland, New Zealand and the UAE — with a dedicated page for each city we work in most.'
     ),
+  openGraph: openGraph({"title": "Areas We Serve | Remote Website Design | Flowzync", "description": "Flowzync serves businesses worldwide from Lahore, Pakistan. Explore our remote website design services and city-specific planning guides.", "url": "/locations"}),
+  twitter: twitterCard({"title": "Areas We Serve | Remote Website Design | Flowzync", "description": "Flowzync serves businesses worldwide from Lahore, Pakistan. Explore our remote website design services and city-specific planning guides.", "url": "/locations"}),
   alternates: { canonical: `${site.url}/locations` },
 };
 

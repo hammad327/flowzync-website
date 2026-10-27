@@ -1,6 +1,7 @@
 ---
 title: "Cheap Website Design: What You Actually Get for £500"
 description: "Not a scam, but not what most people think they're buying. A plain breakdown of what a budget website includes, excludes, and costs you later."
+updated: "2026-10-27"
 date: "2026-06-30"
 author: "Hammad Tahir"
 category: "Web Design"
@@ -92,3 +93,10 @@ If you have £500 and an established business that depends on being found: save 
 ---
 
 *We quote against a written scope, itemised, and we will tell you if your budget is better spent elsewhere. [Ask us](/contact).*
+
+## Sources and scope
+
+The recommendations in this guide are Flowzync’s practical opinion. The linked documentation supports the relevant platform or technical requirements; it does not establish a promised commercial result. Budget and timeline ranges are illustrative planning estimates, not an independently sampled market average or a binding Flowzync quote. Confirm scope, currency, taxes and vendor renewal prices before purchasing.
+
+- [WordPress: security and maintenance guidance](https://developer.wordpress.org/advanced-administration/security/).
+- [Google web.dev: Core Web Vitals](https://web.dev/articles/vitals).

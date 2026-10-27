@@ -13,12 +13,12 @@ import { localeCodes } from '@/lib/locales';
 // to the build date — a lastmod that moves on every deploy without the
 // content changing is the fastest way to have Google stop trusting the
 // field entirely, and then it ignores the accurate ones too.
-const PAGES_UPDATED = new Date('2026-08-23');
+const PAGES_UPDATED = new Date('2026-10-27');
 
 export default function sitemap() {
-  const staticPages = ['', '/services', '/industries', '/locations', '/portfolio', '/about', '/about/team', '/contact', '/blog'].map((p) => ({
+  const staticPages = ['', '/services', '/industries', '/locations', '/portfolio', '/about', '/about/team', '/contact', '/blog', '/privacy', '/cookies', '/editorial-policy'].map((p) => ({
     url: `${site.url}${p}`,
-    lastModified: ['', '/about', '/blog', '/portfolio'].includes(p) ? new Date('2026-10-27') : PAGES_UPDATED,
+    lastModified: ['', '/about', '/blog', '/portfolio', '/privacy', '/cookies', '/editorial-policy'].includes(p) ? new Date('2026-10-27') : PAGES_UPDATED,
   }));
   const servicePages = services.map((s) => ({
     url: `${site.url}/services/${s.slug}`,
@@ -26,15 +26,15 @@ export default function sitemap() {
   }));
   const industryPages = industries.map((i) => ({
     url: `${site.url}/industries/${i.slug}`,
-    lastModified: PAGES_UPDATED,
+    lastModified: new Date('2026-10-27'),
   }));
   const locationPages = locations.map((l) => ({
     url: `${site.url}/locations/${l.slug}`,
-    lastModified: PAGES_UPDATED,
+    lastModified: new Date('2026-10-27'),
   }));
   const projectPages = projects.map((p) => ({
     url: `${site.url}/portfolio/${p.slug}`,
-    lastModified: PAGES_UPDATED,
+    lastModified: new Date('2026-10-27'),
   }));
   const blogPages = getAllPosts().map((p) => ({
     url: `${site.url}/blog/${p.slug}`,
@@ -44,7 +44,7 @@ export default function sitemap() {
   // see lib/locales.js for why this is not a full translation.
   const localePages = localeCodes.map((code) => ({
     url: `${site.url}/${code}`,
-    lastModified: PAGES_UPDATED,
+    lastModified: new Date('2026-10-27'),
   }));
   return [...staticPages, ...servicePages, ...industryPages, ...locationPages,
           ...projectPages, ...blogPages, ...localePages];

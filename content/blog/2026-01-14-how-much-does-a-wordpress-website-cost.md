@@ -1,6 +1,7 @@
 ---
 title: "How Much Does a WordPress Website Cost in 2026?"
 description: "Real numbers, what drives them up, and the three quotes you should walk away from. Written by someone who sends these quotes, so read it sceptically."
+updated: "2026-10-27"
 date: "2026-01-14"
 author: "Hammad Tahir"
 category: "Web Design"
@@ -75,3 +76,10 @@ And if someone quotes you £600 for all of it, the honest answer is that they ar
 ---
 
 *If you want an itemised quote with the scope written down, [tell us what you need](/contact). We would rather explain why a number is what it is than send you a single figure and hope.*
+
+## Sources and scope
+
+The recommendations in this guide are Flowzync’s practical opinion. The linked documentation supports the relevant platform or technical requirements; it does not establish a promised commercial result. Budget and timeline ranges are illustrative planning estimates, not an independently sampled market average or a binding Flowzync quote. Confirm scope, currency, taxes and vendor renewal prices before purchasing.
+
+- [WordPress: security and maintenance guidance](https://developer.wordpress.org/advanced-administration/security/).
+- [WooCommerce: platform and operating costs](https://woocommerce.com/pricing/).

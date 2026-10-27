@@ -40,7 +40,7 @@ for(const url of baseline)assert.ok(available.has(url.replace(/\/$/,'')),`Existi
 const inbound=new Map();for(const page of pages)for(const target of page.links)inbound.set(target,(inbound.get(target)||0)+1);
 assert.ok(inbound.get('/about/team')>0,'Team page needs a contextual link');
 const about=readFileSync(join(root,'about.html'),'utf8');
-assert.ok(/data-count="240">240</.test(about),'About numbers must render at their actual values');
+assert.ok(about.includes('Clear project deliverables')&&!about.includes('data-count='),'About must use process facts rather than unsupported metrics');
 assert.ok(about.includes('cnt-worldwide'),'Worldwide needs its own balanced typography');
 const manifests=JSON.parse(readFileSync('.next/routes-manifest.json','utf8'));
 const dated=manifests.redirects.find(rule=>rule.source.startsWith('/blog/:date'));

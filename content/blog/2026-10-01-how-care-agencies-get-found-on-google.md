@@ -1,6 +1,7 @@
 ---
 title: "How Care Agencies Get Found on Google"
 description: "Where home care enquiries actually come from in search, why directories outrank most providers, and the pages a care agency needs to compete locally."
+updated: "2026-10-27"
 date: "2026-10-01"
 category: "Care"
 cover: "/images/blog/care-found-on-google.svg"
@@ -74,3 +75,10 @@ A family who finds you and then waits two days for a reply is a family who has a
 ---
 
 *We build care websites and the follow-up behind them, as one thing rather than two. [Here is what that involves](/services/ghl-funnels-for-care-agencies).*
+
+## Sources and scope
+
+The recommendations in this guide are Flowzync’s practical opinion. The linked documentation supports the relevant platform or technical requirements; it does not establish a promised commercial result. Care-related website and software guidance is not a substitute for current regulatory, clinical or data-protection advice for your organisation.
+
+- [Google Business Profile: local ranking](https://support.google.com/business/answer/7091).
+- [Google Search Central: AI features and your website](https://developers.google.com/search/docs/appearance/ai-features).

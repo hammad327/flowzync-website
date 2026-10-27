@@ -1,6 +1,7 @@
 ---
 title: "Website Contact Form Not Sending Emails? Work Through This"
 description: "Why contact form submissions silently vanish, how to tell whether the form or the email is at fault, and the fix that stops it happening again."
+updated: "2026-10-27"
 date: "2026-09-26"
 category: "Support"
 cover: "/images/blog/contact-form-not-sending.svg"
@@ -27,7 +28,7 @@ Submit the form yourself and watch what the page does. If you get the thank-you 
 
 Then check, in order: the inbox, the spam folder, and your mail server's logs if you can reach them. If the message is in spam, you have an authentication problem, not a form problem. If it is nowhere at all, it was rejected before it arrived.
 
-## Step two: the cause, nine times out of ten
+## Step two: check the delivery configuration
 
 Most contact forms on small business sites use whatever the hosting provides — PHP `mail()` on shared hosting, or a plugin's default sending. That sends your message from a server which has no authorisation to send mail for your domain.
 
@@ -80,3 +81,9 @@ Submit your own form with a note, and at the same time send yourself an ordinary
 ---
 
 *Form delivery, storage and notification are part of every site we build, and something we fix on sites we did not. [Here is what support covers](/services/maintenance-support).*
+
+## Sources and scope
+
+The recommendations in this guide are Flowzync’s practical opinion. The linked documentation supports the relevant platform or technical requirements; it does not establish a promised commercial result.
+
+- [MDN: sending form data](https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Forms/Sending_and_retrieving_form_data).

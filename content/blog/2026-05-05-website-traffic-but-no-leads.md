@@ -1,6 +1,7 @@
 ---
 title: "Why Your Website Gets Traffic But No Leads"
 description: "Traffic without enquiries almost always means one of five things. Here's how to work out which, in about an hour, without buying any software."
+updated: "2026-10-27"
 date: "2026-05-05"
 author: "Zara Malik"
 category: "Conversion"
@@ -87,3 +88,10 @@ A website is very good at removing friction between someone deciding to act and 
 ---
 
 *If you would rather someone else worked out which of the five it is, [we audit sites and tell you plainly](/contact) — including when the answer is that the site is fine.*
+
+## Sources and scope
+
+The recommendations in this guide are Flowzync’s practical opinion. The linked documentation supports the relevant platform or technical requirements; it does not establish a promised commercial result.
+
+- [MDN: sending form data](https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Forms/Sending_and_retrieving_form_data).
+- [Google Search Central: people-first content](https://developers.google.com/search/docs/fundamentals/creating-helpful-content).

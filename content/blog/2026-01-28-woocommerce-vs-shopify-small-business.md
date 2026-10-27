@@ -1,77 +1,77 @@
 ---
 title: "WooCommerce vs Shopify: Which Is Cheaper for a Small Store?"
-description: "The real cost comparison over three years, including the fees nobody puts in the pricing table — and the point at which the answer flips."
+description: "Compare WooCommerce and Shopify costs using platform fees, payment processing, maintenance and an explicit three-year example."
+updated: "2026-10-27"
 date: "2026-01-28"
 author: "Zara Malik"
 category: "E-commerce"
 cover: "/images/blog/woocommerce-vs-shopify.svg"
 faqs:
   - q: "Is WooCommerce cheaper than Shopify?"
-    a: "Below roughly £15,000 a month in sales Shopify usually costs less overall once you count build time and maintenance. Above that, WooCommerce almost always wins and the gap widens, because Shopify's transaction fees scale with revenue while WooCommerce's costs stay largely flat."
+    a: "There is no universal revenue threshold. Compare platform and app fees, hosting, maintenance and payment processing for the same store requirements and sales assumptions."
   - q: "When should I choose WooCommerce over Shopify?"
     a: "When your checkout does something unusual, you need pricing rules or product configurations Shopify resists, you want the store on the same site as a substantial content operation, or percentage fees have become a real line item. Shopify is the better call for straightforward catalogues where you would rather not think about hosting."
   - q: "Is it worth migrating from Shopify to WooCommerce?"
-    a: "Only if the platform is actively blocking something your business needs to do. Migration costs real money and loses some search performance in the short term, so 'slightly cheaper' is not a good enough reason on its own."
+    a: "Consider migration when a documented requirement or complete cost model justifies the project. Budget for data transfer, redirects, testing and possible search fluctuations; a lower headline subscription is not enough."
 ---
 
-For a store doing under about £5,000 a month in sales, **Shopify is usually cheaper overall**. Above roughly £15,000 a month, **WooCommerce almost always wins**, and the gap widens fast. In between it depends on how much you value not thinking about hosting.
+**Neither WooCommerce nor Shopify is always cheaper at a particular level of revenue.** Compare the same features, payment methods, support responsibilities and time period before choosing. Processing fees can increase with sales on both platforms.
 
-That is the short answer. The long answer is that the pricing pages of both platforms are designed to make this comparison hard, so here is what actually lands on the bill.
+We build WooCommerce stores, so this is a supplier's decision guide, not an independent price survey. The examples below show how to make a comparison; they are not vendor quotes.
 
-## The costs Shopify's pricing page shows you
+## Separate platform fees from payment processing
 
-Shopify's subscription is the honest, easy part: a fixed monthly fee per plan. What the pricing page is quieter about is everything stacked on top.
+Shopify charges a subscription. Its current plan and country determine payment rates and any additional third-party transaction fees. Using Shopify Payments generally avoids the additional third-party transaction fee, but it does not make card processing free. Check eligibility, exceptions and the payment methods your customers use.
 
-**Transaction fees.** Shopify takes a percentage of every sale on top of your card processing fee if you use anything other than Shopify Payments. Even on Shopify Payments you are paying card rates. On £10,000 a month, a difference of 0.5% is £600 a year — more than most people's hosting.
+WooCommerce's core software has no platform subscription or revenue share. You still pay for hosting, payment processing, extensions, maintenance and the people who configure the store. A lower platform fee can be outweighed by higher operating costs.
 
-**Apps.** This is where Shopify budgets actually break. Subscriptions, bundles, advanced filtering, review collection, upsells, proper reporting — each is an app, most are monthly, and most price by order volume or store size. A store running eight apps at £15–£40 each is spending more on apps than on the platform. Ask any Shopify store owner what their app bill is; the pause before they answer is the point.
+Read the current [Shopify UK pricing](https://www.shopify.com/uk/pricing) and [WooCommerce pricing explanation](https://woocommerce.com/pricing/) for the relevant country. Taxes, currency, billing term and add-ons can change the comparison.
 
-**Themes.** £150–£300 one-off for a premium theme, plus development if you want it to stop looking like the theme.
+## Build a like-for-like cost sheet
 
-## The costs WooCommerce's "free" hides
+List these items for each option:
 
-WooCommerce is free in the sense that a puppy is free.
+- Initial design, product import, integrations and staff training.
+- Platform subscription or hosting, including renewal prices.
+- Paid applications or extensions for your actual requirements.
+- Maintenance, backups, security and support responsibilities.
+- Percentage and fixed payment-processing fees for each payment method.
+- Additional platform transaction fees, where applicable.
+- Currency conversion, cross-border payments and other relevant charges.
 
-**Hosting.** You need real hosting, not the cheapest shared plan. Budget £20–£80 a month for a store; below that, checkout slows under load and you lose sales you never find out about.
+Use the same expected orders, average order value and product catalogue for both estimates. Mark unknowns and request a quote rather than entering zero.
 
-**Extensions.** Subscriptions, bookings, advanced shipping, memberships — most are £100–£250 a year each. Cheaper than the Shopify app equivalents in most cases, but annual and easy to forget.
+## A worked example with explicit assumptions
 
-**Maintenance.** This is the real one. WordPress updates, plugin updates, PHP version changes, security, backups. Either you do it, or you pay £50–£200 a month for someone to. Ignoring it works fine right up until the morning it does not.
+Suppose a hypothetical store processes £12,000 per month in 300 orders. Assume a processor charges 2% plus £0.25 per order. The monthly processing cost would be:
 
-**Setup.** WooCommerce takes longer to build properly, so the up-front build cost is typically higher.
+**£12,000 × 0.02 + 300 × £0.25 = £315.**
 
-## Three years, one store, both platforms
+That is an illustrative rate, not the current offer from either platform. If it applied on both, processing would cost £11,340 over 36 months on each. Doubling revenue while also doubling orders would double that processing cost on both.
 
-Take a store doing £12,000 a month, 300 orders, needing subscriptions and decent filtering.
+Now suppose Option A has £100 per month in platform and apps plus a £3,000 build. Option B has £140 per month in hosting, extensions and maintenance plus a £5,000 build. Over 36 months, excluding the identical processing assumption, A costs £6,600 and B costs £10,040.
 
-On **Shopify**, over three years, you are looking at roughly: subscription around £2,300, transaction and gateway fees around £11,000, apps around £2,900, theme and setup around £3,500. Call it **£19,700**.
+If A additionally incurred a 1% third-party platform fee on all £12,000 of monthly sales, that would add £4,320 over 36 months. The answer would change. These invented assumptions demonstrate the calculation; your contracted rates decide the real answer.
 
-On **WooCommerce**: hosting around £1,700, extensions around £1,400, maintenance around £3,200, gateway fees around £9,300, build around £6,500. Call it **£22,100**.
+## Choose on operations as well as price
 
-Shopify wins — at that volume. Now double the revenue. Shopify's transaction fees double to around £22,000 while WooCommerce's gateway fees rise more slowly and everything else stays flat. WooCommerce comes out several thousand ahead, and it keeps pulling further ahead every year after that.
+Shopify can suit a team that wants a managed commerce platform and a standard catalogue with supported integrations. Check the specific plan's checkout, reporting and customisation capabilities before deciding a requirement is impossible.
 
-**The crossover is roughly £15,000–£20,000 a month.** Below it, Shopify. Above it, WooCommerce, and increasingly so.
+WooCommerce can suit a business needing control of hosting, WordPress content, custom product rules or bespoke integrations. That control comes with responsibility for maintenance and compatibility testing. Managed hosting and a care plan can help, but they are costs to include.
 
-## The part that is not about money
+Both can support substantial stores. Revenue alone does not determine platform suitability. Test a realistic order: product configuration, tax, shipping, payment, confirmation, refund and staff fulfilment.
 
-Cost is the easy comparison. These two are genuinely different tools.
+## When is migration worth considering?
 
-**Shopify is better when** you want to launch quickly, you do not want to think about hosting or updates, your product catalogue is straightforward, and you would rather buy a solution than build one. It is genuinely excellent at being reliable.
+Move when a documented requirement is blocked, or when a complete cost model supports the business case after migration and operational costs. Do not migrate solely because the other platform advertises a lower headline price.
 
-**WooCommerce is better when** your checkout does something unusual, you need pricing rules or product configurations Shopify resists, you want your store on the same site as a substantial content operation, you care about owning the whole stack, or you are big enough that percentage fees have become a real line item.
+Plan product and customer data handling, orders, subscriptions, URL redirects and tracking before a switch. Search visibility can fluctuate during a migration; [our migration guide](/blog/move-website-without-losing-google-rankings) explains the checks.
 
-The friction points are predictable. On Shopify, the thing you eventually want to change is the checkout, and on most plans you cannot. On WooCommerce, the thing that eventually goes wrong is that nobody updated anything for eight months.
+For a scoped WooCommerce proposal, [tell us about the store](/services/woocommerce-development). We will distinguish the build cost from ongoing vendor and support costs.
 
-## What I would actually tell you
+## Sources and scope
 
-Starting out, under £5,000 a month, no unusual requirements: **use Shopify**. Get selling. Do not spend six weeks on a platform decision for a business that does not have customers yet.
+The recommendations in this guide are Flowzync’s practical opinion. The linked documentation supports the relevant platform or technical requirements; it does not establish a promised commercial result.
 
-Established, over £15,000 a month, or with any real complexity in pricing, subscriptions or shipping: **WooCommerce**, and budget properly for maintenance rather than pretending it is optional.
-
-In between: pick the one whose failure mode you would rather live with. Do you want to pay a percentage forever and never think about servers, or pay a fixed cost and accept that maintenance is now your problem? Both are defensible. Neither is a mistake.
-
-And if you are already on one and wondering whether to move — migration costs real money and loses you some SEO in the short term. "The other platform is slightly cheaper" is not a good enough reason. "The platform is actively blocking something my business needs to do" is.
-
----
-
-*We build WooCommerce stores, and we will tell you plainly when Shopify is the better call for your business — we would rather lose the project than sell you the wrong platform. [Talk to us about your store](/services/woocommerce-development).*
+- [Shopify: current UK plans and payment fees](https://www.shopify.com/uk/pricing).
+- [WooCommerce: platform and operating costs](https://woocommerce.com/pricing/).

@@ -309,3 +309,8 @@ Run `node scripts/check-site-seo.mjs` after a production build for the full-site
 canonical, internal-link, metadata, URL-preservation and Ahrefs-install checks.
 See `docs/SEO-REVIEW-2026-10-27.md` for observed Search Console URL checks and the
 remaining account-access requirements for backlink comparison.
+
+
+### Complete SEO/GEO and publishing audit (27 October 2026)
+
+Run `npm run build`, `node scripts/check-homepage.mjs`, `node scripts/check-site-seo.mjs`, then `python scripts/audit-all-pages.py`. After deployment, `python scripts/audit-all-pages.py --live` checks every public URL against the audited build. CSV and JSON evidence are written to `docs/`. Account-only tasks and advertising prerequisites are consolidated in `docs/MANUAL-ACTIONS-SEO-GEO-ADSENSE-2026-10-27.md`. Never use a passing audit as a guarantee of indexing or AdSense approval. No advertising code is enabled without a verified publisher and appropriate consent configuration.

@@ -27,7 +27,7 @@ const AI_CRAWLERS = [
   'Claude-SearchBot', // Anthropic — search indexing
   'PerplexityBot',    // Perplexity — index
   'Perplexity-User',  // Perplexity — live fetch
-  'Google-Extended',  // Google — Gemini and AI Overviews grounding
+  'Google-Extended',  // Google — some Gemini training/grounding; not the Google Search AI crawler
   'Applebot',         // Apple — Siri and Spotlight
   'Applebot-Extended',
   'Bingbot',          // Microsoft — Bing and Copilot

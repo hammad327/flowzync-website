@@ -4,17 +4,18 @@ import CTABand from '@/components/CTABand';
 import { services } from '@/lib/services';
 import { Icon, colorHex } from '@/components/Icons';
 import { site } from '@/lib/site';
-import { clampTitle, clampDescription, openGraph } from '@/lib/meta';
+import { clampTitle, clampDescription, openGraph, twitterCard } from '@/lib/meta';
 
 export const metadata = {
   title: 'Web Design, Funnels, WordPress & Automation',
   description: clampDescription(
-    'Explore Flowzync services: custom website design, landing pages, GoHighLevel funnels, business automation, WordPress and Shopify development, SEO, UI/UX and maintenance.'
+    'Explore Flowzync services: custom website design, landing pages, GoHighLevel funnels, business automation, WordPress and WooCommerce development, SEO, UI/UX and maintenance.'
     ),
   alternates: { canonical: '/services' },
+  twitter: twitterCard({ title: 'Web Design, Funnels, WordPress & Automation', description: 'Explore Flowzync services: custom website design, landing pages, GoHighLevel funnels, business automation, WordPress and WooCommerce development, SEO, UI/UX and maintenance.' }),
   openGraph: openGraph({
     title: 'Web Design, Funnels, WordPress & Automation',
-    description: 'Explore Flowzync services: custom website design, landing pages, GoHighLevel funnels, business automation, WordPress and Shopify development, SEO, UI/UX and maintenance.',
+    description: 'Explore Flowzync services: custom website design, landing pages, GoHighLevel funnels, business automation, WordPress and WooCommerce development, SEO, UI/UX and maintenance.',
     url: '/services',
   }),
 };

@@ -1,21 +1,21 @@
 import { pageFaqs, faqSchema } from '@/lib/pageFaqs';
 import Link from 'next/link';
 import CTABand from '@/components/CTABand';
-import Testimonials from '@/components/Testimonials';
 import { LogoMark } from '@/components/Logo';
 import { site } from '@/lib/site';
-import { clampTitle, clampDescription, openGraph } from '@/lib/meta';
+import { clampTitle, clampDescription, openGraph, twitterCard } from '@/lib/meta';
 import Photo from '@/components/Photo';
 
 export const metadata = {
   title: 'About Us — The Team Behind Flowzync',
   description: clampDescription(
-    'Meet Flowzync: a remote studio of senior designers, developers and automation specialists serving clients worldwide since 2021.'
+    'Meet Flowzync: a remote studio of senior designers, developers and automation specialists serving clients worldwide.'
     ),
   alternates: { canonical: '/about' },
+  twitter: twitterCard({ title: 'About Us — The Team Behind Flowzync', description: 'Meet Flowzync: a remote studio of senior designers, developers and automation specialists serving clients worldwide.' }),
   openGraph: openGraph({
     title: 'About Us — The Team Behind Flowzync',
-    description: 'Meet Flowzync: a remote studio of senior designers, developers and automation specialists serving clients worldwide since 2021.',
+    description: 'Meet Flowzync: a remote studio of senior designers, developers and automation specialists serving clients worldwide.',
     url: '/about',
   }),
 };
@@ -29,7 +29,7 @@ const VALUES = [
 
 const TOOLS = ['GoHighLevel', 'WordPress', 'WooCommerce', 'Figma', 'Next.js', 'Zapier', 'Make.com', 'Klaviyo', 'Stripe', 'Cloudflare', 'ACF Pro', 'Twilio'];
 
-const CLIENTS = ['ScaleDental Co.', 'Lumen Legal', 'Northpeak Gear', 'Brightline Media', 'Harvest & Co.', 'Solstice Wellness', 'Trackline', 'Atlas Property'];
+const CLIENTS = ['NF Living', 'DAS Care Services', 'Roller Shutters Online', 'Heaven Sent Sleep'];
 
 const aboutSchema = {
   '@context': 'https://schema.org',
@@ -54,7 +54,7 @@ export default function AboutPage() {
               <h1>The team behind the <span className="grad-txt">systems behind the sites</span></h1>
               <p className="lede" style={{ marginBottom: 30 }}>
                 We&apos;re a remote studio of senior designers, developers and automation
-                specialists, working with clients worldwide. Since 2021 we&apos;ve
+                specialists, working with clients worldwide. We have
                 treated websites the way engineers treat machines:
                 every part — design, code, automation — has to work together, or none of it works.
               </p>
@@ -70,7 +70,7 @@ export default function AboutPage() {
               <Photo
                 photo="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1100&q=80&auto=format&fit=crop"
                 fallback="/images/services/ui-ux-design.svg"
-                alt="The Flowzync team collaborating on a project" width={1100} height={825}
+                alt="Illustrative photograph of a collaborative design workspace" width={1100} height={825}
               />
               <div className="ab-float abf1" data-plx="0.08"><b className="grad-txt">5+ yrs</b><span>Craft &amp; counting</span></div>
               {/* Deliberately not a headcount. It used to read "14 experts",
@@ -88,10 +88,10 @@ export default function AboutPage() {
       <section className="sec-tint">
         <div className="wrap">
           <div className="counters counters-xl">
-            <div className="cnt rv" data-tilt><div className="cnt-ic ic-lav"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8Z" fill="#087F78"/></svg></div><b><span data-count="240">240</span><em>+</em></b><span>Projects delivered</span></div>
-            <div className="cnt rv rv-d1" data-tilt><div className="cnt-ic ic-mint"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 21s-7-4.6-9.5-9C.9 8.4 3 5 6.5 5c2 0 3.6 1.1 4.5 2.7C11.9 6.1 13.5 5 15.5 5 19 5 21.1 8.4 21.5 12c-2.5 4.4-9.5 9-9.5 9Z" fill="#299D85"/></svg></div><b><span data-count="98">98</span><em>%</em></b><span>Clients who stay</span></div>
+            <div className="cnt cnt-worldwide rv" data-tilt><div className="cnt-ic ic-lav"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8Z" fill="#087F78"/></svg></div><b>Scoped</b><span>Clear project deliverables</span></div>
+            <div className="cnt cnt-worldwide rv rv-d1" data-tilt><div className="cnt-ic ic-mint"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 21s-7-4.6-9.5-9C.9 8.4 3 5 6.5 5c2 0 3.6 1.1 4.5 2.7C11.9 6.1 13.5 5 15.5 5 19 5 21.1 8.4 21.5 12c-2.5 4.4-9.5 9-9.5 9Z" fill="#299D85"/></svg></div><b>Connected</b><span>Design, code and automation</span></div>
             <div className="cnt cnt-worldwide rv rv-d2" data-tilt><div className="cnt-ic ic-peach"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#FF7A3D" strokeWidth="2"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.7 3.8 9S14.5 18.4 12 21c-2.5-2.6-3.8-5.7-3.8-9S9.5 5.6 12 3Z" stroke="#FF7A3D" strokeWidth="2"/></svg></div><b>Worldwide</b><span>Where our clients are</span></div>
-            <div className="cnt rv rv-d3" data-tilt><div className="cnt-ic ic-lav"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#087F78" strokeWidth="2"/><path d="M12 7v5l3 3" stroke="#087F78" strokeWidth="2" strokeLinecap="round"/></svg></div><b><span data-count="2">2</span><em>h</em></b><span>Quote reply time</span></div>
+            <div className="cnt cnt-worldwide rv rv-d3" data-tilt><div className="cnt-ic ic-lav"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#087F78" strokeWidth="2"/><path d="M12 7v5l3 3" stroke="#087F78" strokeWidth="2" strokeLinecap="round"/></svg></div><b>Direct</b><span>Speak with your project team</span></div>
           </div>
         </div>
       </section>
@@ -101,13 +101,13 @@ export default function AboutPage() {
         <div className="wrap">
           <div className="sec-head center rv">
             <div className="eyebrow"><span className="pulse" />Our story</div>
-            <h2>From two founders to a <span className="grad-txt">global studio</span></h2>
+            <h2>Design and systems, <span className="grad-txt">planned together</span></h2>
           </div>
           <div className="story-flow">
             <div className="story-rail" aria-hidden="true" />
-            <div className="story rv rv-l"><b className="grad-txt">2021</b><h3>The beginning</h3><p>An automation engineer and a designer keep rescuing the same broken setups — beautiful websites with no follow-up, powerful CRMs nobody configured. They decide the fix is one studio that treats design, code and automation as a single craft. Flowzync is born.</p></div>
-            <div className="story rv rv-r"><b className="grad-txt">2022</b><h3>Going remote-first</h3><p>The team grows to six senior specialists across three time zones. Working async forces a discipline that clients still feel today: everything documented, everything visible, no black boxes.</p></div>
-            <div className="story rv rv-r"><b className="grad-txt">Today</b><h3>A studio, not an agency</h3><p>Senior specialists working with clients across the world, and the same obsession with every pixel and every workflow we started with. Still no juniors on your project, still no account-manager relay.</p></div>
+            <div className="story rv rv-l"><b className="grad-txt">01</b><h3>Understand the job</h3><p>We start with the people who will use the website, the questions they need answered and the systems your team already relies on.</p></div>
+            <div className="story rv rv-r"><b className="grad-txt">02</b><h3>Design the whole journey</h3><p>Page structure, content, forms and follow-up belong in the same plan. We agree the scope and responsibilities before implementation.</p></div>
+            <div className="story rv rv-r"><b className="grad-txt">03</b><h3>Build for the handover</h3><p>A finished website needs clear ownership, an understandable editing setup and agreed support. Those practical details are part of the project conversation.</p></div>
           </div>
         </div>
       </section>
@@ -191,32 +191,15 @@ export default function AboutPage() {
         <div className="wrap section-resource-links"><span>Get to know the people behind your project.</span><Link href="/about/team">Meet the Flowzync team →</Link></div>
       </section>
 
-      {/* WHAT CLIENTS SAY — placed straight after the team, because the
-          reader has just been told who we are and this is the evidence. */}
-      <section className="sec-tint">
-        <div className="wrap">
-          <div className="sec-head center rv">
-            <div className="eyebrow"><span className="pulse" />In their words</div>
-            <h2>What it&apos;s like <span className="grad-txt">working with us</span></h2>
-            <p>
-              Trimmed for length, otherwise as they were sent. We have left in the
-              projects that ran late and the week someone felt out of the loop —
-              a wall of unbroken praise tells you nothing useful.
-            </p>
-          </div>
-          <Testimonials />
-        </div>
-      </section>
-
       {/* CLIENTS + TOOLS */}
       <section className="sec-soft">
         <div className="wrap">
           <div className="sec-head center rv">
-            <div className="eyebrow"><span className="pulse" />Trusted by</div>
-            <h2>Companies &amp; tools <span className="grad-txt">we work with</span></h2>
+            <div className="eyebrow"><span className="pulse" />Selected work</div>
+            <h2>Projects &amp; tools <span className="grad-txt">we work with</span></h2>
           </div>
         </div>
-        <div className="mq-label rv"><span>Companies we work with</span></div>
+        <div className="mq-label rv"><span>Projects in our portfolio</span></div>
         <div className="marquee rv">
           <div className="mq-track">
             {[0, 1].map((k) => (

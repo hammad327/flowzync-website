@@ -1,6 +1,7 @@
 ---
 title: "Missed Call Text Back: What It Is and Whether It Works"
 description: "How automatic text-back on a missed call works, which businesses it genuinely helps, and the setup mistakes that make customers more annoyed rather than less."
+updated: "2026-10-27"
 date: "2026-09-17"
 category: "Automation"
 cover: "/images/blog/missed-call-text-back.svg"
@@ -72,3 +73,10 @@ Fix the leak when calls are arriving and draining away. Fix visibility when they
 ---
 
 *We set up call handling and follow-up automation as part of a wider system rather than as a bolt-on. [Here is what that involves](/services/automations).*
+
+## Sources and scope
+
+The recommendations in this guide are Flowzync’s practical opinion. The linked documentation supports the relevant platform or technical requirements; it does not establish a promised commercial result.
+
+- [ICO: electronic mail marketing](https://ico.org.uk/for-organisations/direct-marketing-and-privacy-and-electronic-communications/guide-to-pecr/electronic-and-telephone-marketing/electronic-mail-marketing/).
+- [HighLevel: current plans and included features](https://www.gohighlevel.com/pricing).

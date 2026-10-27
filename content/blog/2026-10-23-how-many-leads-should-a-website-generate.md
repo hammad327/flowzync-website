@@ -1,6 +1,7 @@
 ---
 title: "How Many Leads Should a Website Generate?"
 description: "Why there is no benchmark worth trusting, the three numbers that actually tell you whether a site is working, and what to fix when they are wrong."
+updated: "2026-10-27"
 date: "2026-10-23"
 category: "Strategy"
 cover: "/images/blog/how-many-leads.svg"
@@ -76,3 +77,9 @@ If you track one thing, track where your actual customers found you. Ask every o
 ---
 
 *We build sites around the questions that come before an enquiry, which is usually where the gap is. [Here is how we start](/contact).*
+
+## Sources and scope
+
+The recommendations in this guide are Flowzync’s practical opinion. The linked documentation supports the relevant platform or technical requirements; it does not establish a promised commercial result.
+
+- [Google Search Central: people-first content](https://developers.google.com/search/docs/fundamentals/creating-helpful-content).

@@ -1,6 +1,7 @@
 ---
 title: "Does Website Speed Affect SEO Rankings? An Honest Answer"
 description: "Yes, but far less directly than most agencies claim. Here's what site speed actually does for rankings, what matters more, and how to fix the things that count."
+updated: "2026-10-27"
 date: "2026-08-10"
 author: "Hammad Tahir"
 category: "SEO"
@@ -32,7 +33,7 @@ Google measures three things, collectively called Core Web Vitals. They are wort
 
 Two important caveats that rarely make it into sales pitches.
 
-First, Google uses **field data** — the real experience of real visitors on real devices and connections — not the score from a testing tool. Your PageSpeed Insights number is a lab simulation. Useful for diagnosis, but it is not what Google grades you on.
+First, Google uses **field data** — the real experience of real visitors on real devices and connections — not the score from a testing tool. PageSpeed Insights includes both field data, when available, and a Lighthouse lab assessment. The lab performance score is useful for diagnosis but is not itself a Google ranking score.
 
 Second, this operates more like a threshold than a scale. Getting from terrible to good matters. Getting from good to slightly better generally does nothing for rankings.
 
@@ -42,7 +43,7 @@ If speed is only a light ranking factor, why does everyone obsess over it? Becau
 
 **Slow sites lose visitors before they see anything.** People leave sites that hesitate, and mobile users on patchy connections leave fastest. Every one of those departures is a click you paid for — in ad spend or in months of SEO work — that returned nothing.
 
-**Slow sites make every other signal worse.** Google watches whether people find what they wanted. When visitors bounce straight back to the search results, that pattern feeds back over time. Speed does not just fail to help your ranking; it actively erodes the signals that would have.
+**Slow pages frustrate visitors.** Measure whether people can complete the intended task. Do not infer a Google ranking penalty from your analytics bounce rate or assume that a faster lab score proves a search improvement.
 
 **Slow sites cost more to advertise on.** Google Ads factors landing page experience into Quality Score, which sets your cost per click. A slow landing page means you pay more than a competitor for the same position.
 
@@ -111,3 +112,10 @@ And be sceptical of anyone selling you a PageSpeed score as an SEO strategy. It'
 ---
 
 *Want to know what's actually holding your site back? We'll audit it and tell you honestly whether speed is your problem or a distraction from it. [Get in touch](/contact).*
+
+## Sources and scope
+
+The recommendations in this guide are Flowzync’s practical opinion. The linked documentation supports the relevant platform or technical requirements; it does not establish a promised commercial result.
+
+- [Google web.dev: Core Web Vitals](https://web.dev/articles/vitals).
+- [Google Search Central: people-first content](https://developers.google.com/search/docs/fundamentals/creating-helpful-content).

@@ -1,6 +1,7 @@
 ---
 title: "How Long Does It Take to Build a Website? Realistic Timelines"
 description: "Four to twelve weeks for most small business sites — and the delay is almost never the developer. Here's what actually eats the calendar."
+updated: "2026-10-27"
 date: "2026-05-19"
 author: "Hammad Tahir"
 category: "Web Design"
@@ -77,3 +78,10 @@ And start on the content now, whoever ends up building it.
 ---
 
 *We give a fixed timeline with the scope written down before anything starts, and we say clearly which parts depend on you. [Tell us your deadline](/contact).*
+
+## Sources and scope
+
+The recommendations in this guide are Flowzync’s practical opinion. The linked documentation supports the relevant platform or technical requirements; it does not establish a promised commercial result. Budget and timeline ranges are illustrative planning estimates, not an independently sampled market average or a binding Flowzync quote. Confirm scope, currency, taxes and vendor renewal prices before purchasing.
+
+- [W3C: Web Content Accessibility Guidelines 2.2](https://www.w3.org/TR/WCAG22/).
+- [Google web.dev: Core Web Vitals](https://web.dev/articles/vitals).

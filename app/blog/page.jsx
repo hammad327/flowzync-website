@@ -5,7 +5,7 @@ import CTABand from '@/components/CTABand';
 import { getAllPosts } from '@/lib/posts';
 import BlogGrid from '@/components/BlogGrid';
 import { site } from '@/lib/site';
-import { clampTitle, clampDescription, openGraph } from '@/lib/meta';
+import { clampTitle, clampDescription, openGraph, twitterCard } from '@/lib/meta';
 
 export const metadata = {
   title: 'Blog — Web Design, Funnels & Automation Insights',
@@ -13,6 +13,7 @@ export const metadata = {
     'Practical articles from the Flowzync team on web design, GoHighLevel funnels, WordPress, Shopify, SEO and automation. New posts published regularly.'
     ),
   alternates: { canonical: `${site.url}/blog` },
+  twitter: twitterCard({ title: 'Blog — Web Design, Funnels & Automation Insights', description: 'Practical articles from the Flowzync team on web design, GoHighLevel funnels, WordPress, Shopify, SEO and automation. New posts published regularly.' }),
   openGraph: openGraph({
     title: 'Blog — Web Design, Funnels & Automation Insights',
     description: 'Practical articles from the Flowzync team on web design, GoHighLevel funnels, WordPress, Shopify, SEO and automation. New posts published regularly.',

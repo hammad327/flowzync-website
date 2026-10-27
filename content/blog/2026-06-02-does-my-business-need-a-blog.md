@@ -1,6 +1,7 @@
 ---
 title: "Does My Business Actually Need a Blog? An Honest Answer"
 description: "For a lot of businesses, no — and a neglected blog is worse than none. Here's how to tell which category you're in before you commit."
+updated: "2026-10-27"
 date: "2026-06-02"
 author: "Zara Malik"
 category: "SEO"
@@ -73,3 +74,10 @@ Two yeses: start, and commit to a year. Anything else: put the time into your se
 ---
 
 *If you want a site that is built to publish on, [we set that up as standard](/services/seo-optimization) — and we will tell you honestly if you would be better off skipping the blog.*
+
+## Sources and scope
+
+The recommendations in this guide are Flowzync’s practical opinion. The linked documentation supports the relevant platform or technical requirements; it does not establish a promised commercial result.
+
+- [Google Search Central: people-first content](https://developers.google.com/search/docs/fundamentals/creating-helpful-content).
+- [Google Search Central: AI features and your website](https://developers.google.com/search/docs/appearance/ai-features).

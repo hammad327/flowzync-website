@@ -1,6 +1,7 @@
 ---
 title: "How to Write a Website Brief (With a Template You Can Copy)"
 description: "The nine things a designer actually needs from you, why vague briefs cost you money, and a template you can fill in over a lunch break."
+updated: "2026-10-27"
 date: "2026-02-25"
 author: "Zara Malik"
 category: "Web Design"
@@ -102,3 +103,10 @@ A good studio will come back with questions rather than a price. That is a posit
 ---
 
 *Send us your brief and we will come back with questions first and an itemised quote second. [Start here](/contact).*
+
+## Sources and scope
+
+The recommendations in this guide are Flowzync’s practical opinion. The linked documentation supports the relevant platform or technical requirements; it does not establish a promised commercial result.
+
+- [Google Search Central: people-first content](https://developers.google.com/search/docs/fundamentals/creating-helpful-content).
+- [W3C: Web Content Accessibility Guidelines 2.2](https://www.w3.org/TR/WCAG22/).

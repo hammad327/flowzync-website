@@ -77,7 +77,7 @@ export default function BlogPost({ params }) {
       // the company rather than a byline, and structured data has to
       // describe what is actually visible on the page — Person markup
       // for an author who appears nowhere would be markup about nothing.
-      author: { '@id': `${site.url}/#organization` },
+      author: { '@type':'Organization', '@id': `${site.url}/#organization`, name:site.name, url:`${site.url}/editorial-policy` },
       publisher: {
         '@type': 'Organization',
         '@id': `${site.url}/#organization`,
@@ -123,7 +123,7 @@ export default function BlogPost({ params }) {
           <div className="eyebrow"><span className="pulse" />{p.category}</div>
           <h1 style={{ fontSize: 'clamp(30px,4.4vw,48px)' }}>{p.title}</h1>
           <div className="post-meta" style={{ marginTop: 16 }}>
-            <span>{new Date(p.date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</span>
+            <time dateTime={p.date}>{new Date(p.date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</time>
             <span>{p.readTime} min read</span>
             {p.updated && p.updated !== p.date && (
               <span>Updated {new Date(p.updated).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</span>
@@ -147,6 +147,8 @@ export default function BlogPost({ params }) {
               />
             </div>
           )}
+          <div className="article-byline"><span>Published by <Link href="/about">Flowzync</Link></span><Link href="/editorial-policy">Editorial policy &amp; corrections</Link><a href={`mailto:${site.email}?subject=${encodeURIComponent(`Correction: ${p.title}`)}`}>Report an error</a></div>
+          {p.headings.length > 2 && <nav className="article-toc" aria-label="Article contents"><h2>In this guide</h2><ol>{p.headings.map(h=><li key={h.id}><a href={`#${h.id}`}>{h.text}</a></li>)}</ol></nav>}
           <div className="prose" dangerouslySetInnerHTML={{ __html: p.html }} />
 
           {p.faqs.length > 0 && (

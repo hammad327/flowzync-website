@@ -1,6 +1,7 @@
 ---
 title: "How Many Pages Should a Small Business Website Have?"
 description: "Most small businesses need between 8 and 15 pages. Here's the exact list, why one page per service matters for search, and when more pages start to hurt."
+updated: "2026-10-27"
 date: "2026-04-07"
 author: "Hamza Khan"
 category: "SEO"
@@ -83,3 +84,10 @@ And if you are choosing between adding five new pages and making your five exist
 ---
 
 *Not sure how your site should be structured? [We map it out before designing anything](/services/custom-website-design), and we will tell you if you need fewer pages rather than more.*
+
+## Sources and scope
+
+The recommendations in this guide are Flowzync’s practical opinion. The linked documentation supports the relevant platform or technical requirements; it does not establish a promised commercial result.
+
+- [Google Search Central: people-first content](https://developers.google.com/search/docs/fundamentals/creating-helpful-content).
+- [Google Search Console: page indexing](https://support.google.com/webmasters/answer/7440203).

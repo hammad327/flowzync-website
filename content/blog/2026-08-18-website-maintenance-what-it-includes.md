@@ -1,6 +1,7 @@
 ---
 title: "What Does Website Maintenance Actually Include?"
 description: "What you're paying for month to month, what a good plan covers, and the three things that go wrong on unmaintained sites — with the real repair costs."
+updated: "2026-10-27"
 date: "2026-08-18"
 author: "Ayaan Raza"
 category: "Support"
@@ -44,13 +45,13 @@ Read the response time carefully too. "Next business day" and "within four hours
 
 ## What actually goes wrong without it
 
-**Getting hacked.** Overwhelmingly through an out-of-date plugin. The usual outcome is not dramatic — no defacement, just spam pages quietly injected into your site, which Google finds and flags. By the time you notice, you have lost rankings, and cleaning it costs £300–£1,500 plus weeks of recovery. Prevention is one plugin update.
+**Getting hacked.** Overwhelmingly through an out-of-date plugin. The usual outcome is not dramatic — no defacement, just spam pages quietly injected into your site, which Google finds and flags. By the time you notice, you have lost rankings, and cleaning it costs £300–£1,500 plus weeks of recovery. Keeping software current is one part of prevention, alongside access control, backups, monitoring and an appropriate hosting setup.
 
 **Breaking on a PHP upgrade.** Hosts upgrade PHP periodically. Sites running abandoned plugins break, sometimes entirely. Fixing it under pressure, on a site nobody has touched in two years, is a bad afternoon.
 
 **Silent form failure.** A plugin update, a changed mailbox password, an expired API key. The form says "thank you" and the email goes nowhere. We are called about this several times a year and the enquiries lost are unrecoverable.
 
-**Slow decay.** Nobody notices a site getting 5% slower each quarter until it fails Core Web Vitals and the rankings have already gone.
+**Slow decay.** Added scripts, images and plugins can gradually affect performance. Track actual measurements rather than assuming every site slows by a fixed percentage or that a score change proves a ranking loss.
 
 ## Is it worth it?
 
@@ -83,3 +84,9 @@ Set a calendar reminder. It is fifteen minutes, four times a year, and it will s
 ---
 
 *Our care plans cover updates, backups, security and content edits, handled by the team who built the site. [See what is included](/services/maintenance-support).*
+
+## Sources and scope
+
+The recommendations in this guide are Flowzync’s practical opinion. The linked documentation supports the relevant platform or technical requirements; it does not establish a promised commercial result. Budget and timeline ranges are illustrative planning estimates, not an independently sampled market average or a binding Flowzync quote. Confirm scope, currency, taxes and vendor renewal prices before purchasing.
+
+- [WordPress: security and maintenance guidance](https://developer.wordpress.org/advanced-administration/security/).

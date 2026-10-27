@@ -1,7 +1,7 @@
 import PortfolioGrid from '@/components/PortfolioGrid';
 import { pageFaqs, faqSchema } from '@/lib/pageFaqs';
 import CTABand from '@/components/CTABand';
-import { clampTitle, clampDescription, openGraph } from '@/lib/meta';
+import { clampTitle, clampDescription, openGraph, twitterCard } from '@/lib/meta';
 import Link from 'next/link';
 import { projects } from '@/lib/projects';
 import { site } from '@/lib/site';
@@ -12,6 +12,7 @@ export const metadata = {
     'Browse Flowzync\u2019s portfolio: custom website designs, GoHighLevel funnels, WordPress builds and Shopify stores — each with the story and the results behind it.'
     ),
   alternates: { canonical: '/portfolio' },
+  twitter: twitterCard({ title: 'Portfolio — Websites, Funnels & Stores', description: 'Browse Flowzync\u2019s portfolio: custom website designs, GoHighLevel funnels, WordPress builds and Shopify stores — each with the story and the results behind it.' }),
   openGraph: openGraph({
     title: 'Portfolio — Websites, Funnels & Stores',
     description: 'Browse Flowzync\u2019s portfolio: custom website designs, GoHighLevel funnels, WordPress builds and Shopify stores — each with the story and the results behind it.',

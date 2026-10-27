@@ -1,12 +1,12 @@
 import Link from 'next/link';
 import CTABand from '@/components/CTABand';
-import { team, teamSchema } from '@/lib/team';
+import { team } from '@/lib/team';
 import { site } from '@/lib/site';
 import { clampTitle, clampDescription, openGraph, twitterCard } from '@/lib/meta';
 
 const TITLE = 'Our Team — The People Who Build Your Project';
 const DESC =
-  'Meet the senior designers, developers and automation specialists at Flowzync. No juniors on your project, no account-manager relay — you work with the people doing the work.';
+  'Explore how design, WordPress development, CRM strategy and automation responsibilities come together on a Flowzync project.';
 
 export const metadata = {
   title: { absolute: clampTitle(TITLE) },
@@ -17,10 +17,10 @@ export const metadata = {
 };
 
 const FAQS = [
-  ['Who will actually work on my project?', 'The people on this page. Flowzync is a senior-only studio, so the designer and developer you meet at the start are the ones building it — there are no juniors learning on your project and no account manager relaying messages between you and whoever is really doing the work.'],
-  ['How big is the team?', 'Deliberately small. Five senior specialists covering design, WordPress and WooCommerce development, automation and CRM, and UX. We would rather turn work down than take it on with people who are not ready for it.'],
+  ['Who will actually work on my project?', 'The project proposal identifies the responsibilities and contact arrangement for your build. You can discuss design, development and automation requirements directly with the studio before agreeing the scope.'],
+  ['How big is the team?', 'We organise projects around the required disciplines rather than advertising a fixed headcount. Your scope identifies the design, development, automation and handover work included.'],
   ['Can I speak to the person building my site?', 'Yes, directly. Most questions get a faster and better answer from the person who wrote the code than from someone summarising it, so we do not put a layer in between.'],
-  ['Where is the team based?', 'Flowzync is a remote studio working across time zones, with the business registered in Lahore, Pakistan. We schedule calls in your working hours and we say this plainly rather than implying a local office — it is also the honest reason our quotes compare well with a local agency.'],
+  ['Where is the team based?', 'Flowzync is a remote studio working across time zones, based in Lahore, Pakistan. We schedule calls in your working hours and we say this plainly rather than implying a local office — it is also the honest reason our quotes compare well with a local agency.'],
 ];
 
 const schema = [
@@ -36,7 +36,7 @@ const schema = [
     // markup for people who appear nowhere on screen breaks Google's
     // structured-data guidelines.
     about: { '@id': `${site.url}/#organization` },
-    mainEntity: teamSchema(site.url),
+    mainEntity: { '@id': `${site.url}/#organization` },
   },
   {
     '@context': 'https://schema.org',
@@ -70,10 +70,9 @@ export default function TeamPage() {
             <span style={{ color: 'var(--ink)' }}>Team</span>
           </nav>
           <div className="eyebrow"><span className="pulse" />The team</div>
-          <h1 style={{ marginInline: 'auto' }}>Small team. <span className="grad-txt">Senior only.</span></h1>
+          <h1 style={{ marginInline: 'auto' }}>The disciplines behind <span className="grad-txt">your project.</span></h1>
           <p className="lede" style={{ marginInline: 'auto' }}>
-            No juniors learning on your project, no account-manager relay. You work
-            directly with the people doing the work.
+            Design, development and automation need a shared brief. Here is how the responsibilities fit together; your proposal confirms the team arrangement for your project.
           </p>
         </div>
       </div>
@@ -83,9 +82,9 @@ export default function TeamPage() {
           <div className="team-grid">
             {team.map((m, i) => (
               <div className={`tm rv ${['', 'rv-d1', 'rv-d2', 'rv-d3'][i % 4]}`} key={m.name}>
-                <div className="avatar" style={{ background: m.colour }} aria-hidden="true">{m.initials}</div>
-                <b>{m.name}</b><span>{m.role}</span>
-                <p className="tm-bio">{m.bio}</p>
+                <div className="avatar" style={{ background: m.colour }} aria-hidden="true">{String(i + 1).padStart(2, '0')}</div>
+                <b>{m.role}</b><span>Project discipline</span>
+                <p className="tm-bio">Project responsibilities include {m.knows.map(k=>k.toLowerCase()).join(', ')}. The scope confirms the work needed for your build.</p>
                 <div className="tm-knows">
                   {m.knows.map((k) => <span key={k}>{k}</span>)}
                 </div>
@@ -98,21 +97,10 @@ export default function TeamPage() {
       <section className="sec-dark">
         <div className="wrap">
           <div className="sec-head center rv">
-            <div className="eyebrow"><span className="pulse" />How we hire</div>
-            <h2>Why the team stays <span className="grad-txt">small</span></h2>
-            <p>
-              Growing an agency usually means hiring juniors and putting an account
-              manager between them and the client. It scales revenue and it quietly
-              lowers the quality of the work, because the person you spoke to is no
-              longer the person building your project.
-            </p>
-            <p>
-              We took the other route. Every person here is senior in their own
-              discipline and works directly with clients, which caps how much work we
-              can take at once — so we turn projects down rather than staff them
-              badly. If we are booked, we will tell you that instead of starting late
-              and hoping you do not notice.
-            </p>
+            <div className="eyebrow"><span className="pulse" />How we collaborate</div>
+            <h2>Clear ownership for <span className="grad-txt">every stage</span></h2>
+            <p>A website project can involve several disciplines. What matters is knowing who owns each decision and how you review the work. We agree the scope, milestones, communication route and handover responsibilities before the project begins.</p>
+            <p>Ask about the editing workflow, integration access and ongoing support at the proposal stage. We would rather resolve those questions before you commit than leave them to launch week.</p>
           </div>
         </div>
       </section>
@@ -137,8 +125,8 @@ export default function TeamPage() {
       <section className="sec-tint">
         <div className="wrap">
           <CTABand
-            title="Want to talk to one of them?"
-            text="Tell us about your project and you'll hear back from the person who would actually build it."
+            title="Want to discuss the right team for your project?"
+            text="Tell us what you need and we will explain the scope, responsibilities and next steps."
           />
         </div>
       </section>

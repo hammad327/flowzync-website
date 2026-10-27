@@ -1,6 +1,7 @@
 ---
 title: "Should a Home Care Agency Publish Its Prices?"
 description: "The case for and against putting care rates on your website, what competitors actually learn from it, and a middle option that answers the question without fixing a number."
+updated: "2026-10-27"
 date: "2026-09-12"
 category: "Care"
 cover: "/images/blog/care-publish-prices.svg"
@@ -64,3 +65,9 @@ If you work almost entirely through local authority or NHS contracts and private
 ---
 
 *We build care websites around the questions families ask first. [Here is how we approach it](/industries/care-homes-and-home-care).*
+
+## Sources and scope
+
+The recommendations in this guide are Flowzync’s practical opinion. The linked documentation supports the relevant platform or technical requirements; it does not establish a promised commercial result. Care-related website and software guidance is not a substitute for current regulatory, clinical or data-protection advice for your organisation.
+
+- [Care Quality Commission: rating display requirements](https://www.cqc.org.uk/cqc-ratings-and-promotional-graphics/how-providers-must-display-ratings).

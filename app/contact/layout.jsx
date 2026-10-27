@@ -1,6 +1,6 @@
 import { site } from '@/lib/site';
 import { CONTACT_FAQS } from '@/lib/contactFaqs';
-import { clampTitle, clampDescription, openGraph } from '@/lib/meta';
+import { clampTitle, clampDescription, openGraph, twitterCard } from '@/lib/meta';
 
 // The contact page is a client component, so its metadata lives here.
 export const metadata = {
@@ -9,6 +9,7 @@ export const metadata = {
     'Tell us about your project — website, funnel, WordPress build or automation. Flowzync replies with a clear, itemised quote.'
     ),
   alternates: { canonical: '/contact' },
+  twitter: twitterCard({ title:'Contact Flowzync — Get a Free Quote', description:'Discuss your website, WordPress build, GoHighLevel funnel or automation project with Flowzync.' }),
   openGraph: openGraph({
     title: 'Contact Flowzync — Get a Free Quote',
     description:

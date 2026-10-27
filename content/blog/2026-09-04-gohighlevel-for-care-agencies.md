@@ -2,6 +2,7 @@
 seoTitle: "GoHighLevel for Care Agencies: A Practical Guide | Flowzync"
 title: "GoHighLevel for Care Agencies: What It Actually Does"
 description: "A plain explanation of what GoHighLevel handles for a home care provider, what it does not replace, and whether it is worth the subscription."
+updated: "2026-10-27"
 date: "2026-09-04"
 author: "Hammad Tahir"
 category: "Care"
@@ -64,3 +65,10 @@ If your problem is that not enough enquiries arrive at all, this is the wrong to
 ---
 
 *We set this up for home care and care agencies, including the walkthrough for whoever runs it. [Here is what that involves](/services/ghl-funnels-for-care-agencies).*
+
+## Sources and scope
+
+The recommendations in this guide are Flowzync’s practical opinion. The linked documentation supports the relevant platform or technical requirements; it does not establish a promised commercial result. Care-related website and software guidance is not a substitute for current regulatory, clinical or data-protection advice for your organisation.
+
+- [HighLevel: current plans and included features](https://www.gohighlevel.com/pricing).
+- [ICO: special category data](https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/lawful-basis/a-guide-to-lawful-basis/special-category-data/).

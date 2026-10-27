@@ -1,6 +1,7 @@
 ---
 title: "Why Your Google Business Profile Is Not Showing in Maps"
 description: "The real reasons a verified Google Business Profile does not appear in the map pack, how proximity and categories decide it, and what you can actually change."
+updated: "2026-10-27"
 date: "2026-09-22"
 category: "Local SEO"
 cover: "/images/blog/gbp-not-in-maps.svg"
@@ -76,3 +77,9 @@ The way to earn presence in a town you do not sit in is a genuine page about wor
 ---
 
 *We build local pages that give a Google Business Profile something real to stand on. [Here is how we approach local search](/services/seo-optimization).*
+
+## Sources and scope
+
+The recommendations in this guide are Flowzync’s practical opinion. The linked documentation supports the relevant platform or technical requirements; it does not establish a promised commercial result.
+
+- [Google Business Profile: local ranking](https://support.google.com/business/answer/7091).

@@ -1,6 +1,7 @@
 ---
 title: "Why Care Agencies Lose Enquiries (And How to Stop It)"
 description: "Families contact three providers in one evening and go with whoever answers first. The fix is not a better website — it's what happens in the ten minutes after the form is submitted."
+updated: "2026-10-27"
 date: "2026-08-26"
 author: "Ayaan Raza"
 category: "Care"
@@ -74,3 +75,10 @@ But it is the cheapest one to fix, and for most agencies it is the one costing t
 ---
 
 *We build the enquiry and recruitment layer for home care and care agencies in GoHighLevel — [here is what that involves](/services/ghl-funnels-for-care-agencies).*
+
+## Sources and scope
+
+The recommendations in this guide are Flowzync’s practical opinion. The linked documentation supports the relevant platform or technical requirements; it does not establish a promised commercial result. Care-related website and software guidance is not a substitute for current regulatory, clinical or data-protection advice for your organisation.
+
+- [ICO: electronic mail marketing](https://ico.org.uk/for-organisations/direct-marketing-and-privacy-and-electronic-communications/guide-to-pecr/electronic-and-telephone-marketing/electronic-mail-marketing/).
+- [ICO: special category data](https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/lawful-basis/a-guide-to-lawful-basis/special-category-data/).

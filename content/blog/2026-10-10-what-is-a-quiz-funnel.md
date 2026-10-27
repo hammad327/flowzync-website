@@ -1,6 +1,7 @@
 ---
 title: "What Is a Quiz Funnel, and Does It Actually Work?"
 description: "How a quiz funnel turns a cold visitor into a qualified enquiry, which businesses it suits, and the design decisions that decide whether anyone finishes it."
+updated: "2026-10-27"
 date: "2026-10-10"
 category: "Funnels"
 cover: "/images/blog/quiz-funnel.svg"
@@ -74,3 +75,10 @@ It also needs enough volume to be worth the build. At five visitors a week, you 
 ---
 
 *We design quiz funnels around what you need to know, not around the quiz. [Here is an example](/portfolio/business-breakpoint-quiz-funnel).*
+
+## Sources and scope
+
+The recommendations in this guide are Flowzync’s practical opinion. The linked documentation supports the relevant platform or technical requirements; it does not establish a promised commercial result.
+
+- [HighLevel: current plans and included features](https://www.gohighlevel.com/pricing).
+- [ICO: electronic mail marketing](https://ico.org.uk/for-organisations/direct-marketing-and-privacy-and-electronic-communications/guide-to-pecr/electronic-and-telephone-marketing/electronic-mail-marketing/).

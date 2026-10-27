@@ -1,6 +1,7 @@
 ---
 title: "Choosing a CRM for a Care Agency: What to Look For"
 description: "What a care CRM has to handle that a generic sales CRM does not, where care management software ends and a CRM begins, and the questions to ask before buying."
+updated: "2026-10-27"
 date: "2026-10-26"
 category: "Care"
 cover: "/images/blog/care-crm-choosing.svg"
@@ -74,3 +75,10 @@ Fix the leak when enquiries are arriving and draining away. Fix visibility when 
 ---
 
 *We set up enquiry and recruitment pipelines for care providers, including the walkthrough for whoever runs it. [Here is what that involves](/services/ghl-funnels-for-care-agencies).*
+
+## Sources and scope
+
+The recommendations in this guide are Flowzync’s practical opinion. The linked documentation supports the relevant platform or technical requirements; it does not establish a promised commercial result. Care-related website and software guidance is not a substitute for current regulatory, clinical or data-protection advice for your organisation.
+
+- [ICO: special category data](https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/lawful-basis/a-guide-to-lawful-basis/special-category-data/).
+- [HighLevel: current plans and included features](https://www.gohighlevel.com/pricing).

@@ -1,6 +1,7 @@
 ---
 title: "Why Your Carer Job Adverts Aren't Filling Shifts"
 description: "Care recruitment is lost to slow replies and vague adverts far more often than to pay. Both are fixable in a week, and neither needs a bigger budget."
+updated: "2026-10-27"
 date: "2026-09-02"
 author: "Ayaan Raza"
 category: "Care"
@@ -71,3 +72,9 @@ But if you are losing candidates in the gap between them applying and you replyi
 ---
 
 *We build carer recruitment pipelines alongside family enquiry handling, in one system — [here is how that works](/services/ghl-funnels-for-care-agencies).*
+
+## Sources and scope
+
+The recommendations in this guide are Flowzync’s practical opinion. The linked documentation supports the relevant platform or technical requirements; it does not establish a promised commercial result. Care-related website and software guidance is not a substitute for current regulatory, clinical or data-protection advice for your organisation.
+
+- [ICO: special category data](https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/lawful-basis/a-guide-to-lawful-basis/special-category-data/).

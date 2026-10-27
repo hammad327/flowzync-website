@@ -2,6 +2,7 @@
 seoTitle: "5 GoHighLevel Funnel Mistakes to Fix | Flowzync"
 title: "5 GoHighLevel Funnel Mistakes That Quietly Lose Leads"
 description: "The most common GHL funnel mistakes we find in audits — and the simple fixes that stop leads slipping through."
+updated: "2026-10-27"
 date: "2026-06-24"
 author: "Ayaan Raza"
 category: "GoHighLevel"
@@ -42,3 +43,10 @@ If you can't see where people drop off, every "improvement" is a guess. Wire up 
 Each mistake comes from treating a funnel as *pages* instead of a *journey*. It's why our [GHL funnel builds](/services/ghl-funnels) always ship together with the [automations](/services/automations) behind them. Pages are what visitors see; the journey is everything that happens between and after — and that's where funnels are won.
 
 If you'd like a second pair of eyes on your funnel, our free audit walks through exactly these points on your own account.
+
+## Sources and scope
+
+The recommendations in this guide are Flowzync’s practical opinion. The linked documentation supports the relevant platform or technical requirements; it does not establish a promised commercial result.
+
+- [HighLevel: current plans and included features](https://www.gohighlevel.com/pricing).
+- [ICO: electronic mail marketing](https://ico.org.uk/for-organisations/direct-marketing-and-privacy-and-electronic-communications/guide-to-pecr/electronic-and-telephone-marketing/electronic-mail-marketing/).

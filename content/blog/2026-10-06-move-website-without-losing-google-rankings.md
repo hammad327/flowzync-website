@@ -1,6 +1,7 @@
 ---
 title: "How to Move a Website Without Losing Google Rankings"
 description: "The redirect map, the order of operations and the checks that keep traffic intact through a redesign, a platform change or a new domain."
+updated: "2026-10-27"
 date: "2026-10-06"
 category: "SEO"
 cover: "/images/blog/website-migration.svg"
@@ -41,7 +42,7 @@ One row per old URL. Three columns: old URL, new URL, done.
 
 **If a page has no equivalent, decide deliberately.** Either keep it, or redirect to the nearest genuinely related page, or let it 404 on purpose. A clean 404 for a page that should not exist is correct and not a problem. The problem is only when it was ranking and nobody looked.
 
-**Use 301, not 302.** Permanent, not temporary. A 302 tells Google to keep the old URL indexed, which is the opposite of the intention and a surprisingly common slip.
+**Use permanent redirects for a permanent move.** A server-side 301 or 308 communicates that the destination replaces the old URL. A temporary redirect has a different purpose; match the status to the actual change.
 
 **Watch for chains.** Old URL → interim URL → final URL loses value at each hop and slows crawling. Point every old URL straight at its final destination.
 
@@ -67,7 +68,7 @@ If the domain is changing, use the Change of Address tool in Search Console. It 
 
 ## The four weeks after
 
-Expect a dip. A fortnight of modest decline while Google recrawls and reconciles is normal and not a sign of failure.
+Temporary fluctuations are possible while search systems process a move. There is no universal two-week recovery period or guarantee that traffic will remain unchanged.
 
 Watch the **Page Indexing** report for a rise in 404s or "redirect error". Watch **Crawl Stats** to confirm Google is working through the new URLs. Compare **top queries** against the export you took, and if a specific page has dropped, check its redirect first before concluding anything about content.
 
@@ -82,3 +83,10 @@ Changing URLs should be a decision with a reason behind it, not a side effect of
 ---
 
 *We keep URLs intact through redesigns, and redirect properly when they genuinely have to change. [Here is how we work](/services/custom-website-design).*
+
+## Sources and scope
+
+The recommendations in this guide are Flowzync’s practical opinion. The linked documentation supports the relevant platform or technical requirements; it does not establish a promised commercial result.
+
+- [Google Search Central: site moves with URL changes](https://developers.google.com/search/docs/crawling-indexing/site-move-with-url-changes).
+- [Google Search Console: page indexing](https://support.google.com/webmasters/answer/7440203).

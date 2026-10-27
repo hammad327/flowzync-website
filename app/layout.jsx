@@ -17,11 +17,6 @@ export const metadata = {
   title: { default: `${site.name} — ${site.tagline}`, template: `%s | ${site.name}` },
   description: clampDescription(site.description),
   applicationName: site.name,
-  keywords: [
-    'web design agency', 'custom website design', 'wordpress development',
-    'custom wordpress plugins', 'gohighlevel funnels', 'shopify development',
-    'business automation', 'landing page design', 'seo services',
-  ],
   authors: [{ name: site.name, url: site.url }],
   creator: site.name,
   publisher: site.name,
@@ -66,7 +61,6 @@ const orgSchema = {
       email: site.email,
       description: clampDescription(site.description),
       slogan: site.tagline,
-      foundingDate: '2021',
       logo: { '@type': 'ImageObject', url: `${site.url}${images.logoRaster}`, width: 512, height: 512 },
       image: `${site.url}${images.og}`,
       contactPoint: [

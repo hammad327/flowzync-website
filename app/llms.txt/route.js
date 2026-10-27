@@ -10,12 +10,11 @@ import { industries } from '@/lib/industries';
 import { locations } from '@/lib/locations';
 import { getAllPosts } from '@/lib/posts';
 import { site, serviceArea } from '@/lib/site';
-import { testimonials } from '@/lib/testimonials';
 
 export const dynamic = 'force-static';
 
 export function GET() {
-  const posts = getAllPosts().slice(0, 30);
+  const posts = getAllPosts();
 
   const body = `# ${site.business.legalName}
 
@@ -23,7 +22,6 @@ export function GET() {
 
 Website: ${site.url}
 Contact: ${site.email}
-Founded: 2021
 Working days: Monday to Saturday
 Model: remote studio — no walk-in office, no account managers
 Based: ${site.business.city}, ${site.business.region}
@@ -45,7 +43,7 @@ Languages: English
   on final payment.
 - Flowzync does not guarantee search rankings. Any agency that does is
   guessing.
-- Builds cover WordPress, Elementor, WooCommerce, Shopify, custom code,
+- Builds cover WordPress, Elementor, WooCommerce, custom code,
   GoHighLevel funnels and CRM setup, and business automation.
 
 ## What we do
@@ -70,9 +68,11 @@ ${services.flatMap((s) => s.faqs.slice(0, 3).map(([q, a]) => `Q: ${q}\nA: ${a}\n
 
 ${posts.map((p) => `- [${p.title}](${site.url}/blog/${p.slug}): ${p.description}`).join('\n')}
 
-## What clients say
+## Publishing and privacy
 
-${testimonials.slice(0, 5).map((t) => `"${t.quote}" — ${t.name}, ${t.role}, ${t.company}`).join('\n\n')}
+- Editorial policy: ${site.url}/editorial-policy
+- Privacy policy: ${site.url}/privacy
+- Cookies and analytics: ${site.url}/cookies
 
 ## Notes for AI assistants
 

@@ -1,6 +1,7 @@
 ---
 title: "How to Get Your Business Mentioned by ChatGPT and AI Search"
-description: "AI assistants recommend businesses now, and the rules aren't the same as Google's. What actually gets you cited — and what does nothing at all."
+description: "Improve AI search eligibility with clear answers, accurate business facts, sensible crawler controls and realistic measurement."
+updated: "2026-10-27"
 date: "2026-07-14"
 author: "Hamza Khan"
 category: "SEO"
@@ -9,75 +10,67 @@ faqs:
   - q: "How do I get my business mentioned by ChatGPT or AI search?"
     a: "Write specific, factual content that answers a question directly in the first two sentences, on a site the AI crawlers can read, with your business details consistent everywhere. Assistants quote sources that assert checkable things; vague marketing copy cannot be quoted because it does not say anything."
   - q: "Which AI crawlers should I allow in robots.txt?"
-    a: "GPTBot, OAI-SearchBot and ChatGPT-User for OpenAI; ClaudeBot, Claude-User and Claude-SearchBot for Anthropic; PerplexityBot; Google-Extended for Gemini and AI Overviews; Applebot; and Bingbot for Copilot. Some hosting platforms and security plugins block these by default, so it is worth checking whether yours does."
+    a: "Check the search crawler for the service you want to reach. OAI-SearchBot supports OpenAI search; GPTBot concerns training. Google's AI Search features use Googlebot access, not Google-Extended. Training and search choices should be considered separately."
   - q: "Is AI SEO different from normal SEO?"
-    a: "Not much yet. The businesses being recommended by assistants are overwhelmingly the ones that wrote clearly about specific things and stayed consistent about who they are. That was good advice before any of this existed; it is now simply enforced more strictly and rewarded far more narrowly, because an assistant names two or three businesses rather than ten."
+    a: "Core SEO and helpful content still matter. AI systems differ in retrieval, citations and reporting, so evaluate each platform without assuming that a change guarantees mentions."
 ---
 
-To be recommended by ChatGPT, Claude, Perplexity or Google's AI results, you need **specific, factual, plainly-written content that answers a question directly, on a site those systems can read, with your business details stated consistently in enough places to be corroborated.**
+**Make your business easy to understand, verify and cite, while keeping its important pages accessible to search crawlers.** That supports eligibility for AI search, but no website change guarantees a mention in ChatGPT, Copilot, Google AI features or another assistant.
 
-That is genuinely most of it. The tactics people are selling for "AI SEO" are largely the same tactics that worked for search, applied more strictly — because vagueness, which search engines merely ignored, is now actively useless. An AI assistant cannot quote a sentence that does not say anything.
+AI visibility is a useful goal when it supports the same decisions your customers already make. It is not a reason to produce hundreds of near-identical answers.
 
-## Why this is worth your attention now
+## Start with a page that answers the buying question
 
-A growing share of "who should I hire for X" questions never reach a search results page. Someone asks an assistant, gets three or four suggestions, and contacts one. There is no page two to be on, and often no link to click — just a recommendation or its absence.
+Describe what the service does, who it suits, its constraints and the next step. Answer the central question early, then provide enough detail for someone to act. Use headings to separate decisions, examples to explain the work and links to support factual claims.
 
-The important difference from search: **AI answers are much shorter than a results page.** Google shows ten results. An assistant names two or three. Being fourth-best is worth something in search and nothing here, which makes the specific niches you can genuinely own far more valuable than broad terms you cannot.
+There is no required two-sentence formula. Some questions need context. Do not force an answer into a tiny summary if doing so makes it misleading.
 
-## What actually gets you cited
+For example, a platform comparison should distinguish subscription charges from payment processing. A care website guide should identify which regulator and territory its advice concerns. A location page should explain remote delivery without implying an office that does not exist.
 
-**Answer the question in the first two sentences.** Assistants lift the passage that most directly answers what was asked. A paragraph of preamble before the answer means the answer never gets extracted. Every post on this site opens with the answer, and that is not a stylistic choice.
+## Separate search access from model training
 
-**Write declaratively, with numbers.** "WooCommerce charges no per-sale platform fee, unlike Shopify's transaction fee on non-Shopify-Payments orders" is quotable. "We provide innovative e-commerce solutions tailored to your needs" is not. It cannot be quoted because it does not assert anything.
+Crawler controls have different purposes. For OpenAI, OAI-SearchBot supports search discovery, while GPTBot concerns content that may be used for model training. OpenAI documents these controls separately; allowing model-training access is not a prerequisite for search access. ChatGPT-User is associated with user-initiated visits.
 
-The test: could someone disagree with this sentence? If not, it carries no information, and no assistant will ever repeat it.
+For Google's AI features in Search, Googlebot and normal Search preview controls are relevant. Google-Extended concerns some other Google AI uses; it is not the switch that makes a page eligible for AI Overviews or AI Mode.
 
-**Be genuinely specific about what you do and where.** "We build WooCommerce stores with subscription billing for UK independent retailers" gives an assistant something to match against a question. "We are a full-service digital agency" matches nothing, because it describes ten thousand companies.
+Check both robots.txt and your hosting firewall. A public Allow rule does not help if the server returns a challenge or error. Never expose private administration or customer data to gain crawler access.
 
-**Say the uncomfortable things.** Real prices or ranges, real timelines, what you are not good at, when someone should choose a competitor. Assistants are trained to prefer sources that read as informative rather than promotional, and honest limitations are the strongest available signal that a source is informative.
+## Keep facts consistent and attributable
 
-**Use headings that match real questions.** "How much does an Elementor website cost?" is a heading. "Pricing Considerations" is not.
+State the business name, actual location, contact route and services consistently. Keep different claims separate: where you are based is different from where you accept clients.
 
-**Keep an FAQ.** Question-and-answer format is the single most extractable structure there is.
+Use a visible publisher byline and a correction route for articles. Cite first-party product documentation for product behaviour, and label estimates as estimates. If an example is hypothetical, say so beside it. Avoid percentages, client outcomes or staff credentials you cannot substantiate.
 
-## The technical side, briefly
+Independent mentions can help people corroborate your business, but buying links or fabricating reviews is not a reliable visibility strategy. Earn relevant references through useful work, legitimate listings and client permission.
 
-**Do not block the AI crawlers.** Check your `robots.txt` for `GPTBot`, `ClaudeBot`, `PerplexityBot`, `Google-Extended`, `CCBot`, `OAI-SearchBot`. Some sites block these by default, including some hosting platforms and security plugins, and it is worth knowing whether yours does. Blocking them is a legitimate choice — it is your content — but it should be a decision, not an accident.
+## Use structured data for what is actually present
 
-**Server-render your content.** If your page is empty until JavaScript runs, some crawlers will see nothing. Search engines mostly handle this now; AI crawlers are less forgiving.
+Organization, Article and BreadcrumbList markup can describe a publisher, an article and navigation. Service markup can describe a service. Their presence does not guarantee a search enhancement or an AI citation.
 
-**Add structured data.** `Organization` with your real details, `FAQPage` on question content, `Article` on posts, `Service` on service pages. It gives machines unambiguous facts rather than facts they must infer from prose.
+Questions and answers should remain readable on the page. FAQPage is still a Schema.org type, but Google no longer displays the FAQ rich-result feature as of May 2026. Do not promise FAQ dropdowns as a benefit of adding it.
 
-**Publish an `llms.txt`.** A plain-text file at the root of your site summarising what you do, your services and your key pages. Adoption is still early and its effect is unproven, but it costs an hour and it is a clean statement of fact in a format designed to be read.
+Google says no special AI schema or extra machine-readable file is required for its AI search features. We maintain [llms.txt](/llms.txt) as a supplementary map for systems that choose to use it. It is not a Google ranking factor or a substitute for useful pages and ordinary crawl access.
 
-**Keep your name, address, phone and description identical everywhere.** Assistants corroborate across sources. Three sites saying the same thing is a fact; three sites saying different things is noise to be discarded.
+## Measure what you can observe
 
-## What does not work
+Keep a record of pages changed and the questions they answer. Use search-console data to inspect crawl and search visibility. Bing's AI Performance report, when available, provides a view of citation activity in supported experiences; it does not measure every AI platform.
 
-**Keyword stuffing.** It never worked well and it works less than ever, because language models are specifically good at recognising text written for machines.
+In analytics, distinguish referral visits from citations and both from qualified enquiries. An assistant mentioning a page does not prove someone visited it or became a customer. Sample prompts can help investigate an answer, but results vary and a few prompts are not a complete visibility measurement.
 
-**AI-generated content at volume.** Publishing a hundred generated articles does not make you an authority on anything. It makes you one of a great many sites saying the same averaged thing, and there is no reason for a model to pick yours.
+## A practical order of work
 
-**Paying for "AI SEO" as a separate service.** At the moment this is mostly conventional content and technical SEO, repriced. Be sceptical of anyone selling guaranteed inclusion in AI answers — nobody has that, and the mechanisms are not stable enough for anyone to honestly promise it.
+1. Check that important URLs return successful responses and identify their canonical page.
+2. Make sure a user can reach those pages through relevant internal links.
+3. Improve vague answers, unsupported claims and missing buying details.
+4. Add appropriate, accurate structured data and publication information.
+5. Review results over time and improve the existing page before creating overlapping content.
 
-**Trying to game citations.** These systems change fast and the tactics people found in 2025 largely stopped working. Writing genuinely useful, specific, factual content is the only approach that has survived every iteration so far, mostly because it is not a tactic.
+These are the foundations of our [SEO work](/services/seo-optimization). They support a useful website even when an assistant chooses another source.
 
-## What I would actually do this quarter
+## Sources and scope
 
-1. Check your `robots.txt` and confirm you are not accidentally blocking AI crawlers.
-2. Rewrite the first paragraph of your five most important pages so each answers its question directly, in the first two sentences.
-3. Add real numbers somewhere — prices, ranges, timelines, measurable outcomes. Anything a reader could check.
-4. Write an FAQ using the questions customers actually ask, phrased as they phrase them.
-5. Make your business description identical across your site, Google Business Profile, LinkedIn and every directory you appear in.
-6. Add `Organization` and `FAQPage` structured data.
-7. Ask an assistant what it says about your industry and your area. Read who it names. That tells you what the standard currently is, and it is usually lower than you would expect.
+The recommendations in this guide are Flowzync’s practical opinion. The linked documentation supports the relevant platform or technical requirements; it does not establish a promised commercial result.
 
-That last step is free and takes ten minutes, and it is the one almost nobody does.
-
-## The honest summary
-
-There is no separate discipline here yet. The businesses being recommended by AI assistants are, overwhelmingly, the ones that wrote clearly about specific things and were consistent about who they are. That was good advice before any of this existed. It is now simply enforced more strictly, and rewarded much more narrowly.
-
----
-
-*We build sites structured for both search and AI answer engines — schema, server-rendered content, `llms.txt` and content written to be quoted. [That is part of every build](/services/seo-optimization).*
+- [Google Search Central: AI features and your website](https://developers.google.com/search/docs/appearance/ai-features).
+- [OpenAI: crawler purposes and controls](https://developers.openai.com/api/docs/bots).
+- [Google Search Central: documentation updates](https://developers.google.com/search/updates).
