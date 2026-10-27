@@ -40,25 +40,31 @@
 
 **Important:** Privacy/about/contact pages aur clean code approval guarantee nahi. Google original content, user experience, account aur policy eligibility evaluate karta hai. Koi magic minimum article count, 500-word rule ya SEO score approval prove nahi karta.
 
-## 2. Google Search Console — actual indexing/selected canonical
+## 2. Google Search Console — account actions completed 27 October 2026
 
-**Kyun baqi hai:** Account data/API access connected nahi. Public HTTP 200 aur correct canonical sirf eligibility signals hain; Google ke selected canonical ko private URL Inspection ke baghair verify nahi kiya ja sakta.
+Signed-in `https://flowzync.com/` property mein yeh actions complete hue:
 
-1. Domain property `flowzync.com` open karein; **Sitemaps** mein `https://flowzync.com/sitemap.xml` submit/confirm karein.
-2. URL Inspection mein in previously affected URLs ko individually inspect karein. **User-declared canonical**, **Google-selected canonical**, **Last crawl** aur **Test live URL** result compare karein:
-   - `/blog/care-agency-website-what-families-look-for`
-   - `/blog/gohighlevel-for-care-agencies`
-   - `/services/graphic-design`
-   - `/services/wordpress-website-design`
-   - `/services/landing-pages`
-   - `/industries/hospitality-and-food`
-3. Legacy dated URLs ko clean URL par permanent redirect hi rehne dein:
-   - `/blog/2026-06-17-seo-basics-new-websites` → `/blog/seo-basics-new-websites`
-   - `/blog/2026-06-24-ghl-funnel-mistakes` → `/blog/ghl-funnel-mistakes`
-   Redirecting old URLs ka separately indexed hona zaroori nahi.
-4. Live fixes confirm hone ke baad relevant report mein **Validate fix** use karein. Important updated pages par **Request indexing** karein; repeated requests ya third-party bulk Google indexing services use na karein.
-5. Page Indexing ka current full export retain karein. `Discovered – currently not indexed` ko sirf authority score ka masla na samjhein: server availability, discovery, duplication aur content value investigate karein. Google har eligible page index karne ka wada nahi karta.
-6. Manual Actions, Security Issues aur Core Web Vitals reports bhi inspect karein. 28-day field data immediately refresh nahi hota. URL inspection and current live audit are different types of evidence.
+- `/sitemap.xml` dobara submit kiya; Google ne **Sitemap submitted successfully** confirm kiya. Sitemap tamam 151 public URLs cover karta hai; processing/indexing acceptance se alag hai.
+- Failed **Duplicate without user-selected canonical** validation restart ki. Current validation **Started 27/10/2026**, **Pending 4, Failed 0** hai. Yeh passed result nahi.
+- Chaar affected duplicate pages aur dono alternate-canonical examples ke current **Test live URL** results mein fetch/indexing allowed aur correct non-www self-canonical verify hua:
+  - `/blog/care-agency-website-what-families-look-for`
+  - `/blog/gohighlevel-for-care-agencies`
+  - `/services/graphic-design`
+  - `/services/wordpress-website-design`
+  - `/services/landing-pages`
+  - `/industries/hospitality-and-food`
+- In chhe URLs ki **Indexing requested** confirmations mili. Naye 27 October article aur dono clean legacy blog destinations ki requests bhi accept hui:
+  - `/blog/bing-ai-performance-topics-portfolio-small-business`
+  - `/blog/seo-basics-new-websites`
+  - `/blog/ghl-funnel-mistakes`
+- `/blog` hub aur `/about/team` ki requests bhi accept hui. **Total: 11 priority URL requests accepted**; baqi URLs resubmitted sitemap se discover ho sakte hain.
+- Purane dated URLs ke redirects production audit mein verified hain. Google ka existing 404 validation **Started**, Pending 2 / Failed 0 tha; ongoing validation reset nahi kiya. Redirecting old URLs ka separately indexed hona zaroori nahi.
+- **Manual actions** aur **Security issues**: No issues detected. HTTPS report: zero non-HTTPS issues. Breadcrumbs report: zero invalid items. Yeh reports Google ke crawled sample ko represent karti hain, tamam 151 pages ka independent certification nahi.
+- Core Web Vitals: mobile aur desktop par insufficient real-user usage data; field pass claim nahi kiya ja sakta.
+- Historic August/September snapshots mein missing canonical aur unrelated external Google-selected canonical tha. Current live tests correct hain; Google-selected canonical sirf recrawl/indexing ke baad update hota hai. Historic discrepancy ko current compromise ka proof nahi maana gaya.
+- WordPress ke pehle live test mein temporary JavaScript resource fetch failure hua; fresh Google retest mein correct canonical aur valid BreadcrumbList mila. Actual production chunk files HTTP 200 aur deployed build se matching the.
+
+**Ab baqi:** Google ke next crawl/validation results monitor karein; sitemap coverage aur selected canonical ko processing ke baad compare karein. Requests ko baar baar submit karne se queue priority improve nahi hoti. Google har eligible URL index karne ka wada nahi karta. `Discovered – currently not indexed` ka solution sirf console switch nahi: useful distinctive content, internal discovery aur stable delivery maintain karni hogi. Public HTTP/build audit aur account inspection alag evidence hain.
 
 ## 3. Bing aur Ahrefs — private dashboard checks
 
