@@ -27,18 +27,13 @@
 
 ## 1. AdSense account — sab se pehle
 
-**Kyun baqi hai:** AdSense account access aur aapka actual `ca-pub-…` publisher ID available nahi. Ahrefs ka key AdSense ID nahi hai. Site abhi Google ad code load nahi karti; fake publisher ID, fake ads.txt ya cosmetic consent banner add nahi kiya gaya.
+**Update: 28 October 2026.** AdSense account create ho gaya hai. Actual account-issued publisher `ca-pub-3418740156485364` ke liye site-wide `google-adsense-account` metadata aur `/ads.txt` publish kiye. Production HTTP 200 aur exact values verify hui; build passed. Account ne ownership verified aur **Review requested / Getting ready** confirm kiya. Approval abhi pending hai.
 
-1. Apne AdSense account mein **Sites → Add site → flowzync.com** kholein. Agar site pehle added hai to usi record ko use karein.
-2. Account se actual ownership verification snippet/meta tag aur publisher ID copy karein. Password, OTP ya private API secret document/repository mein na daalein. Publisher ID public ad configuration ke liye hota hai.
-3. **Privacy & messaging** mein traffic ke liye appropriate messages configure karein. EEA/UK/Switzerland mein personalised Google ads ke liye Google-certified CMP with IAB TCF required hai. Google ka supported CMP ya certified provider select karein. Apna normal cookie banner Google certification ka replacement nahi.
-4. Current data vendors, US state messages/opt-outs aur consent withdrawal needs ko account aur actual audience ke mutabiq configure karein. Aapke actual legal/data-retention arrangements ko privacy notice se match karein.
-5. Account ki authorised seller line se `/ads.txt` banayein. Google ke mutabiq ads.txt recommended hai, universal mandatory approval condition nahi. ID guess na karein aur kisi doosre publisher ki line copy na karein.
-6. Verification ke baad site review request submit karein. Account terms, identity, address, age and payment verification owner ko complete karni hogi.
-7. Ads enable hone par placements inspect karein: navigation, chat, forms aur CTAs ko obscure na karein; ads ko content/action ke saath confuse na karein; accidental clicks encourage na hon. Admin/API/404 aur content-less screens par ads na lagayein. Har page par ad lagana AdSense ki requirement nahi. Blog monetisation ko buyer-focused service pages se alag consider karein.
-8. Apne ads par click na karein, kisi ko click ke liye na kahein aur traffic/click exchanges na khareedein. Policy Center ke actual issues ko review karein.
-
-**Important:** Privacy/about/contact pages aur clean code approval guarantee nahi. Google original content, user experience, account aur policy eligibility evaluate karta hai. Koi magic minimum article count, 500-word rule ya SEO score approval prove nahi karta.
+- **Owner action:** Customer information mein Google existing payments profile offer kar raha hai. Legal payee name/address aur Individual vs Organisation details personally verify karke Submit karein. Private address/profile identifiers repository mein store nahi kiye.
+- European consent message **draft** prepared: Flowzync site name/logo/privacy URL and Do not consent choice for all listed regions. **Published/active nahi**. Ad-serving script/placements abhi enable nahi kiye; actual CMP integration, withdrawal entry point aur applicable US opt-outs complete hone par hi ads activate karein.
+- Google review ke result aur identity/tax/address requirements monitor karein. Actual identity documents/agreements owner complete kare. Existing Google profile ko blindly submit na karein.
+- Site ads.txt initially dashboard mein Not found tha; file ab live hai, Google ka next fetch status update karega.
+- Approval ke baad conservative blog placements preview karein; navigation/forms/CTAs obscure na hon. Apne ads par clicks ya purchased click/traffic exchanges use na karein. Policies, contact/about pages ya SEO score approval guarantee nahi.
 
 ## 2. Google Search Console — account actions completed 27 October 2026
 
