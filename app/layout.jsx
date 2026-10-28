@@ -46,7 +46,7 @@ export const metadata = {
     googleBot: { index: true, follow: true, 'max-image-preview': 'large', 'max-snippet': -1, 'max-video-preview': -1 },
   },
   formatDetection: { telephone: false },
-  other: { 'theme-color': '#087F78' },
+  other: { 'theme-color': '#087F78', 'google-adsense-account': 'ca-pub-3418740156485364' },
 };
 
 // Organization + WebSite schema, server-rendered per Google's JS-SEO guidance
