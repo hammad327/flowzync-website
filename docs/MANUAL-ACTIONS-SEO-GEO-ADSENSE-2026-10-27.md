@@ -29,8 +29,8 @@
 
 **Update: 28 October 2026.** AdSense account create ho gaya hai. Actual account-issued publisher `ca-pub-3418740156485364` ke liye site-wide `google-adsense-account` metadata aur `/ads.txt` publish kiye. Production HTTP 200 aur exact values verify hui; build passed. Account ne ownership verified aur **Review requested / Getting ready** confirm kiya. Approval abhi pending hai.
 
-- **Owner action:** Customer information mein Google existing payments profile offer kar raha hai. Legal payee name/address aur Individual vs Organisation details personally verify karke Submit karein. Private address/profile identifiers repository mein store nahi kiye.
-- European consent message **draft** prepared: Flowzync site name/logo/privacy URL and Do not consent choice for all listed regions. **Published/active nahi**. Ad-serving script/placements abhi enable nahi kiye; actual CMP integration, withdrawal entry point aur applicable US opt-outs complete hone par hi ads activate karein.
+- **Complete:** Owner verified/submitted customer information. Fresh AdSense dashboard confirms **We have got your info / completed all steps**. Private payment details are not stored here.
+- European consent message **published with explicit owner approval**: Flowzync site name/logo/privacy URL and Do not consent choice for all listed regions. Account publication confirmed; website delivery remains unverified until AdSense tag integration. Ad-serving script/placements abhi enable nahi kiye; actual CMP integration, withdrawal entry point aur applicable US opt-outs complete hone par hi ads activate karein.
 - Google review ke result aur identity/tax/address requirements monitor karein. Actual identity documents/agreements owner complete kare. Existing Google profile ko blindly submit na karein.
 - Site ads.txt initially dashboard mein Not found tha; file ab live hai, Google ka next fetch status update karega.
 - Approval ke baad conservative blog placements preview karein; navigation/forms/CTAs obscure na hon. Apne ads par clicks ya purchased click/traffic exchanges use na karein. Policies, contact/about pages ya SEO score approval guarantee nahi.
@@ -61,14 +61,25 @@ Signed-in `https://flowzync.com/` property mein yeh actions complete hue:
 
 **Ab baqi:** Google ke next crawl/validation results monitor karein; sitemap coverage aur selected canonical ko processing ke baad compare karein. Requests ko baar baar submit karne se queue priority improve nahi hoti. Google har eligible URL index karne ka wada nahi karta. `Discovered – currently not indexed` ka solution sirf console switch nahi: useful distinctive content, internal discovery aur stable delivery maintain karni hogi. Public HTTP/build audit aur account inspection alag evidence hain.
 
-## 3. Bing aur Ahrefs — private dashboard checks
+## 3. Bing Webmaster Tools — 28 October account review
 
-**Kyun baqi hai:** Connected private account/report access available nahi. Public crawler permissions aur installed script se backlink counts ya analytics collection prove nahi hoti.
+- Signed-in Flowzync property reviewed. Existing sitemap last crawled 24 August with 79 URLs; current `/sitemap.xml` resubmitted on 28 October. Bing confirmed **Processing**. Current public sitemap contains 151 URLs; discovered/indexed totals update after processing.
+- Fresh website Site Scan started: **Flowzync full SEO GEO audit 28 Oct 2026**, 300-page limit, subdomains excluded. Confirmed Queued. Previous 52-day-old scan covered 131 pages with 0 errors / 0 warnings; that historic result does not certify this release.
+- Recommendations report currently lists one moderate issue: insufficient high-quality inbound links. Backlinks and comparison base report returned **No data available**, so referring-domain totals/competitor gaps cannot be reliably quantified from this account today. Do not interpret missing report data as proof of zero backlinks.
+- Block URLs: 0 active/expired blocks. Crawl Control showed Default; no artificial crawl restriction was added. IndexNow report shows recent self-submitted URLs, including service pages. No need to resubmit unchanged URLs merely to increase submission counts.
+- Homepage Bing index snapshot: Discovered but not crawled. Fresh live test: **URL can be indexed by Bing**. Homepage **Indexing requested** confirmed. Eligibility/request acceptance is not indexing.
+- Homepage live test identified three empty image alternatives on blog cards. These were intentionally decorative, not missing HTML attributes. The cards now expose meaningful article-illustration labels and accessible image links; exact slugs remain unchanged. Production build and Vercel deployment passed. Production homepage HTML has no empty image alternatives; a fresh Bing live retest reports **No SEO/GEO issues found**.
+- Site Explorer stored summary: 68 indexed, 0 crawl errors, 1 warning, 36 excluded among 105 known URLs. This differs from the 151 current public pages. Guidelines-issues filter returned no data; not every exclusion is an error.
+- New 27 October AI article index snapshot said **Blocked**, while fresh live test said **URL can be indexed** and **No SEO/GEO issues found**. Indexing request accepted. This unresolved Bing index decision must be monitored; no site-side block was found. If it persists after recrawl, ask Bing support to investigate using both snapshot and live-test evidence. No support message sent.
+- **10 priority URL submissions accepted** (daily quota now 0): homepage, new AI article, blog/services hubs, WordPress, graphic design, landing pages, hospitality industry page, and the two care-agency articles previously flagged by Google. No quota bypass or repeated identical requests. All other public URLs remain covered by sitemap/IndexNow.
+- Live markup insights returned a Bing-side loading error; do not report this as invalid structured data without evidence.
+- AI Performance (3-month account report) showed 1 citation to the homepage; grounding queries/topics unavailable. No special GEO approval switch or guaranteed citation setting exists.
 
-- Bing Webmaster Tools: sitemap confirm karein, URL Inspection examples inspect karein, Site Scan mein fresh crawl run karein. Backlinks report export karein aur ek genuinely relevant competitor ke saath referring domains/linking pages compare karein. Spam links ya automated link packages na khareedein.
-- Bing AI Performance/Topics Portfolio available ho to cited URLs aur topics note karein. No data hona report access/volume limitation bhi ho sakta hai; isse technical failure ya guaranteed opportunity infer na karein.
-- Ahrefs Web Analytics: existing Flowzync project par **Recheck installation** click karein; apni normal browser visit ke baad traffic data check karein. Exact script/key site head mein preserved hai. Is environment mein earlier direct script fetch 403 hua tha; successful collection/dashboard status independent confirmation mangta hai.
-- Bing/IndexNow submission acceptance indexing ya AI citations ka guarantee nahi. Logs/account reports ke saath progress review karein.
+### Remaining work and legitimate backlinks
+
+Wait for Bing's fresh crawl/scan results and investigate any new affected URLs rather than deleting pages to hide reports. Backlink recommendation requires earned links: ask existing clients (with permission) for relevant case-study credits, ensure owned business/social profiles link to the correct canonical domain, publish original documented project results, and pursue relevant editorial contributions. Outreach/public profile changes require owner instruction/approval; no messages were sent and no paid/automated links were purchased. Record verified link sources and compare a genuinely similar business once Bing supplies usable report data.
+
+Ahrefs dashboard remains pending: exact analytics script/key is installed, but collection/recheck requires the Ahrefs project account. Bing/IndexNow acceptance does not guarantee indexing or AI citations.
 
 ## 4. Business evidence — ek baar verify karke restore karein
 
