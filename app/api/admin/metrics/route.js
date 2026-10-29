@@ -37,11 +37,11 @@ export async function GET(req) {
   const [search, audience] = await Promise.all([wrap(searchReport), wrap(audienceReport)]);
   let audit = null;
   try {
-    const j = JSON.parse(fs.readFileSync(path.join(process.cwd(), 'docs/seo-audit-results-2026-10-27.json'), 'utf8'));
+    const j = JSON.parse(fs.readFileSync(path.join(process.cwd(), 'docs/seo-audit-results-2026-10-29.json'), 'utf8'));
     audit = {
-      source: 'Saved technical audit · 27 Oct 2026',
+      source: 'Saved technical audit · 29 Oct 2026',
       liveChecked: j.live_checked,
-      details: '151 public pages audited; historical build/live checks. This is not a search-engine ranking score.',
+      details: `${j.pages} public pages audited on 29 Oct 2026; ${j.live_checked ? 'build and live HTTP' : 'build'} checks. This is not a search-engine ranking score.`,
       report: '/admin'
     };
   } catch {}

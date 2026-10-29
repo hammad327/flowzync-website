@@ -203,3 +203,16 @@ All public pages remain in the XML sitemap. The new 28 October article is discov
 - https://business.whatsapp.com/policy
 - https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages
 - https://help.clutch.co/en/knowledge/get-listed-on-clutch
+
+
+## Live publication verification — 29 October 2026
+
+- Application commit: `16d1cf755d4a9cdaa6e5c7b5b9a8abe918e375b7`; production deployment succeeded.
+- Live audit: 152 public pages, 37 published articles; zero findings in the defined automated checks. The dated 29 October CSV and JSON include live HTTP results. This does not guarantee indexing, ranking or AdSense approval.
+- Authenticated browser verification: existing password sign-in succeeded; Journal studio loaded all articles, metadata and locked existing slugs; rendered Markdown preview worked. Reporting and connection screens correctly show missing Google/CMS/provider credentials. Existing lead records load.
+- IndexNow submission from the authenticated workspace accepted all 152 current sitemap URLs. Acceptance is not indexing confirmation.
+- New requested 28 October article is live at https://flowzync.com/blog/ai-search-visibility-dashboard-small-business .
+- Outreach tables are not migrated: live workspace reports storage unavailable (404). Database environment configuration is present but does not prove migration completion. No messages sent.
+- CMS save/upload/publish remains disabled until a server-side repository token is configured. Analytics require the Google service account and actual GA4 property. Email/WhatsApp require provider setup described above. These integrations were not activated.
+- Public repository README now links to Flowzync and relevant service pages: one owned source, not earned third-party editorial backlinks. No directory accounts or client-site links were created.
+- Supabase/Vercel plugin installation was declined; no additional installation is required to read this setup file. Production configuration and migration require owner-side access. Never put secrets into chat, source files or article content.
