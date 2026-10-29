@@ -1,6 +1,8 @@
 # Flowzync — Website Project
 
-A complete, SEO-first Next.js website for **www.flowzync.com**.
+The source for [Flowzync](https://flowzync.com/), a website design and automation studio working on [WordPress websites](https://flowzync.com/services/wordpress-website-design), [GoHighLevel funnels](https://flowzync.com/services/ghl-funnels) and [business automations](https://flowzync.com/services/automations).
+
+This repository contains the public website and its private operations workspace. These project links identify the real service behind this code; they do not imply a search ranking endorsement.
 
 **What's inside**
 - 13 service pages, each with its own metadata, Service + FAQPage schema

@@ -8,9 +8,10 @@ import { getAllPosts, getPost, getRelatedPosts } from '@/lib/posts';
 import { site } from '@/lib/site';
 import { images } from '@/lib/images';
 import { clampTitle, clampDescription, openGraph, twitterCard } from '@/lib/meta';
-
 export function generateStaticParams() {
-  return getAllPosts().map((p) => ({ slug: p.slug }));
+  return getAllPosts().map(p => ({
+    slug: p.slug
+  }));
 }
 
 // The image Google's article rich results and every social card want:
@@ -19,19 +20,24 @@ export function generateStaticParams() {
 // are never eligible, because neither Google nor LinkedIn will render
 // an SVG preview.
 function articleImage(p) {
-  const abs = (u) => (u.startsWith('http') ? u : `${site.url}${u}`);
+  const abs = u => u.startsWith('http') ? u : `${site.url}${u}`;
   if (p.photo) return abs(p.photo);
   if (p.cover && !p.cover.endsWith('.svg')) return abs(p.cover);
   return abs(images.og);
 }
-
-export function generateMetadata({ params }) {
+export function generateMetadata({
+  params
+}) {
   const p = getPost(params.slug);
   if (!p) return {};
   return {
-    title: { absolute: clampTitle(p.seoTitle) },
+    title: {
+      absolute: clampTitle(p.seoTitle)
+    },
     description: clampDescription(p.description),
-    alternates: { canonical: `${site.url}/blog/${p.slug}` },
+    alternates: {
+      canonical: `${site.url}/blog/${p.slug}`
+    },
     // Social cards need a raster image — LinkedIn, Slack and WhatsApp
     // will not render an SVG preview — so an SVG cover falls back to
     // the OG image, exactly as the Article schema below does.
@@ -42,162 +48,186 @@ export function generateMetadata({ params }) {
       url: `${site.url}/blog/${p.slug}`,
       image: articleImage(p),
       publishedTime: p.date,
-      modifiedTime: p.updated || p.date,
+      modifiedTime: p.updated || p.date
     }),
     twitter: twitterCard({
       title: clampTitle(p.seoTitle),
       description: p.description,
-      image: articleImage(p),
-    }),
+      image: articleImage(p)
+    })
   };
 }
-
-export default function BlogPost({ params }) {
+export default function BlogPost({
+  params
+}) {
   const p = getPost(params.slug);
   if (!p) notFound();
-
-  const schema = [
-    {
-      '@context': 'https://schema.org',
-      '@type': 'BlogPosting',
-      headline: p.title,
-      description: clampDescription(p.description),
-      // Absolute URL — a relative path in schema resolves against nothing
-      // and is simply dropped. Google's Article rich results also require
-      // a raster image (jpg/png/gif), so an SVG cover falls back to the
-      // OG image rather than publishing an ineligible one.
-      image: articleImage(p),
-      datePublished: p.date,
-      dateModified: p.updated || p.date,
-      inLanguage: 'en',
-      wordCount: p.wordCount,
-      ...(p.tags.length ? { keywords: p.tags.join(', ') } : {}),
-      mainEntityOfPage: { '@type': 'WebPage', '@id': `${site.url}/blog/${p.slug}` },
-      // The Organization, not a named person. Posts are published under
-      // the company rather than a byline, and structured data has to
-      // describe what is actually visible on the page — Person markup
-      // for an author who appears nowhere would be markup about nothing.
-      author: { '@type':'Organization', '@id': `${site.url}/#organization`, name:site.name, url:`${site.url}/editorial-policy` },
-      publisher: {
-        '@type': 'Organization',
-        '@id': `${site.url}/#organization`,
-        name: site.name,
-        url: site.url,
-        logo: { '@type': 'ImageObject', url: `${site.url}/logo.png` },
-      },
+  const schema = [{
+    '@context': 'https://schema.org',
+    '@type': 'BlogPosting',
+    headline: p.title,
+    description: clampDescription(p.description),
+    // Absolute URL — a relative path in schema resolves against nothing
+    // and is simply dropped. Google's Article rich results also require
+    // a raster image (jpg/png/gif), so an SVG cover falls back to the
+    // OG image rather than publishing an ineligible one.
+    image: articleImage(p),
+    datePublished: p.date,
+    dateModified: p.updated || p.date,
+    inLanguage: 'en',
+    wordCount: p.wordCount,
+    ...(p.tags.length ? {
+      keywords: p.tags.join(', ')
+    } : {}),
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': `${site.url}/blog/${p.slug}`
     },
-    {
-      '@context': 'https://schema.org',
-      '@type': 'BreadcrumbList',
-      itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Home', item: site.url },
-        { '@type': 'ListItem', position: 2, name: 'Blog', item: `${site.url}/blog` },
-        { '@type': 'ListItem', position: 3, name: p.title, item: `${site.url}/blog/${p.slug}` },
-      ],
+    // The Organization, not a named person. Posts are published under
+    // the company rather than a byline, and structured data has to
+    // describe what is actually visible on the page — Person markup
+    // for an author who appears nowhere would be markup about nothing.
+    author: {
+      '@type': 'Organization',
+      '@id': `${site.url}/#organization`,
+      name: site.name,
+      url: `${site.url}/editorial-policy`
     },
-    ...(p.faqs.length
-      ? [{
-          '@context': 'https://schema.org',
-          '@type': 'FAQPage',
-          mainEntity: p.faqs.map(([q, a]) => ({
-            '@type': 'Question',
-            name: q,
-            acceptedAnswer: { '@type': 'Answer', text: a },
-          })),
-        }]
-      : []),
-  ];
+    publisher: {
+      '@type': 'Organization',
+      '@id': `${site.url}/#organization`,
+      name: site.name,
+      url: site.url,
+      logo: {
+        '@type': 'ImageObject',
+        url: `${site.url}/logo.png`
+      }
+    }
+  }, {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [{
+      '@type': 'ListItem',
+      position: 1,
+      name: 'Home',
+      item: site.url
+    }, {
+      '@type': 'ListItem',
+      position: 2,
+      name: 'Blog',
+      item: `${site.url}/blog`
+    }, {
+      '@type': 'ListItem',
+      position: 3,
+      name: p.title,
+      item: `${site.url}/blog/${p.slug}`
+    }]
+  }, ...(p.faqs.length ? [{
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: p.faqs.map(([q, a]) => ({
+      '@type': 'Question',
+      name: q,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: a
+      }
+    }))
+  }] : [])];
 
   // Same-category posts first — a more useful link than 'most recent'.
   const others = getRelatedPosts(p.slug, 3);
-
-  return (
-    <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
-      <div className="page-hero" style={{ paddingBottom: 10 }}>
+  return <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{
+      __html: JSON.stringify(schema).replace(/</g, '\\u003c')
+    }} />
+      <div className="page-hero" style={{
+      paddingBottom: 10
+    }}>
         <div className="orb orb1" /><div className="hero-grid-bg" />
-        <div className="wrap article" style={{ position: 'relative', zIndex: 1 }}>
+        <div className="wrap article" style={{
+        position: 'relative',
+        zIndex: 1
+      }}>
           <nav className="breadcrumb" aria-label="Breadcrumb">
-            <Link href="/">Home</Link> <span>›</span> <Link href="/blog">Blog</Link> <span>›</span> <span style={{ color: 'var(--ink)' }}>{p.title}</span>
+            <Link href="/">Home</Link> <span>›</span> <Link href="/blog">Blog</Link> <span>›</span> <span style={{
+            color: 'var(--ink)'
+          }}>{p.title}</span>
           </nav>
           <div className="eyebrow"><span className="pulse" />{p.category}</div>
-          <h1 style={{ fontSize: 'clamp(30px,4.4vw,48px)' }}>{p.title}</h1>
-          <div className="post-meta" style={{ marginTop: 16 }}>
-            <time dateTime={p.date}>{new Date(p.date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</time>
+          <h1 style={{
+          fontSize: 'clamp(30px,4.4vw,48px)'
+        }}>{p.title}</h1>
+          <div className="post-meta" style={{
+          marginTop: 16
+        }}>
+            <time dateTime={p.date}>{new Date(p.date).toLocaleDateString('en-US', {
+              month: 'long',
+              day: 'numeric',
+              year: 'numeric'
+            })}</time>
             <span>{p.readTime} min read</span>
-            {p.updated && p.updated !== p.date && (
-              <span>Updated {new Date(p.updated).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</span>
-            )}
+            {p.updated && p.updated !== p.date && <span>Updated {new Date(p.updated).toLocaleDateString('en-US', {
+              month: 'long',
+              day: 'numeric',
+              year: 'numeric'
+            })}</span>}
           </div>
         </div>
       </div>
 
-      <section style={{ paddingTop: 10 }}>
+      <section style={{
+      paddingTop: 10
+    }}>
         <div className="wrap article">
-          {p.cover && (
-            <div className="article-cover">
-              <BlogCover
-                photo={p.photo}
-                fallback={p.cover}
-                alt={p.title}
-                width={1400}
-                height={700}
-                priority
-                sizes="(max-width:900px) 100vw, 900px"
-              />
-            </div>
-          )}
+          {p.cover && <div className="article-cover">
+              <BlogCover photo={p.photo} fallback={p.cover} alt={p.title} width={1400} height={700} priority sizes="(max-width:900px) 100vw, 900px" />
+            </div>}
           <div className="article-byline"><span>Published by <Link href="/about">Flowzync</Link></span><Link href="/editorial-policy">Editorial policy &amp; corrections</Link><a href={`mailto:${site.email}?subject=${encodeURIComponent(`Correction: ${p.title}`)}`}>Report an error</a></div>
-          {p.headings.length > 2 && <nav className="article-toc" aria-label="Article contents"><h2>In this guide</h2><ol>{p.headings.map(h=><li key={h.id}><a href={`#${h.id}`}>{h.text}</a></li>)}</ol></nav>}
-          <div className="prose" dangerouslySetInnerHTML={{ __html: p.html }} />
+          {p.headings.length > 2 && <nav className="article-toc" aria-label="Article contents"><h2>In this guide</h2><ol>{p.headings.map(h => <li key={h.id}><a href={`#${h.id}`}>{h.text}</a></li>)}</ol></nav>}
+          <div className="prose" dangerouslySetInnerHTML={{
+          __html: p.html
+        }} />
 
-          {p.faqs.length > 0 && (
-            <div className="post-faqs">
+          {p.faqs.length > 0 && <div className="post-faqs">
               <h2>Frequently asked</h2>
               <FAQ items={p.faqs} />
-            </div>
-          )}
+            </div>}
 
         </div>
       </section>
 
-      {others.length > 0 && (
-        <section style={{ paddingTop: 0 }}>
+      {others.length > 0 && <section style={{
+      paddingTop: 0
+    }}>
           <div className="wrap">
-            <div className="sec-head"><h2 style={{ fontSize: 26 }}>Keep reading</h2></div>
+            <div className="sec-head"><h2 style={{
+            fontSize: 26
+          }}>Keep reading</h2></div>
             <div className="blog-grid">
-              {others.map((o) => (
-                <Link href={`/blog/${o.slug}`} className="post-card" key={o.slug}>
+              {others.map(o => <Link href={`/blog/${o.slug}`} className="post-card" key={o.slug}>
                   <div className="post-thumb">
-                    <BlogCover
-                      photo={o.photo}
-                      fallback={o.cover}
-                      alt={o.title}
-                      width={600}
-                      height={380}
-                      sizes="(max-width:680px) 100vw, 33vw"
-                    />
+                    <BlogCover photo={o.photo} fallback={o.cover} alt={o.title} width={600} height={380} sizes="(max-width:680px) 100vw, 33vw" />
                   </div>
                   <div className="post-body">
-                    <div className="post-meta"><span>{new Date(o.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}</span><span>{o.readTime} min</span></div>
+                    <div className="post-meta"><span>{new Date(o.date).toLocaleDateString('en-US', {
+                    month: 'short',
+                    day: 'numeric'
+                  })}</span><span>{o.readTime} min</span></div>
                     <h3>{o.title}</h3>
                     <p>{o.description}</p>
                   </div>
-                </Link>
-              ))}
+                </Link>)}
             </div>
           </div>
-        </section>
-      )}
+        </section>}
 
-      <section style={{ paddingTop: 0 }}>
+      <section style={{
+      paddingTop: 0
+    }}>
         <div className="wrap">
-          <CTABand
-            title="Want this done for your business?"
-            text="Everything we write about, we build daily. Book a free call and let's apply it to your project."
-          />
+          <CTABand title="Want this done for your business?" text="Everything we write about, we build daily. Book a free call and let's apply it to your project." />
         </div>
       </section>
-    </>
-  );
+    </>;
 }

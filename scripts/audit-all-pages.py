@@ -8,7 +8,8 @@ from html.parser import HTMLParser
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
 HOST='https://flowzync.com'
-TODAY=datetime.date(2026,10,27)
+from zoneinfo import ZoneInfo
+TODAY=datetime.datetime.now(ZoneInfo('Asia/Karachi')).date()
 class Page(HTMLParser):
  def __init__(self,html):
   super().__init__(convert_charrefs=True);self.meta={};self.links=[];self.ids=[];self.images=[];self.scripts=[];self.schemas=[];self.maintext=[];self.headings=[];self.anchors=[];self.title='';self.lang='';self.canon=[];self.hreflang={};self.main=0;self.skip=0;self.in_title=False;self.hlevel=0;self.htext='';self.jsonscript=False;self.jsontext='';self.inhead=False;self.feed(html)
@@ -186,11 +187,11 @@ def run(live=False):
  for route,p in pages.items():
   issues=[f for f in findings if f['route']==route]
   rows.append({'url':HOST+route,'type':route.split('/')[1] or 'home','title':p.title,'title_characters':len(p.title),'description':p.meta.get('description',''),'description_characters':len(p.meta.get('description','')),'main_words':len(p.text().split()),'h1_count':sum(l==1 for l,_ in p.headings),'canonical':p.canon[0] if p.canon else '', 'contextual_inbound_links':inbound[route],'images':len(p.images),'schema_entities':sum(len(list(entities(s))) for s in p.schemas),'live_status':results.get(route,{}).get('status','not run'),'automated_errors':sum(f['severity']=='error' for f in issues),'advisories':'; '.join(f['message'] for f in issues if f['severity']=='warning'),'account_checks':'GSC selected canonical/indexing and AdSense approval require account access'})
- out=ROOT/'docs/seo-page-audit-2026-10-27.csv'
+ out=ROOT/f'docs/seo-page-audit-{TODAY.isoformat()}.csv'
  with out.open('w') as f:
   w=csv.DictWriter(f,fieldnames=rows[0].keys(),lineterminator='\n');w.writeheader();w.writerows(rows)
  report={'checked_at':datetime.datetime.now(datetime.timezone.utc).isoformat(),'pages':len(pages),'blogs':len(blogurls),'live_checked':live,'findings':findings,'live':results,'scope':'Automated page, link, schema-content and HTTP checks; not a guarantee of ranking, legal compliance or approval.'}
- (ROOT/'docs/seo-audit-results-2026-10-27.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n')
+ (ROOT/f'docs/seo-audit-results-{TODAY.isoformat()}.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n')
  print(json.dumps({'pages':len(pages),'blogs':len(blogurls),'errors':sum(f['severity']=='error' for f in findings),'warnings':sum(f['severity']=='warning' for f in findings),'findings':findings[:40]},ensure_ascii=False,indent=2))
  return 1 if any(f['severity']=='error' for f in findings) else 0
 if __name__=='__main__':

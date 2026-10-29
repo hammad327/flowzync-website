@@ -6,21 +6,22 @@ import { getAllPosts } from '@/lib/posts';
 import BlogGrid from '@/components/BlogGrid';
 import { site } from '@/lib/site';
 import { clampTitle, clampDescription, openGraph, twitterCard } from '@/lib/meta';
-
 export const metadata = {
   title: 'Blog — Web Design, Funnels & Automation Insights',
-  description: clampDescription(
-    'Practical articles from the Flowzync team on web design, GoHighLevel funnels, WordPress, Shopify, SEO and automation. New posts published regularly.'
-    ),
-  alternates: { canonical: `${site.url}/blog` },
-  twitter: twitterCard({ title: 'Blog — Web Design, Funnels & Automation Insights', description: 'Practical articles from the Flowzync team on web design, GoHighLevel funnels, WordPress, Shopify, SEO and automation. New posts published regularly.' }),
+  description: clampDescription('Practical articles from the Flowzync team on web design, GoHighLevel funnels, WordPress, Shopify, SEO and automation. New posts published regularly.'),
+  alternates: {
+    canonical: `${site.url}/blog`
+  },
+  twitter: twitterCard({
+    title: 'Blog — Web Design, Funnels & Automation Insights',
+    description: 'Practical articles from the Flowzync team on web design, GoHighLevel funnels, WordPress, Shopify, SEO and automation. New posts published regularly.'
+  }),
   openGraph: openGraph({
     title: 'Blog — Web Design, Funnels & Automation Insights',
     description: 'Practical articles from the Flowzync team on web design, GoHighLevel funnels, WordPress, Shopify, SEO and automation. New posts published regularly.',
-    url: '/blog',
-  }),
+    url: '/blog'
+  })
 };
-
 export default function BlogPage() {
   const posts = getAllPosts();
 
@@ -34,37 +35,52 @@ export default function BlogPage() {
     '@id': `${site.url}/blog#blog`,
     name: `${site.name} Blog`,
     url: `${site.url}/blog`,
-    description:
-      'Practical articles on web design, WordPress, WooCommerce, GoHighLevel funnels, SEO and business automation.',
+    description: 'Practical articles on web design, WordPress, WooCommerce, GoHighLevel funnels, SEO and business automation.',
     inLanguage: 'en',
-    publisher: { '@id': `${site.url}/#organization` },
-    blogPost: posts.map((p) => ({
+    publisher: {
+      '@id': `${site.url}/#organization`
+    },
+    blogPost: posts.map(p => ({
       '@type': 'BlogPosting',
       headline: p.title,
       description: p.description,
       url: `${site.url}/blog/${p.slug}`,
       datePublished: p.date,
       dateModified: p.updated || p.date,
-      author: { '@id': `${site.url}/#organization` },
-    })),
+      author: {
+        '@id': `${site.url}/#organization`
+      }
+    }))
   };
-
-  return (
-    <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema('blog')) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
+  return <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{
+      __html: JSON.stringify(faqSchema('blog'))
+    }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{
+      __html: JSON.stringify(schema).replace(/</g, '\\u003c')
+    }} />
       <div className="page-hero">
         <div className="orb orb1" data-plx="0.1" /><div className="orb orb2" data-plx="-0.07" /><div className="hero-grid-bg" />
-        <div className="wrap" style={{ position: 'relative', zIndex: 1, textAlign: 'center' }}>
+        <div className="wrap" style={{
+        position: 'relative',
+        zIndex: 1,
+        textAlign: 'center'
+      }}>
           <div className="eyebrow"><span className="pulse" />Blog</div>
-          <h1 style={{ margin: '0 auto 18px' }}>Ideas worth <span className="grad-txt">building on</span></h1>
-          <p className="lede" style={{ margin: '0 auto' }}>
+          <h1 style={{
+          margin: '0 auto 18px'
+        }}>Ideas worth <span className="grad-txt">building on</span></h1>
+          <p className="lede" style={{
+          margin: '0 auto'
+        }}>
             Practical thinking on design, funnels, automation and SEO — written by the people who build them daily.
           </p>
         </div>
       </div>
 
-      <section className="sec-tint" style={{ paddingTop: 30 }}>
+      <section className="sec-tint" style={{
+      paddingTop: 30
+    }}>
         <div className="wrap">
           <div className="sec-head rv">
             <div className="eyebrow"><span className="pulse" />Latest articles</div>
@@ -74,13 +90,12 @@ export default function BlogPage() {
               honest answer is that you do not need the thing, we say that instead.
             </p>
           </div>
-          {posts.length === 0 ? (
-            <p style={{ textAlign: 'center', color: 'var(--muted)' }}>
+          {posts.length === 0 ? <p style={{
+          textAlign: 'center',
+          color: 'var(--muted)'
+        }}>
               No posts yet — drop a .md file into <code>content/blog/</code> to publish your first article.
-            </p>
-          ) : (
-            <BlogGrid posts={posts} />
-          )}
+            </p> : <BlogGrid posts={posts} />}
         </div>
       </section>
 
@@ -95,24 +110,18 @@ export default function BlogPage() {
             <h2>Asked <span className="grad-txt">most often</span></h2>
           </div>
           <div className="faq-list">
-            {pageFaqs.blog.map(([q, a]) => (
-              <details className="faq-static" key={q}>
+            {pageFaqs.blog.map(([q, a]) => <details className="faq-static" key={q}>
                 <summary>{q}</summary>
                 <p>{a}</p>
-              </details>
-            ))}
+              </details>)}
           </div>
         </div>
       </section>
 
       <section className="sec-soft">
         <div className="wrap">
-          <CTABand
-            title="Reading is good. Building is better."
-            text="If an article sparked an idea for your own website or funnel, let's talk it through — the first call is free."
-          />
+          <CTABand title="Reading is good. Building is better." text="If an article sparked an idea for your own website or funnel, let's talk it through — the first call is free." />
         </div>
       </section>
-    </>
-  );
+    </>;
 }

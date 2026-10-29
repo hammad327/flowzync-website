@@ -1,4 +1,5 @@
 'use client';
+
 // ─────────────────────────────────────────────────────────────
 //  PHOTO — a photograph, with a local illustration as safety net
 //
@@ -18,7 +19,6 @@
 // ─────────────────────────────────────────────────────────────
 import Image from 'next/image';
 import { useState } from 'react';
-
 export default function Photo({
   photo,
   fallback,
@@ -28,30 +28,17 @@ export default function Photo({
   priority = false,
   sizes,
   className,
-  style,
+  style
 }) {
   const [src, setSrc] = useState(photo || fallback);
 
   // Nothing to try — render nothing rather than an empty box.
   if (!src) return null;
-
   const onFallback = src === fallback;
-
-  return (
-    <Image
-      src={src}
-      alt={alt}
-      width={width}
-      height={height}
-      priority={priority}
-      sizes={sizes}
-      className={className}
-      style={style}
-      // Only ever falls back once. Without the guard, an illustration
-      // that itself failed to load would retrigger this forever.
-      onError={() => {
-        if (fallback && !onFallback) setSrc(fallback);
-      }}
-    />
-  );
+  return <Image src={src} unoptimized={/^https:\/\//.test(src) && !src.startsWith('https://images.unsplash.com/') && !src.startsWith('https://cdn.sanity.io/')} alt={alt} width={width} height={height} priority={priority} sizes={sizes} className={className} style={style}
+  // Only ever falls back once. Without the guard, an illustration
+  // that itself failed to load would retrigger this forever.
+  onError={() => {
+    if (fallback && !onFallback) setSrc(fallback);
+  }} />;
 }

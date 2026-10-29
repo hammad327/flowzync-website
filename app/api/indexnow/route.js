@@ -1,6 +1,6 @@
 // Submits every page in the sitemap to IndexNow, so Bing (and
-// therefore ChatGPT search and Copilot) picks up changes in hours
-// rather than waiting for a crawl.
+// other participating engines) can discover changes. Submission
+// does not guarantee crawling, indexing, or AI citations.
 //
 // Runs daily from vercel.json. You can also trigger it by hand after
 // publishing something important:
