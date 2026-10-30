@@ -1,9 +1,658 @@
 {
-  "checked_at": "2026-10-30T15:49:31.131087+00:00",
+  "checked_at": "2026-10-30T15:59:27.562887+00:00",
   "pages": 153,
   "blogs": 38,
-  "live_checked": false,
+  "live_checked": true,
   "findings": [],
-  "live": {},
+  "live": {
+    "/blog/ai-search-visibility-dashboard-small-business": {
+      "status": 200,
+      "final": "https://flowzync.com/blog/ai-search-visibility-dashboard-small-business"
+    },
+    "/about": {
+      "status": 200,
+      "final": "https://flowzync.com/about"
+    },
+    "/blog/care-agency-website-cqc-requirements": {
+      "status": 200,
+      "final": "https://flowzync.com/blog/care-agency-website-cqc-requirements"
+    },
+    "/about/team": {
+      "status": 200,
+      "final": "https://flowzync.com/about/team"
+    },
+    "/blog/care-agency-crm-what-to-look-for": {
+      "status": 200,
+      "final": "https://flowzync.com/blog/care-agency-crm-what-to-look-for"
+    },
+    "/ar": {
+      "status": 200,
+      "final": "https://flowzync.com/ar"
+    },
+    "/blog/care-agency-website-what-families-look-for": {
+      "status": 200,
+      "final": "https://flowzync.com/blog/care-agency-website-what-families-look-for"
+    },
+    "/blog/bing-ai-performance-topics-portfolio-small-business": {
+      "status": 200,
+      "final": "https://flowzync.com/blog/bing-ai-performance-topics-portfolio-small-business"
+    },
+    "/blog/ghl-funnel-mistakes": {
+      "status": 200,
+      "final": "https://flowzync.com/blog/ghl-funnel-mistakes"
+    },
+    "/blog/gohighlevel-vs-hubspot-small-business": {
+      "status": 200,
+      "final": "https://flowzync.com/blog/gohighlevel-vs-hubspot-small-business"
+    },
+    "/blog/elementor-vs-custom-wordpress-theme": {
+      "status": 200,
+      "final": "https://flowzync.com/blog/elementor-vs-custom-wordpress-theme"
+    },
+    "/blog/carer-recruitment-website-fill-shifts": {
+      "status": 200,
+      "final": "https://flowzync.com/blog/carer-recruitment-website-fill-shifts"
+    },
+    "/blog/cheap-website-design-what-you-actually-get": {
+      "status": 200,
+      "final": "https://flowzync.com/blog/cheap-website-design-what-you-actually-get"
+    },
+    "/blog/gohighlevel-for-care-agencies": {
+      "status": 200,
+      "final": "https://flowzync.com/blog/gohighlevel-for-care-agencies"
+    },
+    "/blog/does-my-business-need-a-blog": {
+      "status": 200,
+      "final": "https://flowzync.com/blog/does-my-business-need-a-blog"
+    },
+    "/blog/does-website-speed-affect-seo-rankings": {
+      "status": 200,
+      "final": "https://flowzync.com/blog/does-website-speed-affect-seo-rankings"
+    },
+    "/blog/google-business-profile-optimization-checklist": {
+      "status": 200,
+      "final": "https://flowzync.com/blog/google-business-profile-optimization-checklist"
+    },
+    "/blog/how-many-pages-should-a-small-business-website-have": {
+      "status": 200,
+      "final": "https://flowzync.com/blog/how-many-pages-should-a-small-business-website-have"
+    },
+    "/blog/how-much-does-a-wordpress-website-cost": {
+      "status": 200,
+      "final": "https://flowzync.com/blog/how-much-does-a-wordpress-website-cost"
+    },
+    "/blog/how-to-get-your-business-mentioned-by-ai-chatgpt": {
+      "status": 200,
+      "final": "https://flowzync.com/blog/how-to-get-your-business-mentioned-by-ai-chatgpt"
+    },
+    "/blog/how-many-leads-should-a-website-generate": {
+      "status": 200,
+      "final": "https://flowzync.com/blog/how-many-leads-should-a-website-generate"
+    },
+    "/blog/google-business-profile-not-showing-in-maps": {
+      "status": 200,
+      "final": "https://flowzync.com/blog/google-business-profile-not-showing-in-maps"
+    },
+    "/blog/how-long-does-it-take-to-build-a-website": {
+      "status": 200,
+      "final": "https://flowzync.com/blog/how-long-does-it-take-to-build-a-website"
+    },
+    "/blog/how-care-agencies-get-found-on-google": {
+      "status": 200,
+      "final": "https://flowzync.com/blog/how-care-agencies-get-found-on-google"
+    },
+    "/blog/how-to-write-a-website-brief": {
+      "status": 200,
+      "final": "https://flowzync.com/blog/how-to-write-a-website-brief"
+    },
+    "/blog/should-home-care-agencies-publish-prices": {
+      "status": 200,
+      "final": "https://flowzync.com/blog/should-home-care-agencies-publish-prices"
+    },
+    "/blog/website-contact-form-not-sending-emails": {
+      "status": 200,
+      "final": "https://flowzync.com/blog/website-contact-form-not-sending-emails"
+    },
+    "/blog/move-website-without-losing-google-rankings": {
+      "status": 200,
+      "final": "https://flowzync.com/blog/move-website-without-losing-google-rankings"
+    },
+    "/blog/schema-markup-explained-for-small-business": {
+      "status": 200,
+      "final": "https://flowzync.com/blog/schema-markup-explained-for-small-business"
+    },
+    "/blog/seo-basics-new-websites": {
+      "status": 200,
+      "final": "https://flowzync.com/blog/seo-basics-new-websites"
+    },
+    "/blog/missed-call-text-back-for-small-business": {
+      "status": 200,
+      "final": "https://flowzync.com/blog/missed-call-text-back-for-small-business"
+    },
+    "/blog/local-seo-checklist-small-business": {
+      "status": 200,
+      "final": "https://flowzync.com/blog/local-seo-checklist-small-business"
+    },
+    "/blog/what-is-a-quiz-funnel": {
+      "status": 200,
+      "final": "https://flowzync.com/blog/what-is-a-quiz-funnel"
+    },
+    "/blog/why-is-my-website-not-showing-up-on-google": {
+      "status": 200,
+      "final": "https://flowzync.com/blog/why-is-my-website-not-showing-up-on-google"
+    },
+    "/blog/website-redesign-signs": {
+      "status": 200,
+      "final": "https://flowzync.com/blog/website-redesign-signs"
+    },
+    "/blog/woocommerce-vs-shopify-small-business": {
+      "status": 200,
+      "final": "https://flowzync.com/blog/woocommerce-vs-shopify-small-business"
+    },
+    "/blog/website-traffic-but-no-leads": {
+      "status": 200,
+      "final": "https://flowzync.com/blog/website-traffic-but-no-leads"
+    },
+    "/blog/wordpress-security-update-checklist": {
+      "status": 200,
+      "final": "https://flowzync.com/blog/wordpress-security-update-checklist"
+    },
+    "/blog/why-care-agencies-lose-enquiries": {
+      "status": 200,
+      "final": "https://flowzync.com/blog/why-care-agencies-lose-enquiries"
+    },
+    "/blog/website-maintenance-what-it-includes": {
+      "status": 200,
+      "final": "https://flowzync.com/blog/website-maintenance-what-it-includes"
+    },
+    "/contact": {
+      "status": 200,
+      "final": "https://flowzync.com/contact"
+    },
+    "/blog/wordpress-vs-gohighlevel-for-your-website": {
+      "status": 200,
+      "final": "https://flowzync.com/blog/wordpress-vs-gohighlevel-for-your-website"
+    },
+    "/blog": {
+      "status": 200,
+      "final": "https://flowzync.com/blog"
+    },
+    "/de": {
+      "status": 200,
+      "final": "https://flowzync.com/de"
+    },
+    "/cookies": {
+      "status": 200,
+      "final": "https://flowzync.com/cookies"
+    },
+    "/es": {
+      "status": 200,
+      "final": "https://flowzync.com/es"
+    },
+    "/editorial-policy": {
+      "status": 200,
+      "final": "https://flowzync.com/editorial-policy"
+    },
+    "/fr": {
+      "status": 200,
+      "final": "https://flowzync.com/fr"
+    },
+    "/": {
+      "status": 200,
+      "final": "https://flowzync.com/"
+    },
+    "/industries/accountants-and-bookkeepers": {
+      "status": 200,
+      "final": "https://flowzync.com/industries/accountants-and-bookkeepers"
+    },
+    "/industries/charities-and-nonprofits": {
+      "status": 200,
+      "final": "https://flowzync.com/industries/charities-and-nonprofits"
+    },
+    "/industries/ecommerce-and-retail": {
+      "status": 200,
+      "final": "https://flowzync.com/industries/ecommerce-and-retail"
+    },
+    "/industries/dental-practices": {
+      "status": 200,
+      "final": "https://flowzync.com/industries/dental-practices"
+    },
+    "/industries/beauty-wellness-and-fitness": {
+      "status": 200,
+      "final": "https://flowzync.com/industries/beauty-wellness-and-fitness"
+    },
+    "/industries/automotive-and-transport": {
+      "status": 200,
+      "final": "https://flowzync.com/industries/automotive-and-transport"
+    },
+    "/industries/care-homes-and-home-care": {
+      "status": 200,
+      "final": "https://flowzync.com/industries/care-homes-and-home-care"
+    },
+    "/industries/education-and-training": {
+      "status": 200,
+      "final": "https://flowzync.com/industries/education-and-training"
+    },
+    "/industries/home-and-property-services": {
+      "status": 200,
+      "final": "https://flowzync.com/industries/home-and-property-services"
+    },
+    "/industries/healthcare-and-medical-practices": {
+      "status": 200,
+      "final": "https://flowzync.com/industries/healthcare-and-medical-practices"
+    },
+    "/industries/financial-services-and-mortgage-brokers": {
+      "status": 200,
+      "final": "https://flowzync.com/industries/financial-services-and-mortgage-brokers"
+    },
+    "/industries/hospitality-and-food": {
+      "status": 200,
+      "final": "https://flowzync.com/industries/hospitality-and-food"
+    },
+    "/industries/legal-and-professional-services": {
+      "status": 200,
+      "final": "https://flowzync.com/industries/legal-and-professional-services"
+    },
+    "/industries/local-and-small-business": {
+      "status": 200,
+      "final": "https://flowzync.com/industries/local-and-small-business"
+    },
+    "/industries/manufacturing-and-industrial": {
+      "status": 200,
+      "final": "https://flowzync.com/industries/manufacturing-and-industrial"
+    },
+    "/locations/web-design-birmingham": {
+      "status": 200,
+      "final": "https://flowzync.com/locations/web-design-birmingham"
+    },
+    "/industries/real-estate-and-construction": {
+      "status": 200,
+      "final": "https://flowzync.com/industries/real-estate-and-construction"
+    },
+    "/industries/recruitment-and-staffing": {
+      "status": 200,
+      "final": "https://flowzync.com/industries/recruitment-and-staffing"
+    },
+    "/locations/web-design-adelaide": {
+      "status": 200,
+      "final": "https://flowzync.com/locations/web-design-adelaide"
+    },
+    "/industries/veterinary-practices": {
+      "status": 200,
+      "final": "https://flowzync.com/industries/veterinary-practices"
+    },
+    "/industries/saas-and-technology": {
+      "status": 200,
+      "final": "https://flowzync.com/industries/saas-and-technology"
+    },
+    "/industries": {
+      "status": 200,
+      "final": "https://flowzync.com/industries"
+    },
+    "/locations/web-design-austin": {
+      "status": 200,
+      "final": "https://flowzync.com/locations/web-design-austin"
+    },
+    "/locations/web-design-chattanooga": {
+      "status": 200,
+      "final": "https://flowzync.com/locations/web-design-chattanooga"
+    },
+    "/locations/web-design-calgary": {
+      "status": 200,
+      "final": "https://flowzync.com/locations/web-design-calgary"
+    },
+    "/locations/web-design-cape-town": {
+      "status": 200,
+      "final": "https://flowzync.com/locations/web-design-cape-town"
+    },
+    "/locations/web-design-chicago": {
+      "status": 200,
+      "final": "https://flowzync.com/locations/web-design-chicago"
+    },
+    "/locations/web-design-christchurch": {
+      "status": 200,
+      "final": "https://flowzync.com/locations/web-design-christchurch"
+    },
+    "/locations/web-design-boise": {
+      "status": 200,
+      "final": "https://flowzync.com/locations/web-design-boise"
+    },
+    "/locations/web-design-cork": {
+      "status": 200,
+      "final": "https://flowzync.com/locations/web-design-cork"
+    },
+    "/locations/web-design-bristol": {
+      "status": 200,
+      "final": "https://flowzync.com/locations/web-design-bristol"
+    },
+    "/locations/web-design-des-moines": {
+      "status": 200,
+      "final": "https://flowzync.com/locations/web-design-des-moines"
+    },
+    "/locations/web-design-halifax-ns": {
+      "status": 200,
+      "final": "https://flowzync.com/locations/web-design-halifax-ns"
+    },
+    "/locations/web-design-fort-collins": {
+      "status": 200,
+      "final": "https://flowzync.com/locations/web-design-fort-collins"
+    },
+    "/locations/web-design-galway": {
+      "status": 200,
+      "final": "https://flowzync.com/locations/web-design-galway"
+    },
+    "/locations/web-design-gold-coast": {
+      "status": 200,
+      "final": "https://flowzync.com/locations/web-design-gold-coast"
+    },
+    "/locations/web-design-dubai": {
+      "status": 200,
+      "final": "https://flowzync.com/locations/web-design-dubai"
+    },
+    "/locations/web-design-glasgow": {
+      "status": 200,
+      "final": "https://flowzync.com/locations/web-design-glasgow"
+    },
+    "/locations/web-design-dallas": {
+      "status": 200,
+      "final": "https://flowzync.com/locations/web-design-dallas"
+    },
+    "/locations/web-design-new-york": {
+      "status": 200,
+      "final": "https://flowzync.com/locations/web-design-new-york"
+    },
+    "/locations/web-design-miami": {
+      "status": 200,
+      "final": "https://flowzync.com/locations/web-design-miami"
+    },
+    "/locations/web-design-manchester": {
+      "status": 200,
+      "final": "https://flowzync.com/locations/web-design-manchester"
+    },
+    "/locations/web-design-ipswich": {
+      "status": 200,
+      "final": "https://flowzync.com/locations/web-design-ipswich"
+    },
+    "/locations/web-design-milton-keynes": {
+      "status": 200,
+      "final": "https://flowzync.com/locations/web-design-milton-keynes"
+    },
+    "/locations/web-design-london": {
+      "status": 200,
+      "final": "https://flowzync.com/locations/web-design-london"
+    },
+    "/locations/web-design-leeds": {
+      "status": 200,
+      "final": "https://flowzync.com/locations/web-design-leeds"
+    },
+    "/locations/web-design-huddersfield": {
+      "status": 200,
+      "final": "https://flowzync.com/locations/web-design-huddersfield"
+    },
+    "/locations/web-design-ottawa": {
+      "status": 200,
+      "final": "https://flowzync.com/locations/web-design-ottawa"
+    },
+    "/locations/web-design-sarasota": {
+      "status": 200,
+      "final": "https://flowzync.com/locations/web-design-sarasota"
+    },
+    "/locations/web-design-newcastle-nsw": {
+      "status": 200,
+      "final": "https://flowzync.com/locations/web-design-newcastle-nsw"
+    },
+    "/locations/web-design-stockport": {
+      "status": 200,
+      "final": "https://flowzync.com/locations/web-design-stockport"
+    },
+    "/locations/web-design-reading": {
+      "status": 200,
+      "final": "https://flowzync.com/locations/web-design-reading"
+    },
+    "/locations/web-design-norwich": {
+      "status": 200,
+      "final": "https://flowzync.com/locations/web-design-norwich"
+    },
+    "/locations/web-design-phoenix": {
+      "status": 200,
+      "final": "https://flowzync.com/locations/web-design-phoenix"
+    },
+    "/locations/web-design-spokane": {
+      "status": 200,
+      "final": "https://flowzync.com/locations/web-design-spokane"
+    },
+    "/locations/web-design-swindon": {
+      "status": 200,
+      "final": "https://flowzync.com/locations/web-design-swindon"
+    },
+    "/portfolio/5-star-quality-hvac": {
+      "status": 200,
+      "final": "https://flowzync.com/portfolio/5-star-quality-hvac"
+    },
+    "/locations": {
+      "status": 200,
+      "final": "https://flowzync.com/locations"
+    },
+    "/portfolio/beauty-and-spa-centre": {
+      "status": 200,
+      "final": "https://flowzync.com/portfolio/beauty-and-spa-centre"
+    },
+    "/locations/web-design-wakefield": {
+      "status": 200,
+      "final": "https://flowzync.com/locations/web-design-wakefield"
+    },
+    "/portfolio/business-breakpoint-quiz-funnel": {
+      "status": 200,
+      "final": "https://flowzync.com/portfolio/business-breakpoint-quiz-funnel"
+    },
+    "/portfolio/bludo-lead-follow-up-automation": {
+      "status": 200,
+      "final": "https://flowzync.com/portfolio/bludo-lead-follow-up-automation"
+    },
+    "/portfolio/ad-consultancy-group": {
+      "status": 200,
+      "final": "https://flowzync.com/portfolio/ad-consultancy-group"
+    },
+    "/portfolio/conference-2025-event-page": {
+      "status": 200,
+      "final": "https://flowzync.com/portfolio/conference-2025-event-page"
+    },
+    "/portfolio/cleaning-services-website": {
+      "status": 200,
+      "final": "https://flowzync.com/portfolio/cleaning-services-website"
+    },
+    "/portfolio/business-coach-funnel": {
+      "status": 200,
+      "final": "https://flowzync.com/portfolio/business-coach-funnel"
+    },
+    "/portfolio/crown-build-constructions": {
+      "status": 200,
+      "final": "https://flowzync.com/portfolio/crown-build-constructions"
+    },
+    "/portfolio/dental-clinic-landing-page": {
+      "status": 200,
+      "final": "https://flowzync.com/portfolio/dental-clinic-landing-page"
+    },
+    "/portfolio/construction-company-website": {
+      "status": 200,
+      "final": "https://flowzync.com/portfolio/construction-company-website"
+    },
+    "/portfolio/digital-marketing-agency-website": {
+      "status": 200,
+      "final": "https://flowzync.com/portfolio/digital-marketing-agency-website"
+    },
+    "/portfolio/das-care-services": {
+      "status": 200,
+      "final": "https://flowzync.com/portfolio/das-care-services"
+    },
+    "/portfolio/heaven-sent-sleep-baby-care-funnel": {
+      "status": 200,
+      "final": "https://flowzync.com/portfolio/heaven-sent-sleep-baby-care-funnel"
+    },
+    "/portfolio/elevate-assist-automation": {
+      "status": 200,
+      "final": "https://flowzync.com/portfolio/elevate-assist-automation"
+    },
+    "/portfolio/marketing-failing-to-deliver-funnel": {
+      "status": 200,
+      "final": "https://flowzync.com/portfolio/marketing-failing-to-deliver-funnel"
+    },
+    "/portfolio/gym-email-template-design": {
+      "status": 200,
+      "final": "https://flowzync.com/portfolio/gym-email-template-design"
+    },
+    "/portfolio/imb-exterior-cleaning": {
+      "status": 200,
+      "final": "https://flowzync.com/portfolio/imb-exterior-cleaning"
+    },
+    "/portfolio/live-freedom-webinar-funnel": {
+      "status": 200,
+      "final": "https://flowzync.com/portfolio/live-freedom-webinar-funnel"
+    },
+    "/portfolio/jre-services": {
+      "status": 200,
+      "final": "https://flowzync.com/portfolio/jre-services"
+    },
+    "/portfolio/digital-marketing-email-template-design": {
+      "status": 200,
+      "final": "https://flowzync.com/portfolio/digital-marketing-email-template-design"
+    },
+    "/portfolio/nf-living": {
+      "status": 200,
+      "final": "https://flowzync.com/portfolio/nf-living"
+    },
+    "/portfolio/roller-shutters-online": {
+      "status": 200,
+      "final": "https://flowzync.com/portfolio/roller-shutters-online"
+    },
+    "/portfolio/the-right-size-for-any-situation": {
+      "status": 200,
+      "final": "https://flowzync.com/portfolio/the-right-size-for-any-situation"
+    },
+    "/portfolio/myers-insurance-advisors": {
+      "status": 200,
+      "final": "https://flowzync.com/portfolio/myers-insurance-advisors"
+    },
+    "/portfolio/medical-spa-website": {
+      "status": 200,
+      "final": "https://flowzync.com/portfolio/medical-spa-website"
+    },
+    "/portfolio/medway-drain-services": {
+      "status": 200,
+      "final": "https://flowzync.com/portfolio/medway-drain-services"
+    },
+    "/portfolio/sc-exterior-cleaning": {
+      "status": 200,
+      "final": "https://flowzync.com/portfolio/sc-exterior-cleaning"
+    },
+    "/portfolio/roddye-communications": {
+      "status": 200,
+      "final": "https://flowzync.com/portfolio/roddye-communications"
+    },
+    "/services/ghl-crm-setup": {
+      "status": 200,
+      "final": "https://flowzync.com/services/ghl-crm-setup"
+    },
+    "/portfolio/travel-agency-website": {
+      "status": 200,
+      "final": "https://flowzync.com/portfolio/travel-agency-website"
+    },
+    "/services/custom-website-design": {
+      "status": 200,
+      "final": "https://flowzync.com/services/custom-website-design"
+    },
+    "/services/automations": {
+      "status": 200,
+      "final": "https://flowzync.com/services/automations"
+    },
+    "/services/elementor-design": {
+      "status": 200,
+      "final": "https://flowzync.com/services/elementor-design"
+    },
+    "/services/ghl-funnels-for-care-agencies": {
+      "status": 200,
+      "final": "https://flowzync.com/services/ghl-funnels-for-care-agencies"
+    },
+    "/privacy": {
+      "status": 200,
+      "final": "https://flowzync.com/privacy"
+    },
+    "/portfolio": {
+      "status": 200,
+      "final": "https://flowzync.com/portfolio"
+    },
+    "/services/ui-ux-design": {
+      "status": 200,
+      "final": "https://flowzync.com/services/ui-ux-design"
+    },
+    "/services/ghl-funnels": {
+      "status": 200,
+      "final": "https://flowzync.com/services/ghl-funnels"
+    },
+    "/services/maintenance-support": {
+      "status": 200,
+      "final": "https://flowzync.com/services/maintenance-support"
+    },
+    "/services/seo-optimization": {
+      "status": 200,
+      "final": "https://flowzync.com/services/seo-optimization"
+    },
+    "/services/landing-pages": {
+      "status": 200,
+      "final": "https://flowzync.com/services/landing-pages"
+    },
+    "/services/woocommerce-development": {
+      "status": 200,
+      "final": "https://flowzync.com/services/woocommerce-development"
+    },
+    "/services/wordpress-website-design": {
+      "status": 200,
+      "final": "https://flowzync.com/services/wordpress-website-design"
+    },
+    "/services/graphic-design": {
+      "status": 200,
+      "final": "https://flowzync.com/services/graphic-design"
+    },
+    "/services": {
+      "status": 200,
+      "final": "https://flowzync.com/services"
+    },
+    "/robots.txt": {
+      "status": 200,
+      "final": "https://flowzync.com/robots.txt"
+    },
+    "/sitemap.xml": {
+      "status": 200,
+      "final": "https://flowzync.com/sitemap.xml"
+    },
+    "/feed.xml": {
+      "status": 200,
+      "final": "https://flowzync.com/feed.xml"
+    },
+    "/llms.txt": {
+      "status": 200,
+      "final": "https://flowzync.com/llms.txt"
+    },
+    "/a-page-that-does-not-exist-20261027": {
+      "status": 404,
+      "error": "HTTP Error 404: Not Found"
+    },
+    "/blog/a-post-that-does-not-exist-20261027": {
+      "status": 404,
+      "error": "HTTP Error 404: Not Found"
+    },
+    "/blog/2026-06-17-seo-basics-new-websites": {
+      "status": 200,
+      "final": "https://flowzync.com/blog/seo-basics-new-websites"
+    },
+    "/blog/2026-06-24-ghl-funnel-mistakes": {
+      "status": 200,
+      "final": "https://flowzync.com/blog/ghl-funnel-mistakes"
+    },
+    "/api/challenge": {
+      "status": 200,
+      "final": "https://flowzync.com/api/challenge"
+    }
+  },
   "scope": "Automated page, link, schema-content and HTTP checks; not a guarantee of ranking, legal compliance or approval."
 }

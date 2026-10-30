@@ -14,19 +14,20 @@ const INITIAL = { role: 'assistant', content: GREETING, actions: [
 ] };
 const safeHref = href => typeof href === 'string' && (/^\/(?!\/)/.test(href) || href === `mailto:${site.email}`);
 
-function Reply({ message, busy, onAction }) {
+function Reply({ message, busy, onAction, active }) {
   const { content, points = [], cards = [], links = [], actions = [], nextQuestion } = message;
   return <div className={`msg ${message.role === 'user' ? 'user' : 'bot'}`}>
     <p>{content}</p>
     {!!points.length && <ul>{points.slice(0, 4).map((p, i) => <li key={i}>{p}</li>)}</ul>}
-    {!!cards.length && <div className="zync-cards">{cards.slice(0, 4).map(card => <article key={card.href} className="zync-card">
+    {!!cards.length && !active && <p className="zync-past">Suggested: {cards.map(c => c.title).join(' · ')}</p>}
+    {!!cards.length && active && <div className="zync-cards">{cards.slice(0, 4).map(card => <article key={card.href} className="zync-card">
       <h3>{card.title}</h3><p>{card.description}</p>
       <div>{card.question && <button type="button" disabled={busy} onClick={() => onAction({ message: card.question })}>Explore in chat</button>}
         {safeHref(card.href) && <a href={card.href}>View page <span aria-hidden="true">↗</span></a>}</div>
     </article>)}</div>}
-    {!!links.length && <div className="zync-links">{links.filter(l => safeHref(l.href)).map(l => <a key={l.href} href={l.href}>{l.label}<span aria-hidden="true"> ↗</span></a>)}</div>}
-    {nextQuestion && <p className="zync-next">{nextQuestion}</p>}
-    {!!actions.length && <div className="zync-actions">{actions.map((a, i) => <button type="button" disabled={busy} onClick={() => onAction(a)} key={i}>{a.label}</button>)}</div>}
+    {!!links.length && active && <div className="zync-links">{links.filter(l => safeHref(l.href)).map(l => <a key={l.href} href={l.href}>{l.label}<span aria-hidden="true"> ↗</span></a>)}</div>}
+    {nextQuestion && active && <p className="zync-next">{nextQuestion}</p>}
+    {!!actions.length && active && <div className="zync-actions">{actions.map((a, i) => <button type="button" disabled={busy} onClick={() => onAction(a)} key={i}>{a.label}</button>)}</div>}
   </div>;
 }
 
@@ -75,6 +76,12 @@ export default function ChatWidget() {
     if (service) setLead(l => ({ ...l, service }));
     setShowForm(true);
   };
+  const resetChat = () => {
+    if (busy || saving) return;
+    setMsgs([INITIAL]); setShowForm(false); setSent(false); setFormErr(''); setInput('');
+    setLead({ name: '', email: '', phone: '', service: '', budget: '', message: '' });
+    chatInput.current?.focus();
+  };
   const send = async text => {
     const q = (text ?? input).trim().slice(0, 1200);
     if (!q || sending.current || saving) return;
@@ -86,7 +93,7 @@ export default function ChatWidget() {
     setMsgs(next); setBusy(true);
     try {
       const res = await fetch('/api/chat', { method: 'POST', headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ messages: next.slice(-14).map(({ role, content }) => ({ role, content })) }), signal: AbortSignal.timeout(20000) });
+        body: JSON.stringify({ messages: next.slice(-14).map(m => ({ role: m.role, content: [m.content, ...(m.points || []), ...(m.cards || []).map(c => c.title), m.nextQuestion].filter(Boolean).join('\n').slice(0, 1200) })) }), signal: AbortSignal.timeout(20000) });
       const data = await res.json();
       if (!res.ok || !data.reply) throw new Error('Chat unavailable');
       setMsgs(m => [...m, { ...data, role: 'assistant', content: data.reply }]);
@@ -116,17 +123,17 @@ export default function ChatWidget() {
     finally { setSaving(false); }
   };
   if (path?.startsWith('/admin')) return null;
+  const lastAssistant = msgs.map(m => m.role).lastIndexOf('assistant');
   const set = k => e => setLead(l => ({ ...l, [k]: e.target.value }));
   return <>
     <button ref={fabRef} className="ai-fab" onClick={() => setOpen(v => !v)} aria-label={open ? 'Close chat' : 'Chat with Zync'} aria-expanded={open} aria-controls="zync-chat"><LogoMark variant="white" size={30} animated={false} /><span className="dot" /></button>
     <section id="zync-chat" className={`ai-panel ${open ? 'open' : ''}`} role="dialog" aria-label="Chat with Zync" aria-hidden={!open} inert={!open ? '' : undefined}>
-      <header className="ai-head"><div className="bot-av"><LogoMark variant="white" size={24} animated={false} /></div><div><b>Zync</b><span>Flowzync website assistant</span></div><button type="button" className="ai-close" onClick={() => { setOpen(false); fabRef.current?.focus(); }} aria-label="Close chat">×</button></header>
-      <div className="zync-toolbar"><span>How can we help?</span><button type="button" disabled={busy || saving} onClick={() => showForm ? setShowForm(false) : openQuote()}>{showForm ? 'Back to chat' : sent ? 'Send another enquiry' : 'Request a quote'}<span aria-hidden="true"> ↗</span></button></div>
+      <header className="ai-head"><div className="bot-av"><LogoMark variant="white" size={22} animated={false} /></div><div className="zync-identity"><b>Zync</b><span>Flowzync assistant</span></div><button className="zync-quote-toggle" type="button" disabled={busy || saving} onClick={() => showForm ? setShowForm(false) : openQuote()}>{showForm ? 'Back to chat' : 'Get a quote'}</button><button className="zync-reset" type="button" disabled={busy || saving} onClick={resetChat} aria-label="Start a new conversation" title="New conversation">↻</button><button type="button" className="ai-close" onClick={() => { setOpen(false); fabRef.current?.focus(); }} aria-label="Close chat">×</button></header>
       <div className="ai-body" ref={bodyRef}>
-        <div className="zync-thread" role="log" aria-label="Conversation" aria-live="polite" aria-relevant="additions" aria-busy={busy}>
-          {msgs.map((m, i) => <Reply key={i} message={m} busy={busy || saving} onAction={onAction} />)}
+        {!showForm && <div className="zync-thread" role="log" aria-label="Conversation" aria-live="polite" aria-relevant="additions" aria-busy={busy}>
+          {msgs.map((m, i) => <Reply key={i} message={m} busy={busy || saving} onAction={onAction} active={i === lastAssistant && !busy} />)}
           {busy && <div className="typing" role="status" aria-label="Preparing a reply"><i /><i /><i /></div>}
-        </div>
+        </div>}
         {showForm && <form className="ai-lead" ref={formRef} onSubmit={submitLead} aria-label="Request a project quote">
           <div className="zync-form-head"><div><span>LET’S TALK</span><h2>Your project, next.</h2></div><button type="button" disabled={saving} aria-label="Close quote form" onClick={() => { setShowForm(false); chatInput.current?.focus(); }}>×</button></div>
           <p>Share a few details. The team will review your requirements and get back to you.</p>
@@ -146,8 +153,8 @@ export default function ChatWidget() {
           <button className="zync-back" type="button" disabled={saving} onClick={() => { setShowForm(false); chatInput.current?.focus(); }}>Continue chatting</button>
         </form>}
       </div>
-      <p className="zync-privacy">Website information only. Avoid sensitive details. <a href="/privacy">Privacy</a></p>
-      <form className="ai-input" onSubmit={e => { e.preventDefault(); send(); }}><input ref={chatInput} value={input} onChange={e => setInput(e.target.value)} maxLength={1200} placeholder="Ask about Flowzync…" aria-label="Chat message" disabled={saving} /><button type="submit" disabled={busy || saving || !input.trim()} aria-label="Send message"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m22 2-11 11M22 2l-7 20-4-9-9-4 20-7Z" stroke="currentColor" strokeWidth="2" strokeLinejoin="round" /></svg></button></form>
+      <div className="zync-composer"><p className="zync-privacy">AI can make mistakes. Avoid sensitive details. <a href="/privacy">Privacy</a></p>
+      <form className="ai-input" onSubmit={e => { e.preventDefault(); send(); }}><input ref={chatInput} value={input} onChange={e => setInput(e.target.value)} maxLength={1200} placeholder="Ask about Flowzync…" aria-label="Chat message" disabled={saving} /><button type="submit" disabled={busy || saving || !input.trim()} aria-label="Send message"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m22 2-11 11M22 2l-7 20-4-9-9-4 20-7Z" stroke="currentColor" strokeWidth="2" strokeLinejoin="round" /></svg></button></form></div>
     </section>
   </>;
 }
