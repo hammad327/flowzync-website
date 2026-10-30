@@ -51,6 +51,10 @@ assert.match(reply('Explore WordPress Website Design').reply,/professional team/
 const editAnswer = reply('Can I edit it myself?', ['Explore WordPress Website Design']);
 assert.doesNotMatch(editAnswer.reply,/Key areas include/);
 assert.ok(!fs.readFileSync('components/Footer.jsx','utf8').includes('Explore in your language'));
+const ownership = reply('Do I own the final designs?');
+assert.match(ownership.reply,/ownership|source files/i);
+const cancellation = reply('Can I cancel anytime?');
+assert.match(cancellation.reply,/month-to-month/);
 const widget = fs.readFileSync('components/ChatWidget.jsx', 'utf8');
 assert.match(widget, /setShowForm\(false\); setFormErr\(''\); setInput\(''\)/);
 assert.doesNotMatch(widget, /dangerouslySetInnerHTML|INTENT\.test/);
