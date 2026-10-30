@@ -62,7 +62,13 @@ export default function ChatWidget() {
     document.addEventListener('keydown', escape);
     return () => document.removeEventListener('keydown', escape);
   }, [open]);
-  useEffect(() => { const body = bodyRef.current; if (open && body) body.scrollTo({ top: showForm && formRef.current ? formRef.current.offsetTop - 14 : body.scrollHeight, behavior: 'smooth' }); }, [msgs, busy, open, showForm]);
+  useEffect(() => {
+    const body = bodyRef.current;
+    if (!open || !body) return;
+    const latest = body.querySelector('.zync-thread')?.lastElementChild;
+    const top = showForm && formRef.current ? formRef.current.offsetTop - 14 : latest ? latest.offsetTop - 14 : body.scrollHeight;
+    body.scrollTo({ top, behavior: 'smooth' });
+  }, [msgs, busy, open, showForm]);
 
   const openQuote = (service = '') => {
     setFormErr('');

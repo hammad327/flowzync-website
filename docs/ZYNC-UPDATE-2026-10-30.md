@@ -14,3 +14,7 @@
 - `node --experimental-vm-modules scripts/check-zync.mjs` passed: sourced replies, service discovery and pagination, contextual service/timing, quote/company/process, off-topic routing and dismissal contract.
 - Automated public audit: 153 pages / 38 published articles, zero findings in defined checks. The report is dated and is not a guarantee of indexing, ranking or approval.
 - Managed local browser preview unavailable (preview runtime did not resolve the existing Next dependency); no application scripts were changed to compensate. Live browser checks follow deployment.
+
+## Live UI verification
+
+Authenticated access is not needed for this public chat. Verified live greeting, four service cards, website links, quote controls and loaded spam check. Sending a new message dismissed the form. No enquiry was submitted. Visual QA found inherited global section padding on the new chat container; an explicit container padding reset removes it. Long answers now scroll to the start of the newest reply so visitors see its introduction and first choices rather than only the final card.

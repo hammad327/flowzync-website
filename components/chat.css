@@ -1,5 +1,5 @@
 /* Zync: scoped conversation, cards and form styles. */
-#zync-chat.ai-panel{width:420px;height:660px;max-height:calc(100dvh - 128px);border-radius:20px;isolation:isolate;color:#173e39;font-family:var(--font-manrope,Manrope),system-ui,sans-serif}
+#zync-chat.ai-panel{padding:0;width:420px;height:660px;max-height:calc(100dvh - 128px);border-radius:20px;isolation:isolate;color:#173e39;font-family:var(--font-manrope,Manrope),system-ui,sans-serif}
 .ai-panel .ai-head{flex-shrink:0;background:#123c37;padding:17px 20px}
 .ai-panel .ai-head .bot-av{background:#ffffff16;border-radius:12px}
 .ai-panel .ai-head span{font-size:12px;color:#d7e8df}
@@ -52,7 +52,7 @@
 .ai-panel .ai-lead .ai-lead-err{font-size:12px;line-height:1.6;background:#fff0eb;color:#943c29;border:1px solid #efd1c6;border-radius:7px;padding:9px;margin:0}
 .ai-panel .zync-submit{width:100%;border:0;background:#087f78;color:#fff;border-radius:8px;padding:13px 14px;display:flex;align-items:center;justify-content:space-between;font-family:inherit;font-size:13px;font-weight:750}
 .zync-back{display:block;margin:12px auto 0;background:none;border:0;padding:5px;font:inherit;font-size:12px;color:#60786c;text-decoration:underline;text-underline-offset:3px}
-.ai-panel .zync-privacy{background:#fff;color:#78877e;font-size:10px;line-height:1.5;margin:0;padding:10px 16px 0;flex-shrink:0}
+.ai-panel .zync-privacy{background:#fff;color:#78877e;font-size:11px;line-height:1.5;margin:0;padding:10px 16px 0;flex-shrink:0}
 .zync-privacy a{color:#385e50;text-decoration:underline;text-underline-offset:2px;margin-left:4px}
 .ai-panel .ai-input{flex-shrink:0;padding:11px 14px 14px;gap:8px;border-top:0}
 .ai-panel .ai-input input{min-width:0;border-radius:9px;padding:11px 12px;background:#f5f8f2;font-size:14px;border:1px solid #dce6d8;color:#173e39}
