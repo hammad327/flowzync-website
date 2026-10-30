@@ -1,7 +1,7 @@
 ---
 title: "How to Write a Website Brief (With a Template You Can Copy)"
 description: "The nine things a designer actually needs from you, why vague briefs cost you money, and a template you can fill in over a lunch break."
-updated: "2026-10-27"
+updated: "2026-10-30"
 date: "2026-02-25"
 author: "Zara Malik"
 category: "Web Design"
@@ -14,6 +14,9 @@ faqs:
   - q: "Who should sign off a website project?"
     a: "One named person. Projects stall when feedback arrives from four people who contradict each other and nobody can say yes. Consolidate opinions internally, then send one list."
 ---
+
+**Start with the free brief builder:** use our [website and automation project brief](/resources/website-project-brief) to organise your requirements, then copy or download the result. No signup is required.
+
 
 A good website brief answers nine questions: what the business does, who it is for, what you want visitors to *do*, what you have now and why it is not working, which pages you need, what functionality is non-negotiable, who your competitors are, what your budget range is, and when you need it live. Everything else is detail.
 

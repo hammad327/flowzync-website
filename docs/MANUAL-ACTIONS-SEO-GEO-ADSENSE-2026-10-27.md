@@ -216,3 +216,11 @@ All public pages remain in the XML sitemap. The new 28 October article is discov
 - CMS save/upload/publish remains disabled until a server-side repository token is configured. Analytics require the Google service account and actual GA4 property. Email/WhatsApp require provider setup described above. These integrations were not activated.
 - Public repository README now links to Flowzync and relevant service pages: one owned source, not earned third-party editorial backlinks. No directory accounts or client-site links were created.
 - Supabase/Vercel plugin installation was declined; no additional installation is required to read this setup file. Production configuration and migration require owner-side access. Never put secrets into chat, source files or article content.
+
+## 30 October 2026 — ads.txt and authority follow-up
+
+**Verified:** https://flowzync.com/ads.txt returns HTTP 200, text/plain and `google.com, pub-3418740156485364, DIRECT, f08c47fec0942fa0`. HTTP and www variants resolve to the same HTTPS file. Robots does not block it. The publisher ID matches the signed-in AdSense account.
+
+**AdSense account:** site remains Getting ready. The ads.txt Not found report last updated 28 October 2026, 18:02 PKT. Account help describes this as the last crawl result. Review was already requested; the current screen has no manual ads.txt recheck button. No new review/recheck was claimed. Wait for Google to fetch the working file and update its report; do not delete/re-add the site or change a correct publisher ID. Site approval is separate and remains pending.
+
+**Authority:** the new free project-brief resource provides a useful page to share. Its existence is not an earned backlink. No verified DA/DR score or score increase is claimed. See docs/04-BACKLINKS.md for the consolidated owner/partner actions. Client permission, editorial acceptance and truthful profile details are still needed before those external actions can be completed. No outreach was sent.

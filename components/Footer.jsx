@@ -44,6 +44,7 @@ export default function Footer() {
             <Link href="/locations">Areas we serve</Link>
             <Link href="/portfolio">Portfolio</Link>
             <Link href="/blog">Blog</Link>
+            <Link href="/resources/website-project-brief">Free project brief</Link>
             <Link href="/contact">Contact</Link>
           </nav>
 
