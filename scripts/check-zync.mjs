@@ -86,6 +86,11 @@ const detailedBrief = reply('We are a plumbing business. I need a new WordPress 
 assert.match(detailedBrief.reply,/GoHighLevel follow-up/);
 assert.doesNotMatch(detailedBrief.nextQuestion,/new.*existing|already.*website/);
 assert.match(detailedBrief.nextQuestion,/areas/);
+const businessDescription = reply('We are a plumbing company', ['Explore WordPress Website Design','New website','I need more enquiries']);
+assert.doesNotMatch(businessDescription.reply,/Flowzync is a remote/);
+assert.match(businessDescription.nextQuestion,/areas/);
+const locationAnswer = reply('We are based in London', ['Explore WordPress Website Design','New website','We are a plumbing business and need enquiries']);
+assert.equal(locationAnswer.actions[0].type,'quote');
 const completeBrief = reply('We serve London', ['Explore WordPress Website Design','New website','We are a plumbing business and need enquiries']);
 assert.equal(completeBrief.actions[0].type,'quote');
 assert.match(widget, /active=\{i === lastAssistant && !busy\}/);
