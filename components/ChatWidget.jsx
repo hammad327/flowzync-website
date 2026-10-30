@@ -1,6 +1,7 @@
 'use client';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { usePathname } from 'next/navigation';
+import Link from 'next/link';
 import { LogoMark } from '@/components/Logo';
 import { site } from '@/lib/site';
 import { services } from '@/lib/services';
@@ -23,9 +24,9 @@ function Reply({ message, busy, onAction, active }) {
     {!!cards.length && active && <div className="zync-cards">{cards.slice(0, 4).map(card => <article key={card.href} className="zync-card">
       <h3>{card.title}</h3><p>{card.description}</p>
       <div>{card.question && <button type="button" disabled={busy} onClick={() => onAction({ message: card.question, service: card.title })}>Explore in chat</button>}
-        {safeHref(card.href) && <a href={card.href}>View page <span aria-hidden="true">↗</span></a>}</div>
+        {safeHref(card.href) && <Link href={card.href} prefetch={false}>View page <span aria-hidden="true">↗</span></Link>}</div>
     </article>)}</div>}
-    {!!links.length && active && <div className="zync-links">{links.filter(l => safeHref(l.href)).map(l => <a key={l.href} href={l.href} target={l.href.startsWith('https:') ? '_blank' : undefined} rel={l.href.startsWith('https:') ? 'noopener noreferrer' : undefined}>{l.label}<span aria-hidden="true"> ↗</span></a>)}</div>}
+    {!!links.length && active && <div className="zync-links">{links.filter(l => safeHref(l.href)).map(l => <Link key={l.href} href={l.href} prefetch={false} target={l.href.startsWith('https:') ? '_blank' : undefined} rel={l.href.startsWith('https:') ? 'noopener noreferrer' : undefined}>{l.label}<span aria-hidden="true"> ↗</span></Link>)}</div>}
     {nextQuestion && active && <p className="zync-next">{nextQuestion}</p>}
     {!!actions.length && active && <div className="zync-actions">{actions.map((a, i) => <button type="button" disabled={busy} onClick={() => onAction(a)} key={i}>{a.label}</button>)}</div>}
   </div>;
@@ -150,13 +151,13 @@ export default function ChatWidget() {
             <label>Project brief<textarea value={lead.message} onChange={set('message')} rows={3} maxLength={4000} placeholder="What would you like to build or improve?" /></label>
             <div className="ai-captcha"><label htmlFor="zync-check">{captcha ? `Quick check: ${captcha.question}` : 'Loading quick check…'}</label><input id="zync-check" value={answer} onChange={e => setAnswer(e.target.value)} inputMode="numeric" autoComplete="off" aria-label="Quick check answer" maxLength={8} />{!captcha && <button type="button" onClick={loadCaptcha}>Retry</button>}</div>
             {formErr && <p className="ai-lead-err" role="alert">{formErr}</p>}
-            <p className="zync-field-note">Your details and this conversation go to the team. <a href="/privacy">Privacy</a></p>
+            <p className="zync-field-note">Your details and this conversation go to the team. <Link href="/privacy" prefetch={false}>Privacy</Link></p>
             <button className="zync-submit" type="submit" disabled={!captcha || saving}>{saving ? 'Sending enquiry…' : 'Send enquiry'}<span aria-hidden="true"> ↗</span></button>
           </fieldset>
           <button className="zync-back" type="button" disabled={saving} onClick={() => { setShowForm(false); chatInput.current?.focus(); }}>Continue chatting</button>
         </form>}
       </div>
-      <div className="zync-composer"><p className="zync-privacy">AI can make mistakes. Avoid sensitive details. <a href="/privacy">Privacy</a></p>
+      <div className="zync-composer"><p className="zync-privacy">AI can make mistakes. Avoid sensitive details. <Link href="/privacy" prefetch={false}>Privacy</Link></p>
       <form className="ai-input" onSubmit={e => { e.preventDefault(); send(); }}><input ref={chatInput} value={input} onChange={e => setInput(e.target.value)} maxLength={1200} placeholder="Ask about Flowzync…" aria-label="Chat message" disabled={saving} /><button type="submit" disabled={busy || saving || !input.trim()} aria-label="Send message"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m22 2-11 11M22 2l-7 20-4-9-9-4 20-7Z" stroke="currentColor" strokeWidth="2" strokeLinejoin="round" /></svg></button></form></div>
     </section>
   </>;
