@@ -22,3 +22,7 @@ Authenticated access is not needed for this public chat. Verified live greeting,
 ## Follow-up usability revision
 
 The visitor reported repetitive menus and excessive space around the composer. Removed the separate toolbar, reduced the header/composer to a compact fixed layout, enlarged the responsive conversation area and hid old action buttons after the next message. Previous service menus become a short history summary. Quote mode shows the form on its own and returns to the conversation when dismissed or when a new message is sent. Added New conversation, guided new/existing-site discovery, and optional short structured provider replies grounded in published website context.
+
+## Worldwide positioning and verified leadership
+
+Removed public physical-base wording from site configuration, FAQs, privacy, location-page notes/social metadata, team page and llms.txt. Existing location and language slugs remain intact; only the footer language navigation was removed. Added owner-provided CEO name Hammad Tahir and exact LinkedIn profile to the leadership page, Person schema and assistant fact context. CEO questions have a direct deterministic answer with the allowlisted profile link. Service replies reference the professional team, relevant feature areas and published FAQs. Project-brief fallback now carries visitor-supplied new/existing, goal and business information forward instead of repeating the initial menu.

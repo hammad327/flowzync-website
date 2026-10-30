@@ -12,7 +12,7 @@ const INITIAL = { role: 'assistant', content: GREETING, actions: [
   { label: 'About Flowzync', message: 'Tell me about Flowzync' },
   { label: 'See our work', message: 'Show me your portfolio' },
 ] };
-const safeHref = href => typeof href === 'string' && (/^\/(?!\/)/.test(href) || href === `mailto:${site.email}`);
+const safeHref = href => typeof href === 'string' && (/^\/(?!\/)/.test(href) || href === `mailto:${site.email}` || href === site.leadership.linkedin);
 
 function Reply({ message, busy, onAction, active }) {
   const { content, points = [], cards = [], links = [], actions = [], nextQuestion } = message;
@@ -22,10 +22,10 @@ function Reply({ message, busy, onAction, active }) {
     {!!cards.length && !active && <p className="zync-past">Suggested: {cards.map(c => c.title).join(' · ')}</p>}
     {!!cards.length && active && <div className="zync-cards">{cards.slice(0, 4).map(card => <article key={card.href} className="zync-card">
       <h3>{card.title}</h3><p>{card.description}</p>
-      <div>{card.question && <button type="button" disabled={busy} onClick={() => onAction({ message: card.question })}>Explore in chat</button>}
+      <div>{card.question && <button type="button" disabled={busy} onClick={() => onAction({ message: card.question, service: card.title })}>Explore in chat</button>}
         {safeHref(card.href) && <a href={card.href}>View page <span aria-hidden="true">↗</span></a>}</div>
     </article>)}</div>}
-    {!!links.length && active && <div className="zync-links">{links.filter(l => safeHref(l.href)).map(l => <a key={l.href} href={l.href}>{l.label}<span aria-hidden="true"> ↗</span></a>)}</div>}
+    {!!links.length && active && <div className="zync-links">{links.filter(l => safeHref(l.href)).map(l => <a key={l.href} href={l.href} target={l.href.startsWith('https:') ? '_blank' : undefined} rel={l.href.startsWith('https:') ? 'noopener noreferrer' : undefined}>{l.label}<span aria-hidden="true"> ↗</span></a>)}</div>}
     {nextQuestion && active && <p className="zync-next">{nextQuestion}</p>}
     {!!actions.length && active && <div className="zync-actions">{actions.map((a, i) => <button type="button" disabled={busy} onClick={() => onAction(a)} key={i}>{a.label}</button>)}</div>}
   </div>;
@@ -101,7 +101,10 @@ export default function ChatWidget() {
       setMsgs(m => [...m, { role: 'assistant', content: 'I couldn’t load that answer. Please try again or contact the team.', links: [{ label: 'Contact Flowzync', href: '/contact' }] }]);
     } finally { sending.current = false; setBusy(false); chatInput.current?.focus(); }
   };
-  const onAction = a => a.type === 'quote' ? openQuote(a.service) : a.message && send(a.message);
+  const onAction = a => {
+    if (a.service) setLead(l => ({ ...l, service: a.service }));
+    return a.type === 'quote' ? openQuote(a.service) : a.message && send(a.message);
+  };
   const submitLead = async e => {
     e.preventDefault();
     if (saving) return;

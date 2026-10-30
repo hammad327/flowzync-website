@@ -10,8 +10,8 @@ export const metadata = {
   description: clampDescription(
     'Flowzync works with clients worldwide — the US, UK, Canada, Australia, Ireland, New Zealand and the UAE — with a dedicated page for each city we work in most.'
     ),
-  openGraph: openGraph({"title": "Areas We Serve | Remote Website Design | Flowzync", "description": "Flowzync serves businesses worldwide from Lahore, Pakistan. Explore our remote website design services and city-specific planning guides.", "url": "/locations"}),
-  twitter: twitterCard({"title": "Areas We Serve | Remote Website Design | Flowzync", "description": "Flowzync serves businesses worldwide from Lahore, Pakistan. Explore our remote website design services and city-specific planning guides.", "url": "/locations"}),
+  openGraph: openGraph({"title": "Areas We Serve | Remote Website Design | Flowzync", "description": "Flowzync serves businesses worldwide as a remote studio. Explore our remote website design services and city-specific planning guides.", "url": "/locations"}),
+  twitter: twitterCard({"title": "Areas We Serve | Remote Website Design | Flowzync", "description": "Flowzync serves businesses worldwide as a remote studio. Explore our remote website design services and city-specific planning guides.", "url": "/locations"}),
   alternates: { canonical: `${site.url}/locations` },
 };
 

@@ -81,7 +81,7 @@ const orgSchema = {
       ],
     },
     // LocalBusiness is only published once a REAL street and phone
-    // exist in lib/site.js. The address is your actual Lahore office;
+    // exist in lib/site.js. No physical office address is published;
     // areaServed separately declares the UK coverage. Those are two
     // different claims, and keeping them separate is what makes this
     // both accurate and safe.

@@ -24,7 +24,9 @@ Website: ${site.url}
 Contact: ${site.email}
 Working days: Monday to Saturday
 Model: remote studio — no walk-in office, no account managers
-Based: ${site.business.city}, ${site.business.region}
+Positioning: remote studio serving clients worldwide
+CEO: ${site.leadership.name}
+CEO LinkedIn: ${site.leadership.linkedin}
 Serves: clients worldwide, across ${serviceArea.countries.length}+ countries including ${serviceArea.countries.map((c) => c.name).join(', ')}
 Hours: ${site.business.hoursNote}
 Languages: English

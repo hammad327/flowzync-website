@@ -17,13 +17,15 @@ export const metadata = {
 };
 
 const FAQS = [
+  ['Who is the CEO of Flowzync?', 'Hammad Tahir is the CEO of Flowzync. His professional LinkedIn profile is linked in the leadership section on this page.'],
   ['Who will actually work on my project?', 'The project proposal identifies the responsibilities and contact arrangement for your build. You can discuss design, development and automation requirements directly with the studio before agreeing the scope.'],
   ['How big is the team?', 'We organise projects around the required disciplines rather than advertising a fixed headcount. Your scope identifies the design, development, automation and handover work included.'],
   ['Can I speak to the person building my site?', 'Yes, directly. Most questions get a faster and better answer from the person who wrote the code than from someone summarising it, so we do not put a layer in between.'],
-  ['Where is the team based?', 'Flowzync is a remote studio working across time zones, based in Lahore, Pakistan. We schedule calls in your working hours and we say this plainly rather than implying a local office — it is also the honest reason our quotes compare well with a local agency.'],
+  ['Where is the team based?', 'Flowzync is a remote studio serving clients worldwide. We coordinate meetings and project communication across time zones. Service-area pages describe the markets we serve, not office locations.'],
 ];
 
 const schema = [
+  { '@context': 'https://schema.org', '@type': 'Person', '@id': `${site.url}/about/team#hammad-tahir`, name: site.leadership.name, jobTitle: 'Chief Executive Officer', sameAs: [site.leadership.linkedin], worksFor: { '@id': `${site.url}/#organization` } },
   {
     '@context': 'https://schema.org',
     '@type': 'AboutPage',
@@ -76,6 +78,16 @@ export default function TeamPage() {
           </p>
         </div>
       </div>
+
+      <section className="sec-soft" aria-labelledby="leadership-heading">
+        <div className="wrap">
+          <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: 28, padding: 32, background: '#fff', border: '1px solid #dce6db', borderRadius: 14 }}>
+            <div style={{ width: 78, height: 78, borderRadius: 18, background: '#123c37', color: '#f2f7ec', display: 'grid', placeItems: 'center', fontSize: 27, fontWeight: 700 }} aria-hidden="true">HT</div>
+            <div style={{ flex: '1 1 260px' }}><div className="eyebrow">Leadership</div><h2 id="leadership-heading" style={{ fontSize: 30, marginBottom: 8 }}>{site.leadership.name}</h2><p style={{ margin: 0 }}>CEO · Flowzync</p></div>
+            <a className="btn btn-p" href={site.leadership.linkedin} target="_blank" rel="noopener noreferrer">Connect on LinkedIn <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+      </section>
 
       <section className="sec-tint">
         <div className="wrap">

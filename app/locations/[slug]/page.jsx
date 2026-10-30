@@ -95,7 +95,7 @@ export default function LocationPage({ params }) {
           <div className="eyebrow"><span className="pulse" />{l.region}</div>
           <h1 style={{ maxWidth: 820 }}>Web design in <span className="grad-txt">{l.city}</span></h1>
           <p className="lede" style={{ marginBottom: 18, maxWidth: 760 }}>{l.intro}</p>
-          <p className="privacy-notice" style={{marginBottom:24}}>Remote delivery from Lahore, Pakistan. We serve {l.city} online; we do not have a local office in {l.city}.</p>
+          <p className="privacy-notice" style={{marginBottom:24}}>Worldwide remote delivery. We serve {l.city} online; we do not have a local office in {l.city}.</p>
           <div style={{ display: 'flex', gap: 14, flexWrap: 'wrap' }}>
             <Link href="/contact" className="btn btn-p">
               <span>Get a quote</span>

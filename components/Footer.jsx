@@ -3,7 +3,6 @@ import Logo from '@/components/Logo';
 import { site, domainLabel } from '@/lib/site';
 import { services } from '@/lib/services';
 import { industries } from '@/lib/industries';
-import { locales } from '@/lib/locales';
 
 export default function Footer() {
   return (
@@ -64,7 +63,6 @@ export default function Footer() {
           </div>
         </div>
 
-        <nav className="footer-languages" aria-label="Website languages"><span>Explore in your language</span><Link href="/" lang="en">English</Link>{locales.map(locale=><Link key={locale.code} href={`/${locale.code}`} lang={locale.hreflang}>{locale.name}</Link>)}</nav>
         <div className="ft-bottom">
           <span>© {new Date().getFullYear()} {site.business.legalName}. All rights reserved.</span>
           <nav className="footer-policy-links" aria-label="Policies"><Link href="/privacy">Privacy</Link><Link href="/cookies">Cookies &amp; Analytics</Link><Link href="/editorial-policy">Editorial policy</Link></nav>
