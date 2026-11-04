@@ -3,7 +3,7 @@
 import { getAllPosts } from '@/lib/posts';
 import { site } from '@/lib/site';
 
-export const dynamic = 'force-static';
+export const dynamic = 'force-dynamic';
 
 const esc = (s = '') =>
   s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
@@ -11,7 +11,7 @@ const esc = (s = '') =>
 
 export function GET() {
   const posts = getAllPosts();
-  const updated = posts[0] ? new Date(posts[0].date) : new Date();
+  const updated = posts[0] ? new Date(posts[0].publishAt ?? posts[0].date) : new Date();
 
   const items = posts.map((p) => `    <item>
       <title>${esc(p.title)}</title>
@@ -20,7 +20,7 @@ export function GET() {
       <description>${esc(p.description)}</description>
       <category>${esc(p.category)}</category>
       <author>${esc(site.email)} (${esc(p.author)})</author>
-      <pubDate>${new Date(p.date).toUTCString()}</pubDate>
+      <pubDate>${new Date(p.publishAt ?? p.date).toUTCString()}</pubDate>
     </item>`).join('\n');
 
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
@@ -39,7 +39,7 @@ ${items}
   return new Response(xml, {
     headers: {
       'Content-Type': 'application/rss+xml; charset=utf-8',
-      'Cache-Control': 'public, max-age=3600, s-maxage=86400',
+      'Cache-Control': 'no-store',
     },
   });
 }

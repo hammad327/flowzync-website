@@ -1,19 +1,15 @@
+export const dynamic = 'force-dynamic';
+
 import Link from 'next/link';
 import Image from 'next/image';
 import BlogCover from '@/components/BlogCover';
 import { notFound } from 'next/navigation';
 import CTABand from '@/components/CTABand';
 import FAQ from '@/components/FAQ';
-import { getAllPosts, getPost, getRelatedPosts } from '@/lib/posts';
+import { getPost, getRelatedPosts } from '@/lib/posts';
 import { site } from '@/lib/site';
 import { images } from '@/lib/images';
 import { clampTitle, clampDescription, openGraph, twitterCard } from '@/lib/meta';
-export function generateStaticParams() {
-  return getAllPosts().map(p => ({
-    slug: p.slug
-  }));
-}
-
 // The image Google's article rich results and every social card want:
 // an absolute, raster URL. Preference order is the stock photograph,
 // then a raster cover, then the OG image — the illustrated SVG covers
@@ -47,7 +43,7 @@ export function generateMetadata({
       description: p.description,
       url: `${site.url}/blog/${p.slug}`,
       image: articleImage(p),
-      publishedTime: p.date,
+      publishedTime: p.publishAt ? new Date(p.publishAt).toISOString() : p.date,
       modifiedTime: p.updated || p.date
     }),
     twitter: twitterCard({
@@ -72,7 +68,7 @@ export default function BlogPost({
     // a raster image (jpg/png/gif), so an SVG cover falls back to the
     // OG image rather than publishing an ineligible one.
     image: articleImage(p),
-    datePublished: p.date,
+    datePublished: p.publishAt ? new Date(p.publishAt).toISOString() : p.date,
     dateModified: p.updated || p.date,
     inLanguage: 'en',
     wordCount: p.wordCount,

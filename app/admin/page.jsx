@@ -12,6 +12,7 @@ const blank = () => ({
   seoTitle: '',
   description: '',
   date: TODAY(),
+  publishAt: '',
   category: 'Insights',
   cover: '',
   photo: '',
@@ -20,6 +21,7 @@ const blank = () => ({
   content: '',
   draft: true
 });
+const isScheduled = article => Date.parse(article.publishAt) > Date.now();
 const statuses = ['New', 'Contacted', 'Converted', 'Not interested'];
 const fmt = n => n === undefined || n === null ? '—' : Number(n).toLocaleString();
 async function request(url, options = {}) {
@@ -173,7 +175,7 @@ export default function Admin() {
       draft
     }));
     setDirty(false);
-    setNotice(`${draft ? 'Draft saved' : 'Publication committed'}. Deployment is building; allow it to finish before checking the public URL. Commit ${j.commit.slice(0, 7)}.`);
+    setNotice(`${draft ? 'Draft saved' : isScheduled(article) ? 'Schedule committed' : 'Publication committed'}. Deployment is building; allow it to finish before checking the public URL. Commit ${j.commit.slice(0, 7)}.`);
     const list = await request('/api/admin/posts');
     setArticles(list.articles);
   }
@@ -257,10 +259,13 @@ export default function Admin() {
               setFaqsText('[]');
               setDirty(false);
               setPreview('');
-            }} className="studio-primary">+ New</button></div>{!canPublish && <p className="studio-muted">Read access is available. Connect repository publishing in Connections to save drafts, upload images and publish.</p>}{articles.map(p => <button className={article?.file === p.file ? 'article-item active' : 'article-item'} key={p.file} onClick={() => run(() => openArticle(p))}><strong>{p.title || p.slug.replaceAll('-', ' ')}</strong><small>{p.draft ? 'Draft' : p.date || 'Open to edit'} · /blog/{p.slug}</small></button>)}</section><section className="studio-panel">{!article ? <div className="studio-empty"><span className="studio-big-number">Aa</span><h2>Make your next idea useful.</h2><p>Choose an article or start a new draft.</p></div> : <><div className="studio-panel-top"><div><span className="studio-eyebrow">{article.file ? 'EDIT ARTICLE' : 'NEW ARTICLE'}</span><h2>{article.draft ? 'Draft' : 'Published'}{dirty ? ' · Unsaved' : ''}</h2></div><div className="studio-buttons"><button disabled={busy || !canPublish} className="studio-secondary" onClick={() => run(() => saveArticle(true))}>Save draft</button><button disabled={busy || !canPublish} className="studio-primary" onClick={() => run(() => saveArticle(false))}>Publish article ↗</button></div></div><div className="studio-form-grid"><Field label="Article title" value={article.title} onChange={v => {
+            }} className="studio-primary">+ New</button></div>{!canPublish && <p className="studio-muted">Read access is available. Connect repository publishing in Connections to save drafts, upload images and publish.</p>}{articles.map(p => <button className={article?.file === p.file ? 'article-item active' : 'article-item'} key={p.file} onClick={() => run(() => openArticle(p))}><strong>{p.title || p.slug.replaceAll('-', ' ')}</strong><small>{p.draft ? 'Draft' : p.date || 'Open to edit'} · /blog/{p.slug}</small></button>)}</section><section className="studio-panel">{!article ? <div className="studio-empty"><span className="studio-big-number">Aa</span><h2>Make your next idea useful.</h2><p>Choose an article or start a new draft.</p></div> : <><div className="studio-panel-top"><div><span className="studio-eyebrow">{article.file ? 'EDIT ARTICLE' : 'NEW ARTICLE'}</span><h2>{article.draft ? 'Draft' : isScheduled(article) ? 'Scheduled' : 'Published'}{dirty ? ' · Unsaved' : ''}</h2></div><div className="studio-buttons"><button disabled={busy || !canPublish} className="studio-secondary" onClick={() => run(() => saveArticle(true))}>Save draft</button><button disabled={busy || !canPublish} className="studio-primary" onClick={() => run(() => saveArticle(false))}>{isScheduled(article) ? 'Schedule article ↗' : 'Publish article ↗'}</button></div></div><div className="studio-form-grid"><Field label="Article title" value={article.title} onChange={v => {
                 change('title', v);
                 if (!article.file && (!article.slug || article.slug === article.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, ''))) change('slug', v.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, ''));
-              }} /><Field label="URL slug · locked after creation" value={article.slug} disabled={Boolean(article.file)} onChange={v => change('slug', v)} /><Field label="SEO title" value={article.seoTitle} onChange={v => change('seoTitle', v)} /><Field label="Category" value={article.category} onChange={v => change('category', v)} /><Field label="Publication date" type="date" value={article.date} onChange={v => change('date', v)} /><Field label="Tags · comma separated" value={article.tags.join(', ')} onChange={v => change('tags', v.split(',').map(x => x.trim()).filter(Boolean))} /></div><label>Search description<textarea rows={3} value={article.description} onChange={e => change('description', e.target.value)} /><small className="studio-muted">{article.description.length} characters · write an accurate summary, not a keyword list.</small></label><div className="studio-form-grid"><Field label="Cover image URL" value={article.cover} onChange={v => change('cover', v)} /><label>Upload cover · PNG, JPEG, WebP ≤ 2 MB<input type="file" accept="image/png,image/jpeg,image/webp" disabled={busy || !canPublish} onChange={upload} /></label><Field label="Optional photograph URL" value={article.photo} onChange={v => change('photo', v)} /></div><div className="studio-toolbar"><strong>Article content</strong>{['heading', 'link', 'image', 'table'].map(k => <button key={k} onClick={() => insert(k)}>+ {k}</button>)}<button disabled={busy} onClick={() => run(async () => setPreview((await post('/api/admin/preview', {
+              }} /><Field label="URL slug · locked after creation" value={article.slug} disabled={Boolean(article.file)} onChange={v => change('slug', v)} /><Field label="SEO title" value={article.seoTitle} onChange={v => change('seoTitle', v)} /><Field label="Category" value={article.category} onChange={v => change('category', v)} /><Field label="Publication date" type="date" value={article.date} onChange={v => {
+                change('date', v);
+                if (article.publishAt) change('publishAt', v ? v + article.publishAt.slice(10) : '');
+              }} /><Field label="Scheduled time · Pakistan (optional)" type="time" value={(article.publishAt || '').slice(11, 16)} onChange={v => change('publishAt', v && article.date ? `${article.date}T${v}:00+05:00` : '')} /><Field label="Tags · comma separated" value={article.tags.join(', ')} onChange={v => change('tags', v.split(',').map(x => x.trim()).filter(Boolean))} /></div><label>Search description<textarea rows={3} value={article.description} onChange={e => change('description', e.target.value)} /><small className="studio-muted">{article.description.length} characters · write an accurate summary, not a keyword list.</small></label><div className="studio-form-grid"><Field label="Cover image URL" value={article.cover} onChange={v => change('cover', v)} /><label>Upload cover · PNG, JPEG, WebP ≤ 2 MB<input type="file" accept="image/png,image/jpeg,image/webp" disabled={busy || !canPublish} onChange={upload} /></label><Field label="Optional photograph URL" value={article.photo} onChange={v => change('photo', v)} /></div><div className="studio-toolbar"><strong>Article content</strong>{['heading', 'link', 'image', 'table'].map(k => <button key={k} onClick={() => insert(k)}>+ {k}</button>)}<button disabled={busy} onClick={() => run(async () => setPreview((await post('/api/admin/preview', {
                 content: article.content
               })).html))}>Preview</button></div><textarea className="studio-markdown" rows={20} value={article.content} onChange={e => change('content', e.target.value)} placeholder="Write Markdown. Use ## headings, [links](https://…), images, lists and tables." />{preview && <div className="studio-preview prose" dangerouslySetInnerHTML={{
               __html: preview

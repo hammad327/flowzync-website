@@ -9,6 +9,7 @@ const nextConfig = {
   // Ships smaller, more modern JavaScript to modern browsers, and lets
   // Next tree-shake the icon and utility imports properly.
   experimental: {
+    outputFileTracingIncludes: { '/*': ['./content/blog/*.md'] },
     optimizePackageImports: ['lucide-react'],
   },
 

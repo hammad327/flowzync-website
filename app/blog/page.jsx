@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic';
+
 import Link from 'next/link';
 import { pageFaqs, faqSchema } from '@/lib/pageFaqs';
 import Image from 'next/image';

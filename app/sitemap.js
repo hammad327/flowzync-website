@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic';
+
 import { site } from '@/lib/site';
 import { services } from '@/lib/services';
 import { industries } from '@/lib/industries';

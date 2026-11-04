@@ -11,7 +11,7 @@ import { locations } from '@/lib/locations';
 import { getAllPosts } from '@/lib/posts';
 import { site, serviceArea } from '@/lib/site';
 
-export const dynamic = 'force-static';
+export const dynamic = 'force-dynamic';
 
 export function GET() {
   const posts = getAllPosts();
@@ -91,7 +91,7 @@ ${posts.map((p) => `- [${p.title}](${site.url}/blog/${p.slug}): ${p.description}
   return new Response(body, {
     headers: {
       'Content-Type': 'text/plain; charset=utf-8',
-      'Cache-Control': 'public, max-age=3600, s-maxage=86400',
+      'Cache-Control': 'no-store',
     },
   });
 }
