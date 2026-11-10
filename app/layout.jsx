@@ -126,6 +126,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
+        <meta name="google-site-verification" content="znLraGU56lwIKeXNQsYWKyno71VWTaJNqoEEf3NWzJQ" />
         <script src="https://analytics.ahrefs.com/analytics.js" data-key="B3pAHykQTgCT7Tvk/Ux78g" async />
         {/* Fonts load WITHOUT blocking the first paint.
             React strips string onLoad handlers from <link>, so the tag is
