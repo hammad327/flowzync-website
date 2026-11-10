@@ -1,4 +1,5 @@
 import Nav from '@/components/Nav';
+import GoogleAnalytics from '@/components/GoogleAnalytics';
 import Footer from '@/components/Footer';
 import ClientFX from '@/components/ClientFX';
 import ChatWidget from '@/components/ChatWidget';
@@ -153,6 +154,7 @@ export default function RootLayout({ children }) {
       <body>
         <a href="#main-content" className="skip-to-content">Skip to content</a>
         <ClientFX />
+        <GoogleAnalytics />
         <Nav />
         <main id="main-content">{children}</main>
         <Footer />
