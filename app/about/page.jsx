@@ -7,14 +7,14 @@ import { clampTitle, clampDescription, openGraph, twitterCard } from '@/lib/meta
 import Photo from '@/components/Photo';
 
 export const metadata = {
-  title: 'About Us — The Team Behind Flowzync',
+  title: 'About Flowzync | Web Design & Automation Studio',
   description: clampDescription(
     'Meet Flowzync: a remote studio of senior designers, developers and automation specialists serving clients worldwide.'
     ),
   alternates: { canonical: '/about' },
-  twitter: twitterCard({ title: 'About Us — The Team Behind Flowzync', description: 'Meet Flowzync: a remote studio of senior designers, developers and automation specialists serving clients worldwide.' }),
+  twitter: twitterCard({ title: 'About Flowzync | Web Design & Automation Studio', description: 'Meet Flowzync: a remote studio of senior designers, developers and automation specialists serving clients worldwide.' }),
   openGraph: openGraph({
-    title: 'About Us — The Team Behind Flowzync',
+    title: 'About Flowzync | Web Design & Automation Studio',
     description: 'Meet Flowzync: a remote studio of senior designers, developers and automation specialists serving clients worldwide.',
     url: '/about',
   }),
@@ -185,10 +185,6 @@ export default function AboutPage() {
             </div>
           </div>
         </div>
-      </section>
-
-      <section className="sec-soft" style={{ paddingBlock: 38 }}>
-        <div className="wrap section-resource-links"><span>Get to know the people behind your project.</span><Link href="/about/team">Meet the Flowzync team →</Link></div>
       </section>
 
       {/* CLIENTS + TOOLS */}

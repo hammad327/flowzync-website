@@ -1,3 +1,5 @@
+import Image from 'next/image';
+import styles from './location.module.css';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import FAQ from '@/components/FAQ';
@@ -5,6 +7,7 @@ import CTABand from '@/components/CTABand';
 import { locations, getLocation } from '@/lib/locations';
 import { getService } from '@/lib/services';
 import { industries } from '@/lib/industries';
+import { projects } from '@/lib/projects';
 import { site } from '@/lib/site';
 import { clampTitle, clampDescription, openGraph, twitterCard } from '@/lib/meta';
 
@@ -33,6 +36,8 @@ export default function LocationPage({ params }) {
   const l = getLocation(params.slug);
   if (!l) notFound();
 
+  const portfolio = l.showcase || (l.related.includes('woocommerce-development') ? 'roller-shutters-online' : '5-star-quality-hvac');
+  const project = projects.find((item) => item.slug === portfolio);
   const related = (l.related || []).map(getService).filter(Boolean);
 
   // At least eight onward city links, same country first. The top-up
@@ -85,23 +90,25 @@ export default function LocationPage({ params }) {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
 
-      <div className="page-hero" style={{ paddingBottom: 40 }}>
-        <div className="orb orb1" data-plx="0.1" /><div className="orb orb2" data-plx="-0.07" /><div className="hero-grid-bg" />
-        <div className="wrap" style={{ position: 'relative', zIndex: 1 }}>
+      <div className={styles.hero}>
+        <div className="wrap">
           <nav className="breadcrumb" aria-label="Breadcrumb">
-            <Link href="/">Home</Link> <span>›</span> <Link href="/locations">Locations</Link> <span>›</span>{' '}
-            <span style={{ color: 'var(--ink)' }}>{l.city}</span>
+            <Link href="/">Home</Link> <span>›</span> <Link href="/locations">Areas we cover</Link> <span>›</span> <span>{l.city}</span>
           </nav>
-          <div className="eyebrow"><span className="pulse" />{l.region}</div>
-          <h1 style={{ maxWidth: 820 }}>Web design in <span className="grad-txt">{l.city}</span></h1>
-          <p className="lede" style={{ marginBottom: 18, maxWidth: 760 }}>{l.intro}</p>
-          <p className="privacy-notice" style={{marginBottom:24}}>Worldwide remote delivery. We serve {l.city} online; we do not have a local office in {l.city}.</p>
-          <div style={{ display: 'flex', gap: 14, flexWrap: 'wrap' }}>
-            <Link href="/contact" className="btn btn-p">
-              <span>Get a quote</span>
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12h14m-6-6 6 6-6 6" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/></svg>
-            </Link>
-            <Link href="/portfolio" className="btn btn-o"><span>See our work</span></Link>
+          <div className={styles.heroGrid}>
+            <div>
+              <div className="eyebrow">{l.region} · Remote studio</div>
+              <h1>Web design in <span className="grad-txt">{l.city}</span></h1>
+              <p className="lede">{l.intro}</p>
+              <div className={styles.actions}>
+                <Link href="/contact" className="btn btn-p">Discuss your project <span aria-hidden="true">→</span></Link>
+                <Link href="/portfolio" className="btn btn-o">View portfolio</Link>
+              </div>
+            </div>
+            {project && <Link href={`/portfolio/${project.slug}`} className={styles.showcase}>
+              <Image src={project.img} alt="" width={840} height={520} sizes="(max-width: 760px) 100vw, 45vw" priority />
+              <div><small>Selected Flowzync work</small><strong>{project.title}</strong><span>See the project →</span></div>
+            </Link>}
           </div>
         </div>
       </div>
@@ -125,28 +132,15 @@ export default function LocationPage({ params }) {
         </div>
       </section>
 
-      {/* HONEST LOCATION NOTE — this is a trust asset, not a disclaimer */}
-      <section style={{ paddingTop: 0 }}>
+      <section className={styles.process}>
         <div className="wrap">
-          <div className="loc-note rv">
-            <div className="loc-note-ic">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                <path d="M12 21s7-5.2 7-11a7 7 0 1 0-14 0c0 5.8 7 11 7 11Z" stroke="currentColor" strokeWidth="2" strokeLinejoin="round"/>
-                <circle cx="12" cy="10" r="2.6" stroke="currentColor" strokeWidth="2"/>
-              </svg>
-            </div>
-            <div>
-              <h3>How we work with {l.city} clients</h3>
-              <p>
-                Flowzync is a remote studio — we don&apos;t have a {l.city} office, and we
-                say so plainly rather than implying one. We cover
-                {l.country === 'US' ? ' US ' : ' UK '}business hours for calls, and
-                everything else — design reviews, revisions, handover — happens exactly as
-                it would with a studio down the road. It is also the honest reason our
-                quotes compare well with a {l.city} agency.
-              </p>
-            </div>
+          <h2>From brief to launch</h2>
+          <div className={styles.steps}>
+            <div><h3>Agree the scope</h3><p>We map your pages, integrations and priorities before quoting.</p></div>
+            <div><h3>Review the design</h3><p>See the pages before development and give feedback in shared reviews.</p></div>
+            <div><h3>Launch with a handover</h3><p>We test the site and walk your team through everyday edits.</p></div>
           </div>
+          <Link href="/resources/website-project-brief">Use the free website project brief →</Link>
         </div>
       </section>
 
@@ -156,7 +150,7 @@ export default function LocationPage({ params }) {
           <div className="wrap">
             <div className="sec-head rv">
               <div className="eyebrow"><span className="pulse" />What we do here</div>
-              <h2>Most requested in <span className="grad-txt">{l.city}</span></h2>
+              <h2>Website services for <span className="grad-txt">{l.city}</span></h2>
             </div>
             <div className="svc-grid">
               {related.map((s, n) => (
@@ -213,7 +207,7 @@ export default function LocationPage({ params }) {
                 that are the only one in their country — Dubai, Cape Town,
                 Christchurch — otherwise ended up with a single internal
                 link and sat in "Discovered – currently not indexed". */}
-            {nearby.map((o) => (
+            {nearby.slice(0, 8).map((o) => (
               <Link href={`/locations/${o.slug}`} key={o.slug} className="ind-minicard rv">
                 <b>{o.city}</b>
                 <span>{o.region}</span>

@@ -1,0 +1,15 @@
+.hero { padding: clamp(28px, 5vw, 72px) 0; background: radial-gradient(ellipse at top right, #d9efe5, transparent 65%), #f7f8f2; }
+.heroGrid { display: grid; grid-template-columns: 1.1fr 1fr; align-items: center; gap: clamp(24px, 5vw, 70px); }
+.heroGrid h1 { font-size: clamp(2.25rem, 5vw, 4.6rem); }
+.actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 25px; }
+.showcase { display: block; border-radius: 22px; overflow: hidden; background: #fff; border: 1px solid var(--border); box-shadow: 0 16px 45px #102f2d16; }
+.showcase img { width: 100%; height: auto; aspect-ratio: 16 / 10; object-fit: cover; display: block; }
+.showcase div { display: grid; gap: 4px; padding: 16px 20px; }
+.showcase small { color: var(--muted); }
+.showcase span { color: #087f78; font-weight: 700; }
+.process { padding: 42px 0; margin-bottom: 42px; background: #e9f4ee; }
+.process a { font-weight: 700; text-decoration: underline; }
+.steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin: 20px 0; }
+.steps div { background: #fff; border: 1px solid var(--border); padding: 18px; border-radius: 14px; }
+.steps p { margin-bottom: 0; }
+@media (max-width: 760px) { .heroGrid, .steps { grid-template-columns: 1fr; } }

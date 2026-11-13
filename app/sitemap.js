@@ -20,7 +20,7 @@ const PAGES_UPDATED = new Date('2026-10-27');
 export default function sitemap() {
   const staticPages = ['', '/services', '/industries', '/locations', '/portfolio', '/about', '/about/team', '/contact', '/blog', '/privacy', '/cookies', '/editorial-policy', '/resources/website-project-brief'].map((p) => ({
     url: `${site.url}${p}`,
-    lastModified: ['', '/blog'].includes(p) ? new Date(Math.max(new Date('2026-10-28').getTime(), ...getAllPosts().map(post => new Date(post.updated || post.date).getTime()))) : ['/privacy', '/about', '/about/team', '/locations', '/resources/website-project-brief'].includes(p) ? new Date('2026-10-30') : ['/about', '/portfolio', '/cookies', '/editorial-policy', '/resources/website-project-brief'].includes(p) ? new Date('2026-10-27') : PAGES_UPDATED,
+    lastModified: ['', '/blog'].includes(p) ? new Date(Math.max(new Date('2026-10-28').getTime(), ...getAllPosts().map(post => new Date(post.updated || post.date).getTime()))) : ['/about', '/locations'].includes(p) ? new Date('2026-11-13') : ['/privacy', '/about/team', '/resources/website-project-brief'].includes(p) ? new Date('2026-10-30') : ['/about', '/portfolio', '/cookies', '/editorial-policy', '/resources/website-project-brief'].includes(p) ? new Date('2026-10-27') : PAGES_UPDATED,
   }));
   const servicePages = services.map((s) => ({
     url: `${site.url}/services/${s.slug}`,
@@ -32,7 +32,7 @@ export default function sitemap() {
   }));
   const locationPages = locations.map((l) => ({
     url: `${site.url}/locations/${l.slug}`,
-    lastModified: new Date('2026-10-30'),
+    lastModified: new Date('2026-11-13'),
   }));
   const projectPages = projects.map((p) => ({
     url: `${site.url}/portfolio/${p.slug}`,

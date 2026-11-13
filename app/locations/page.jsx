@@ -53,8 +53,7 @@ export default function LocationsPage() {
           <h1 style={{ marginInline: 'auto' }}>Working with clients <span className="grad-txt">worldwide</span></h1>
           <p className="lede" style={{ marginInline: 'auto' }}>
             We&apos;re a remote studio and our clients are all over the world. Below are the
-            places we work in most often — each with a note on what that market actually
-            looks like.
+            areas we serve, with website planning advice and project examples for each market.
           </p>
         </div>
       </div>
