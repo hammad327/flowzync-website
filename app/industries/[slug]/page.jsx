@@ -11,7 +11,7 @@ import { clampTitle, clampDescription, openGraph, twitterCard } from '@/lib/meta
 import Photo from '@/components/Photo';
 import { projects } from '@/lib/projects';
 import { getAllPosts } from '@/lib/posts';
-import { postsForIndustry } from '@/lib/related';
+import { postsForIndustry, morePostsForIndustry } from '@/lib/related';
 
 export function generateStaticParams() {
   return industries.map((i) => ({ slug: i.slug }));
@@ -45,6 +45,8 @@ export default function IndustryPage({ params }) {
   // put those URLs in "Discovered – currently not indexed".
   const work = projects.filter((x) => x.industry === i.slug).slice(0, 6);
   const reading = postsForIndustry(i.slug, getAllPosts(), 4);
+  // The rest of the mapped articles, as plain links under the cards.
+  const moreReading = morePostsForIndustry(i.slug, getAllPosts());
 
   const schema = [
     {
@@ -270,6 +272,13 @@ export default function IndustryPage({ params }) {
                 </Link>
               ))}
             </div>
+            {moreReading.length > 0 && (
+              <ul className="more-reading" aria-label="More articles on this topic">
+                {moreReading.map((x) => (
+                  <li key={x.slug}><Link href={`/blog/${x.slug}`}>{x.title}</Link></li>
+                ))}
+              </ul>
+            )}
           </div>
         </section>
       )}
