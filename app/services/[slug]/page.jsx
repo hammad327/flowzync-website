@@ -12,7 +12,7 @@ import { clampTitle, clampDescription, openGraph, twitterCard } from '@/lib/meta
 import Photo from '@/components/Photo';
 import { projects } from '@/lib/projects';
 import { getAllPosts } from '@/lib/posts';
-import { postsForService } from '@/lib/related';
+import { postsForService, morePostsForService } from '@/lib/related';
 
 // Pre-render every service at build time → instant loads + full SEO
 export function generateStaticParams() {
@@ -43,6 +43,8 @@ export default function ServicePage({ params }) {
   // URLs sat in "Discovered – currently not indexed". See lib/related.js.
   const work = projects.filter((x) => x.service === s.slug).slice(0, 6);
   const reading = postsForService(s.slug, getAllPosts(), 4);
+  // The rest of the mapped articles, as plain links under the cards.
+  const moreReading = morePostsForService(s.slug, getAllPosts());
 
   const schema = [
     {
@@ -300,6 +302,13 @@ export default function ServicePage({ params }) {
                 </Link>
               ))}
             </div>
+            {moreReading.length > 0 && (
+              <ul className="more-reading" aria-label="More articles on this topic">
+                {moreReading.map((x) => (
+                  <li key={x.slug}><Link href={`/blog/${x.slug}`}>{x.title}</Link></li>
+                ))}
+              </ul>
+            )}
           </div>
         </section>
       )}

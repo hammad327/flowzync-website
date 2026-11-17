@@ -55,7 +55,9 @@ section{padding:76px 0;position:relative}
 .grad-txt{background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
 
 /* eyebrow / buttons / heads */
-.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;font-weight:700;letter-spacing:1.6px;text-transform:uppercase;color:var(--primary);background:var(--lav);padding:8px 18px;border-radius:30px;margin-bottom:20px}
+/* --primary-deep, not --primary: teal on the pale green pill measured
+   4.13:1, under the 4.5:1 needed for text this size. */
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:700;letter-spacing:1.6px;text-transform:uppercase;color:var(--primary-deep);background:var(--lav);padding:8px 18px;border-radius:30px;margin-bottom:20px}
 .eyebrow .pulse{position:relative;width:7px;height:7px;border-radius:50%;background:var(--accent);flex-shrink:0}
 .eyebrow .pulse::after{content:'';position:absolute;top:50%;left:50%;width:7px;height:7px;border-radius:50%;background:rgba(41,157,133,.5);transform:translate(-50%,-50%);animation:pulseRing 1.8s infinite;will-change:transform,opacity;pointer-events:none}
 /* The eyebrow dot's ripple. It used to animate box-shadow, which the
@@ -402,7 +404,7 @@ input[type="text"],input[type="email"],input[type="tel"],input[type="url"],input
 .feat:hover{transform:translateY(-7px);box-shadow:var(--shadow-md);border-color:rgba(8,127,120,.35)}
 .feat h3{font-size:16.5px;margin-bottom:8px}
 .feat p{font-size:14px;color:var(--muted)}
-.feat .num{font-family:var(--font-sora,'Sora'),'Segoe UI',system-ui,-apple-system,sans-serif;font-size:13px;font-weight:800;color:var(--primary);background:var(--lav);width:34px;height:34px;border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:16px}
+.feat .num{font-family:var(--font-sora,'Sora'),'Segoe UI',system-ui,-apple-system,sans-serif;font-size:13px;font-weight:800;color:var(--primary-deep);background:var(--lav);width:34px;height:34px;border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:16px}
 
 /* page hero (inner pages) */
 .page-hero{padding:150px 0 30px;position:relative;overflow:hidden}
@@ -922,7 +924,7 @@ img,svg,video{max-width:100%;height:auto}
 .ind-thumb img{width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.22,1,.36,1)}
 .ind-card:hover .ind-thumb img{transform:scale(1.04)}
 .ind-body{padding:24px 24px 26px;display:flex;flex-direction:column;gap:9px;flex:1}
-.ind-tag{align-self:flex-start;font-size:11.5px;font-weight:700;letter-spacing:.9px;text-transform:uppercase;color:var(--primary);background:var(--lav);padding:5px 13px;border-radius:20px}
+.ind-tag{align-self:flex-start;font-size:11.5px;font-weight:700;letter-spacing:.9px;text-transform:uppercase;color:var(--primary-deep);background:var(--lav);padding:5px 13px;border-radius:20px}
 .ind-body h3{font-size:20px}
 .ind-body p{color:var(--muted);font-size:14.5px;flex:1}
 
@@ -1166,3 +1168,13 @@ html{scroll-padding-top:105px}body{background:#F7F8F2}.rv{opacity:1;transform:no
 .article-toc{background:var(--paper,#f6f7f1);border:1px solid var(--line,#d9e2d9);border-radius:16px;padding:24px;margin:24px 0 32px}.article-toc h2{font-size:20px;margin:0 0 12px}.article-toc ol{margin:0;padding-left:22px}.article-toc li{margin:8px 0}.article-toc a{color:var(--ink);text-decoration:underline;text-underline-offset:4px}
 .prose h2[id],.prose h3[id]{scroll-margin-top:110px}.privacy-notice{font-size:13px;line-height:1.65;color:var(--muted);margin:12px 0}.article-source-note{border-top:1px solid var(--line,#d9e2d9);padding-top:20px;margin-top:32px;font-size:15px;line-height:1.8}
 .prose table{display:block;max-width:100%;overflow-x:auto;border-collapse:collapse}.prose th,.prose td{padding:12px;border:1px solid var(--line,#d9e2d9);text-align:left;min-width:125px}
+
+/* ── MORE READING ──────────────────────────────────────────────
+   Plain links under the article cards on service and industry pages.
+   A topic with a dozen articles gives each one a link from a
+   well-linked page without turning the section into a dozen cards. */
+.more-reading{list-style:none;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:40px;margin-top:34px;border-top:1px solid var(--border)}
+.more-reading li{border-bottom:1px solid var(--border)}
+.more-reading a{display:block;padding:16px 0;font-size:16.5px;font-weight:600;line-height:1.45;color:var(--ink);transition:color .2s}
+.more-reading a:hover{color:var(--primary)}
+@media(max-width:760px){.more-reading{grid-template-columns:1fr}}
