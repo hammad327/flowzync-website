@@ -1,49 +1,15 @@
 'use client';
 import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 
 const slides = [
   { label: 'Websites', theme: 'forest', kicker: 'Custom website design · WordPress · E-commerce', first: 'Custom websites.', second: 'First impressions that last.', description: 'A distinctive website. A clear message. A better way for the right customers to find you and take the next step.', cta: 'Let’s talk about your website', href: '/contact', explore: 'Explore website design', service: '/services/custom-website-design', note: 'Designed around your business. Built for the people you want to reach.' },
   { label: 'Funnels & CRM', theme: 'ivory', kicker: 'GoHighLevel · Landing pages · Booking journeys', first: 'Turn a little interest', second: 'into what’s next.', description: 'Give every campaign a focused landing page, every enquiry a place in your CRM, and every customer a clear next step.', cta: 'Plan your funnel', href: '/contact', explore: 'Explore GoHighLevel funnels', service: '/services/ghl-funnels', note: 'From the first click to the next conversation. Thoughtfully connected.' },
   { label: 'Automation', theme: 'teal', kicker: 'Business automation · Zapier · Make · Follow-up', first: 'Less chasing.', second: 'More moving forward.', description: 'Connect the tools behind your website. Simplify the follow-up, reduce repetitive tasks and make room for the work that matters.', cta: 'Connect your business systems', href: '/contact', explore: 'Explore business automation', service: '/services/automations', note: 'Useful systems that support your team, long after launch day.' },
 ];
-// ── SLIDE VISUALS ─────────────────────────────────────────────
-// Each slide carries a small illustration of the thing it describes,
-// so the hero is not a slab of text on a flat colour. They are markup
-// and CSS only (one real project screenshot aside), hidden from
-// assistive tech because the copy beside them already says it, and
-// not rendered below 1100px where the headline needs the width.
-//
-// The enquiry, pipeline and workflow shown are illustrations of how
-// the pieces fit — not figures, and deliberately carry no numbers.
-function VisualSite({ shot }) {
-  return <div className="hv hv-site" aria-hidden="true">
-    <div className="hv-browser">
-      <div className="hv-chrome"><i/><i/><i/><span>yourbusiness.com</span></div>
-      {shot && <div className="hv-shot"><Image src={shot.src} alt="" width={shot.w} height={shot.h} sizes="460px" /></div>}
-    </div>
-    <div className="hv-chip hv-chip-a"><b/><div><strong>New enquiry</strong><small>From the contact page</small></div></div>
-    <div className="hv-chip hv-chip-b"><em>✓</em><div><strong>Call booked</strong><small>Added to your calendar</small></div></div>
-  </div>;
-}
-function VisualPipeline() {
-  const cols = [['New', ['Website enquiry', 'Landing page lead']], ['Booked', ['Discovery call']], ['Follow-up', ['Proposal sent', 'Reminder set']]];
-  return <div className="hv hv-pipe" aria-hidden="true">
-    <div className="hv-pipe-top"><span>Pipeline</span><small>One place for every enquiry</small></div>
-    <div className="hv-pipe-cols">{cols.map(([title, cards]) => <div key={title}><h4>{title}</h4>{cards.map(c => <p key={c}><i/>{c}</p>)}</div>)}</div>
-  </div>;
-}
-function VisualFlow() {
-  const steps = [['Form submitted', 'Trigger'], ['Contact created in CRM', 'Instant'], ['SMS and email reply sent', 'Automatic'], ['Reminder scheduled', 'Follow-up']];
-  return <div className="hv hv-flow" aria-hidden="true">
-    {steps.map(([t, tag], i) => <div className="hv-flow-step" key={t}><span>{i + 1}</span><strong>{t}</strong><small>{tag}</small></div>)}
-  </div>;
-}
-
 function Arrow({ back = false }) { return <svg width="21" height="21" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d={back ? 'M20 12H4m6-6-6 6 6 6' : 'M4 12h16m-6-6 6 6-6 6'} stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>; }
 
-export default function HomeHero({ shot }) {
+export default function HomeHero() {
   const [active, setActive] = useState(0);
   const [paused, setPaused] = useState(false);
   const [engaged, setEngaged] = useState(false);
@@ -83,7 +49,6 @@ export default function HomeHero({ shot }) {
           <p className="hs-description">{slide.description}</p>
           <div className="hs-actions"><Link className="hs-primary" href={slide.href} tabIndex={active === index ? undefined : -1}>{slide.cta}<span aria-hidden="true">↗</span></Link><Link href={slide.service} className="hs-secondary" tabIndex={active === index ? undefined : -1}>{slide.explore}<Arrow/></Link></div>
           <p className="hs-note">{slide.note}</p>
-          {index === 0 ? <VisualSite shot={shot}/> : index === 1 ? <VisualPipeline/> : <VisualFlow/>}
         </div>
       </div>)}
     </div></div>
