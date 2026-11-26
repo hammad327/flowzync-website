@@ -1,0 +1,97 @@
+{
+  "url": "https://flowzync.com/blog/woocommerce-black-friday-checklist",
+  "source": "file",
+  "status_code": null,
+  "headers_available": true,
+  "facts": {
+    "title": "WooCommerce Black Friday Checklist 2026 | Flowzync",
+    "title_length": 50,
+    "title_count": 1,
+    "meta_description": "Prepare your WooCommerce store for Black Friday 2026. Test mobile checkout, payments, coupons, stock and tracking before sending more visitors to your sale.",
+    "meta_description_length": 156,
+    "h1": [
+      "WooCommerce Black Friday Checklist: Fix Checkout First"
+    ],
+    "h1_count": 1,
+    "heading_level_skips": 0,
+    "template_heading_level_skips": 0,
+    "canonical": "https://flowzync.com/blog/woocommerce-black-friday-checklist",
+    "canonical_status": "self",
+    "canonical_note": null,
+    "meta_robots": "robots: index, follow; googlebot: index, follow, max-video-preview:-1, max-image-preview:large, max-snippet:-1",
+    "x_robots_tag": null,
+    "x_robots_other_agents": [],
+    "hreflang_count": 0,
+    "lang": "en",
+    "has_doctype": true,
+    "meta_charset": "utf-8",
+    "header_charset": "utf-8",
+    "has_viewport": true,
+    "images": {
+      "total": 4,
+      "missing_alt": 0,
+      "empty_alt": 0,
+      "missing_dimensions": 0,
+      "first_image_lazy": false
+    },
+    "links": {
+      "total": 67,
+      "without_text": 0,
+      "generic_anchor": 0,
+      "http_on_https": 0
+    },
+    "mixed_content": 0,
+    "url": {
+      "length": 60,
+      "query_params": []
+    },
+    "html_bytes": 90086,
+    "dom": {
+      "nodes": 507,
+      "max_depth": 13,
+      "max_children": 52,
+      "widest_element": "head"
+    },
+    "open_graph": {
+      "og:title": "WooCommerce Black Friday Checklist 2026 | Flowzync",
+      "og:description": "Prepare your WooCommerce store for Black Friday 2026. Test mobile checkout, payments, coupons, stock and tracking before sending more visitors to your sale.",
+      "og:url": "https://flowzync.com/blog/woocommerce-black-friday-checklist",
+      "og:site_name": "Flowzync",
+      "og:locale": "en_US",
+      "og:image": "https://flowzync.com/og.png",
+      "og:image:alt": "WooCommerce Black Friday Checklist 2026 | Flowzync",
+      "og:type": "article"
+    },
+    "jsonld_blocks": 2,
+    "jsonld_invalid": 0,
+    "word_count": 1591,
+    "words_measured": true,
+    "title_relevance": 1.0,
+    "description_relevance": 0.93
+  },
+  "findings": [],
+  "not_checked": [],
+  "thresholds": {
+    "title_min_chars": 30,
+    "title_max_chars": 60,
+    "meta_description_min_chars": 120,
+    "meta_description_max_chars": 160,
+    "url_max_chars": 100,
+    "html_max_bytes": 2000000,
+    "thin_content_min_words": 200,
+    "dom_max_depth": 32,
+    "dom_max_children": 60,
+    "title_relevance_min": 0.3,
+    "description_relevance_min": 0.2,
+    "relevance_min_words": 50,
+    "evidence_max_chars": 200
+  },
+  "summary": {
+    "Critical": 0,
+    "High": 0,
+    "Medium": 0,
+    "Low": 0,
+    "total": 0,
+    "checks_run": 47
+  }
+}

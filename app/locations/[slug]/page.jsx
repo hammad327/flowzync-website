@@ -36,7 +36,13 @@ export default function LocationPage({ params }) {
   const l = getLocation(params.slug);
   if (!l) notFound();
 
-  const portfolio = l.showcase || (l.related.includes('woocommerce-development') ? 'roller-shutters-online' : '5-star-quality-hvac');
+  // Default project when a city has no `showcase`: a store if the page is
+  // about e-commerce, otherwise work from the same country where we have it.
+  // It used to fall back to one US HVAC site on 25 of 39 city pages,
+  // London and Dubai included. The card says "Selected Flowzync work" and
+  // makes no claim that the project is in that city.
+  const byCountry = { US: '5-star-quality-hvac', UK: 'crown-build-constructions' };
+  const portfolio = l.showcase || (l.related.includes('woocommerce-development') ? 'roller-shutters-online' : byCountry[l.country] || 'nf-living');
   const project = projects.find((item) => item.slug === portfolio);
   const related = (l.related || []).map(getService).filter(Boolean);
 
@@ -59,7 +65,7 @@ export default function LocationPage({ params }) {
       '@type': 'BreadcrumbList',
       itemListElement: [
         { '@type': 'ListItem', position: 1, name: 'Home', item: site.url },
-        { '@type': 'ListItem', position: 2, name: 'Locations', item: `${site.url}/locations` },
+        { '@type': 'ListItem', position: 2, name: 'Areas we cover', item: `${site.url}/locations` },
         { '@type': 'ListItem', position: 3, name: l.title, item: `${site.url}/locations/${l.slug}` },
       ],
     },

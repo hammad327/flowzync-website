@@ -1,4 +1,4 @@
-export const dynamic = 'force-dynamic';
+export const revalidate = 3600;
 
 import { site } from '@/lib/site';
 import { services } from '@/lib/services';
@@ -8,46 +8,43 @@ import { getAllPosts } from '@/lib/posts';
 import { projects } from '@/lib/projects';
 import { localeCodes } from '@/lib/locales';
 
-// Google ignores <priority> and <changefreq>; lastmod must be accurate
-// rather than identical everywhere, so pages carry the date of their
-// last real update. /admin is deliberately absent — it is private.
-// Bump this whenever the static pages genuinely change. Do NOT wire it
-// to the build date — a lastmod that moves on every deploy without the
-// content changing is the fastest way to have Google stop trusting the
-// field entirely, and then it ignores the accurate ones too.
-const PAGES_UPDATED = new Date('2026-10-27');
-
+// ── lastmod: only where it is actually known ────────────────────
+// Google ignores <priority> and <changefreq>, and uses <lastmod> only
+// when it is "consistently and verifiably accurate". This file used to
+// stamp 106 URLs with one of two hardcoded dates, whatever had really
+// changed. A field that is visibly templated stops being trusted for the
+// whole site — including the blog posts, whose dates are real.
+//
+// So: blog posts carry their own `updated`/`date` frontmatter, and the
+// homepage and /blog carry the newest post's date, because their content
+// changes when a post is published. Everything else has no lastmod, which
+// Google handles fine, rather than a date nobody can stand behind.
+//
+// If you want lastmod on a page type later, it must come from a date that
+// changes only when that page's content changes (e.g. an `updated` field
+// on the service in lib/services.js) — never the build date.
+//
+// /admin is deliberately absent — it is private.
 export default function sitemap() {
-  const staticPages = ['', '/services', '/industries', '/locations', '/portfolio', '/about', '/about/team', '/contact', '/blog', '/privacy', '/cookies', '/editorial-policy', '/resources/website-project-brief'].map((p) => ({
-    url: `${site.url}${p}`,
-    lastModified: ['', '/blog'].includes(p) ? new Date(Math.max(new Date('2026-10-28').getTime(), ...getAllPosts().map(post => new Date(post.updated || post.date).getTime()))) : ['/about', '/locations'].includes(p) ? new Date('2026-11-13') : ['/privacy', '/about/team', '/resources/website-project-brief'].includes(p) ? new Date('2026-10-30') : ['/about', '/portfolio', '/cookies', '/editorial-policy', '/resources/website-project-brief'].includes(p) ? new Date('2026-10-27') : PAGES_UPDATED,
-  }));
-  const servicePages = services.map((s) => ({
-    url: `${site.url}/services/${s.slug}`,
-    lastModified: ['graphic-design', 'wordpress-website-design'].includes(s.slug) ? new Date('2026-10-27') : PAGES_UPDATED,
-  }));
-  const industryPages = industries.map((i) => ({
-    url: `${site.url}/industries/${i.slug}`,
-    lastModified: new Date('2026-10-27'),
-  }));
-  const locationPages = locations.map((l) => ({
-    url: `${site.url}/locations/${l.slug}`,
-    lastModified: new Date('2026-11-13'),
-  }));
-  const projectPages = projects.map((p) => ({
-    url: `${site.url}/portfolio/${p.slug}`,
-    lastModified: new Date('2026-10-27'),
-  }));
-  const blogPages = getAllPosts().map((p) => ({
-    url: `${site.url}/blog/${p.slug}`,
-    lastModified: new Date(p.updated || p.date),
-  }));
+  const posts = getAllPosts();
+  const newestPost = posts.length
+    ? new Date(Math.max(...posts.map((p) => new Date(p.updated || p.date).getTime())))
+    : undefined;
+  const at = (path, lastModified) => ({ url: `${site.url}${path}`, ...(lastModified ? { lastModified } : {}) });
+
+  const staticPages = [
+    at('', newestPost),
+    at('/blog', newestPost),
+    ...['/services', '/industries', '/locations', '/portfolio', '/about', '/about/team', '/contact', '/privacy', '/cookies', '/editorial-policy', '/resources/website-project-brief'].map((p) => at(p)),
+  ];
+  const servicePages = services.map((s) => at(`/services/${s.slug}`));
+  const industryPages = industries.map((i) => at(`/industries/${i.slug}`));
+  const locationPages = locations.map((l) => at(`/locations/${l.slug}`));
+  const projectPages = projects.map((p) => at(`/portfolio/${p.slug}`));
+  const blogPages = posts.map((p) => at(`/blog/${p.slug}`, new Date(p.updated || p.date)));
   // Language landing pages. One per language, genuinely written —
   // see lib/locales.js for why this is not a full translation.
-  const localePages = localeCodes.map((code) => ({
-    url: `${site.url}/${code}`,
-    lastModified: new Date('2026-10-27'),
-  }));
+  const localePages = localeCodes.map((code) => at(`/${code}`));
   return [...staticPages, ...servicePages, ...industryPages, ...locationPages,
           ...projectPages, ...blogPages, ...localePages];
 }

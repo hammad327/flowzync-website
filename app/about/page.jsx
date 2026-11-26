@@ -71,6 +71,7 @@ export default function AboutPage() {
                 photo="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1100&q=80&auto=format&fit=crop"
                 fallback="/images/services/ui-ux-design.svg"
                 alt="Illustrative photograph of a collaborative design workspace" width={1100} height={825}
+                priority
               />
               <div className="ab-float abf1" data-plx="0.08"><b className="grad-txt">5+ yrs</b><span>Craft &amp; counting</span></div>
               {/* Deliberately not a headcount. It used to read "14 experts",

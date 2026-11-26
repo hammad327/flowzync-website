@@ -24,6 +24,8 @@ export default function BlogGrid({ posts }) {
                   width={600}
                   height={380}
                   sizes="(max-width:680px) 100vw, (max-width:1080px) 50vw, 33vw"
+                  // The first row is visible on load; lazy-loading it delays the largest paint.
+                  priority={i < 3}
                 />
               </div>
               <div className="post-body">

@@ -137,6 +137,10 @@ export default function RootLayout({ children }) {
             immediately in the fallback face and upgrades when the webfont
             lands — so this never sits on the critical path.
             The <noscript> copy keeps fonts working without JavaScript. */}
+        {/* RSS autodiscovery. A plain tag rather than metadata.alternates,
+            because pages that set their own alternates (nearly all of them,
+            for the canonical) would replace it and it would vanish. */}
+        <link rel="alternate" type="application/rss+xml" title={`${site.name} blog`} href={`${site.url}/feed.xml`} />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <script

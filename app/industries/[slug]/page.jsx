@@ -69,7 +69,7 @@ export default function IndustryPage({ params }) {
         name: `${i.trade} we build for`,
         itemListElement: i.covers.map((c) => ({
           '@type': 'Offer',
-          itemOffered: { '@type': 'Service', name: `Website design for ${c.toLowerCase()}` },
+          itemOffered: { '@type': 'Service', name: `Website design: ${c}` },
         })),
       } } : {}),
       provider: { '@type': 'Organization', '@id': `${site.url}/#organization`, name: site.name, url: site.url },

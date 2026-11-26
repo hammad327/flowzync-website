@@ -9,6 +9,12 @@ const CONSENT_KEY = 'flowzync-analytics-consent';
 export default function GoogleAnalytics() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  // Nothing renders until the saved choice has been read. The server cannot
+  // know it, so it used to render the small "Analytics preferences" button,
+  // which then grew into the full panel about a second after load — a layout
+  // shift that alone pushed mobile CLS over 0.1 on the homepage and /portfolio.
+  // A panel that simply appears at its final size is not a layout shift.
+  const [ready, setReady] = useState(false);
   const isAdmin = pathname.startsWith('/admin') || pathname.startsWith('/api');
 
   useEffect(() => {
@@ -20,6 +26,7 @@ export default function GoogleAnalytics() {
     try { choice = localStorage.getItem(CONSENT_KEY); } catch {}
     window['ga-disable-' + MEASUREMENT_ID] = choice !== 'granted';
     setOpen(choice !== 'granted' && choice !== 'denied');
+    setReady(true);
     if (choice !== 'granted' || document.getElementById('flowzync-ga4')) return;
 
     window.dataLayer = window.dataLayer || [];
@@ -54,7 +61,7 @@ export default function GoogleAnalytics() {
     window.location.reload();
   }
 
-  if (isAdmin) return null;
+  if (isAdmin || !ready) return null;
   return (
     <aside aria-label="Analytics preferences" style={{ position: 'fixed', bottom: 16, left: 16, zIndex: 1100, maxWidth: 'min(380px, calc(100vw - 32px))', padding: open ? 20 : 0, background: '#fff', color: '#162d2b', borderRadius: 14, boxShadow: '0 4px 28px #0002' }}>
       {open ? <>

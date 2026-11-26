@@ -1,0 +1,22 @@
+HTTP/1.1 200 Connection Established
+
+HTTP/2 200 
+age: 96990
+cache-control: public, max-age=0, must-revalidate
+content-type: text/html; charset=utf-8
+cross-origin-opener-policy: same-origin-allow-popups
+date: Fri, 20 Nov 2026 05:01:48 GMT
+etag: "15ocq116m2s22f6"
+permissions-policy: camera=(), microphone=(), geolocation=(), payment=(), usb=(), interest-cohort=()
+referrer-policy: strict-origin-when-cross-origin
+server: Vercel
+strict-transport-security: max-age=63072000; includeSubDomains; preload
+vary: RSC, Next-Router-State-Tree, Next-Router-Prefetch
+x-content-type-options: nosniff
+x-frame-options: DENY
+x-matched-path: /industries/ecommerce-and-retail
+x-powered-by: Next.js
+x-vercel-cache: STALE
+x-vercel-id: iad1::iad1::9t6z5-1795690368216-c4c3710948fc
+content-length: 96705
+

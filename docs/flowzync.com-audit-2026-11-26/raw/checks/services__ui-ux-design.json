@@ -1,0 +1,106 @@
+{
+  "url": "https://flowzync.com/services/ui-ux-design",
+  "source": "file",
+  "status_code": null,
+  "headers_available": true,
+  "facts": {
+    "title": "UI/UX Design Services | Web & App Product Design \u2014 Flowzync",
+    "title_length": 59,
+    "title_count": 1,
+    "meta_description": "UI/UX design services for web apps, SaaS products and mobile apps: user research, wireframing, interactive Figma prototypes, usability testing and complete design systems.",
+    "meta_description_length": 171,
+    "h1": [
+      "UI/UX Design"
+    ],
+    "h1_count": 1,
+    "heading_level_skips": 0,
+    "template_heading_level_skips": 0,
+    "canonical": "https://flowzync.com/services/ui-ux-design",
+    "canonical_status": "self",
+    "canonical_note": null,
+    "meta_robots": "robots: index, follow; googlebot: index, follow, max-video-preview:-1, max-image-preview:large, max-snippet:-1",
+    "x_robots_tag": null,
+    "x_robots_other_agents": [],
+    "hreflang_count": 0,
+    "lang": "en",
+    "has_doctype": true,
+    "meta_charset": "utf-8",
+    "header_charset": "utf-8",
+    "has_viewport": true,
+    "images": {
+      "total": 1,
+      "missing_alt": 0,
+      "empty_alt": 0,
+      "missing_dimensions": 0,
+      "first_image_lazy": false
+    },
+    "links": {
+      "total": 61,
+      "without_text": 0,
+      "generic_anchor": 0,
+      "http_on_https": 0
+    },
+    "mixed_content": 0,
+    "url": {
+      "length": 42,
+      "query_params": []
+    },
+    "html_bytes": 93619,
+    "dom": {
+      "nodes": 610,
+      "max_depth": 13,
+      "max_children": 53,
+      "widest_element": "head"
+    },
+    "open_graph": {
+      "og:title": "UI/UX Design Services | Web & App Product Design \u2014 Flowzync",
+      "og:description": "UI/UX design services for web apps, SaaS products and mobile apps: user research, wireframing, interactive Figma prototypes, usability testing and complete design systems.",
+      "og:url": "https://flowzync.com/services/ui-ux-design",
+      "og:site_name": "Flowzync",
+      "og:locale": "en_US",
+      "og:image": "https://flowzync.com/og.png",
+      "og:image:width": "1200",
+      "og:image:height": "630",
+      "og:image:alt": "UI/UX Design Services | Web & App Product Design \u2014 Flowzync",
+      "og:type": "website"
+    },
+    "jsonld_blocks": 2,
+    "jsonld_invalid": 0,
+    "word_count": 800,
+    "words_measured": true,
+    "title_relevance": 0.83,
+    "description_relevance": 1.0
+  },
+  "findings": [
+    {
+      "id": "meta-description-too-long",
+      "severity": "Medium",
+      "message": "The meta description is longer than 160 characters and may be truncated in results. This is a display heuristic, not a published search engine limit.",
+      "evidence": "171 characters: UI/UX design services for web apps, SaaS products and mobile apps: user research, wireframing, interactive Figma prototypes, usability testing and complete design systems."
+    }
+  ],
+  "not_checked": [],
+  "thresholds": {
+    "title_min_chars": 30,
+    "title_max_chars": 60,
+    "meta_description_min_chars": 120,
+    "meta_description_max_chars": 160,
+    "url_max_chars": 100,
+    "html_max_bytes": 2000000,
+    "thin_content_min_words": 200,
+    "dom_max_depth": 32,
+    "dom_max_children": 60,
+    "title_relevance_min": 0.3,
+    "description_relevance_min": 0.2,
+    "relevance_min_words": 50,
+    "evidence_max_chars": 200
+  },
+  "summary": {
+    "Critical": 0,
+    "High": 0,
+    "Medium": 1,
+    "Low": 0,
+    "total": 1,
+    "checks_run": 47
+  }
+}

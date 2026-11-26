@@ -1,6 +1,6 @@
 ---
 title: "Your Website Gets Seen in AI Search. Is It Bringing You Customers?"
-seoTitle: "AI Search Visibility vs Website Leads: What to Measure | Flowzync"
+seoTitle: "AI Search Visibility vs Leads: What to Measure | Flowzync"
 description: "Build a practical website reporting dashboard that separates AI citations, search rankings, traffic and qualified leads—without confusing visibility with sales."
 date: "2026-10-28"
 category: "SEO"

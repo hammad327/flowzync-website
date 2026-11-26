@@ -1,0 +1,97 @@
+{
+  "url": "https://flowzync.com/blog/gohighlevel-for-care-agencies",
+  "source": "file",
+  "status_code": null,
+  "headers_available": true,
+  "facts": {
+    "title": "GoHighLevel for Care Agencies: A Practical Guide | Flowzync",
+    "title_length": 59,
+    "title_count": 1,
+    "meta_description": "A plain explanation of what GoHighLevel handles for a home care provider, what it does not replace, and whether it is worth the subscription.",
+    "meta_description_length": 141,
+    "h1": [
+      "GoHighLevel for Care Agencies: What It Actually Does"
+    ],
+    "h1_count": 1,
+    "heading_level_skips": 0,
+    "template_heading_level_skips": 0,
+    "canonical": "https://flowzync.com/blog/gohighlevel-for-care-agencies",
+    "canonical_status": "self",
+    "canonical_note": null,
+    "meta_robots": "robots: index, follow; googlebot: index, follow, max-video-preview:-1, max-image-preview:large, max-snippet:-1",
+    "x_robots_tag": null,
+    "x_robots_other_agents": [],
+    "hreflang_count": 0,
+    "lang": "en",
+    "has_doctype": true,
+    "meta_charset": "utf-8",
+    "header_charset": "utf-8",
+    "has_viewport": true,
+    "images": {
+      "total": 4,
+      "missing_alt": 0,
+      "empty_alt": 0,
+      "missing_dimensions": 0,
+      "first_image_lazy": false
+    },
+    "links": {
+      "total": 60,
+      "without_text": 0,
+      "generic_anchor": 0,
+      "http_on_https": 0
+    },
+    "mixed_content": 0,
+    "url": {
+      "length": 55,
+      "query_params": []
+    },
+    "html_bytes": 83200,
+    "dom": {
+      "nodes": 450,
+      "max_depth": 13,
+      "max_children": 52,
+      "widest_element": "head"
+    },
+    "open_graph": {
+      "og:title": "GoHighLevel for Care Agencies: A Practical Guide | Flowzync",
+      "og:description": "A plain explanation of what GoHighLevel handles for a home care provider, what it does not replace, and whether it is worth the subscription.",
+      "og:url": "https://flowzync.com/blog/gohighlevel-for-care-agencies",
+      "og:site_name": "Flowzync",
+      "og:locale": "en_US",
+      "og:image": "https://images.unsplash.com/photo-1553028826-f4804a6dba3b?w=1400&q=80&auto=format&fit=crop",
+      "og:image:alt": "GoHighLevel for Care Agencies: A Practical Guide | Flowzync",
+      "og:type": "article"
+    },
+    "jsonld_blocks": 2,
+    "jsonld_invalid": 0,
+    "word_count": 1168,
+    "words_measured": true,
+    "title_relevance": 1.0,
+    "description_relevance": 0.82
+  },
+  "findings": [],
+  "not_checked": [],
+  "thresholds": {
+    "title_min_chars": 30,
+    "title_max_chars": 60,
+    "meta_description_min_chars": 120,
+    "meta_description_max_chars": 160,
+    "url_max_chars": 100,
+    "html_max_bytes": 2000000,
+    "thin_content_min_words": 200,
+    "dom_max_depth": 32,
+    "dom_max_children": 60,
+    "title_relevance_min": 0.3,
+    "description_relevance_min": 0.2,
+    "relevance_min_words": 50,
+    "evidence_max_chars": 200
+  },
+  "summary": {
+    "Critical": 0,
+    "High": 0,
+    "Medium": 0,
+    "Low": 0,
+    "total": 0,
+    "checks_run": 47
+  }
+}

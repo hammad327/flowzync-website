@@ -1,0 +1,112 @@
+{
+  "url": "https://flowzync.com/blog",
+  "source": "file",
+  "status_code": null,
+  "headers_available": true,
+  "facts": {
+    "title": "Blog \u2014 Web Design, Funnels & Automation Insights | Flowzync",
+    "title_length": 59,
+    "title_count": 1,
+    "meta_description": "Practical articles from the Flowzync team on web design, GoHighLevel funnels, WordPress, Shopify, SEO and automation. New posts published regularly.",
+    "meta_description_length": 148,
+    "h1": [
+      "Ideas worth building on"
+    ],
+    "h1_count": 1,
+    "heading_level_skips": 0,
+    "template_heading_level_skips": 0,
+    "canonical": "https://flowzync.com/blog",
+    "canonical_status": "self",
+    "canonical_note": null,
+    "meta_robots": "robots: index, follow; googlebot: index, follow, max-video-preview:-1, max-image-preview:large, max-snippet:-1",
+    "x_robots_tag": null,
+    "x_robots_other_agents": [],
+    "hreflang_count": 0,
+    "lang": "en",
+    "has_doctype": true,
+    "meta_charset": "utf-8",
+    "header_charset": "utf-8",
+    "has_viewport": true,
+    "images": {
+      "total": 70,
+      "missing_alt": 0,
+      "empty_alt": 0,
+      "missing_dimensions": 0,
+      "first_image_lazy": true
+    },
+    "links": {
+      "total": 120,
+      "without_text": 0,
+      "generic_anchor": 0,
+      "http_on_https": 0
+    },
+    "mixed_content": 0,
+    "url": {
+      "length": 25,
+      "query_params": []
+    },
+    "html_bytes": 370824,
+    "dom": {
+      "nodes": 1193,
+      "max_depth": 13,
+      "max_children": 70,
+      "widest_element": "div"
+    },
+    "open_graph": {
+      "og:title": "Blog \u2014 Web Design, Funnels & Automation Insights",
+      "og:description": "Practical articles from the Flowzync team on web design, GoHighLevel funnels, WordPress, Shopify, SEO and automation. New posts published regularly.",
+      "og:url": "https://flowzync.com/blog",
+      "og:site_name": "Flowzync",
+      "og:locale": "en_US",
+      "og:image": "https://flowzync.com/og.png",
+      "og:image:width": "1200",
+      "og:image:height": "630",
+      "og:image:alt": "Blog \u2014 Web Design, Funnels & Automation Insights",
+      "og:type": "website"
+    },
+    "jsonld_blocks": 3,
+    "jsonld_invalid": 0,
+    "word_count": 3032,
+    "words_measured": true,
+    "title_relevance": 0.86,
+    "description_relevance": 0.93
+  },
+  "findings": [
+    {
+      "id": "first-image-lazy-loaded",
+      "severity": "Medium",
+      "message": "The first image in the main content is lazy loaded. It is often the largest paint, and lazy loading delays it.",
+      "evidence": "loading=\"lazy\" on /_next/image?url=%2Fimages%2Fblog%2Fwoocommerce-stripe-test-payments-webhooks.jpg&w=3840&q=75"
+    },
+    {
+      "id": "wide-dom-node",
+      "severity": "Low",
+      "message": "One element has more than 60 direct children, which is slow to lay out (Lighthouse guidance).",
+      "evidence": "<div> has 70 direct children"
+    }
+  ],
+  "not_checked": [],
+  "thresholds": {
+    "title_min_chars": 30,
+    "title_max_chars": 60,
+    "meta_description_min_chars": 120,
+    "meta_description_max_chars": 160,
+    "url_max_chars": 100,
+    "html_max_bytes": 2000000,
+    "thin_content_min_words": 200,
+    "dom_max_depth": 32,
+    "dom_max_children": 60,
+    "title_relevance_min": 0.3,
+    "description_relevance_min": 0.2,
+    "relevance_min_words": 50,
+    "evidence_max_chars": 200
+  },
+  "summary": {
+    "Critical": 0,
+    "High": 0,
+    "Medium": 1,
+    "Low": 1,
+    "total": 2,
+    "checks_run": 47
+  }
+}

@@ -3,7 +3,9 @@
 import { getAllPosts } from '@/lib/posts';
 import { site } from '@/lib/site';
 
-export const dynamic = 'force-dynamic';
+// Regenerated hourly rather than on every request: scheduled posts still
+// appear within the hour, and crawlers get a cacheable response.
+export const revalidate = 3600;
 
 const esc = (s = '') =>
   s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
@@ -39,7 +41,7 @@ ${items}
   return new Response(xml, {
     headers: {
       'Content-Type': 'application/rss+xml; charset=utf-8',
-      'Cache-Control': 'no-store',
+      'Cache-Control': 'public, s-maxage=3600, stale-while-revalidate=86400',
     },
   });
 }

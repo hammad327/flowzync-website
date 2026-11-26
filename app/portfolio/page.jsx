@@ -9,13 +9,13 @@ import { site } from '@/lib/site';
 export const metadata = {
   title: 'Portfolio — Websites, Funnels & Stores',
   description: clampDescription(
-    'Browse Flowzync\u2019s portfolio: custom website designs, GoHighLevel funnels, WordPress builds and Shopify stores — each with the story and the results behind it.'
+    'Browse Flowzync\u2019s portfolio: custom websites, GoHighLevel funnels, WordPress builds and WooCommerce stores, each with what was built and why.'
     ),
   alternates: { canonical: '/portfolio' },
-  twitter: twitterCard({ title: 'Portfolio — Websites, Funnels & Stores', description: 'Browse Flowzync\u2019s portfolio: custom website designs, GoHighLevel funnels, WordPress builds and Shopify stores — each with the story and the results behind it.' }),
+  twitter: twitterCard({ title: 'Portfolio — Websites, Funnels & Stores', description: 'Browse Flowzync\u2019s portfolio: custom websites, GoHighLevel funnels, WordPress builds and WooCommerce stores, each with what was built and why.' }),
   openGraph: openGraph({
     title: 'Portfolio — Websites, Funnels & Stores',
-    description: 'Browse Flowzync\u2019s portfolio: custom website designs, GoHighLevel funnels, WordPress builds and Shopify stores — each with the story and the results behind it.',
+    description: 'Browse Flowzync\u2019s portfolio: custom websites, GoHighLevel funnels, WordPress builds and WooCommerce stores, each with what was built and why.',
     url: '/portfolio',
   }),
 };

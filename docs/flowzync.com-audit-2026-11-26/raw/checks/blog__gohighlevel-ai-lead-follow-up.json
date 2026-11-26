@@ -1,0 +1,97 @@
+{
+  "url": "https://flowzync.com/blog/gohighlevel-ai-lead-follow-up",
+  "source": "file",
+  "status_code": null,
+  "headers_available": true,
+  "facts": {
+    "title": "GoHighLevel AI Lead Follow-Up Guide | Flowzync",
+    "title_length": 46,
+    "title_count": 1,
+    "meta_description": "Build a GoHighLevel AI lead follow-up workflow that answers relevant questions, avoids duplicate messages and hands qualified enquiries to the right person.",
+    "meta_description_length": 156,
+    "h1": [
+      "GoHighLevel AI Lead Follow-Up: Fix Missed Enquiries"
+    ],
+    "h1_count": 1,
+    "heading_level_skips": 0,
+    "template_heading_level_skips": 0,
+    "canonical": "https://flowzync.com/blog/gohighlevel-ai-lead-follow-up",
+    "canonical_status": "self",
+    "canonical_note": null,
+    "meta_robots": "robots: index, follow; googlebot: index, follow, max-video-preview:-1, max-image-preview:large, max-snippet:-1",
+    "x_robots_tag": null,
+    "x_robots_other_agents": [],
+    "hreflang_count": 0,
+    "lang": "en",
+    "has_doctype": true,
+    "meta_charset": "utf-8",
+    "header_charset": "utf-8",
+    "has_viewport": true,
+    "images": {
+      "total": 4,
+      "missing_alt": 0,
+      "empty_alt": 0,
+      "missing_dimensions": 0,
+      "first_image_lazy": false
+    },
+    "links": {
+      "total": 64,
+      "without_text": 0,
+      "generic_anchor": 0,
+      "http_on_https": 0
+    },
+    "mixed_content": 0,
+    "url": {
+      "length": 55,
+      "query_params": []
+    },
+    "html_bytes": 88418,
+    "dom": {
+      "nodes": 503,
+      "max_depth": 13,
+      "max_children": 52,
+      "widest_element": "head"
+    },
+    "open_graph": {
+      "og:title": "GoHighLevel AI Lead Follow-Up Guide | Flowzync",
+      "og:description": "Build a GoHighLevel AI lead follow-up workflow that answers relevant questions, avoids duplicate messages and hands qualified enquiries to the right person.",
+      "og:url": "https://flowzync.com/blog/gohighlevel-ai-lead-follow-up",
+      "og:site_name": "Flowzync",
+      "og:locale": "en_US",
+      "og:image": "https://flowzync.com/og.png",
+      "og:image:alt": "GoHighLevel AI Lead Follow-Up Guide | Flowzync",
+      "og:type": "article"
+    },
+    "jsonld_blocks": 2,
+    "jsonld_invalid": 0,
+    "word_count": 1484,
+    "words_measured": true,
+    "title_relevance": 1.0,
+    "description_relevance": 0.75
+  },
+  "findings": [],
+  "not_checked": [],
+  "thresholds": {
+    "title_min_chars": 30,
+    "title_max_chars": 60,
+    "meta_description_min_chars": 120,
+    "meta_description_max_chars": 160,
+    "url_max_chars": 100,
+    "html_max_bytes": 2000000,
+    "thin_content_min_words": 200,
+    "dom_max_depth": 32,
+    "dom_max_children": 60,
+    "title_relevance_min": 0.3,
+    "description_relevance_min": 0.2,
+    "relevance_min_words": 50,
+    "evidence_max_chars": 200
+  },
+  "summary": {
+    "Critical": 0,
+    "High": 0,
+    "Medium": 0,
+    "Low": 0,
+    "total": 0,
+    "checks_run": 47
+  }
+}

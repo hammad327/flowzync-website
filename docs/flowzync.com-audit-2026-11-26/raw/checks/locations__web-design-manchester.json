@@ -1,0 +1,112 @@
+{
+  "url": "https://flowzync.com/locations/web-design-manchester",
+  "source": "file",
+  "status_code": null,
+  "headers_available": true,
+  "facts": {
+    "title": "Web Design Manchester | Website Design & WordPress \u2014 Flowzync",
+    "title_length": 61,
+    "title_count": 1,
+    "meta_description": "Website design for Manchester businesses: custom builds, WordPress, Elementor and WooCommerce. Remote studio working UK hours, with itemised quotes and no agency overhead.",
+    "meta_description_length": 171,
+    "h1": [
+      "Web design in Manchester"
+    ],
+    "h1_count": 1,
+    "heading_level_skips": 0,
+    "template_heading_level_skips": 0,
+    "canonical": "https://flowzync.com/locations/web-design-manchester",
+    "canonical_status": "self",
+    "canonical_note": null,
+    "meta_robots": "robots: index, follow; googlebot: index, follow, max-video-preview:-1, max-image-preview:large, max-snippet:-1",
+    "x_robots_tag": null,
+    "x_robots_other_agents": [],
+    "hreflang_count": 0,
+    "lang": "en",
+    "has_doctype": true,
+    "meta_charset": "utf-8",
+    "header_charset": "utf-8",
+    "has_viewport": true,
+    "images": {
+      "total": 1,
+      "missing_alt": 0,
+      "empty_alt": 1,
+      "missing_dimensions": 0,
+      "first_image_lazy": false
+    },
+    "links": {
+      "total": 86,
+      "without_text": 0,
+      "generic_anchor": 0,
+      "http_on_https": 0
+    },
+    "mixed_content": 0,
+    "url": {
+      "length": 52,
+      "query_params": []
+    },
+    "html_bytes": 81229,
+    "dom": {
+      "nodes": 527,
+      "max_depth": 13,
+      "max_children": 54,
+      "widest_element": "head"
+    },
+    "open_graph": {
+      "og:title": "Web Design Manchester | Website Design & WordPress \u2014 Flowzync",
+      "og:description": "Website design for Manchester businesses: custom builds, WordPress, Elementor and WooCommerce. Remote studio working UK hours, with itemised quotes and no agency overhead.",
+      "og:url": "https://flowzync.com/locations/web-design-manchester",
+      "og:site_name": "Flowzync",
+      "og:locale": "en_US",
+      "og:image": "https://flowzync.com/og.png",
+      "og:image:width": "1200",
+      "og:image:height": "630",
+      "og:image:alt": "Web Design Manchester | Website Design & WordPress \u2014 Flowzync",
+      "og:type": "website"
+    },
+    "jsonld_blocks": 2,
+    "jsonld_invalid": 0,
+    "word_count": 784,
+    "words_measured": true,
+    "title_relevance": 1.0,
+    "description_relevance": 0.76
+  },
+  "findings": [
+    {
+      "id": "title-too-long",
+      "severity": "Medium",
+      "message": "The title is longer than 60 characters and may be truncated in results. This is a display heuristic, not a published search engine limit.",
+      "evidence": "61 characters: Web Design Manchester | Website Design & WordPress \u2014 Flowzync"
+    },
+    {
+      "id": "meta-description-too-long",
+      "severity": "Medium",
+      "message": "The meta description is longer than 160 characters and may be truncated in results. This is a display heuristic, not a published search engine limit.",
+      "evidence": "171 characters: Website design for Manchester businesses: custom builds, WordPress, Elementor and WooCommerce. Remote studio working UK hours, with itemised quotes and no agency overhead."
+    }
+  ],
+  "not_checked": [],
+  "thresholds": {
+    "title_min_chars": 30,
+    "title_max_chars": 60,
+    "meta_description_min_chars": 120,
+    "meta_description_max_chars": 160,
+    "url_max_chars": 100,
+    "html_max_bytes": 2000000,
+    "thin_content_min_words": 200,
+    "dom_max_depth": 32,
+    "dom_max_children": 60,
+    "title_relevance_min": 0.3,
+    "description_relevance_min": 0.2,
+    "relevance_min_words": 50,
+    "evidence_max_chars": 200
+  },
+  "summary": {
+    "Critical": 0,
+    "High": 0,
+    "Medium": 2,
+    "Low": 0,
+    "total": 2,
+    "checks_run": 47
+  }
+}

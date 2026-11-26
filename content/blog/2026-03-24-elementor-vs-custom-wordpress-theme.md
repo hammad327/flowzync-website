@@ -1,5 +1,6 @@
 ---
 title: "Elementor vs a Custom WordPress Theme: Which Should You Choose?"
+seoTitle: "Elementor vs Custom WordPress Theme: Which to Choose?"
 description: "Elementor wins on editability, custom themes win on speed and longevity. Here's how to tell which trade-off is right for your business."
 updated: "2026-10-27"
 date: "2026-03-24"

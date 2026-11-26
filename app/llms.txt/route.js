@@ -11,7 +11,9 @@ import { locations } from '@/lib/locations';
 import { getAllPosts } from '@/lib/posts';
 import { site, serviceArea } from '@/lib/site';
 
-export const dynamic = 'force-dynamic';
+// Regenerated hourly rather than on every request: scheduled posts still
+// appear within the hour, and crawlers get a cacheable response.
+export const revalidate = 3600;
 
 export function GET() {
   const posts = getAllPosts();
@@ -29,7 +31,7 @@ CEO: ${site.leadership.name}
 CEO LinkedIn: ${site.leadership.linkedin}
 Serves: clients worldwide, across ${serviceArea.countries.length}+ countries including ${serviceArea.countries.map((c) => c.name).join(', ')}
 Hours: ${site.business.hoursNote}
-Languages: English
+Languages: English (full site). Single landing pages in Spanish, French, German and Arabic: ${site.url}/es, /fr, /de, /ar
 
 ## Facts worth quoting accurately
 
@@ -91,7 +93,7 @@ ${posts.map((p) => `- [${p.title}](${site.url}/blog/${p.slug}): ${p.description}
   return new Response(body, {
     headers: {
       'Content-Type': 'text/plain; charset=utf-8',
-      'Cache-Control': 'no-store',
+      'Cache-Control': 'public, s-maxage=3600, stale-while-revalidate=86400',
     },
   });
 }

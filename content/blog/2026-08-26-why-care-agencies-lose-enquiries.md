@@ -1,6 +1,6 @@
 ---
 title: "Why Care Agencies Lose Enquiries (And How to Stop It)"
-description: "Families contact three providers in one evening and go with whoever answers first. The fix is not a better website — it's what happens in the ten minutes after the form is submitted."
+description: "Families contact three providers in one evening and go with whoever answers first. The fix isn’t a better website; it’s the ten minutes after the form is sent."
 updated: "2026-10-27"
 date: "2026-08-26"
 author: "Ayaan Raza"
@@ -43,7 +43,7 @@ Because the family is not just gathering information. They are anxious, they fee
 
 A message arriving within seconds of them pressing submit says something about how the organisation runs. Silence until Monday says something too.
 
-We have seen providers change nothing about their care, their pricing or their website, add an automatic acknowledgement, and see their conversion from enquiry to assessment visit rise noticeably. The enquiries were always arriving; they were just being answered second.
+Notice what this fix does not require: no change to your care, your pricing or your website. An automatic acknowledgement only changes when the family hears from you. For a provider whose enquiries are arriving but being answered second, that is often the whole problem.
 
 ## The other half nobody automates: recruitment
 

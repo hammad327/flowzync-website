@@ -87,7 +87,7 @@ export default function BlogPost({
       '@type': 'Organization',
       '@id': `${site.url}/#organization`,
       name: site.name,
-      url: `${site.url}/editorial-policy`
+      url: site.url
     },
     publisher: {
       '@type': 'Organization',

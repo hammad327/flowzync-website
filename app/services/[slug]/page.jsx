@@ -148,7 +148,7 @@ export default function ServicePage({ params }) {
         <div className="wrap">
           <div className="sec-head rv">
             <div className="eyebrow"><span className="pulse" />What's included</div>
-            <h2>Everything inside <span className="grad-txt">{s.title.toLowerCase()}</span></h2>
+            <h2>Everything inside <span className="grad-txt">{s.title}</span></h2>
           </div>
           <div className="feat-grid">
             {s.features.map(([t, x], i) => (
@@ -168,7 +168,7 @@ export default function ServicePage({ params }) {
           <div className="wrap">
             <div className="sec-head rv">
               <div className="eyebrow"><span className="pulse" />Our approach</div>
-              <h2>How we deliver <span className="grad-txt">{s.title.toLowerCase()}</span></h2>
+              <h2>How we deliver <span className="grad-txt">{s.title}</span></h2>
             </div>
             <div className="apr-grid">
               {d.approach.map(([t, x], i) => (
@@ -258,7 +258,7 @@ export default function ServicePage({ params }) {
       <section style={{ paddingTop: 0 }}>
         <div className="wrap">
           <CTABand
-            title={`Ready to start your ${s.title.toLowerCase()} project?`}
+            title={`Ready to start your ${s.title} project?`}
             text="Request a free quote — we'll scope your project in writing and come back with a clear, itemised proposal against it."
           />
         </div>
@@ -267,7 +267,7 @@ export default function ServicePage({ params }) {
       {work.length > 0 && (
         <section style={{ paddingTop: 0 }}>
           <div className="wrap">
-            <div className="sec-head rv"><h2 style={{ fontSize: 26 }}>Recent {s.title.toLowerCase()} work</h2></div>
+            <div className="sec-head rv"><h2 style={{ fontSize: 26 }}>Recent {s.title} work</h2></div>
             <div className="proj-related">
               {work.map((x) => (
                 <Link href={`/portfolio/${x.slug}`} className="loc-card" key={x.slug}>
