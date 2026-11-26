@@ -1,7 +1,7 @@
 import PolicyPage from '@/components/PolicyPage';
 import {pageMeta,openGraph,twitterCard} from '@/lib/meta';
 import {site} from '@/lib/site';
-const title="Privacy Policy | Flowzync";
+const title="Privacy Policy: How We Handle Your Data | Flowzync";
 const description="How Flowzync handles enquiries, website analytics, chat and your privacy choices. Contact us to ask about access, correction or deletion.";
 const url=`${site.url}/privacy`;
 export const metadata=pageMeta({title,description,alternates:{canonical:url},openGraph:openGraph({title,description,url}),twitter:twitterCard({title,description})});

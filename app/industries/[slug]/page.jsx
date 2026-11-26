@@ -69,7 +69,7 @@ export default function IndustryPage({ params }) {
         name: `${i.trade} we build for`,
         itemListElement: i.covers.map((c) => ({
           '@type': 'Offer',
-          itemOffered: { '@type': 'Service', name: `Website design for ${c.toLowerCase()}` },
+          itemOffered: { '@type': 'Service', name: `Website design: ${c}` },
         })),
       } } : {}),
       provider: { '@type': 'Organization', '@id': `${site.url}/#organization`, name: site.name, url: site.url },
@@ -144,7 +144,7 @@ export default function IndustryPage({ params }) {
           <div className="sec-head rv">
             <div className="eyebrow"><span className="pulse" />What goes wrong</div>
             <h2>The problems we <span className="grad-txt">fix first</span></h2>
-            <p>These are the issues we find on almost every {i.trade.toLowerCase().replace(/s$/, '')} website we audit.</p>
+            <p>The problems that most often hold back websites in this sector, and the ones we fix first.</p>
           </div>
           <div className="pain-list">
             {i.pains.map(([t, x], n) => (

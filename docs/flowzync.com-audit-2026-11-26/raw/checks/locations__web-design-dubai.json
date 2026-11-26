@@ -1,0 +1,99 @@
+{
+  "url": "https://flowzync.com/locations/web-design-dubai",
+  "source": "file",
+  "status_code": null,
+  "headers_available": true,
+  "facts": {
+    "title": "Web Design Dubai | Website Design UAE \u2014 Flowzync",
+    "title_length": 48,
+    "title_count": 1,
+    "meta_description": "Website design for Dubai and UAE businesses: custom sites, bilingual Arabic and English builds, WordPress and e-commerce. Itemised quotes, Gulf hours.",
+    "meta_description_length": 150,
+    "h1": [
+      "Web design in Dubai"
+    ],
+    "h1_count": 1,
+    "heading_level_skips": 0,
+    "template_heading_level_skips": 0,
+    "canonical": "https://flowzync.com/locations/web-design-dubai",
+    "canonical_status": "self",
+    "canonical_note": null,
+    "meta_robots": "robots: index, follow; googlebot: index, follow, max-video-preview:-1, max-image-preview:large, max-snippet:-1",
+    "x_robots_tag": null,
+    "x_robots_other_agents": [],
+    "hreflang_count": 0,
+    "lang": "en",
+    "has_doctype": true,
+    "meta_charset": "utf-8",
+    "header_charset": "utf-8",
+    "has_viewport": true,
+    "images": {
+      "total": 1,
+      "missing_alt": 0,
+      "empty_alt": 1,
+      "missing_dimensions": 0,
+      "first_image_lazy": false
+    },
+    "links": {
+      "total": 85,
+      "without_text": 0,
+      "generic_anchor": 0,
+      "http_on_https": 0
+    },
+    "mixed_content": 0,
+    "url": {
+      "length": 47,
+      "query_params": []
+    },
+    "html_bytes": 79293,
+    "dom": {
+      "nodes": 521,
+      "max_depth": 13,
+      "max_children": 54,
+      "widest_element": "head"
+    },
+    "open_graph": {
+      "og:title": "Web Design Dubai | Website Design UAE \u2014 Flowzync",
+      "og:description": "Website design for Dubai and UAE businesses: custom sites, bilingual Arabic and English builds, WordPress and e-commerce. Itemised quotes, Gulf hours.",
+      "og:url": "https://flowzync.com/locations/web-design-dubai",
+      "og:site_name": "Flowzync",
+      "og:locale": "en_US",
+      "og:image": "https://flowzync.com/og.png",
+      "og:image:width": "1200",
+      "og:image:height": "630",
+      "og:image:alt": "Web Design Dubai | Website Design UAE \u2014 Flowzync",
+      "og:type": "website"
+    },
+    "jsonld_blocks": 2,
+    "jsonld_invalid": 0,
+    "word_count": 731,
+    "words_measured": true,
+    "title_relevance": 1.0,
+    "description_relevance": 0.82
+  },
+  "findings": [],
+  "not_checked": [],
+  "thresholds": {
+    "title_min_chars": 30,
+    "title_max_chars": 60,
+    "meta_description_min_chars": 120,
+    "meta_description_max_chars": 160,
+    "url_max_chars": 100,
+    "html_max_bytes": 2000000,
+    "thin_content_min_words": 200,
+    "dom_max_depth": 32,
+    "dom_max_children": 60,
+    "title_relevance_min": 0.3,
+    "description_relevance_min": 0.2,
+    "relevance_min_words": 50,
+    "evidence_max_chars": 200
+  },
+  "summary": {
+    "Critical": 0,
+    "High": 0,
+    "Medium": 0,
+    "Low": 0,
+    "total": 0,
+    "checks_run": 47
+  }
+}

@@ -1,7 +1,7 @@
 import PolicyPage from '@/components/PolicyPage';
 import {pageMeta,openGraph,twitterCard} from '@/lib/meta';
 import {site} from '@/lib/site';
-const title="Editorial Policy | Flowzync";
+const title="Editorial Policy: How We Write and Update | Flowzync";
 const description="How Flowzync publishes practical website, CRM and SEO guidance, uses sources, labels estimates and corrects errors.";
 const url=`${site.url}/editorial-policy`;
 export const metadata=pageMeta({title,description,alternates:{canonical:url},openGraph:openGraph({title,description,url}),twitter:twitterCard({title,description})});

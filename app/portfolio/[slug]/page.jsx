@@ -17,7 +17,9 @@ export function generateStaticParams() {
 export function generateMetadata({ params }) {
   const p = getProject(params.slug);
   if (!p) return {};
-  const title = `${p.title} | Portfolio`;
+  // The "| Portfolio" suffix is dropped when it would push the title past
+  // what search results display in full.
+  const title = `${p.title} | Portfolio`.length <= 60 ? `${p.title} | Portfolio` : p.title;
   return {
     title: { absolute: clampTitle(title) },
     description: clampDescription(p.desc),

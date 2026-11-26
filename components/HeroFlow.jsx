@@ -36,7 +36,7 @@ export default function HeroFlow() {
       <div className="hf-card hf-float">
         <div className="hf-bar">
           <i /><i /><i />
-          <span>www.flowzync.com</span>
+          <span>flowzync.com</span>
         </div>
         <div className="hf-body">
           <div className="hf-nav">

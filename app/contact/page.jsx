@@ -26,7 +26,7 @@ export default function ContactPage() {
   const submit = async (e) => {
     e.preventDefault();
     const f = e.target;
-    if (!f.name.value.trim() || !f.email.value.trim()) { setErr('field'); setTimeout(() => setErr(''), 2500); return; }
+    if (!f.name.value.trim() || !f.email.value.trim()) { setErr('field'); return; }
     setBusy(true);
     try {
       const res = await fetch('/api/leads', {
@@ -126,11 +126,11 @@ export default function ContactPage() {
                 <div className="f-row">
                   <div className="f-field">
                     <label htmlFor="name">Full name</label>
-                    <input id="name" name="name" type="text" placeholder="Jane Cooper" style={err === 'field' ? { borderColor: '#FF6B6B' } : undefined} />
+                    <input id="name" name="name" type="text" placeholder="Jane Cooper" required autoComplete="name" aria-invalid={err === 'field' || undefined} aria-describedby={err ? 'form-error' : undefined} style={err === 'field' ? { borderColor: '#FF6B6B' } : undefined} />
                   </div>
                   <div className="f-field">
                     <label htmlFor="email">Email</label>
-                    <input id="email" name="email" type="email" placeholder="jane@company.com" style={err === 'field' ? { borderColor: '#FF6B6B' } : undefined} />
+                    <input id="email" name="email" type="email" placeholder="jane@company.com" required autoComplete="email" aria-invalid={err === 'field' || undefined} aria-describedby={err ? 'form-error' : undefined} style={err === 'field' ? { borderColor: '#FF6B6B' } : undefined} />
                   </div>
                 </div>
                 <div className="f-row">
@@ -170,7 +170,7 @@ export default function ContactPage() {
                   <input
                     id="captcha" name="captcha" inputMode="numeric" autoComplete="off"
                     value={answer} onChange={(e) => setAnswer(e.target.value)}
-                    placeholder="?" aria-label="Answer the sum shown"
+                    placeholder="?" required aria-describedby={err ? 'form-error' : undefined}
                   />
                 </div>
 
@@ -179,8 +179,13 @@ export default function ContactPage() {
                   <span>{busy ? 'Sending…' : 'Send message'}</span>
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="m22 2-11 11M22 2l-7 20-4-9-9-4 20-7Z" stroke="currentColor" strokeWidth="2" strokeLinejoin="round"/></svg>
                 </button>
-                {err && err !== 'field' && (
-                  <div className="form-ok" style={{ background: '#FFEBEB', color: '#B33' }}>{err}</div>
+                {/* A written error, announced to screen readers. The empty-field
+                    case used to be a red border for 2.5 seconds and nothing
+                    else, which neither a screen reader nor an agent can see. */}
+                {err && (
+                  <div id="form-error" role="alert" className="form-ok" style={{ background: '#FFEBEB', color: '#B33' }}>
+                    {err === 'field' ? 'Please add your name and email so we can reply.' : err}
+                  </div>
                 )}
               </form>
             )}

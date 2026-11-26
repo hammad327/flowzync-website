@@ -1,5 +1,6 @@
 ---
 title: "How Long Does It Take to Build a Website? Realistic Timelines"
+seoTitle: "How Long Does It Take to Build a Website? Timelines"
 description: "Four to twelve weeks for most small business sites — and the delay is almost never the developer. Here's what actually eats the calendar."
 updated: "2026-10-27"
 date: "2026-05-19"

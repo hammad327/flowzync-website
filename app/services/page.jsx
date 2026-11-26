@@ -9,13 +9,13 @@ import { clampTitle, clampDescription, openGraph, twitterCard } from '@/lib/meta
 export const metadata = {
   title: 'Web Design, Funnels, WordPress & Automation',
   description: clampDescription(
-    'Explore Flowzync services: custom website design, landing pages, GoHighLevel funnels, business automation, WordPress and WooCommerce development, SEO, UI/UX and maintenance.'
+    'Flowzync services: custom website design, landing pages, GoHighLevel funnels and CRM, automation, WordPress and WooCommerce, SEO, UI/UX and website care.'
     ),
   alternates: { canonical: '/services' },
-  twitter: twitterCard({ title: 'Web Design, Funnels, WordPress & Automation', description: 'Explore Flowzync services: custom website design, landing pages, GoHighLevel funnels, business automation, WordPress and WooCommerce development, SEO, UI/UX and maintenance.' }),
+  twitter: twitterCard({ title: 'Web Design, Funnels, WordPress & Automation', description: 'Flowzync services: custom website design, landing pages, GoHighLevel funnels and CRM, automation, WordPress and WooCommerce, SEO, UI/UX and website care.' }),
   openGraph: openGraph({
     title: 'Web Design, Funnels, WordPress & Automation',
-    description: 'Explore Flowzync services: custom website design, landing pages, GoHighLevel funnels, business automation, WordPress and WooCommerce development, SEO, UI/UX and maintenance.',
+    description: 'Flowzync services: custom website design, landing pages, GoHighLevel funnels and CRM, automation, WordPress and WooCommerce, SEO, UI/UX and website care.',
     url: '/services',
   }),
 };

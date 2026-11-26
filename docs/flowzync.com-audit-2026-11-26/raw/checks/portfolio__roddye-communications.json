@@ -1,0 +1,97 @@
+{
+  "url": "https://flowzync.com/portfolio/roddye-communications",
+  "source": "file",
+  "status_code": null,
+  "headers_available": true,
+  "facts": {
+    "title": "Roddye Communications \u2014 Strategy Consultancy | Portfolio",
+    "title_length": 56,
+    "title_count": 1,
+    "meta_description": "A consultancy site for a firm that aligns strategy, technology and execution \u2014 built to make an abstract service concrete enough to buy.",
+    "meta_description_length": 136,
+    "h1": [
+      "Roddye Communications \u2014 Strategy Consultancy"
+    ],
+    "h1_count": 1,
+    "heading_level_skips": 0,
+    "template_heading_level_skips": 0,
+    "canonical": "https://flowzync.com/portfolio/roddye-communications",
+    "canonical_status": "self",
+    "canonical_note": null,
+    "meta_robots": "robots: index, follow; googlebot: index, follow, max-video-preview:-1, max-image-preview:large, max-snippet:-1",
+    "x_robots_tag": null,
+    "x_robots_other_agents": [],
+    "hreflang_count": 0,
+    "lang": "en",
+    "has_doctype": true,
+    "meta_charset": "utf-8",
+    "header_charset": "utf-8",
+    "has_viewport": true,
+    "images": {
+      "total": 2,
+      "missing_alt": 0,
+      "empty_alt": 0,
+      "missing_dimensions": 0,
+      "first_image_lazy": false
+    },
+    "links": {
+      "total": 57,
+      "without_text": 0,
+      "generic_anchor": 0,
+      "http_on_https": 0
+    },
+    "mixed_content": 0,
+    "url": {
+      "length": 52,
+      "query_params": []
+    },
+    "html_bytes": 68097,
+    "dom": {
+      "nodes": 415,
+      "max_depth": 13,
+      "max_children": 51,
+      "widest_element": "head"
+    },
+    "open_graph": {
+      "og:title": "Roddye Communications \u2014 Strategy Consultancy | Portfolio",
+      "og:description": "A consultancy site for a firm that aligns strategy, technology and execution \u2014 built to make an abstract service concrete enough to buy.",
+      "og:url": "https://flowzync.com/portfolio/roddye-communications",
+      "og:site_name": "Flowzync",
+      "og:locale": "en_US",
+      "og:image": "https://flowzync.com/images/projects/roddye-communications.jpg",
+      "og:image:alt": "Roddye Communications \u2014 Strategy Consultancy | Portfolio",
+      "og:type": "website"
+    },
+    "jsonld_blocks": 2,
+    "jsonld_invalid": 0,
+    "word_count": 500,
+    "words_measured": true,
+    "title_relevance": 0.8,
+    "description_relevance": 1.0
+  },
+  "findings": [],
+  "not_checked": [],
+  "thresholds": {
+    "title_min_chars": 30,
+    "title_max_chars": 60,
+    "meta_description_min_chars": 120,
+    "meta_description_max_chars": 160,
+    "url_max_chars": 100,
+    "html_max_bytes": 2000000,
+    "thin_content_min_words": 200,
+    "dom_max_depth": 32,
+    "dom_max_children": 60,
+    "title_relevance_min": 0.3,
+    "description_relevance_min": 0.2,
+    "relevance_min_words": 50,
+    "evidence_max_chars": 200
+  },
+  "summary": {
+    "Critical": 0,
+    "High": 0,
+    "Medium": 0,
+    "Low": 0,
+    "total": 0,
+    "checks_run": 47
+  }
+}

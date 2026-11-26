@@ -65,7 +65,7 @@ export default function PortfolioGrid({ limit }) {
         </div>
       )}
       <div className="pf-grid" ref={gridRef}>
-        {list.map((p) => (
+        {list.map((p, i) => (
           // The inline --pf-dur is the server-rendered estimate, computed
           // from the screenshot's real pixel height at a nominal card
           // width. The effect above replaces it with the measured value
@@ -74,7 +74,7 @@ export default function PortfolioGrid({ limit }) {
             <div className="pf-thumb">
               <div className="pf-chrome"><i /><i /><i /><span>{p.site?.includes('.example') ? 'Project preview' : (p.site || domainLabel)}</span></div>
               <div className="pf-scroller">
-                <Image src={p.img} alt={p.title} width={p.shot.w} height={p.shot.h} sizes="(max-width:700px) 100vw, 400px" />
+                <Image src={p.img} alt={p.title} width={p.shot.w} height={p.shot.h} sizes="(max-width:700px) 100vw, 400px" priority={!limit && i < 2} />
               </div>
               <div className="pf-hint">
                 <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M12 5v14m0 0-5-5m5 5 5-5" stroke="#fff" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/></svg>

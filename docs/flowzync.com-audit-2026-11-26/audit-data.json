@@ -1,0 +1,263 @@
+{
+  "summary": {
+    "health_score": 74,
+    "health_score_after_fixes_estimate": 82,
+    "business_type": "Remote web design / GoHighLevel / automation studio (service-area, no public address)",
+    "top_findings": [
+      "www.flowzync.com TLS certificate expired 2026-11-07 (HSTS preload makes it a hard failure)",
+      "Public /api/indexnow and /api/keep-alive (leaked lead-notification email) — fixed",
+      "Unsupported claims in metadata and copy — fixed",
+      "No price signal on any money page while competitors all show one",
+      "Site never states where the business is or who operates it"
+    ],
+    "quick_wins": [
+      "49 titles + 46 descriptions rewritten (0 remain)",
+      "Mobile CLS 0.115/0.146 → 0.000",
+      "Eager first images on 4 page types",
+      "Honest sitemap lastmod",
+      "Entity definition for AI assistants"
+    ]
+  },
+  "categories": [
+    {
+      "name": "Technical SEO",
+      "score": 76,
+      "score_after": 82,
+      "what_works": [
+        "188/188 URLs 200, TTFB median 0.22s",
+        "Self canonicals on apex, server-rendered",
+        "One-hop redirects, real 404s",
+        "Full security headers",
+        "Reciprocal hreflang with x-default"
+      ],
+      "findings": [
+        {
+          "title": "www certificate expired",
+          "severity": "Critical",
+          "description": "www.flowzync.com cert notAfter 2026-11-07; apex HSTS includeSubDomains+preload",
+          "recommendation": "Vercel → Domains: www → 308 to apex; fix DNS CNAME so the cert reissues"
+        },
+        {
+          "title": "Open IndexNow endpoint",
+          "severity": "High",
+          "description": "Ran for anyone; CRON_SECRET unset and ?check=1 bypass",
+          "recommendation": "Fixed: fails closed; set CRON_SECRET in Vercel"
+        },
+        {
+          "title": "Keep-alive leaked config",
+          "severity": "High",
+          "description": "?check=1 returned lead email, DB key type, raw errors; public write probe",
+          "recommendation": "Fixed: read-only ping + {ok} without secret"
+        },
+        {
+          "title": "Templated sitemap lastmod",
+          "severity": "Medium",
+          "description": "106 URLs shared one hardcoded date",
+          "recommendation": "Fixed: lastmod only where real"
+        },
+        {
+          "title": "Locale <html lang>",
+          "severity": "Low",
+          "description": "/es /fr /de /ar render lang=en",
+          "recommendation": "Deliberately not changed: Google ignores lang; inner wrapper is correct"
+        }
+      ]
+    },
+    {
+      "name": "Content Quality",
+      "score": 64,
+      "score_after": 68,
+      "what_works": [
+        "0 filler/AI-pattern hits",
+        "Grade 8–9 readability",
+        "Long posts 83% unique",
+        "Strong editorial policy"
+      ],
+      "findings": [
+        {
+          "title": "Templated location pages",
+          "severity": "High",
+          "description": "39 pages, ~40% shared text, NY 29% unique",
+          "recommendation": "Keep ~24–26 cities with unique proof; noindex/merge the rest (owner decision)"
+        },
+        {
+          "title": "Unsupported claims",
+          "severity": "High",
+          "description": "Invented figures, measured-result claims, 'certified', 'award-quality'",
+          "recommendation": "Fixed"
+        },
+        {
+          "title": "Industry template claim + typos",
+          "severity": "High",
+          "description": "'issues we find on almost every … website we audit'; 'fitnes', 'busines'",
+          "recommendation": "Fixed"
+        },
+        {
+          "title": "Cannibalisation",
+          "severity": "Medium",
+          "description": "GHL-for-care post vs service page; GBP vs local SEO checklist",
+          "recommendation": "Assign one owner page per query"
+        },
+        {
+          "title": "Scaled short posts",
+          "severity": "Medium",
+          "description": "28 × ~330 words in 16 days",
+          "recommendation": "Pause, merge, expand winners"
+        }
+      ]
+    },
+    {
+      "name": "On-Page SEO",
+      "score": 74,
+      "score_after": 92,
+      "what_works": [
+        "1 h1 everywhere",
+        "Unique titles/descriptions",
+        "No heading skips"
+      ],
+      "findings": [
+        {
+          "title": "Over-length titles/descriptions",
+          "severity": "Medium",
+          "description": "49 titles >60, 46 descriptions >160",
+          "recommendation": "Fixed: 0 remain"
+        }
+      ]
+    },
+    {
+      "name": "Schema / Structured Data",
+      "score": 84,
+      "score_after": 87,
+      "what_works": [
+        "All JSON-LD valid",
+        "FAQ answers visible",
+        "No fake ratings",
+        "LocalBusiness correctly withheld"
+      ],
+      "findings": [
+        {
+          "title": "Conflicting author node",
+          "severity": "Medium",
+          "description": "Blog author had a different url on the Organization @id",
+          "recommendation": "Fixed"
+        },
+        {
+          "title": "Unlinked page entities",
+          "severity": "Medium",
+          "description": "No @id on Service/Breadcrumb/BlogPosting",
+          "recommendation": "Adopt the @id convention in findings/schema.md"
+        }
+      ]
+    },
+    {
+      "name": "Performance (CWV)",
+      "score": 85,
+      "score_after": 95,
+      "what_works": [
+        "Mobile LCP 0.34–1.57s, desktop ≤0.44s (lab)",
+        "20–33KB compressed pages"
+      ],
+      "findings": [
+        {
+          "title": "Mobile CLS over 0.1",
+          "severity": "High",
+          "description": "0.115 on /, up to 0.146 on /portfolio — consent banner grew after load",
+          "recommendation": "Fixed: 0.000 on 10/10 runs"
+        }
+      ]
+    },
+    {
+      "name": "AI Search Readiness",
+      "score": 66,
+      "score_after": 70,
+      "what_works": [
+        "All AI crawlers allowed",
+        "Honest llms.txt",
+        "Server-rendered content"
+      ],
+      "findings": [
+        {
+          "title": "No entity definition",
+          "severity": "High",
+          "description": "Flowzync never defined in one sentence",
+          "recommendation": "Fixed in schema, llms.txt, homepage FAQ"
+        },
+        {
+          "title": "Contradictions an assistant would quote",
+          "severity": "High",
+          "description": "'No page builders' vs Elementor; 'first-page results'",
+          "recommendation": "Fixed"
+        },
+        {
+          "title": "Weak off-site entity signals",
+          "severity": "Medium",
+          "description": "One sameAs URL, no directory profiles, no video",
+          "recommendation": "Clutch/GoodFirms/etc. + YouTube walkthroughs"
+        }
+      ]
+    },
+    {
+      "name": "Images",
+      "score": 85,
+      "score_after": 90,
+      "what_works": [
+        "All alt text and dimensions"
+      ],
+      "findings": [
+        {
+          "title": "Visible first images lazy-loaded",
+          "severity": "Medium",
+          "description": "/about, /blog, /industries, /portfolio",
+          "recommendation": "Fixed"
+        }
+      ]
+    }
+  ],
+  "action_plan": {
+    "phases": [
+      {
+        "name": "Phase 1: Critical Fixes",
+        "timeframe": "Week 1",
+        "items": [
+          "Fix www certificate in Vercel",
+          "Set CRON_SECRET",
+          "(done) close open endpoints",
+          "(done) remove unsupported claims"
+        ]
+      },
+      {
+        "name": "Phase 2: High-Impact Improvements",
+        "timeframe": "Weeks 2-3",
+        "items": [
+          "Publish price ranges",
+          "State business location",
+          "Confirm DAS Care work",
+          "One owner page for GHL-for-care"
+        ]
+      },
+      {
+        "name": "Phase 3: Content & Authority",
+        "timeframe": "Month 2",
+        "items": [
+          "Consolidate location pages",
+          "Pause micro-posts",
+          "Verifiable portfolio",
+          "Directory profiles, client credit links, video"
+        ]
+      },
+      {
+        "name": "Phase 4: Monitoring & Iteration",
+        "timeframe": "Ongoing",
+        "items": [
+          "Watch GSC canonical errors fall",
+          "Re-audit with Google API access"
+        ]
+      }
+    ]
+  },
+  "artifacts": {
+    "findings_dir": "findings/",
+    "screenshots_dir": "screenshots/",
+    "raw": "raw/"
+  }
+}

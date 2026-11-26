@@ -36,6 +36,12 @@ export default function ServicePage({ params }) {
   const s = getService(params.slug);
   if (!s) notFound();
   const d = getServiceDetails(params.slug) || {};
+  // Every service page answers the cost question. Added here rather than to
+  // each service's own FAQ list so the figure stays in one place (lib/site.js).
+  const faqs = [
+    ...s.faqs,
+    [`How much does ${s.title} cost?`, `${site.pricing.label}. ${site.pricing.note} There is no hourly billing, and the price only changes if you ask for something outside the agreed scope, which we quote separately before doing it.`],
+  ];
 
   // Projects and articles that genuinely belong to this service.
   // Service pages hold most of this site's internal authority and
@@ -65,6 +71,11 @@ export default function ServicePage({ params }) {
       provider: { '@type': 'Organization', '@id': `${site.url}/#organization`, name: site.name, url: site.url },
       areaServed: 'Worldwide',
       url: `${site.url}/services/${s.slug}`,
+      // Matches the visible "Projects start from" line under the headline.
+      offers: {
+        '@type': 'Offer',
+        priceSpecification: { '@type': 'PriceSpecification', minPrice: site.pricing.from, priceCurrency: site.pricing.currency },
+      },
       hasOfferCatalog: {
         '@type': 'OfferCatalog',
         name: `${s.title} — what's included`,
@@ -77,7 +88,7 @@ export default function ServicePage({ params }) {
     {
       '@context': 'https://schema.org',
       '@type': 'FAQPage',
-      mainEntity: s.faqs.map(([q, a]) => ({
+      mainEntity: faqs.map(([q, a]) => ({
         '@type': 'Question',
         name: q,
         acceptedAnswer: { '@type': 'Answer', text: a },
@@ -100,7 +111,8 @@ export default function ServicePage({ params }) {
             <div className="rv rv-l in">
               <div className="eyebrow"><span className="pulse" />{s.title}</div>
               <h1>{s.title.split(' ').slice(0, -1).join(' ')} <span className="grad-txt">{s.title.split(' ').slice(-1)}</span></h1>
-              <p className="lede" style={{ marginBottom: 32 }}>{s.hero}</p>
+              <p className="lede" style={{ marginBottom: 22 }}>{s.hero}</p>
+              <p className="sd-price"><strong>{site.pricing.label}</strong><span>Quoted against an agreed scope · no hourly billing</span></p>
               <div style={{ display: 'flex', gap: 14, flexWrap: 'wrap' }}>
                 <Link href="/contact" className="btn btn-p">
                   <span>Get a free quote</span>
@@ -148,7 +160,7 @@ export default function ServicePage({ params }) {
         <div className="wrap">
           <div className="sec-head rv">
             <div className="eyebrow"><span className="pulse" />What's included</div>
-            <h2>Everything inside <span className="grad-txt">{s.title.toLowerCase()}</span></h2>
+            <h2>Everything inside <span className="grad-txt">{s.title}</span></h2>
           </div>
           <div className="feat-grid">
             {s.features.map(([t, x], i) => (
@@ -168,7 +180,7 @@ export default function ServicePage({ params }) {
           <div className="wrap">
             <div className="sec-head rv">
               <div className="eyebrow"><span className="pulse" />Our approach</div>
-              <h2>How we deliver <span className="grad-txt">{s.title.toLowerCase()}</span></h2>
+              <h2>How we deliver <span className="grad-txt">{s.title}</span></h2>
             </div>
             <div className="apr-grid">
               {d.approach.map(([t, x], i) => (
@@ -250,7 +262,7 @@ export default function ServicePage({ params }) {
             <div className="eyebrow"><span className="pulse" />FAQ</div>
             <h2>{s.title} — <span className="grad-txt">common questions</span></h2>
           </div>
-          <FAQ items={s.faqs} />
+          <FAQ items={faqs} />
         </div>
       </section>
 
@@ -258,7 +270,7 @@ export default function ServicePage({ params }) {
       <section style={{ paddingTop: 0 }}>
         <div className="wrap">
           <CTABand
-            title={`Ready to start your ${s.title.toLowerCase()} project?`}
+            title={`Ready to start your ${s.title} project?`}
             text="Request a free quote — we'll scope your project in writing and come back with a clear, itemised proposal against it."
           />
         </div>
@@ -267,7 +279,7 @@ export default function ServicePage({ params }) {
       {work.length > 0 && (
         <section style={{ paddingTop: 0 }}>
           <div className="wrap">
-            <div className="sec-head rv"><h2 style={{ fontSize: 26 }}>Recent {s.title.toLowerCase()} work</h2></div>
+            <div className="sec-head rv"><h2 style={{ fontSize: 26 }}>Recent {s.title} work</h2></div>
             <div className="proj-related">
               {work.map((x) => (
                 <Link href={`/portfolio/${x.slug}`} className="loc-card" key={x.slug}>

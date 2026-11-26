@@ -7,9 +7,9 @@ import { clampTitle, clampDescription, openGraph, twitterCard } from '@/lib/meta
 import Photo from '@/components/Photo';
 
 export const metadata = {
-  title: { absolute: clampTitle('Industry Website Design | Websites Built Per Trade — Flowzync') },
+  title: { absolute: clampTitle('Website Design by Industry | Flowzync') },
   description: clampDescription(
-    'Website design built around one industry at a time — plumbers, dental clinics, leak detection specialists and local businesses. Each site built for how that trade actually gets found.'
+    'Website design for 19 sectors, from trades and clinics to care providers, law firms and online stores. Each page covers what that kind of business needs.'
     ),
   openGraph: openGraph({"title": "Industry Website Design | Flowzync", "description": "Explore website design for care, healthcare, trades, retail and professional services, with page structures built around each customer journey.", "url": "/industries"}),
   twitter: twitterCard({"title": "Industry Website Design | Flowzync", "description": "Explore website design for care, healthcare, trades, retail and professional services, with page structures built around each customer journey.", "url": "/industries"}),
@@ -71,7 +71,7 @@ export default function IndustriesPage() {
             {industries.map((i, n) => (
               <Link href={`/industries/${i.slug}`} key={i.slug} className={`ind-card rv ${n % 2 ? 'rv-d1' : ''}`} data-tilt>
                 <div className="ind-thumb">
-                  <Photo photo={i.photo} fallback={i.img} alt={i.title} width={1200} height={800} sizes="(max-width:900px) 100vw, 380px" />
+                  <Photo photo={i.photo} fallback={i.img} alt={i.title} width={1200} height={800} sizes="(max-width:900px) 100vw, 380px" priority={n < 3} />
                 </div>
                 <div className="ind-body">
                   <span className="ind-tag">{i.trade}</span>

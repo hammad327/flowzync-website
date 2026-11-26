@@ -1,0 +1,97 @@
+{
+  "url": "https://flowzync.com/blog/gohighlevel-duplicate-contacts-form-routing",
+  "source": "file",
+  "status_code": null,
+  "headers_available": true,
+  "facts": {
+    "title": "Stop Duplicate GoHighLevel Contacts From Web Forms",
+    "title_length": 50,
+    "title_count": 1,
+    "meta_description": "Trace duplicate GoHighLevel contacts to the form, integration, or matching rule and protect existing conversations before merging records.",
+    "meta_description_length": 138,
+    "h1": [
+      "Stop Duplicate GoHighLevel Contacts From Web Forms"
+    ],
+    "h1_count": 1,
+    "heading_level_skips": 0,
+    "template_heading_level_skips": 0,
+    "canonical": "https://flowzync.com/blog/gohighlevel-duplicate-contacts-form-routing",
+    "canonical_status": "self",
+    "canonical_note": null,
+    "meta_robots": "robots: index, follow; googlebot: index, follow, max-video-preview:-1, max-image-preview:large, max-snippet:-1",
+    "x_robots_tag": null,
+    "x_robots_other_agents": [],
+    "hreflang_count": 0,
+    "lang": "en",
+    "has_doctype": true,
+    "meta_charset": "utf-8",
+    "header_charset": "utf-8",
+    "has_viewport": true,
+    "images": {
+      "total": 4,
+      "missing_alt": 0,
+      "empty_alt": 0,
+      "missing_dimensions": 0,
+      "first_image_lazy": false
+    },
+    "links": {
+      "total": 59,
+      "without_text": 0,
+      "generic_anchor": 0,
+      "http_on_https": 0
+    },
+    "mixed_content": 0,
+    "url": {
+      "length": 69,
+      "query_params": []
+    },
+    "html_bytes": 64358,
+    "dom": {
+      "nodes": 384,
+      "max_depth": 13,
+      "max_children": 52,
+      "widest_element": "head"
+    },
+    "open_graph": {
+      "og:title": "Stop Duplicate GoHighLevel Contacts From Web Forms",
+      "og:description": "Trace duplicate GoHighLevel contacts to the form, integration, or matching rule and protect existing conversations before merging records.",
+      "og:url": "https://flowzync.com/blog/gohighlevel-duplicate-contacts-form-routing",
+      "og:site_name": "Flowzync",
+      "og:locale": "en_US",
+      "og:image": "https://flowzync.com/images/blog/gohighlevel-duplicate-contacts-form-routing.jpg",
+      "og:image:alt": "Stop Duplicate GoHighLevel Contacts From Web Forms",
+      "og:type": "article"
+    },
+    "jsonld_blocks": 2,
+    "jsonld_invalid": 0,
+    "word_count": 444,
+    "words_measured": true,
+    "title_relevance": 1.0,
+    "description_relevance": 0.69
+  },
+  "findings": [],
+  "not_checked": [],
+  "thresholds": {
+    "title_min_chars": 30,
+    "title_max_chars": 60,
+    "meta_description_min_chars": 120,
+    "meta_description_max_chars": 160,
+    "url_max_chars": 100,
+    "html_max_bytes": 2000000,
+    "thin_content_min_words": 200,
+    "dom_max_depth": 32,
+    "dom_max_children": 60,
+    "title_relevance_min": 0.3,
+    "description_relevance_min": 0.2,
+    "relevance_min_words": 50,
+    "evidence_max_chars": 200
+  },
+  "summary": {
+    "Critical": 0,
+    "High": 0,
+    "Medium": 0,
+    "Low": 0,
+    "total": 0,
+    "checks_run": 47
+  }
+}

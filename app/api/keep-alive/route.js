@@ -49,18 +49,27 @@ const headers = () => ({
   'Content-Type': 'application/json',
 });
 
+// Access levels. This route used to return the lead-notification email
+// address, the database key type and raw Supabase errors to anyone who
+// added ?check=1, and let any visitor trigger the write-and-delete probe.
+//   · Authorised (Bearer CRON_SECRET): the full diagnostic below.
+//   · No CRON_SECRET configured: a read-only ping, so Vercel's cron still
+//     keeps the Supabase project awake; the response says only ok or not.
+//   · CRON_SECRET configured, wrong or missing header: 401.
+// Manual check: curl -H "Authorization: Bearer <CRON_SECRET>" https://flowzync.com/api/keep-alive
 export async function GET(req) {
-  // Vercel signs its cron requests. If CRON_SECRET is set, require it.
   const secret = process.env.CRON_SECRET;
-  if (secret) {
-    const auth = req.headers.get('authorization') || '';
-    const isCron = auth === `Bearer ${secret}`;
-    // Still allow a manual browser check — it exposes no data.
-    if (!isCron && new URL(req.url).searchParams.get('check') !== '1') {
-      return Response.json(
-        { ok: false, reason: 'Add ?check=1 to run this manually.' },
-        { status: 401 }
-      );
+  const authorised = Boolean(secret) && (req.headers.get('authorization') || '') === `Bearer ${secret}`;
+  if (secret && !authorised) {
+    return Response.json({ ok: false }, { status: 401 });
+  }
+  if (!authorised) {
+    if (!usingDatabase) return Response.json({ ok: false }, { status: 500 });
+    try {
+      const ping = await fetch(`${URL_}/rest/v1/leads?select=id&limit=1`, { cache: 'no-store', headers: headers() });
+      return Response.json({ ok: ping.ok }, { status: ping.ok ? 200 : 500 });
+    } catch {
+      return Response.json({ ok: false }, { status: 500 });
     }
   }
 

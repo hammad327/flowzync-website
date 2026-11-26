@@ -17,7 +17,7 @@ faqs:
 
 **Google describes local ranking through relevance, distance and prominence.** Accurate categories, complete information and genuine reviews are useful parts of that picture, but review count alone does not determine the result.
 
-Completing this profile properly is free, takes about an hour, and for a local business it reliably outperforms the first several months of a paid SEO retainer. Here is everything, in order of what it is actually worth.
+Completing this profile properly is free, takes about an hour, and for a local business it is the foundation any paid SEO retainer would start from anyway. Here is everything, in order of what it is actually worth.
 
 ## The two that matter most
 

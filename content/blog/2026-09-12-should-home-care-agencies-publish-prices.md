@@ -1,6 +1,6 @@
 ---
 title: "Should a Home Care Agency Publish Its Prices?"
-description: "The case for and against putting care rates on your website, what competitors actually learn from it, and a middle option that answers the question without fixing a number."
+description: "The case for and against putting care rates on your website, what competitors really learn from it, and a middle option that answers without fixing a number."
 updated: "2026-10-27"
 date: "2026-09-12"
 category: "Care"

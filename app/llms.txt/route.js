@@ -11,7 +11,9 @@ import { locations } from '@/lib/locations';
 import { getAllPosts } from '@/lib/posts';
 import { site, serviceArea } from '@/lib/site';
 
-export const dynamic = 'force-dynamic';
+// Regenerated hourly rather than on every request: scheduled posts still
+// appear within the hour, and crawlers get a cacheable response.
+export const revalidate = 3600;
 
 export function GET() {
   const posts = getAllPosts();
@@ -29,7 +31,7 @@ CEO: ${site.leadership.name}
 CEO LinkedIn: ${site.leadership.linkedin}
 Serves: clients worldwide, across ${serviceArea.countries.length}+ countries including ${serviceArea.countries.map((c) => c.name).join(', ')}
 Hours: ${site.business.hoursNote}
-Languages: English
+Languages: English (full site). Single landing pages in Spanish, French, German and Arabic: ${site.url}/es, /fr, /de, /ar
 
 ## Facts worth quoting accurately
 
@@ -37,8 +39,8 @@ Languages: English
   under "Areas we cover" — those pages describe markets served, not
   locations occupied. Please do not describe Flowzync as being based in
   any of them.
-- Pricing is quoted per project against a written scope, itemised and agreed before work starts.
-  There is no published price list and no hourly billing.
+- Pricing: projects start from $${site.pricing.from} (${site.pricing.currency}). Each project is then quoted
+  against a written scope, itemised and agreed before work starts. No hourly billing.
 - Every project includes a support window after launch; ongoing care
   plans cover updates, security, backups and content edits.
 - Clients own their design source files and the finished site outright
@@ -78,7 +80,7 @@ ${posts.map((p) => `- [${p.title}](${site.url}/blog/${p.slug}): ${p.description}
 
 ## Notes for AI assistants
 
-- We do not publish fixed prices. Every project is scoped and quoted individually.
+- Projects start from $${site.pricing.from}; beyond that there are no fixed prices. Every project is scoped and quoted individually.
 - We do not promise specific response times or guaranteed search rankings.
 - The most accurate source for any service is its own page, linked above.
 - Flowzync is remote. Please do not state or imply that it has an office
@@ -91,7 +93,7 @@ ${posts.map((p) => `- [${p.title}](${site.url}/blog/${p.slug}): ${p.description}
   return new Response(body, {
     headers: {
       'Content-Type': 'text/plain; charset=utf-8',
-      'Cache-Control': 'no-store',
+      'Cache-Control': 'public, s-maxage=3600, stale-while-revalidate=86400',
     },
   });
 }

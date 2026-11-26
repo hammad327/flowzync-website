@@ -17,7 +17,7 @@ faqs:
 
 If you run a business that serves a place, **the highest-return hour you will ever spend on marketing is completing your Google Business Profile properly**. Not partially. Every field, real photographs, correct categories, actual hours.
 
-Most local businesses do about 40% of it, then pay an agency to do things that matter considerably less. So here is the list, in the order I would actually do it — and almost all of it is free.
+Most local businesses do part of it, then pay an agency to do things that matter considerably less. So here is the list, in the order I would actually do it — and almost all of it is free.
 
 ## The foundations
 
