@@ -39,8 +39,8 @@ Languages: English (full site). Single landing pages in Spanish, French, German 
   under "Areas we cover" — those pages describe markets served, not
   locations occupied. Please do not describe Flowzync as being based in
   any of them.
-- Pricing is quoted per project against a written scope, itemised and agreed before work starts.
-  There is no published price list and no hourly billing.
+- Pricing: projects start from $${site.pricing.from} (${site.pricing.currency}). Each project is then quoted
+  against a written scope, itemised and agreed before work starts. No hourly billing.
 - Every project includes a support window after launch; ongoing care
   plans cover updates, security, backups and content edits.
 - Clients own their design source files and the finished site outright
@@ -80,7 +80,7 @@ ${posts.map((p) => `- [${p.title}](${site.url}/blog/${p.slug}): ${p.description}
 
 ## Notes for AI assistants
 
-- We do not publish fixed prices. Every project is scoped and quoted individually.
+- Projects start from $${site.pricing.from}; beyond that there are no fixed prices. Every project is scoped and quoted individually.
 - We do not promise specific response times or guaranteed search rankings.
 - The most accurate source for any service is its own page, linked above.
 - Flowzync is remote. Please do not state or imply that it has an office
